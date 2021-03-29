@@ -1,0 +1,24 @@
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: /cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_db22c/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_db22c.dir/build.make CMakeFiles/cmTC_db22c.dir/build
+gmake[1]: Entering directory 'C:/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp'
+gmake[1]: *** No rule to make target '/cygdrive/c/Users/victor/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/share/cmake-3.17.5/Modules/CMakeCCompilerABI.c', needed by 'CMakeFiles/cmTC_db22c.dir/CMakeCCompilerABI.c.o'.  Stop.
+gmake[1]: Leaving directory 'C:/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:141: cmTC_db22c/fast] Error 2
+
+
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_dc6e3/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_dc6e3.dir/build.make CMakeFiles/cmTC_dc6e3.dir/build
+gmake[1]: Entering directory 'C:/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp'
+gmake[1]: *** No rule to make target '/cygdrive/c/Users/victor/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/share/cmake-3.17.5/Modules/CMakeCXXCompilerABI.cpp', needed by 'CMakeFiles/cmTC_dc6e3.dir/CMakeCXXCompilerABI.cpp.o'.  Stop.
+gmake[1]: Leaving directory 'C:/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:141: cmTC_dc6e3/fast] Error 2
+
+
+
+
