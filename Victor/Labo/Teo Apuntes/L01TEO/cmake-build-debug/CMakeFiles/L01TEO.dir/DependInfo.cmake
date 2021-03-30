@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/main.cpp" "/cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/L01TEO.dir/main.cpp.o"
+  "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/main.cpp" "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug/CMakeFiles/L01TEO.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

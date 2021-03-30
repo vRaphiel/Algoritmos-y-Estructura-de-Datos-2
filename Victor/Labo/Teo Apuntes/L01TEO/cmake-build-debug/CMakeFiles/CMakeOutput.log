@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
 
-The C compiler identification is GNU, found in "/cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/3.17.5/CompilerIdC/a.exe"
+The C compiler identification is GNU, found in "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug/CMakeFiles/3.17.5/CompilerIdC/a.exe"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++.exe 
@@ -23,33 +23,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
 
-The CXX compiler identification is GNU, found in "/cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/3.17.5/CompilerIdCXX/a.exe"
+The CXX compiler identification is GNU, found in "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug/CMakeFiles/3.17.5/CompilerIdCXX/a.exe"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_f535f/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_f535f.dir/build.make CMakeFiles/cmTC_f535f.dir/build
-gmake[1]: Entering directory 'C:/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_f535f.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_f535f.dir/testCCompiler.c.o   -c /cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_f535f.exe
-/cygdrive/c/Users/victor/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_f535f.dir/link.txt --verbose=1
-/usr/bin/cc    -Wl,--enable-auto-import  CMakeFiles/cmTC_f535f.dir/testCCompiler.c.o  -o cmTC_f535f.exe -Wl,--out-implib,libcmTC_f535f.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
-gmake[1]: Leaving directory 'C:/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_24cba/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_24cba.dir/build.make CMakeFiles/cmTC_24cba.dir/build
+gmake[1]: Entering directory 'D:/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_24cba.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_24cba.dir/testCCompiler.c.o   -c "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c"
+Linking C executable cmTC_24cba.exe
+/cygdrive/c/Users/victor/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_24cba.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,--enable-auto-import  CMakeFiles/cmTC_24cba.dir/testCCompiler.c.o  -o cmTC_24cba.exe -Wl,--out-implib,libcmTC_24cba.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+gmake[1]: Leaving directory 'D:/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_99875/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_99875.dir/build.make CMakeFiles/cmTC_99875.dir/build
-gmake[1]: Entering directory 'C:/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_99875.dir/testCXXCompiler.cxx.o
-/usr/bin/c++.exe     -o CMakeFiles/cmTC_99875.dir/testCXXCompiler.cxx.o -c /cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_99875.exe
-/cygdrive/c/Users/victor/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_99875.dir/link.txt --verbose=1
-/usr/bin/c++.exe    -Wl,--enable-auto-import  CMakeFiles/cmTC_99875.dir/testCXXCompiler.cxx.o  -o cmTC_99875.exe -Wl,--out-implib,libcmTC_99875.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
-gmake[1]: Leaving directory 'C:/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_013da/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_013da.dir/build.make CMakeFiles/cmTC_013da.dir/build
+gmake[1]: Entering directory 'D:/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_013da.dir/testCXXCompiler.cxx.o
+/usr/bin/c++.exe     -o CMakeFiles/cmTC_013da.dir/testCXXCompiler.cxx.o -c "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx"
+Linking CXX executable cmTC_013da.exe
+/cygdrive/c/Users/victor/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_013da.dir/link.txt --verbose=1
+/usr/bin/c++.exe    -Wl,--enable-auto-import  CMakeFiles/cmTC_013da.dir/testCXXCompiler.cxx.o  -o cmTC_013da.exe -Wl,--out-implib,libcmTC_013da.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+gmake[1]: Leaving directory 'D:/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 

@@ -1,4 +1,4 @@
-C:\Users\victor\AppData\Local\JetBrains\CLion2020.3\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO
+C:\Users\victor\AppData\Local\JetBrains\CLion2020.3\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO"
 -- The C compiler identification is GNU 10.2.0
 -- The CXX compiler identification is GNU 10.2.0
 -- Check for working C compiler: /usr/bin/cc
@@ -15,4 +15,4 @@ C:\Users\victor\AppData\Local\JetBrains\CLion2020.3\cygwin_cmake\bin\cmake.exe -
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug
+-- Build files have been written to: /cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug

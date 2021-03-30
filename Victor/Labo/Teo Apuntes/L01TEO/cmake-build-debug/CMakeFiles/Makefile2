@@ -64,10 +64,10 @@ RM = /cygdrive/c/Users/victor/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/b
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO
+CMAKE_SOURCE_DIR = "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug
+CMAKE_BINARY_DIR = "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug"
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -94,14 +94,14 @@ clean: CMakeFiles/L01TEO.dir/clean
 CMakeFiles/L01TEO.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/L01TEO.dir/build.make CMakeFiles/L01TEO.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/L01TEO.dir/build.make CMakeFiles/L01TEO.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target L01TEO"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug/CMakeFiles" --progress-num=1,2 "Built target L01TEO"
 .PHONY : CMakeFiles/L01TEO.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/L01TEO.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug/CMakeFiles" 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/L01TEO.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/victor/CLionProjects/Algoritmos-y-Estructura-de-Datos-2/L01TEO/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L01TEO/cmake-build-debug/CMakeFiles" 0
 .PHONY : CMakeFiles/L01TEO.dir/rule
 
 # Convenience name for target.
