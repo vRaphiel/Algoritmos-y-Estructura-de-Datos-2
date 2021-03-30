@@ -1,0 +1,117 @@
+// Ejercicio 2
+// a)
+#Hojas: ab(α) -> nat
+#Hojas(nil) ≡ 0
+#Hojas(bin(r,i,d)) ≡ if nil?(i) ∧ nil?(d)
+												then 1
+												else #Hojas(i) + #Hojas(d)
+										 fi
+										 
+// b)
+DegeneradoAIzquierda: ab(α) -> Bool
+DegeneradoAIzquierda(a) ≡ nil?(a) ∨L if esHoja?(a) 
+																			then true 
+																			else nil?(der(a)) ∧ DegeneradoAIzquierda(izq(a))
+																		 fi
+																		 
+// c)
+ZigZag: ab(α) -> Bool
+ZigZag(a) ≡ nil?(a) ∨L esHoja?(a) ∨L 
+						if nil?(izq(a))
+							then nil?(der(der(a))) ∧ ZigZag(der(a))
+							else 
+								if nil?(izq(a))
+									then ZigZag(der(a))
+									else false
+							 	fi
+						fi
+						
+// d)
+UltimoNivelCompleto: ab(α) -> nat
+UltimoNivelCompleto(a) ≡ if nil?(a)
+													then 0
+													else 1 + min(UltimoNivelCompleto ( izq(a) ), UltimoNivelCompleto (der(a) ))
+													
+// e)
+Espejo: ab(α) -> ab(α)
+Espejo(a) ≡ if nil?(a)
+							then a
+							else bin( Espejo (der(a), raiz(a), Espejo (izq(a))))
+						fi
+						
+// f)
+EsSimetrico?: ab(α) -> Bool
+EsSimetrico?(a) ≡ a = Espejo(a)
+
+// Ejercicio 3
+// a)
+agregarTodos: α x conj(conj(α)) -> conj(α)
+agregarTodos(n, c) ≡ if Ø?(c)
+											then Ag(Ag(n, Ø), Ø)
+											else Ag(Ag(n, dameUno(c)), agregarTodos(n, sinUno(c)))
+										 fi
+
+PartesDe: conj(α) -> conj(conj(α))
+PartesDe(c) ≡ if Ø?(c)
+								then c
+								else agregarTodos(dameUno(c), PartesDe(sinUno(c))) ∪ PartesDe(sinUno(c))
+							fi
+// b)
+agregarElegido: nat x conj(nat) x conj(conj(nat)) -> conj(nat)
+agregarElegido(k, n, c) ≡ if Ø?(c)
+														then Ag(Ag(k, Ø), Ø)
+														else if k ∈ n
+															then Ag(Ag(n, dameUno(c)), agregarElegido(k, n, sinUno(c)))
+															else agregarElegido(k, n, sinUno(c))
+
+// Mi idea
+agregarElegido: nat x conj(nat) x conj(conj(nat)) -> conj(nat)
+agregarElegido(k, n, c) ≡ if Ø?(c)
+														then Ag(Ag(k, Ø), Ø)
+														else if k ∈ n
+															then Ag(Ag(n, dameUno(c)), agregarElegido(k, n, sinUno(c)))
+															else agregarElegido(k, n, sinUno(c))
+
+// De la resolucion
+															
+combinacionesDeK: nat x conj(nat) -> conj(conj(nat))
+combinacionesDeK(k, Ø) ≡ Ø
+combinacionesDeK(Ag(e,c), k) ≡ if (k = 0 ∨ #(Ag(e,c)) < k)
+																then ∅ 
+																else agregarTodos(e,combinacionesDeK(c,k-1)) ∪ combinacionesDeK(c,k) 
+															fi 
+
+// Ejercicio 4
+esSubSecuencia : secu(α) x secu(α) -> Bool
+	esSubSecuencia(e•s1, s2) ≡ if vacia?(s1)
+														then true
+														else esta?(e, s2) ∧ esSubSecuencia(s1, s2)
+														
+NTN: conj(secu(α)) x secu(α) -> conj(secu(α))
+NTN(Ag(e,c), s) ≡ if Ø?(c)
+										then c
+										else 
+										
+// Ejercicio 5
+// a)
+nivelNormal?: at(α) x nat -> Bool
+nivelNormal?(a, k): nil?(a) ∨L if k=1	
+																then ¬(nil?(izq(a)) ∨ nil?(med(a)) ∨ nil?(der(a)))
+																else nivelNormal?(izq(a), k-1) ∧ nivelNormal?(med(a), k-1) ∧ nivelNormal?(der(a), k-1)
+
+
+																#Hojas: ab(α) -> nat
+																#Hojas(nil) ≡ 0
+																#Hojas(bin(r,i,d)) ≡ if nil?(i) ∧ nil?(d)
+																												then 1
+																												else #Hojas(i) + #Hojas(d)
+																										 fi
+// b)
+conteo: at(α) -> nat
+conteo(nil) ≡ 0
+conteo(ten(i, m, d, r)) ≡ if nil?(i) ∧ nil?(d) ∧L nil?(m)
+														then 1
+														else conteo(i) + conteo(m) + conteo(d)
+
+// Ejercicio 6
+// a)

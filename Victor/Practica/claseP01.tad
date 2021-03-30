@@ -1,0 +1,112 @@
+// Hasta el EJ 11 Podemos resolver, con los proximos videos ya podemos terminar la practica
+// Ejercicio 1k
+// Extender el tipo secuencia(α) -> combinar
+combinar: secu(α) x secu(α) -> secu(α)
+combinar(s, t) ≡ if vacia?(s)
+									then t
+									else  if vacia?(α)
+												then s
+												else  if (prim(s) ≥ prim(t))
+															then prim(s)•combinar(fin(s), fin(t))
+															else prim(t)•combinar(s, fin(t))
+
+// PartesDe
+// Por probabilidad de romper congruencia, es mejor no usarlo en este caso
+partesDe(Ø) ≡
+partesDe(Ag(e, c)) ≡
+
+// Esta bueno armar funciones auxiliares para desarrollar los problemas
+partesDe(c) : conj(α) -> conj(conj(α))
+partesDe(c) ≡ if vacio?(c)
+								then Ø
+								else partesDe(sinUno(c)) ∪ agregarATodos(partesDe(sinUno(c)), dameUno(c))
+								
+agregarATodos: conj(conj(α)) x α -> conj(conj(α))
+agregarATodos(cs, e) ≡ if  Ag(e, dameUno(cs)) ∪ agregarATodos(sinUno(cs), e)
+								
+// Este rompe congruencia -> Si se rompe congruencia se puede desaprobar el parcial
+pasarASecu(Ø) ≡ <>
+pasarASecu(Ag(e, c)) ≡ e • pasarASecu(c)
+
+// Parcial 2c2020 Ejericico 1.1
+// Extender el TAD Diccionario con la operacion diccToMulticonj tal que reciba uun 
+// dicc(α, nat) y devuelva un multiconjunto(α) que contenga para cada clave del diccionario
+// tantos elementos como indique suu significado
+
+diccToMulticonj: dicc(α, nat) -> multiconjunto(α)
+diccToMulticonj(d) ≡ if diccVacio?(d)
+											then Ø
+											else diccToMulticonj(borrar(dameUno(claves(d)), d)) ∪ unirKveces(obtener(dameUno(claves(d))), dameUno(claves(d)))
+											
+unirKveces: nat x α -> multiconj(α)
+unirKveces(k, e) ≡ if k = 0 
+										then Ø
+										else Ag(e, unirKveces(k-1, e))
+
+diccVacio? : dicc(α, s) -> Bool
+diccVacio?(d) ≡ vacio?(claves(d))
+											
+// BORRADOR
+dameUno(claves(d)) -> una clave de d
+obtener(dameUno(claves(d))) -> significado de esa clave
+unirKveces(obtener(dameUno(claves(d))), dameUno(claves(d))) -> multiconj que repite la clave varias veces
+
+borrar(dameUno(claves(d)), d) -> diccionario sin la calve
+diccToMulticonj(borrar(dameUno(claves(d)), d)) -> llamado recursivo
+// BORRADOR
+
+Ideas:
+	- Caso base: diccionario vacio -> ¿Que multiconj? -> vacio
+	- Si no es vacio, queremos ir recorriendo las claves del Diccionario -> ¿Como?
+		Para cada clave:
+			-	Obtener el significado de esa clave
+			- Hacer un llamado recursivo sobre el diccionario que nos queda al borrar esa clave -> multiconjunto
+			-	 unir estos resultados
+			
+		unirKveces: pasamos un nat k y un elemento α y queremos que nos devuelva un multiconj(α) -> tiene k veces este elemento
+
+
+// Similar a ejercicio 11 de la practica 1
+Especificar un TDA StockSimple que permita las siguientes funcionalidades:
+	- Iniciar el sistema con un conjunto de produc tos a comprar/vender, todos ellos con 0 elementos
+	- Comprar un producto, indicando la cantidad de elementos comprados
+	- Vender un producto, indicando la cantidad de elementos vendidos. No se pueden vender mas elementos que los que se entienden
+	- Devolver la secuencia de acciones de compra/venta realizadas (como un par (producto, cantidad), siendo la cantidad positiva si fue una compra y negativa si fue una venta)
+	
+Iniciar (4 operaciones):
+
+
+
+TAD Operacion es Tupla(producto, int)
+	
+TAD Producto es String
+
+TAD StockSimple
+	Igualdad Observacional: 
+		(∀ s1, s2:stock)(s1 =obs s2 <-> (productosDelStock(s1) =obs productosDelStock(s2) ∧ historial(s1) = obs historial(s2)))
+	
+	Generos: stock
+	Exporta: ...
+	Usa: Producto, Nat
+	
+	Observadores Basicos:
+		productosDelStock : stock -> conj(producto)
+		historial: stock -> secu(operacion)
+	Generadores:
+		iniciarSistema: conj(producto) -> stock
+		comprar: producto x nat x stock -> stock {p in productosDelStock(s) ∧L 0<n}
+		vender: producto x nat x stock -> stock	 {p ∈ productosDelStock(s) ∧L n ≤ cantidad(p, s)}
+											 
+	Otras Operaciones:
+		cantidad: producto p x stock s -> nat {p ∈ productosDelStock(s)}
+	Axiomas:
+		productosDelStock(iniciarSistema(cp))) ≡ cp
+		productosDelStock(comprar(p,n,s)) ≡ productosDelStock(s)
+		productosDelStock(vender(p,n,s)) ≡ productosDelStock(s)
+		historial(iniciarSistema(cp)) ≡ <>
+		historial(comprar(p,k,s)) ≡ (p,k)•historial(s)
+		historial(venta(p,k,s)) ≡ (p, -k)•historial(s)
+		
+		cantidad(p,s) ≡ 
+		// Tarea -> definir el axoma de cantidad
+Fin TAD
