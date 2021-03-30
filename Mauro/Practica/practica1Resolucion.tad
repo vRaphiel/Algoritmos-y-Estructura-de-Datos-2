@@ -73,11 +73,56 @@ Combinar (x • s, t) ≡
 // Ejercicio 2
 
 // a
-#Hojas : ab(α) -> Nat56
+#Hojas : ab(α) -> Nat
 #Hojas (nil) ≡ 0
 #Hojas (bin(i, r, d)) ≡ if esHoja?(bin(i,r,d)) then 1 else #Hojas(r) + #Hojas(i) fi 
 
 // b 
-DegeneradoAIzquierda : ab(α) -> bool
-DegeneradoAIzquierda (nil) ≡ false
-DegeneradoAIzquierda (bin(i, r, d)) ≡ if esHoja?(bin(i,r,d)) then true else ¬nil?(i) ∧ DegeneradoAIzquierda(i) ∧ DegeneradoAIzquierda(d) fi
+DegeneradoAIzquierda: ab(α) -> Bool
+DegeneradoAIzquierda(a) ≡ nil?(a) ∨L if esHoja?(a) 
+																			then true 
+																			else nil?(der(a)) ∧ DegeneradoAIzquierda(izq(a))
+																		 fi
+
+// c
+ZigZag: ab(α) -> Bool
+ZigZag(a) ≡ nil?(a) ∨L esHoja?(a) ∨L 
+						if nil?(izq(a))
+									then nil?(der(der(a))) ∧ ZigZag(der(a))
+									else 
+										if nil?(izq(a))
+										then ZigZag(der(a))
+									  else false
+									  fi
+					  fi
+						
+// d)
+UltimoNivelCompleto: ab(α) -> nat
+UltimoNivelCompleto(a) ≡ if nil?(a)
+														then 0
+												else 1 + min(UltimoNivelCompleto ( izq(a) ), UltimoNivelCompleto (der(a) ))
+																			
+// e)
+Espejo: ab(α) -> ab(α)
+Espejo(a) ≡ if nil?(a)
+							then a
+							else bin( Espejo (der(a), raiz(a), Espejo (izq(a))))
+						fi
+												
+// f)
+EsSimetrico?: ab(α) -> Bool
+EsSimetrico?(a) ≡ a = Espejo(a)
+
+// Ejercicio 3
+// a)
+agregarTodos: α x conj(conj(α)) -> conj(α)
+agregarTodos(n, c) ≡ if Ø?(c)
+		then Ag(Ag(n, Ø), Ø)
+		else Ag(Ag(n, dameUno(c)), agregarTodos(n, sinUno(c)))
+																 fi
+
+PartesDe: conj(α) -> conj(conj(α))
+PartesDe(c) ≡ if Ø?(c) then c
+					    	else agregarTodos(dameUno(c), PartesDe(sinUno(c))) ∪ PartesDe(sinUno(c))
+							fi
+																		 																								 
