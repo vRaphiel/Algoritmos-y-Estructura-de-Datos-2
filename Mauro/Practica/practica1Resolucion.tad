@@ -125,4 +125,58 @@ PartesDe: conj(α) -> conj(conj(α))
 PartesDe(c) ≡ if Ø?(c) then c
 					    	else agregarTodos(dameUno(c), PartesDe(sinUno(c))) ∪ PartesDe(sinUno(c))
 							fi
-																		 																								 
+											
+
+											
+// 4
+// PREGUNTAR ESTE Ejercicio
+
+// 5
+// α
+NivelNormal? : at(α) × Int k-> Bool   { k>=1 }
+NivelNormal? (a, k) ≡
+	if nil?(a) then
+		false
+	else
+		if k=1 then
+			¬nil(med(a)) ∧ ¬nil(der(a)) ∧ ¬nil(izq(a))
+		else
+			NivelNormal(med(a), k-1) ∧ NivelNormal(izq(a), k-1) ∧ NivelNormal(der(a), k-1)
+		fi
+	fi			
+	
+// b
+//TODO
+#NodosHijos : at(α) -> Nat 
+#NodosHijos (a) ≡ 
+	if nil?(a) then
+		0
+	else
+		if ¬nil?(med(a)) then
+			1
+		else
+			0
+		fi +
+		if ¬nil?(izq(a)) then
+			1
+		else
+			0
+		fi +
+		if ¬nil?(der(a)) then
+			1
+		else
+			0
+		fi
+	fi
+ 
+Acotado? : at(α) × Int -> Bool   { k>=1 }
+Acotado (a, k) ≡ 
+		if nil?(a) then
+			true
+		else
+			if #NodosHijos(a) < k then
+				 Acotado()
+			else
+				false
+			fi
+		fi										 																								 
