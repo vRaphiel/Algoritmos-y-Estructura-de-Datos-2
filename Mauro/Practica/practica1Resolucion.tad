@@ -1,0 +1,83 @@
+// Práctica 1
+
+// Ejercicio 1
+
+// a
+duplicar : secu(α) -> secu(α)
+duplicar(<>) ≡ <>
+duplicar(x • s) ≡ x • x • duplicar(s) 
+
+// b
+// no se entiende que hacer
+
+// c
+reverso : secu(α) -> secu(α)
+reverso(<>) ≡ <>
+reverso(x • s) ≡ reverso(s) • x
+
+// d
+capicua : secu(α) × secu(α) -> bool
+capicua(s) ≡ reverso(s) = s
+
+// e
+esPrefijo? : secu(α) × secu(α) -> bool
+esPrefijo?(<>, t) ≡ true
+esPrefijo?(x • s, t) ≡ if vacia?(t) then false else x=prim(t) ∧ esPrefijo?(s, fin(t)) fi
+
+// f 
+Buscar : secu(α) × secu(α) -> Nat 
+Buscar(<>, t) ≡ 0
+Buscar(x • s, t) ≡ if ¬vacia?(t) then
+											if ¬esPrefijo?(x • s, t) then 1 + Buscar(x • s, fin(t)) else 0 fi
+									 fi  
+									 
+// g 
+EstaOrdenada? : secu(α) -> bool
+EstaOrdenada? (<>) ≡ true
+EstaOrdenada? (x • s) ≡ if vacia?(s) then true else x < prim(s) ∧ EstaOrdenada?(s) fi
+
+// h
+InsertarOrdenada : secu(α) s0 × α -> secu(α)   {EstaOrdenada?(s0) = true}
+InsertarOrdenada (<>, e) ≡ <e>
+InsertarOrdenada (x • s, e) ≡ if x > e then (e • x • s) else (x • InsertarOrdenada(s, e)) fi
+
+// i 
+CantidadApariciones : secu(α) × α -> Nat 
+CantidadApariciones (<>, e) ≡ 0
+CantidadApariciones (x • s, e) ≡ if x = s then
+																	1 + CantidadApariciones(s, e)
+																 else
+																 	CantidadApariciones(s, e)
+																 fi
+
+// j
+esPermutacion? : secu(α) × secu(α) -> bool
+esPermutacion (<>, t) ≡ long(t) = 0
+esPermutacion (x • s, t) ≡  // No salio
+
+// k
+Combinar : secu(α) a × secu(α) b -> secu(α)  {EstaOrdenada?(a) ∧ EstaOrdenada?(b) = true}
+Combinar (<>, t) = t
+Combinar (x • s, t) ≡ 
+											if ¬vacia?(t) then
+												if x < prim(t) then
+													x • Combinar(s, t)
+												else
+													prim(t) • Combinar(s, fin(t))
+												fi
+											else
+												x • s
+											fi
+											
+											
+// Ejercicio 2
+
+// a
+#Hojas : ab(α) -> Nat56
+#Hojas (nil) ≡ 0
+#Hojas (bin(i, r, d)) ≡ if esHoja?(bin(i,r,d)) then 1 else #Hojas(r) + #Hojas(i) fi 
+
+// b 
+DegeneradoAIzquierda : ab(α) -> bool
+DegeneradoAIzquierda (nil) ≡ false
+DegeneradoAIzquierda (bin(i, r, d)) ≡ if esHoja?(bin(i,r,d)) then true else ¬nil?(i) ∧ DegeneradoAIzquierda(i) ∧ DegeneradoAIzquierda(d) fi
