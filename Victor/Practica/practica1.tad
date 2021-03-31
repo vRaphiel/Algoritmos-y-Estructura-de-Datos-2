@@ -100,18 +100,30 @@ nivelNormal?(a, k): nil?(a) ∨L if k=1
 																else nivelNormal?(izq(a), k-1) ∧ nivelNormal?(med(a), k-1) ∧ nivelNormal?(der(a), k-1)
 
 
-																#Hojas: ab(α) -> nat
-																#Hojas(nil) ≡ 0
-																#Hojas(bin(r,i,d)) ≡ if nil?(i) ∧ nil?(d)
-																												then 1
-																												else #Hojas(i) + #Hojas(d)
-																										 fi
+#Hojas: ab(α) -> nat
+#Hojas(nil) ≡ 0
+#Hojas(bin(r,i,d)) ≡ if nil?(i) ∧ nil?(d)
+												then 1
+												else #Hojas(i) + #Hojas(d)
+										 fi
 // b)
-conteo: at(α) -> nat
-conteo(nil) ≡ 0
-conteo(ten(i, m, d, r)) ≡ if nil?(i) ∧ nil?(d) ∧L nil?(m)
-														then 1
-														else conteo(i) + conteo(m) + conteo(d)
+// Defino un auxiliar que cuuente cantNodos en una secuencia de arboles ternarios:
+cantNodos: secu(at(α)) -> nat
+cantNodos(t • <>) ≡ if t != nil then 1 else 0
+cantNodos(t • s) ≡ if t != nill then 1 + cantNodos(s) else cantNodos(s)
+
+Acotado?: at(α) x nat -> Bool
+Acotado?(nil, k) ≡ true
+Acotado?(tern(i,m,d,r), k) ≡ if cantNodos(i • m • d • <>) ≤ k
+															then Acotado?(i) ∧ Acotado?(m) ∧ Acotado?(d)
+															else false
+														 fi
 
 // Ejercicio 6
 // a)
+altura: rosetree(α) -> nat
+altura(rose(α, s)) ≡ if long(s) > 0
+							then 1+altura(α, hijos(α))
+							else 0
+							
+// b)
