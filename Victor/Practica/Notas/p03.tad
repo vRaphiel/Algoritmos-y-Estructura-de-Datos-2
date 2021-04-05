@@ -2,11 +2,84 @@ TAD Cancion ES String
 TAD Genero ES String
 
 TAD ReproductorDeMusica
-generos rm
+Generos: rm
 Observadores Básicos:
-	estaEnCatalogo? : rm x cancion -> bool
-	generoDeCancion : rm r x cancion c -> genero { estaEnCatalogo?(r, c) }
-	#reproducciones : rm x cancion -> nat
-	
+	catalogo				: rm -> dicc(cancion, genero)
+	#reproducciones : rm r x cancion c -> nat 				{ def?(c, catalogo(r))}
+Generadores:
+	nuevo						: dicc(cancion, genero) -> rm
+	reproducir			: rm r x cancion c -> rm  				{ def?(c, catalogo(r))}
 Otras Operaciones:
 	#reproduccionesGenero : rm x genero -> nat
+Axiomas:
+	catalogo(nuevo(cat)) ≡ cat
+	catalogo(reproducir(r, c)) ≡ catalogo(r)
+	
+	#reproduccionesGenero(nuevo(cat), q) ≡
+	#reproduccionesGenero(reproducir(r, c'), c) ≡
+		#reproducciones(r, c) + β (c = c') 
+		
+	// Si axiomatizamos otras operaciones, tratamos de que no sea sobre Generadores
+	// Si otras operaciones esta definido sobre los observadores, aunque se usen generadores a izquierda
+	// entonces no estoy rompiendo congruencia, pase el caso que pase
+	#reproduccionesGenero(nuevo(cat), g) ≡ 0
+	#reproduccionesGenero(reproducir(r, c), g) ≡ 
+		#reproduccionesGenero(r, g) + β(obtener(c, catalogo(r)) = g)
+
+Fin TAD
+-------------------------------------------------------------------------------
+TAD Acertijo ES nat
+
+TAD Laberinto
+	Generos: lab
+	Observadores: 
+		acertijos : lab -> conj(acertijo)
+		dificultad : lab l x acertijo a -> nat 		{ a ∈ acertijos(l) }
+		opciones : lab l x acertijo a -> conj(acertijo)			{a ∈ acertijos(l)}
+	Generadores:
+		nuevoLab : acertijo x nat d -> lab 		{1 ≤ d ≤ 5}
+		agAcertijo : lab l x acertijo a x nat d x conj(acertijo) prev -> lab 	
+								{ ¬(a ∈ acertijos(l)) ∧ 1 ≤ d ≤ 5 ∧ prev ⊆ acertijos(l) ∧ ¬Ø?(prev)}
+	Otras Operaciones:
+		acertijoInicial : lab -> acertijo
+		acertijosFinales : lab -> conj(acertijo)
+
+		filtrarAcertijosFinales : lab l x conj(acertijo) as -> conj(acertijo) { as ⊆ acertijos(l)}
+	Axiomas:
+		acertijos(nuevoLab(a, d)) ≡ { a }
+		acertijos(agAcertijo(l, a, d, prev)) ≡ Ag(a, acertijos(l))
+		
+		dificultad(nuevoLab(a', d), a) ≡ d
+		dificultad(agAcertijo(l, a', d, prev), a) ≡ 
+			if a = a' 
+				then d
+				else dificultad(l, a)
+			fi
+			
+		opciones(nuevoLab(a', d), a) ≡ Ø
+		opciones(agAcertijo(l, a', d, prev), a) ≡
+			if a = a' 
+				then Ø
+				else opciones(l) ∪ if a ∈ prev then {a'} else Ø fi
+			fi
+			
+		acertijoInicial(nuevoLab(a, d)) ≡ a
+		acertijoInicial(agAcertijo(l, a, d, prev)) ≡
+			acertijoInicial(l)
+		
+		acertijosFinales(l) ≡ 
+			filtrarAcertijosFinales(l, acertijos(l)) 
+			
+		filtrarAcertijosFinales(l, c) ≡
+			if Ø?(c) 
+				then Ø
+				else 
+					if Ø?(opciones(l, dameUno(c))) 
+						then Ag(dameUno(c), filtrarAcertijosFinales(sinUno(c)))
+						else filtrarAcertijosFinales(sinUno(c))
+						fi
+			fi
+Fin TAD
+
+TAD Temporada
+Fin TAD
