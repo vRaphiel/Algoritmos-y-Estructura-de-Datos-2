@@ -55,19 +55,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cygdrive/c/Users/Mauro/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe
+CMAKE_COMMAND = /cygdrive/c/Users/victor/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe
 
 # The command to remove a file.
-RM = /cygdrive/c/Users/Mauro/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe -E rm -f
+RM = /cygdrive/c/Users/victor/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/bin/cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases"
+CMAKE_SOURCE_DIR = /cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug"
+CMAKE_BINARY_DIR = /cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -100,14 +100,14 @@ clean: CMakeFiles/tests_algobot.dir/clean
 CMakeFiles/gtest_main.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gtest_main.dir/build.make CMakeFiles/gtest_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gtest_main.dir/build.make CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles" --progress-num=3,4 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target gtest_main"
 .PHONY : CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/gtest_main.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/gtest_main.dir/rule
 
 # Convenience name for target.
@@ -127,14 +127,14 @@ CMakeFiles/gtest_main.dir/clean:
 CMakeFiles/gtest.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gtest.dir/build.make CMakeFiles/gtest.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gtest.dir/build.make CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles" --progress-num=1,2 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target gtest"
 .PHONY : CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/gtest.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/gtest.dir/rule
 
 # Convenience name for target.
@@ -151,18 +151,18 @@ CMakeFiles/gtest.dir/clean:
 # Target rules for target CMakeFiles/tests_ejercitacion.dir
 
 # All Build rule for target.
-CMakeFiles/tests_ejercitacion.dir/all: CMakeFiles/gtest.dir/all
 CMakeFiles/tests_ejercitacion.dir/all: CMakeFiles/gtest_main.dir/all
+CMakeFiles/tests_ejercitacion.dir/all: CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests_ejercitacion.dir/build.make CMakeFiles/tests_ejercitacion.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests_ejercitacion.dir/build.make CMakeFiles/tests_ejercitacion.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles" --progress-num=8,9,10 "Built target tests_ejercitacion"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles --progress-num=8,9,10 "Built target tests_ejercitacion"
 .PHONY : CMakeFiles/tests_ejercitacion.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/tests_ejercitacion.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles" 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tests_ejercitacion.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/tests_ejercitacion.dir/rule
 
 # Convenience name for target.
@@ -179,18 +179,18 @@ CMakeFiles/tests_ejercitacion.dir/clean:
 # Target rules for target CMakeFiles/tests_algobot.dir
 
 # All Build rule for target.
-CMakeFiles/tests_algobot.dir/all: CMakeFiles/gtest.dir/all
 CMakeFiles/tests_algobot.dir/all: CMakeFiles/gtest_main.dir/all
+CMakeFiles/tests_algobot.dir/all: CMakeFiles/gtest.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests_algobot.dir/build.make CMakeFiles/tests_algobot.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tests_algobot.dir/build.make CMakeFiles/tests_algobot.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles" --progress-num=5,6,7 "Built target tests_algobot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles --progress-num=5,6,7 "Built target tests_algobot"
 .PHONY : CMakeFiles/tests_algobot.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/tests_algobot.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles" 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tests_algobot.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/tests_algobot.dir/rule
 
 # Convenience name for target.

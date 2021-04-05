@@ -6,5 +6,5 @@ CXX_FLAGS =  -pthread -std=gnu++11 -ggdb3 -g -g   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases/src" -I"/cygdrive/c/Users/Mauro/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_uso_clases/tests" 
+CXX_INCLUDES = -I/cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/src -I/cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/tests 
 

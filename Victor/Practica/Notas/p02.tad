@@ -1,0 +1,227 @@
+TAD Conjunto(α)
+Géneros:	 conj(α)
+Observadores Básicos:
+	•∈• : α x conj(α) -> bool
+Generadores:
+	Ø : -> conj(α)
+	Ag : α x conj(α) -> conj(α)
+Otras Operaciones:
+		Ø? : conj(α) -> bool
+		dameUno : conj(α) c -> α {¬Ø?(c)}
+		sinUno : conj(α) c 	-> conj(α) {¬Ø?(c)}
+	
+Manera 1: Usando pattern Matching (con generadores)
+# : conj(α) -> nat
+#(Ø) ≡ 0
+#(Ag(x,c)) ≡ 1 + #(c) --- Tiene un problema grave
+
+-- Rompe la congruencia
+Ag(1, Ø) =obs Ag(1, Ag(1, Ø))
+#(Ag(1, Ø)) 			 ≡ 1 
+#(Ag(1, Ag(1, Ø))) ≡ 2
+
+Definicion arreglada
+# : conj(α) -> nat
+#(Ø) ≡ 0
+#(Ag(x, c)) ≡ if x ∈ c
+								then #(c)
+								else 1 + #(c)
+							fi
+Manera 2 : Directamente ("Con observadores");
+# : conj(α) -> nat
+#(c) ≡ if Ø?(c)
+				then 0
+				else 1 + #(sinUno(c))
+			 fi
+			 
+------- RECURSION -------
+primeros : nat x secu(α) -> secu(α) { n ≤ long(s) }
+primeros(n, s) ≡
+	if n=0?
+		then emptyset
+		else // 0 < n ≤ long(s)
+				 // s ≡ prim(s) • fin(s)
+				 prim(s) • primeros(n-1, fin(s))
+	fi
+
+Ejemplo:
+	primeros(0, [1,2,3,4,5]) ≡ <>
+	primeros(3, [1,2,3,4,5]) ≡ [1,2,3]
+	primeros(5, [1,2,3,4,5]) ≡ [1,2,3,4,5]
+	primeros(6, [1,2,3,4,5]) ≡ [?]
+-----------------------------------------------------
+subcadenas : secu(α) x nat -> conj(secu(α))
+subcadenas(s, n) ≡
+	if n > long(s) then
+		Ø
+	else
+		if n = 0? then
+			Ag(<>, Ø) 			// { <> }
+		else						// 0 < n ≤ long(s)
+										// s ≡ prim(s)•fin(s)
+			Ag(primeros(n, s), subcadenas(fin(s), n))
+		fi
+	fi
+
+Ejemplos:
+	subcadenas([1,2,3,4,5], 3) ≡ {[1,2,3], [2,3,4], [3,4,5]}
+	subcadenas([1,2,3,4,5], 5) ≡ {[1,2,3,4,5]}
+	subcadenas([1,2,3,4,5], 0) ≡ {<>}
+	subcadenas([1,2,3,4,5], 6) ≡ Ø
+	
+------------------------------------------------------
+subsecuencias: secu(α) x nat -> conj(secu(α))
+subsecuencias(s, n) ≡
+	if n > long(s)
+		then Ø
+		else
+		if n = 0? then
+			Ag(<>, Ø)
+		else					// 0 < n ≤ long(s)
+									// s ≡ prim(s)•fin(s)
+			...
+		  agregarAd(prim(s),subsecuencias(fin(s), n-1)) // (MAL)
+			∪	subsecuencias(fin(s), n)
+		fi
+	fi
+
+agregarAd: α x conj(secu(α)) -> conj(secu(α))
+agregarAd(a, c) ≡
+	if Ø?(c) then
+		Ø
+	else
+		Ag(a•dameUno(c)
+		agregarAd(a, sinUno(c)))
+		// c ≡ Ag(dameUno(c), sinUno(c))
+	fi
+
+Ejemplos:
+	subsecuencias([1,2,3,4,5], 2) ≡ {[1,2],[1,3],[1,4],[1,5]} ∪ subsecuencias([2,3,4,5], 2)
+	subsecuencias([1,2,3,4,5], 5) ≡ {[1,2,3,4,5]}
+	subsecuencias([1,2,3,4,5], 0) ≡ {<>}
+	subsecuencias([1,2,3,4,5], 6) ≡ Ø
+	
+	agregarAd(1, {[2,3], [2,4], [2,5]}) ≡ {[1,2,3], [1,2,4], [1,2,5]}
+		
+------------- Arboles Ternarios --------------
+rose(1, [
+	rose(2, []),
+	rose(3, []),
+	rose(4, [
+		rose(5, []),
+		rose(5, [])
+		])
+	])
+	
+TAD RoseTree(α)
+Generos rosetree(α)
+Observadores
+	raiz : rosetree(α) -> α
+	hijos : rosetree(α) -> secu(rosetree(α))
+Generadores:
+	rose : α x secu(rosetree(α)) -> rosetree(α)
+Otras Operaciones:
+	incrementar : rosetree(nat) x nat -> rosetree(nat)
+	incrementarMuchos : secu(rosetree(nat)) x nat -> secu(rosetree(nat))
+	sumaDeNiveles : rosetree(nat) -> secu(nat)
+	sumaNivelesMuchos : secu(rosetree(nat)) -> secu(nat)
+	sumaListas : secu(nat) x secu(nat) -> secu(nat)
+Axiomas:
+		incrementar(r, n) ≡ rose(raiz(r) + n, incrementarMuchos(hijos(r), n))
+		incrementarMuchos(s, n) ≡
+			if vacia?(s)
+				then <>
+				else // s ≡ prim(s) • fin(s)
+					incrementar(prim(s), n) • incrementarMuchos(fin(s), n)
+			fi
+		sumaDeNiveles(r) ≡ raiz(r) • sumaNivelesMuchos(hijos(r))
+		sumaNivelesMuchos(s) ≡
+			if vacia?(s) 
+			then <>	
+			else // s ≡ prim(s) • fin(s)
+				sumaListas(
+					sumaDeNiveles(prim(s)),
+					sumaNivelesMuchos(fin(s) // secu(nat))
+					) 
+			fi
+		sumaListas(s₁, s₂) ≡ 
+		
+Fin TAD
+
+TAD FabricaDeEmpanadas
+	Igualdad Observacional:();
+	Géneros: fabrica
+	
+	Observadores Básicos:
+		cajasDespachadas : fabrica -> nat
+		empanadasEnCaja : fabrica -> nat
+	Generadores:
+		crearFabrica : -> fabrica
+		caeEmpanada : fabrica -> fabrica		
+	Axiomas:
+		cajasDespachadas(crearFabrica) ≡ 0
+		cajasDespachadas(caeEmpanada(f)) ≡ cajasDespachadas(f) + 
+			if empanadasEnCaja(f) = 11 
+				then 1
+				else 0
+			fi
+		
+		empanadasEnCaja(crearFabrica) ≡ 0
+		empanadasEnCaja(caeEmpanada(f)) ≡ 
+			if empanadasEnCaja(f) = 1 
+				then 0
+				else empanadasEnCaja(f) + 1
+			fi
+Fin TAD
+
+------------------------------------------------------------------
+TAD Piso
+	Géneros:	piso
+	Generadores:
+		A : -> piso
+		B : -> piso
+	Otras Operaciones:
+		otroPiso: piso -> piso
+		otroPiso(A) ≡ B
+		otroPiso(B) ≡ A
+	Axiomas:
+		
+Fin TAD
+
+TAD Ascensor
+	Igualdad Observacional:	
+		(∀ a, a' : ascensor)(a =obs a') ↔ (piso?(a) =obs piso?(a') ∧ (∀ p : piso)(personasEn(a, p) =obs personasEn(a', p))) 
+	Géneros:	ascensor
+	Observadores Básicos:
+		personasEn: ascensor x piso -> nat
+		piso? : ascensor -> piso
+	Axiomas:
+		personasEn(crearAscensor, p) ≡
+		personasEn(llegaPersona(a, pl), p) ≡
+			if piso?(a) = pl ∧ personasEn(a, pl) = 2
+				then //El ascensor se muev
+					if piso?(a) = p 
+						then 0
+						else 
+							if personasEn(a, p) < 3
+								then personasEn(a, p)
+								else personasEn(a, p) - 3
+							fi
+					fi
+				else // El ascensor no se mueve
+				 personasEn(a, p) + if pl = p then 1 else 0 fi
+						
+			fi
+		piso?(crearAscensor) ≡ A
+		piso?(llegaPersona(a, pl)) ≡ 
+			if piso?(a) = pl ∧ personasEn(a, pl) = 2 
+				then // El ascensor se mueve
+					if personasEn(a, otroPiso(pl)) < 3
+						then otroPiso(piso?(a))
+						else // El ascensor no se mueve
+							piso?(a)
+					fi
+				else 
+					piso?(a)
+			fi
+Fin TAD

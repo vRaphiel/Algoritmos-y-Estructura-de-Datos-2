@@ -1,0 +1,12 @@
+TAD Cancion ES String
+TAD Genero ES String
+
+TAD ReproductorDeMusica
+generos rm
+Observadores Básicos:
+	estaEnCatalogo? : rm x cancion -> bool
+	generoDeCancion : rm r x cancion c -> genero { estaEnCatalogo?(r, c) }
+	#reproducciones : rm x cancion -> nat
+	
+Otras Operaciones:
+	#reproduccionesGenero : rm x genero -> nat

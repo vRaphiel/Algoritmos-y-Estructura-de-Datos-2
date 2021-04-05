@@ -110,7 +110,7 @@ nivelNormal?(a, k): nil?(a) ∨L if k=1
 // Defino un auxiliar que cuuente cantNodos en una secuencia de arboles ternarios:
 cantNodos: secu(at(α)) -> nat
 cantNodos(t • <>) ≡ if t != nil then 1 else 0
-cantNodos(t • s) ≡ if t != nill then 1 + cantNodos(s) else cantNodos(s)
+cantNodos(t • s) ≡ if t != nil then 1 + cantNodos(s) else cantNodos(s)
 
 Acotado?: at(α) x nat -> Bool
 Acotado?(nil, k) ≡ true
@@ -127,3 +127,246 @@ altura(rose(α, s)) ≡ if long(s) > 0
 							else 0
 							
 // b)
+cantHojas: rosetree(α) -> nat
+cantHojas(r) ≡ if esHoja(r)
+								then 1
+								else sumarHojas(hijos(r))
+								
+esHoja: rosetree(α) -> bool
+esHoja(α) ≡ vacia?(hijos(α))
+
+sumarHojas: secu(rosetree(α)) -> nat
+sumarHojas(s) ≡ if vacia?(s)
+									then 0
+									else cantHojas(prim(s)) + sumarHojas(fin(s))
+									
+// c)
+podar: rosetree(α) -> rosetree(α)
+podar(r) ≡ rose(raiz(r), podadora(hijos(r)))
+
+podadora: secu(rosetree(α)) -> secu(rosetree(α))
+podadora(s) ≡ if vacía?(s) then
+									s
+							else
+									if esHoja?(prim(s)) then
+											podadora(fin(s))
+									else
+											podar(prim(s)) • podadora(fin(s))
+									fi
+							fi
+							
+// d)
+obtenerRamas: rosetree(α) → secu(secu((α))
+
+obtenerRamas(r) ≡ if esHoja?(r) then
+											(raíz(r) • 〈〉) •〈〉 
+									else
+											if long(hijos(r)) = 1 then
+													insertarTodos(raíz(r), obtenerRamas(prim(hijos(r))))
+											else
+													insertarTodos(raíz(r),obtenerRamas(prim(hijos(r)))) & obtenerRamas(rose(raíz(r),fin(hijos(r))))
+											fi
+									fi
+
+insertarTodos: α x secu(secu(α)) → secu(secu(α))
+
+insertarTodos(a,s) ≡ if vacía(s) then
+												〈〉
+										 else
+												 (a • prim(s)) • insertarTodos(a,fin(s))
+										 fi
+										 
+// e)
+devolverNivel: nat n x rosetree(α) → secu(α) {¬ n = 0}
+
+devolverNivel(n,r) ≡ agarrador(n,obtenerRamas(r))
+
+agarrador: nat n x secu(secu(α)) → secu(α) {¬ n = 0}
+
+agarrador(n,s) ≡ if vacía(s) then 〈〉 else if long(prim(s)) ≥ n then obtener(n,prim(s)) • agarrador(n,fin(s)) else agarrador(n,fin(s)) fi fi
+
+obtener: nat n x secu(&alpha) s → α {(¬ n = 0) ∧ long(s) ≥ n}
+
+obtener(n,s) ≡ if n = 1 then prim(s) else obtener(n-1,fin(s)) fi 
+
+// f)
+masLargasConRepetidos: rosetree(α) → conj(secu(α))
+
+masLargasConRepetidos(r) ≡ soloConRepetidos(soloUnTam(altura(r),obtenerRamas(r)))
+
+tieneRepetido: secu(α) → bool
+
+tieneRepetido(s) ≡ (¬ vacía(s)) ∧L (esta?(prim(s),fin(s)) ∨ tieneRepetido(fin(s)))
+
+soloConRepetidos: secu(secu(α)) → conj(secu(α))
+
+soloConRepetidos(s) ≡ if vacía(s) then ∅ else if tieneRepetido(prim(s)) then Ag(prim(s),soloConRepetidos(fin(s))) else soloConRepetidos(fin(s)) fi fi
+
+soloUnTam: nat n x secu(secu(α)) → secu(secu(α)) {¬ n = 0}
+
+soloUnTam(n,s) ≡ if vacía?(s) then 〈〉 else if long(s) = n then prim(s) • soloUnTam(n,fin(s)) else soloUnTam(n,fin(s)) fi fi 
+
+// Ejercicio 7
+TAD Polinomio
+	Igualdad Observacional:
+		(∀ p1, p2 : polinomio)(p1 =obs p2 ↔ ((∀n:nat)(Evaluar(p1,n)=obs Evaluar(p2,n))))
+	Generos: polinomio
+	
+	Observadores Basicos:
+		Evaluar: polinomio x nat -> nat
+		Raiz: polinomio -> nat
+	Generadores:
+		Cte: nat -> polinomio
+		X  : -> polinomio
+		• + • : polinomio x polinomio -> polinomio
+		• . • : polinomio x polinomio -> polinomio
+	Axiomas:
+		Evaluar(cte(a), n) ≡ a*n
+		Evaluar(x,n) ≡ nx
+		Evaluar(a + b, n) ≡ evaluar(a, n) + evaluar(b, n)
+		Raiz(a,n) ≡ 0 = Evaluar(a, n)
+		
+Fin TAD
+
+// Ejercicio 8
+TAD Coordenada es Tupla(Entero x Entero)
+TAD Robot
+	Igualdad Observacional:
+		(∀ r₁, r₂ : robot)(r₁ =obs r₂ ↔ (Trayectoria(r₁) =obs Trayectoria(r₂)))
+	Géneros: robot
+	
+	Observadores Básicos:
+		Trayectoria : robot ⇒ secuencia(coordenada)
+	Generadores:
+		Ubicar : coordenada -> robot
+		Arriba : robot -> robot
+		Abajo : robot -> robot
+		Derecha : robot -> robot
+		Izquierda : robot -> robot
+	Otras Operaciones:
+		PosicionActual : robot -> coordenada
+		CuantasVecesPaso : coordenada x robot -> nat
+		MasALaDerecha : robot -> coordenada
+		maxX: secuencia(coordenadas) -> coordenada
+	Axiomas:
+		PosicionActual(r) ≡ prim(Trayectoria(r))
+		Trayectoria(ubicar(c)) ≡ c • <>
+		Trayectoria(arriba(r)) ≡ Coordenada(PosicionActual(r), PosicionActual(r)+1) • <>
+		Trayectoria(abajo(r)) ≡ Coordenada(PosicionActual(r), PosicionActual(r)-1) • <>
+		Trayectoria(izquierda(r)) ≡ Coordenada(PosicionActual(r)-1, PosicionActual(r)) • <>
+		Trayectoria(derecha(r)) ≡ Coordenada(PosicionActual(r)+1, PosicionActual(r)) • <>
+		CuantasVecesPaso(s, r) ≡ cantidadApariciones(Trayectoria(r), s)
+		MasALaDerecha(r) ≡ maxX(trayectoria(r))
+		maxX(e•s) ≡ if vacia?(s) then e else max(e, maxX(s)) fi
+		
+Fin TAD
+
+// Ejercicio 9
+TAD Electroiman
+	Igualdad Observacional:
+		(∀ e₁, e₂)(e₁ =obs e₂ ↔ ((Cinta(e₁) = Cinta(e₂) ∧ ImanPrendido?(e₁) = ImanPrendido?(e₂)) ∧L (ImanPrendido?(e₁) ⇒L (ImanCargado?(e₁) = ImanCargado?(e₂)))));
+	Géneros: electroiman
+	Usa: Bool, Nat, Cinta
+	Exporta Genero, Generadores, Observadores Basicos, Otras Operaciones
+	Observadores Básicos:
+		Cinta : electroiman -> cinta
+		ImanPrendido? : electroiman -> bool
+		ImanCargado? : electroiman e -> bool	{ImanPrendido?(e)}
+	Generadores:
+		Arrancar : cinta -> electroiman
+		Prender : electroiman e -> electroiman		{¬ImanPrendido?(e)}
+		Apagar : electroiman e -> electroiman 	{ImanPrendido?(e) ∧L (ImanCargado?(e) ⇒ ¬CeldaActualOcupada?(e))}
+		<- : electroiman -> electroiman
+		-> : electroiman -> electroiman
+	Otras Operaciones:
+		CeldaActualOcupada? : electroiman -> bool
+		#Giros<- : electroiman -> nat
+		#Giros-> : electroiman -> nat
+	Axiomas:
+		Cinta(Arrancar(c)) ≡ c
+		Cinta(Prender(e)) ≡	if CeldaActualOcupada?(celda(e)) then SacarElem(cinta(e)) else cinta(e) fi
+		Cinta(Apagar(e)) ≡ if ImanCargado?(e) then PonerElem(cinta(e)) else cinta(e) fi
+		Cinta(<-(e)) ≡ <-cinta(e)
+		Cinta(->(e)) ≡ ->cinta(e)
+		
+		ImanPrendido?(Arrancar(c)) ≡ false
+		ImanPrendido?(Prender(e)) ≡ true
+		ImanPrendido?(Apagar(e)) ≡ false
+		ImanPrendido?(<-(e)) ≡ ImanPrendido?(e)
+		ImanPrendido?(->(e)) ≡ ImanPrendido?(e)
+		
+		ImanCargado?(prender(e)) ≡ CeldaActualOcupada?(e)
+		ImanCargado?(<-(e)) ≡ ImanCargado?(e) ∨ CeldaActualOcupada?(<-(e))
+		ImanCargado?(->(e)) ≡ ImanCargado?(e) ∨ CeldaActualOcupada?(->(e))
+		
+		CeldaActualOcupada?(e) ≡ CeldaActualOcupada?(cinta(e))
+		
+		#Giros<-(Arrancar(c)) ≡ 0
+		#Giros<-(Prender(e)) ≡ #Giros<-(e)
+		#Giros<-(Apagar(e)) ≡ #Giros<-(e)
+		#Giros<-(<-(e)) ≡ 1 + #Giros<-(e)
+		#Giros<-(->(e)) ≡ #Giros<-(e)
+		
+		#Giros->(Arrancar(c)) ≡ 0
+		#Giros->(Prender(e)) ≡ #Giros->(e)
+		#Giros->(Apagar(e)) ≡ #Giros->(e)
+		#Giros->(->(e)) ≡ 1 + #Giros->(e)
+		#Giros->(<-(e)) ≡ #Giros<-(e)
+Fin TAD
+
+TAD Cinta
+	Igualdad Observacional:();
+	Géneros: cinta
+	Exporta Genero, Generadores, Observadores Basicos, Otras Operaciones
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		#Celdas : cinta -> nat
+		CeldaOcupada? : nat n x cinta c -> bool			{n < #Celdas(c)}
+		CeldaActual : cinta -> nat
+		#Giros<- : cinta -> nat
+		#Giros-> : cinta -> nat
+	Generadores:
+		Arrancar : nat n -> cinta			{n > 0}
+		PonerElem : cinta c -> cinta		{¬CeldaActualOcupada?(c)}
+		SacarElem : cinta c -> cinta		{CeldaActualOcupada?(c)}
+		<- : cinta -> cinta
+		-> : cinta -> cinta
+	Otras Operaciones:
+		CeldaActualOcupada? : cinta -> bool
+		#Elem : cinta -> bool
+	Axiomas:
+		#Celdas(Arrancar(n)) ≡ n
+		#Celdas(PonerElem(c)) ≡ #Celdas(c)
+		#Celdas(SacarElem(c)) ≡ #Celdas(c)
+		#Celdas(<-(c)) ≡ #Celdas(c)
+		#Celdas(->(c)) ≡ #Celdas(c)
+		
+		#Giros<-(Arrancar(n)) ≡ 0
+		#Giros<-(PonerElem(n)) ≡ n
+		#Giros<-(SacarElem(n)) ≡ n
+		#Giros<-(<-(c)) ≡ 1 + #Giros<-(c)
+		#Giros<-(->(c)) ≡ #Giros<-(c)
+		
+		#Giros->(Arrancar(n)) ≡ 0
+		#Giros->(PonerElem(n)) ≡ n
+		#Giros->(SacarElem(n)) ≡ n
+		#Giros->(->(c)) ≡ 1 + #Giros->(c)
+		#Giros->(<-(c)) ≡ #Giros->(c)
+		
+		CeldaActual(Arrancar(c)) ≡ 0
+		CeldaActual(PonerElem(c)) ≡ CeldaActual(c)
+		CeldaActual(SacarElem(c)) ≡ CeldaActual(c)
+		CeldaActual(<-(c)) ≡ if CeldaActual(c) = 0 then #Celdas(c) -1 else CeldaActual(c) - 1 fi
+		CeldaActual(->(c)) ≡ if CeldaActual(c) = #Celdas(c) -1 then 0 else CeldaActual(c) + 1 fi
+		
+		CeldaOcupada?(n, Arrancar(n)) ≡ false
+		celdaOcupada?(n,ponerElem(c)) ≡ if n = celdaActual(c) then true else celdaOcupada?(n,c) fi
+		celdaOcupada?(n,sacarElem(c)) ≡ if n = celdaActual(c) then false else celdaOcupada?(n,c) fi
+		celdaOcupada?(n,←(c)) ≡ celdaOcupada?(n,c)
+		celdaOcupada?(n,→(c)) ≡ celdaOcupada?(n,c) 
+		
+		celdaActualOcupada?(c) ≡ celdaOcupada?(celdaActual(c),c)
+		#elem(c) ≡ cuentaOcupados(0,c)
+		cuentaOcupados(n,c) ≡ if n < #celdas(c) then if celdaOcupada?(n,c) then 1 + cuentaOcupados(n+1,c) else cuentaOcupados(n+1,c) fi else 0 fi 
+Fin TAD

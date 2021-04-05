@@ -1,0 +1,24 @@
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: /cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_c37fc/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_c37fc.dir/build.make CMakeFiles/cmTC_c37fc.dir/build
+gmake[1]: Entering directory 'D:/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles/CMakeTmp'
+gmake[1]: *** No rule to make target '/cygdrive/c/Users/victor/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/share/cmake-3.17.5/Modules/CMakeCCompilerABI.c', needed by 'CMakeFiles/cmTC_c37fc.dir/CMakeCCompilerABI.c.o'.  Stop.
+gmake[1]: Leaving directory 'D:/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:141: cmTC_c37fc/fast] Error 2
+
+
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: /cygdrive/d/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_ea326/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_ea326.dir/build.make CMakeFiles/cmTC_ea326.dir/build
+gmake[1]: Entering directory 'D:/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles/CMakeTmp'
+gmake[1]: *** No rule to make target '/cygdrive/c/Users/victor/AppData/Local/JetBrains/CLion2020.3/cygwin_cmake/share/cmake-3.17.5/Modules/CMakeCXXCompilerABI.cpp', needed by 'CMakeFiles/cmTC_ea326.dir/CMakeCXXCompilerABI.cpp.o'.  Stop.
+gmake[1]: Leaving directory 'D:/CLionProjects/Algo2/Mauro/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:141: cmTC_ea326/fast] Error 2
+
+
+
+
