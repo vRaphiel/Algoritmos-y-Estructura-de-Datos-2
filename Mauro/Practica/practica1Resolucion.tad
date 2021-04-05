@@ -146,29 +146,8 @@ NivelNormal? (a, k) ≡
 	fi			
 	
 // b
-//TODO
-#NodosHijos : at(α) -> Nat 
-#NodosHijos (a) ≡ 
-	if nil?(a) then
-		0
-	else
-		if ¬nil?(med(a)) then
-			1
-		else
-			0
-		fi +
-		if ¬nil?(izq(a)) then
-			1
-		else
-			0
-		fi +
-		if ¬nil?(der(a)) then
-			1
-		else
-			0
-		fi
-	fi
- 
+//Consultar
+
 Acotado? : at(α) × Int -> Bool   { k>=1 }
 Acotado (a, k) ≡ 
 		if nil?(a) then
@@ -180,3 +159,213 @@ Acotado (a, k) ≡
 				false
 			fi
 		fi										 																								 
+
+
+
+// 6
+// α
+ramaMasAlta : α × secu(rosetree(α)) -> rosetree(alpha) 
+ramaMasAlta(r, e • s) ≡ 
+	if vacia?(e • s) then
+		rosetree(r, <>)
+	else
+		if altura(e) > altura(ramaMasAlta(r, s))  then
+			e
+		else
+			ramaMasAlta(r, s)
+		fi
+	fi
+
+altura : rosetree(α) -> Nat 
+altura(rose(a, b)) ≡ 
+	if vacia?(b) then
+		1
+	else
+		1 + ramaMasAlta(r, b)
+	fi
+
+// b  preguntar si esta bien (mi idea)
+esHoja? : rosetree(α) -> bool
+esHoja? (rose(r, b)) ≡ vacia?(b)
+
+#CantHojas : rosetree(α) -> Nat 
+#CantHojas (rose(a, b)) ≡ if vacia?(b) then 
+													1 else 
+															if esHoja(prim(b)) then 1 + #CantHojas(rose(a, fin(b))) else #CantHojas(rose(a, fin(b))) fi 
+													fi
+											
+													
+// c preguntar si esta ok
+podar : rosetree(α) a-> rosetree(α)   {¬esHoja(a)}
+podar (rose(a, b)) ≡ 
+	if esHoja(prim(b)) then
+		podar(rose(a, fin(b)))
+	else
+		rose(a, prim(b) • podar(fin(b)))
+	fi
+	
+
+// d preguntar si esta ok
+ramasMenorOIgual : α n × rosetree(α) -> secu(secu(α))  {n >= 1}
+ramasMenorOIgual (n, rose(r, h)) ≡ 
+	if n = 1 then
+		<r>
+	else
+		if vacia?(h)) then
+			<r>
+		else
+			insertarATodos(r, ramasMenorOIgual(n - 1, h))
+		fi
+	fi
+	
+
+insertarATodos : α × secu(secu(α)) -> secu(α)
+insertarATodos (a, b) ≡ 
+	if vacia?(b) then
+		<>
+	else
+		(a • prim(b)) • insertarATodos(a, fin(b))
+	fi
+	
+	
+// e preguntar si esta ok
+elementosDelNivel : α n × rosetree(α) -> secu(α) {n >= 1}
+elementosDelNivel (n, rose(r, h)) ≡ nivelN(ramasMenorOIgual(n, rose(r, h)))
+
+nivelN : α n × secu(secu(α)) -> secu(α)  {n >= 1}
+nivelN (n, ramas) ≡ 
+	if vacia?(ramas) then
+		<>
+	else
+		if long(prim(ramas)) = n then
+			ult(prim(ramas)) • nivelN(n, fin(ramas))
+		else
+			nivelN(n, fin(ramas))
+		fi
+	fi
+	
+// f preguntar si esta ok
+ramasMasLargasConRepetidos : rosetree(α) -> conj(secu(α))
+ramasMasLargasConRepetidos (r) ≡ conjRamasConRepetidos(ramasDeNivelN(ramasMenorOIgual(altura(r), r)))
+
+ramasDeNivelN : α n × secu(secu(α)) -> secu(secu(α))  {n >= 1}
+ramasDeNivelN (n, ramas) ≡ 
+	if vacia?(ramas) then
+		<>
+	else
+		if long(prim(ramas)) = n then
+		 	prim(ramas) • ramasDeNivelN(n, fin(ramas))
+		else
+			ramasDeNivelN(n, fin(ramas))
+		fi
+	fi
+	
+conjRamasConRepetidos : secu(secu(α)) -> conj(secu(α))
+conjRamasConRepetidos (ramas) ≡ 
+	if vacia?(ramas) then
+		Ø
+	else
+		if tieneRepetidos(prim(ramas)) then
+			Ag(prim(ramas), conjRamasConRepetidos(fin(ramas)))
+		else
+			 conjRamasConRepetidos(fin(ramas))
+		fi
+	fi
+	
+tieneRepetidos : secu(α) -> Bool
+tieneRepetidos (x) ≡ 
+		if vacia?(x) then
+			false
+		else
+			if CantidadApariciones(prim(x), fin(x)) > 0 then
+				true
+			else
+				tieneRepetidos(fin(x))
+			fi
+		fi
+		
+
+
+// PARTE 2 
+//7
+TAD Polinomios
+	Axiomas:
+		Evaluar(Cte(const), n) ≡ const
+		Evaluar(X, n) ≡ n
+		Evaluar(a + b, n) ≡ Evaluar(a, n) + Evaluar(b, n)
+		Evaluar(a . b, n) ≡ Evaluar(a, n) . Evaluar(b, n)
+
+		esRaiz? : polinomio × nat -> Bool
+		esRaiz(p, n) ≡ 0 = Evaluar(p, n)
+Fin TAD
+
+//8 
+TAD ROBOT
+	Axiomas:
+	Trayectoria (Ubicar(c)) ≡ <c> 
+	Trayectoria (Arriba(r)) ≡ Trayectoria(r) • < π1(PosiciónActual(r) + 1), π2(PosiciónActual(r)) >
+	Trayectoria (Abajo(r)) ≡ Trayectoria(r) • < π1(PosiciónActual(r) - 1), π2(PosiciónActual(r)) >
+	Trayectoria (Derecha(r)) ≡ Trayectoria(r) • < π1(PosiciónActual(r)), π2(PosiciónActual(r) + 1) >
+	Trayectoria (Izquierda(r)) ≡ Trayectoria(r) • < π1(PosiciónActual(r)), π2(PosiciónActual(r) - 1) >
+
+	PosiciónActual : robot -> coordenada
+	PosiciónActual(r) ≡ ult(Trayectoria(r))
+
+	CuantasVecesPasó : coordenada × robot -> nat 
+	CuantasVecesPasó (c, r) ≡ CantidadApariciones(c, Trayectoria(r))
+
+	MásALaDerecha : robot -> coordenada
+	MásALaDerecha (r) ≡ 
+		if long(Trayectoria(r)) = 1 then
+			prim(Trayectoria(r))
+		else
+			if π2(prim(Trayectoria(r))) > π2(MásALaDerecha(fin(Trayectoria(r))))   then
+				prim(Trayectoria(r))
+			else
+				MásALaDerecha(fin(Trayectoria(r)))
+			fi
+		fi
+Fin TAD
+
+//9
+TAD ELECTROIMÁN
+	Axiomas:
+		Cinta(Arrancar(c)) ≡ c
+		Cinta(Prender(e)) ≡ if  then SacarElem(Cinta(e)) else Cinta(e) fi
+		Cinta(Apagar(e)) ≡ if imanCargado?(e) then PonerElem(Cinta(e)) else Cinta(e) fi 
+		Cinta(<-(e)) ≡ <-(Cinta(e))
+		Cinta(->(e)) ≡ ->(Cinta(e))
+		
+		ImánPrendido?(Arrancar(c)) ≡ true
+		ImánPrendido?(Prender(e)) ≡ true
+		ImánPrendido?(Apagar(e)) ≡ false
+		ImánPrendido?(<-(e)) ≡ ImánPrendido(e)
+		ImánPrendido?(->(e)) ≡ ImánPrendido(e)
+		
+		ImánCargado?(Arrancar(c)) ≡ false
+		ImánCargado?(Prender(e)) ≡ CeldaActualOcupada?(e)
+		ImánCargado?(Apagar(e)) ≡ false
+		ImánCargado?(<-(e)) ≡ ImánCargado(e) ∨ CeldaActualOcupada(<-(e))
+		ImánCargado?(->(e)) ≡ ImánCargado(e) ∨ CeldaActualOcupada(->(e))
+		
+		CeldaActualOcupada? (e) ≡ CeldaActualOcupada?(Cinta(e))
+		
+		#Giros<-(e) ≡ #Giros<-(Cinta(e))
+		#Giros->(e) ≡ #Giros->(Cinta(e))
+Fin TAD 
+
+TAD Cinta
+	Axiomas:
+		#Celdas(Arrancar(n)) ≡ n 
+		#Celdas(PonerElem(c)) ≡ #Celdas(c)
+		#Celdas(SacarElem(c)) ≡ #Celdas(c)
+		#Celdas(<-(c)) ≡ #Celdas(c)
+		#Celdas(->(c)) ≡ #Celdas(c)
+		
+		CeldaOcupada?(n, Arrancar(n)) ≡ CeldaOcupada?(n, Arrancar(n))
+		CeldaOcupada?(n, PonerElem(c)) ≡ CeldaActual = n ∨ CeldaOcupada(n, )
+		CeldaOcupada?(n, PonerElem(c)) ≡ CeldaActual = n
+Fin TAD
+
+
+	
