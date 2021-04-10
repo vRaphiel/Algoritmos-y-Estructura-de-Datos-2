@@ -1,0 +1,10 @@
+C:\Users\digbang\AppData\Local\JetBrains\CLion2021.1\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_definicion_clases"
+-- The CXX compiler identification is GNU 10.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_definicion_clases/cmake-build-debug

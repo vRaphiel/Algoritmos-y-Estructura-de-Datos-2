@@ -1,0 +1,91 @@
+TAD Persona es Nat
+
+TAD Cancha
+	Igualdad Observacional:();
+	Géneros: cancha
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		tamaño:	cancha -> nat
+		personasEnCancha: cancha -> conj(Persona)
+	Generadores:
+		crearCancha: nat -> club
+		AgregarPersonas: cancha × conj(Personas) -> cancha 
+	Otras Operaciones:
+		llena?:	cancha -> bool
+		estaJugandoXPersona?: cancha × persona -> bool
+	Axiomas:
+		tamaño(crearCancha(t), c1) ≡ t
+		tamaño(AgregarPersonas(cancha, persona)) ≡ tamaño(cancha2) 
+		
+		personasEnCancha(crearCancha(t)) ≡ Ø
+		personasEnCancha(AgregarPersonas(cancha, personas)) ≡ personas
+		
+		llena?(cancha) ≡ tamaño(cancha) = #personasEnCancha(cancha)
+		
+		estaJugandoXPersona(cancha, persona) ≡ persona ∈ personasEnCancha(cancha)
+Fin TAD
+
+TAD CaballitoFutbol
+	Igualdad Observacional:();
+	Géneros: club
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat, Conj
+	
+	Observadores Básicos:
+		canchas:	club -> conj(cancha)
+		salaEspera: club -> conj(Persona)  
+		partidosTerminados: cancha -> secu(conj(Personas))
+	Generadores:
+		crearClub:	conj(cancha) -> club
+		llegaPersonaAlClub: club × Persona -> club
+		terminarPartido: club × cancha -> club
+	Otras Operaciones:
+		personaQueMasAsistioAPartidos:	club -> Persona   
+		canchasVacias: club -> conj(cancha)
+		generarNuevosPartidos: club -> tupla<conj(cancha), conj(persona)>
+	Axiomas:
+		modificarCancha(club, canchas, canchaAModificar, nuevasPersonas) ≡ 
+			Ag(AgregarPersonas(crearCancha(tamaño(canchaAModificar)), nuevasPersonas, (canchas -	canchaAModificar))
+	
+		dameN(n, conjunto) ≡ if (Ø?(conjunto) ∨ n=0) then Ø else Ag(dameUno(conjunto), dameN(n-1, sinUno(conjunto))) fi
+		sinN(n, conjunto) ≡ if (Ø?(conjunto) ∨ n=0) then Ø else sinN(n-1, sinUno(conjunto))) fi
+
+		canchas(crearClub(canchas)) ≡ canchas
+		canchas(llegaPersonaAlClub(club, persona)) ≡ 
+			if Ø(canchasVacias(club)) then
+				canchas(club)
+			else
+				if #salaEspera(club)=10 then
+					modificarCancha(club, canchas(club), dameUno(canchasVacias), dameN(10, salaEspera(club)))  //genera nuevamente todas las canchas pero le agrega las personas de la sala de espera a una de las canchas vacias
+				else
+					canchas(club)
+				fi
+			fi
+		canchas(terminarPartido(club, cancha)) ≡ 
+			if #salaEspera(club) >= tamaño(cancha) then
+				modificarCancha(club, canchas(club), cancha, dameN(10, salaEspera(club)))
+			else
+				modificarCancha(club, canchas(club), cancha, Ø)
+			fi
+
+		salaEspera(crearClub(canchas), club) ≡ Ø
+		salaEspera(llegaPersonaAlClub(club, persona)) ≡ 
+			if Ø?(canchasVacias(club)) then
+				Ag(persona, salaEspera(club))
+			else
+				if #salaEspera(club) = 9 then
+					Ø
+				else
+					Ag(persona, salaEspera(club))
+				fi
+			fi
+		salaEspera(terminarPartido(club, cancha)) ≡ 
+			if #salaEspera(club) >= 10 then
+				sinN(10, salaEspera(club))
+			else
+				salaEspera(club)
+			fi
+			
+Fin TAD
