@@ -368,4 +368,102 @@ TAD Cinta
 Fin TAD
 
 
+//10
+TAD persona ES Nat
+
+TAD Fila
+	Igualdad Observacional:();
+	Géneros: fila
+	Exporta: AbrirVentanilla, Llegar, Atender, Esperando, Vacía, Posición, Longitud
+	Usa: Bool, Nat, Cola, persona
+	
+	Observadores Básicos:
+		cola: fila -> cola(persona)
+		colados: fila -> cola(persona)
+		retirados: fila -> cola(persona)
+	Generadores:
+		AbrirVentanilla:  -> fila
+		Llegar: persona p × fila f -> fila     {¬Espeando(p,f)}
+		Atender: fila f -> fila    {¬Vacía(f)}
+		Retirarse: persona p × fila f -> fila   {Esperando(p,f)}}
+		ColarseAdelanteDe: persona p × persona q × fila f -> fila       {¬Esperando(p,f) ∧ Esperando(q,f)}
+	Otras Operaciones:
+		Esperando:	persona × fila -> Bool
+		Vacía: fila -> Bool
+		estáEnLaCola?: persona × cola -> Bool
+		Posición: persona p × fila f -> nat     {Esperando(p,f)}
+		buscarPosición: persona × cola × nat -> nat
+		Longitud: fila -> nat
+		seColó?: persona p × fila f -> Bool    {Esperando(p,f)} 
+		regenerarColaRetirado: persona × cola × cola -> cola
+		regenerarColaColado: persona × persona × cola × cola -> cola
+	Axiomas:
+		cola(AbrirVentanilla())	≡ vacía()
+		cola(Llegar(persona, f)) ≡ encolar(persona, cola(f))
+		cola(Atender(f)) ≡ desencolar(cola(f))
+		cola(Retirarse(p, f)) ≡ regenerarColaRetirado(p, cola(f), vacía())
+		cola(ColarseAdelanteDe(p, q, f)) ≡ regenerarColaColado(p, q, cola(f), vacía())
+
+		colados(AbrirVentanilla())	≡ vacía()
+		colados(Llegar(persona, f)) ≡ colados(f)
+		colados(Atender(f)) ≡ colados(f)
+		colados(Retirarse(p, f)) ≡ colados(f)
+		colados(ColarseAdelanteDe(p, q, f)) ≡ encolar(p, colados(f))
+		
+		retirados(AbrirVentanilla())	≡ vacía()
+		retirados(Llegar(persona, f)) ≡ retirados(f)
+		retirados(Atender(f)) ≡ retirados(f)
+		retirados(Retirarse(p, f)) ≡ encolar(p, retirados(f)) 
+		retirados(ColarseAdelanteDe(p, q, f)) ≡ retirados(f)
+
+		regenerarColaRetirado(p, cola, colaRegenerada) ≡
+				if vacía?(cola) then
+					colaRegenerada
+				else
+					if proximo(cola) = p then
+						regenerarColaRetirado(p, desencolar(cola), colaRegenerada)
+					else
+						regenerarColaRetirado(p, desencolar(cola), encolar(desencolar(cola), colaRegenerada))
+					fi
+				fi
+		
+		regenerarColaColado(p, q, cola, colaRegenerada) ≡
+				if vacía?(cola) then
+					colaRegenerada
+				else
+					if proximo(cola) = q then
+						regenerarColaRetirado(p, desencolar(cola), encolar(q, encolar(p, colaRegenerada)))
+					else
+						regenerarColaRetirado(p, desencolar(cola), encolar(desencolar(cola), colaRegenerada))						
+					fi
+				fi
+			
+		Esperando(p, f) ≡ estaEnLaCola(p, cola(f))
+			
+		estáEnLaCola?(p, cola) ≡ 
+			if vacía?(cola) then
+				false
+			else
+				if próximo(cola) = p then
+					true
+				else
+					esperandoAux(p, desencolar(cola))
+				fi
+			fi
+			
+			Vacía(f) ≡ vacía?(cola(f))
+			
+			Longitud(f) ≡ tamaño(cola(f))
+			
+			Posición(p, f) ≡ buscarPosición(p, cola(f), 1)
+			
+			buscarPosición(p, cola, posicionFila) ≡
+				if próximo(cola) = p then
+					posicionFila
+				else
+					buscarPosición(p, desencolar(cola), posicionFila + 1)
+				fi
+				
+			seColó?(p, f) ≡ estaEnLaCola?(p, colados(f))
+Fin TAD
 	
