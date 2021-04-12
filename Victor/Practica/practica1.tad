@@ -370,3 +370,6 @@ TAD Cinta
 		#elem(c) ≡ cuentaOcupados(0,c)
 		cuentaOcupados(n,c) ≡ if n < #celdas(c) then if celdaOcupada?(n,c) then 1 + cuentaOcupados(n+1,c) else cuentaOcupados(n+1,c) fi else 0 fi 
 Fin TAD
+
+// Ejercicio 10
+// a)

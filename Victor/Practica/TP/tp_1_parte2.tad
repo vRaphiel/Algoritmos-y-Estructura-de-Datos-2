@@ -1,0 +1,254 @@
+// Que no se asuste (se queda inmovil) porque pierde
+// Se puede mover arriba, abajo, derecha, izquierda de a un casillero por vez
+// Las partidas comienzan con el mapa definido, mapa ≡ grilla finita de dos dimensiones
+// Cada casillero puede ser una pared o un espacio vacio. Se asignan dos casilleros especiales al principio un inicio y un fin.
+//Asignar casilleros fantasma que no se mueven
+// El jugador solo se puede mover en espacios vacios
+// Solo se puede mover si no gano o no perdio la partida 
+// Se asusta a menos de 3 casilleros de distancia
+
+TAD Coordenada es tupla(nat, nat)  //devuelve (x, y)
+TAD Dirección es string
+
+TAD Mapa
+	Igualdad Observacional: 
+	Generos: mapa
+	Exporta: ....
+	Usa: ...
+	
+	Observadores Basicos:
+		casilleros:	mapa -> tupla(nat, nat)  //devuelve en la primera posicion el tamaño en x y en la segunda el tamaño en y
+		fantasmas : mapa m-> conj(Coordenada)       
+								{paredes(m) ∩ fantasmas(m) = Ø}
+		paredes : mapa m -> conj(Coordenada)
+		            {paredes(m) ∩ fantasmas(m) = Ø}
+		barrasDeChocolate	: mapa m -> conj(Coordenada)			            
+								{barrasDeChocolate(m) ∩ (paredes(m) ∪ fantasmas(m)) = Ø}
+		puntoInicio : mapa m -> Coordenada
+								{¬(puntoInicio ∈ (paredes(m) ∪ fantasmas(m)))}
+		puntoLlegada : mapa m -> Coordenada
+								{¬(puntoLlegada ∈ (paredes(m) ∪ fantasmas(m)))}
+	Generadores:
+		crearMapa: nat tamañoX × nat tamañoY × Coordenada posInicio × Coordenada posFin -> mapa
+										{¬(posFin=posInicio) ∧ tamañoX > 0 ∧ tamañoY > 0
+										∧ 
+										0 ≤ π1(posInicio) < tamañoX ∧  0 ≤ π2(posInicio) < tamañoY  
+										∧
+										0 ≤ π1(posFin) < tamañoX ∧ 0 ≤ π2(posFin) < tamañoY  
+										}
+		AgregarPared: mapa m × Coordenada posPared -> mapa   {posPared ∈ coordenasDelMapa(m) ∧ ¬(posPared ∈ fantasmas(m)) ∧  ¬(posPared ∈ barrasDeChocolate(m)) ∧ ¬(posPared=puntoInicio(m)) ∧ ¬(posPared=puntoLlegada(m))}				
+		AgregarFantasma: mapa m × Coordenada posFantasma -> mapa     {posFantasma ∈ coordenasDelMapa(m) ∧ ¬(posFantasma ∈ paredes(m)) ∧ ¬(posFantasma ∈ barrasDeChocolate(m)) ∧ ¬(posFantasma=puntoInicio(m)) ∧ ¬(posFantasma=puntoLlegada(m))}	
+		AgregarBarraDeChocolate: mapa × Coordenada posBarraChocolate ->  mapa  {posBarraChocolate ∈ coordenasDelMapa(m) ∧ ¬(posBarraChocolate ∈ paredes(m)) ∧ ¬(posBarraChocolate ∈ fantasmas(m))}	
+	Otras Operaciones:
+		coordenasDelMapa: mapa -> conj(Coordenada)
+		esCoordenadaValidaParaAvanzar?: mapa × Coordenada -> Bool
+		posiblesCombinaciones : nat × nat -> conj(Coordenada)
+		espaciosVacios: mapa m-> conj(Coordenada) 
+								{paredes(m) ∩ fantasmas(m) ∧ espaciosVacios(m) = Ø}
+		generarEspaciosVacios: conj(Coordenada) × conj(Coordenada) × conj(Coordenada) -> conj(Coordenada) 					
+	Axiomas:
+
+		paredes(crearMapa(tX, tY, pI, pL)) ≡ Ø
+		paredes(AgregarPared(m, pos)) ≡ Ag(pos, paredes(m))
+		paredes(AgregarFantasma(m, pos)) ≡ paredes(m)
+		paredes(AgregarBarraDeChocolate(m, pos)) ≡ paredes(m)
+
+		puntoInicio(crearMapa(tX, tY, pI, pL)) ≡  pI
+		puntoInicio(AgregarPared(m, pos)) ≡ puntoInicio(m)
+		puntoInicio(AgregarFantasma(m, pos)) ≡ puntoInicio(m) 
+		puntoInicio(AgregarBarraDeChocolate(m, pos)) ≡ puntoInicio(m)
+
+		puntoLlegada(crearMapa(tX, tY, pI, pL)) ≡  pL
+		puntoLlegada(AgregarPared(m, pos)) ≡ puntoLlegada(m)
+		puntoLlegada(AgregarFantasma(m, pos)) ≡ puntoLlegada(m) 
+		puntoLlegada(AgregarBarraDeChocolate(m, pos)) ≡ puntoLlegada(m) 
+
+		coordenasDelMapa(m) ≡ posiblesCombinaciones(π1(casilleros(m)), π2(casilleros(m)))
+		
+		posiblesCombinaciones(x, y) ≡ 
+			if x = 0 ∧ y = 0 then           //MODIFICAR CUANDO SE MODIFIQUE PARTE 1
+				Ø
+			else
+				if x = 0 then
+					Ag(<x,y>, posiblesCombinaciones(x, y-1))
+				else
+					Ag(<x,y>, posiblesCombinaciones(x-1, y))
+				fi
+			fi
+			
+		esCoordenadaValidaParaAvanzar?(m, coordenada) ≡ (coordenada ∈ coordenasDelMapa(m)) ∧ ¬(coordenada ∈ paredes(m))
+		
+		espaciosVacios(m) ≡ generarEspaciosVacios(coordenasDelMapa(m), paredes(m), fantasmas(m)) 
+
+		generarEspaciosVacios(coordenadasDelMapa, paredes, fantasmas) ≡ 
+			if Ø?(paredes) ∧ Ø?(fantasmas) then
+				coordenadasDelMapa
+			else
+				if Ø?(paredes) then
+					generarEspaciosVacios(coordenasDelMapa - dameUno(fantasmas), paredes, sinUno(fantasmas))
+				else
+					if Ø?(fantasmas) then
+						generarEspaciosVacios(coordenasDelMapa - dameUno(paredes), sinUno(paredes), fantasmas)
+					else
+						generarEspaciosVacios((coordenasDelMapa - dameUno(paredes)) - dameUno(fantasmas), sinUno(paredes), sinUno(fantasmas))
+					fi
+				fi
+			fi
+Fin TAD
+
+TAD Partida
+	Igualdad Observacional: ....
+	Generos: partida
+	Exporta: ....
+	Usa: ...
+	
+	Observadores Basicos:
+		movimientos: partida -> secu(Coordenada)
+		mapa: partida -> mapa
+		barrasDeChocolateComidas: partida -> conj(Coordenada)
+	Generadores:
+		nuevaPartida:	mapa -> partida
+		moverse: partida × mapa × Dirección d -> partida  {d='ARRIBA' ∨ d='ABAJO' ∨ d='DERECHA' ∨ d='IZQUIERDA'}
+	Otras Operaciones:
+		perdio? : partida -> Bool	
+		gano? : partida -> Bool	
+		partidaTerminada?: partida -> Bool
+		fantasmaMasCercano: partida -> Coordenada
+		calcularDistancia: Coordenada × Coordenada -> Nat
+		puedeMoverse?: partida -> Bool    //agregar en parte 
+		esSiguienteCoordenadaChocolate? : partida -> Bool
+		buscarFantasmaMasCercano: Coordenada × conj(Coordenada) × Coordenada -> Coordenada 
+		posActual: partida -> Coordenada
+		siguienteCoordenada: partida -> secu(Coordenada)
+		puntajeDeLaPartida: partida p -> Nat      {posActual(p) = puntoLlegada(mapa(p))}
+		movimientosDeInmunidadDisponibles: partida -> Nat
+	Axiomas:
+		movimientos(nuevaPartida(m)) ≡ <puntoInicio(m)>
+		movimientos(moverse(p, m, d)) ≡ 
+			if ¬partidaTerminada?(p) then
+					movimientos(p) & siguienteCoordenada(p)
+			else
+				movimientos(p)
+			fi	
+		
+		siguienteCoordenada(p) ≡ 
+			if d='ARRIBA' ∧ esCoordenadaValidaParaAvanzar?((π1(ult(movimientos(mapa(p)))), π2(ult(movimientos(mapa(p)))) + 1)) then
+				<(π1(ult(movimientos(mapa(p)))), π2(ult(movimientos(mapa(p)))) + 1)>
+			else
+				if d='ABAJO' ∧ esCoordenadaValidaParaAvanzar?((π1(ult(movimientos(mapa(p)))), π2(ult(movimientos(mapa(p)))) - 1)) then
+					<(π1(ult(movimientos(mapa(p)))), π2(ult(movimientos(mapa(p)))) - 1)>
+				else
+					if d='DERECHA' ∧ esCoordenadaValidaParaAvanzar?((π1(ult(movimientos(mapa(p)))) + 1, π2(ult(movimientos(mapa(p)))))) then
+						<(π1(ult(movimientos(mapa(p)))) + 1, π2(ult(movimientos(mapa(p)))))>
+					else
+						if d='IZQUIERDA' ∧ esCoordenadaValidaParaAvanzar((π1(ult(movimientos(m))) - 1, π2(ult(movimientos(m))))) then
+							<(π1(ult(movimientos(mapa(p)))) - 1, π2(ult(movimientos(mapa(p)))))>
+						else
+							<>
+						fi
+					fi
+				fi
+			fi
+			
+			puedeMoverse?(p) ≡ ¬partidaTerminada?(p)
+			
+			esSiguienteCoordenadaChocolate?(p) ≡ ¬vacía?(siguienteCoordenada(p)) ∧L (prim(siguienteCoordenada(p)) ∈ barrasDeChocolate(mapa(p)))
+		
+			barrasDeChocolateComidas(nuevaPartida(m)) ≡ if puntoInicio ∈ barrasDeChocolate(m) then Ag(puntoInicio, Ø) else Ø fi
+			barrasDeChocolateComidas(moverse(p, m, d)) ≡ 
+				if puedeMoverse?(p) ∧ esSiguienteCoordenadaChocolate?(p) then
+					Ag(prim(siguienteCoordenada(p)), barrasDeChocolateComidas(p)) 
+				else
+					barrasDeChocolateComidas(p)
+				fi	
+		
+		// utilizo los generadores para axiomatizar porque recorriendo todos los movimientos y todos los observadores del mapa podria conseguir la cantidad de inmunidad movimientosDeInmunidadDisponibles
+		// esto me asegura que no rompo la congruencia
+		movimientosDeInmunidadDisponibles(nuevaPartida(m)) ≡ if puntoInicio ∈ barrasDeChocolate(m) then 10 else 0 fi
+		movimientosDeInmunidadDisponibles(moverse(p, m, d)) ≡ 
+				if puedeMoverse?(p) then
+					// no se movio porque la coordenada a la que quiso moverse es invalida
+					if vacia?(siguienteCoordenada(p)) then
+						movimientosDeInmunidadDisponibles(p)
+					else
+						// se mueve y come chocolate
+						if prim(siguienteCoordenada(p)) ∈ barrasDeChocolate(mapa(p)) then
+							10
+						else
+							// se mueve y no come chocolate
+							if movimientosDeInmunidadDisponibles(p) > 0 then movimientosDeInmunidadDisponibles(p) - 1 else 0 fi
+						fi
+					fi	
+				else
+					// no se mueve porque la partida esta terminada
+					movimientosDeInmunidadDisponibles(p)
+				fi	
+		
+		mapa(nuevaPartida(m)) ≡ m
+		mapa(moverse(p, m, d)) ≡ 
+			if puedeMoverse?(p) ∧ esSiguienteCoordenadaChocolate?(p) then
+				agregarTodosLosFantasmas(
+					agregarTodasLasParedes(
+						agregarTodosLosChocolates(crearMapa( π1(dimension(mapa(p))), π2(dimension(mapa(p))), puntoInicio(mapa(p)), puntoLlegada(mapa(p)) , barrasDeChocolate(mapa(p)) , barrasDeChocolateComidas(p)) 
+					,paredes(mapa(p)))
+				, 
+				fantasmas(mapa(p))
+				)
+			else
+				mapa(p)
+			fi
+			
+		agregarTodosLosFantasmas(mapa, fantasmas) ≡
+			if Ø?(fantasmas) then
+				mapa
+			else
+				agregarTodosLosFantasmas(AgregarFantasma(mapa, dameUno(fantasmas)), sinUno(fantasmas))
+			fi
+			
+		agregarTodasLasParedes(mapa, paredes) ≡
+			if Ø?(paredes) then
+				mapa
+			else
+				agregarTodasLasParedes(AgregarPared(mapa, dameUno(paredes)), sinUno(paredes))
+			fi	
+		
+		agregarTodosLosChocolates(mapa, chocolates, chocolatesComidos) ≡
+			if Ø?(chocolates) then
+				mapa
+			else
+				if dameUno(chocolates) ∈ chocolatesComidos then
+					agregarTodosLosChocolates(mapa, sinUno(chocolates), chocolatesComidos)
+				else
+					agregarTodosLosChocolates(AgregarBarraDeChocolate(mapa, dameUno(chocolate)), sinUno(chocolates), chocolatesComidos)
+				fi
+			fi	
+		
+		posActual(p) ≡ ult(movimientos)
+				 
+		perdio?(p) ≡ movimientosDeInmunidadDisponibles(p)=0 ∧ calcularDistancia(fantasmaMasCercano(p), posActual(p)) < 3	 
+		
+		gano?(p) ≡ posActual(p) = puntoLlegada(mapa(p))
+		
+		partidaTerminada?(p) ≡ perdio?(p) ∨ gano?(p)
+
+		// no evaluo el caso en el que el conjunto de fantasmas sea vacio, porque se asume en el enunciado que se deben colocar fantasmas en el mapa
+	  fantasmaMasCercano(p) ≡ buscarFantasmaMasCercano(posActual(p), sinUno(fantasmas(mapa(p))), dameUno(fantasmas(mapa(p))) )
+	 		
+		calcularDistancia(coordenada1, coordenada2) ≡ 
+		 	(max(π1(coordenada1), π1(coordenada2)) - min(π1(coordenada1), π1(coordenada2))) +
+			(max(π2(coordenada1), π2(coordenada2)) - min(π2(coordenada1), π1(coordenada2)))
+			
+		buscarFantasmaMasCercano(posActual, fantasmas, masCercano) ≡
+			if Ø?(fantasmas) then
+				masCercano
+			else
+				if calcularDistancia(posActual, dameUno(fantasmas)) < calcularDistancia(posActual, masCercano) then
+					buscarFantasmaMasCercano(posActual, sinUno(fantasmas), dameUno(fantasmas))
+				else
+					buscarFantasmaMasCercano(posActual, sinUno(fantasmas), masCercano)
+				fi
+			fi
+			
+		// descuento el primer movimiento que es la posicion Inicial
+		puntajeDeLaPartida(p) ≡ long(movimientos(p)) - 1
+Fin TAD
