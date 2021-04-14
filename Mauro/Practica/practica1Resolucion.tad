@@ -466,4 +466,252 @@ TAD Fila
 				
 			seColó?(p, f) ≡ estaEnLaCola?(p, colados(f))
 Fin TAD
+
+//17
+TAD Auto ES String
+TAD Tarifa ES Nat
+TAD Cabina ES Nat
+
+TAD PDZ
+	Igualdad Observacional:();
+	Géneros: peaje
+	Exporta: observadores básicos, Generadores, facturado, cabinasPorLasQuePasaronMasDeUnTipo
+	Usa: Bool, Nat, Dicc, Conj, Secu
+	
+	Observadores Básicos:
+	 	cabinas: peaje -> conj(Cabina)
+		listadoTarifas: peaje -> dicc(auto, tarifa)
+		limiteVehiculosEnFila: peaje -> Nat 
+		filaCabina: peaje p × Cabina c-> secu(auto)    {c ∈ cabinas(p)}
+		pagaron: peaje × Cabina c -> secu(auto)  {c ∈ cabinas(p)}
+		pasaronSinPagar: peaje × Cabina c -> secu(auto)    {c ∈ cabinas(p)}
+	Generadores:
+		CrearPeaje:	conj(Cabina) cabinas × dicc(auto, tarifa) × nat -> peaje   {#cabinas > 0}
+		LlegaAuto: peaje p × auto × Cabina c -> peaje    {c ∈ cabinas(p), auto ∈ claves(listadoTarifas(p))}
+		Pagar: peaje p × Cabina c -> peaje    {c ∈ cabinas(p) ∧ ¬vacía?(filaCabina(peaje, c))}
+	Otras Operaciones:
+		facturado:	peaje p × cabina c -> Nat  {c ∈ cabinas(p)}
+		cabinasPorLasQuePasaronMasDeUnTipo: peaje × auto -> conj(cabina)
+		cabinasPorLasQuePasaronMasDeUnTipoAux: peaje × conj(cabina) × auto × conj(cabina)            (peaje, cabinas, tipo, resultante) ≡ 
+		calcularFacturadoAux: peaje × secu(auto) × conj(auto) -> Nat
+		cantidadDeUnTipo: secu(auto) × auto -> Nat
+		primeraMitad: secu(α) -> secu(α)
+		segundaMitad: secu(α) -> secu(α)
+	Axiomas:
+		cabinas(CrearPeaje(cabinas, listadoTarifas, limiteAutosEnFila))	≡ cabinas
+		cabinas(LlegaAuto(peaje, auto, cabina))	≡ cabinas(peaje)
+		cabinas(Pagar(peaje, cabina))	≡ cabinas(peaje)
+		
+		listadoTarifas(CrearPeaje(cabinas, listadoTarifas, limiteAutosEnFila))	≡ listadoTarifas
+		listadoTarifas(LlegaAuto(peaje, auto, cabina))	≡ listadoTarifas(peaje)
+		listadoTarifas(Pagar(peaje, cabina))	≡ listadoTarifas(peaje)
+		
+		limiteVehiculosEnFila(CrearPeaje(cabinas, listadoTarifas, limiteAutosEnFila))	≡ limiteVehiculosEnFila
+		limiteVehiculosEnFila(LlegaAuto(peaje, auto, cabina))	≡ limiteVehiculosEnFila(peaje)
+		limiteVehiculosEnFila(Pagar(peaje, cabina))	≡ limiteVehiculosEnFila(peaje)
+		
+		filaCabina(CrearPeaje(cabinas, listadoTarifas, limiteAutosEnFila), c)	≡ <>
+		filaCabina(LlegaAuto(peaje, auto, cabina1), cabina2)	≡ 
+			if cabina1 = cabina2 then
+				if filaCabina(peaje, cabina1) < (limiteAutosEnFila - 1) then
+					filaCabina(cabina2) ◦ auto
+				else
+					segundaMitad(filaCabina(cabina2) ◦ auto)
+				fi
+			else
+				if filaCabina(peaje, cabina1) < (limiteAutosEnFila - 1) then
+				 	filaCabina(cabina2) 
+				else
+					segundaMitad(filaCabina(cabina2))
+				fi
+			fi
+		filaCabina(Pagar(peaje, cabina1), cabina2)	≡ 
+			if cabina1 = cabina2 ∧ ¬vacía?(filaCabina(cabina2)) then
+				fin(filaCabina(cabina1))
+			else
+				filaCabina(cabina2)
+			fi
+			
+		pagaron(CrearPeaje(cabinas, listadoTarifas, limiteAutosEnFila), cabina2)	≡ <>
+		pagaron(LlegaAuto(peaje, auto, cabina1), cabina2)	≡ pagaron(peaje, cabina2)
+		pagaron(Pagar(peaje, cabina1), cabina2)	≡ 
+			if cabina1 = cabina2 then
+				pagaron(peaje, cabina2) ◦ prim(filaCabina(peaje, cabina2))
+			else
+				pagaron(peaje, cabina2)
+			fi
+			
+		pasaronSinPagar(CrearPeaje(cabinas, listadoTarifas, limiteAutosEnFila), cabina2)	≡ <>
+		pasaronSinPagar(LlegaAuto(peaje, auto, cabina1), cabina2)	≡
+			if filaCabina(peaje, cabina1) < (limiteAutosEnFila - 1) then
+				pasaronSinPagar(cabina2)
+			else
+				pasaronSinPagar(cabina2) && primeraMitad(filaCabina(peaje, cabina2))
+			fi
+		pasaronSinPagar(Pagar(peaje, cabina1), cabina2)	≡ pasaronSinPagar(peaje, cabina2)
+
+		segundaMitad(secuencia) ≡ //funcion que da la ultima mitad de una secuencia
+		primeraMitad(secuencia) ≡ //funcion que da la primera mitad de una secuencia
+		
+		facturado(peaje, cabina) ≡ calcularFacturadoAux(peaje, pagaron(peaje, cabina), claves(listadoTarifas(peajes)))
+			
+		calcularFacturadoAux(peaje, pagaron, tipos) ≡
+			if Ø?(tipos) then
+				0
+			else
+				(obtener(dameUno(tipos), listadoTarifas(peaje)) * cantidadDeUnTipo(pagaron, dameUno(tipos))) + calcularFacturadoAux(peaje, pagaron, sinUno(tipos))
+			fi
+				
+		cantidadDeUnTipo(secuenciaAutos, auto) ≡
+			if vacía?(secuenciaAutos) then
+				0
+			else
+				if prim(secuenciaAutos) = auto then
+					1 + cantidadDeUnTipo(fin(secuenciaAutos, auto))
+				else
+					cantidadDeUnTipo(fin(secuenciaAutos, auto))
+				fi
+			fi.
+			
+		cabinasPorLasQuePasaronMasDeUnTipo(peaje, tipo) ≡ cabinasPorLasQuePasaronMasDeUnTipoAux(peaje, sinUno((cabinas(peaje)), tipo, Ag(dameUno(cabinas), Ø))
+		
+		cabinasPorLasQuePasaronMasDeUnTipoAux(peaje, cabinas, tipo, resultante) ≡ 
+			if Ø?(cabinas) then
+				resultante
+			else
+				if cantidadDeUnTipo(pagaron(peaje, dameUno(cabinas)) && pasaronSinPagar(peaje, dameUno(cabinas)), tipo) = cantidadDeUnTipo(pagaron(peaje, prim(resultante)) && pasaronSinPagar(peaje, prim(resultante)), tipo)  then
+					cabinasPorLasQuePasaronMasDeUnTipoAux(peaje, sinUno(cabinas), tipo, Ag(dameUno(cabinas), resultante))
+				else
+					if cantidadDeUnTipo(pagaron(peaje, dameUno(cabinas)) && pasaronSinPagar(peaje, dameUno(cabinas)), tipo) > cantidadDeUnTipo(pagaron(peaje, prim(resultante)) && pasaronSinPagar(peaje, prim(resultante)), tipo) then
+						cabinasPorLasQuePasaronMasDeUnTipoAux(peaje, sinUno(cabinas), tipo, Ag(dameUno(cabinas), Ø))
+					else
+						cabinasPorLasQuePasaronMasDeUnTipoAux(peaje, sinUno(cabinas), tipo, resultante)
+					fi
+				fi
+			fi
+Fin TAD
+
+//18
+TAD Participante ES Nat
+
+TAD RedAntisocial
+	Igualdad Observacional:();
+	Géneros: red
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat, Conj
+	
+	Observadores Básicos:
+		participantes: red -> Conj(participante)	    // estos son los participantes activos
+		seguidores: red r × participante p -> Conj(participante)    {p ∈ participantes(r)}
+		expulsados: red × Conj(participante)
+	Generadores:
+		CrearRed:	participante	-> red 
+		AgregarParticipante: red r × participante convocante × participante convocado -> red   
+		             {estaEnLaRed?(r, convocante) ∧ ¬estaEnLaRed?(r, convocado) ∧ ¬(convocado ∈ expulsados(red))}
+		EnjuiciarParticipante: red r × participante p -> red      {(#participantes(r) > 3) ∧ (p ∈ participantes(r))}
+		AbsolverEnjuiciado: red r × participante p -> red    {p ∈ expulsados(r)}
+	Otras Operaciones:
+		estaEnLaRed?:	red × participante	-> bool 
+		#seguidoresDeParticipante: red r × participante p -> Nat   {p ∈ seguidores(r, p)} 
+		generarUnTribunal: conj(participante) -> conj(participante)  // devuelve 3 miembros 
+		todosLosDescendientes: red × conj(participante) -> conj(participante)  // devuelve todos los descendientes de todos los participantes
+		descendientes: red r × participante p -> conj(participante) {p ∈ participantes(r)}// devuelve todos los descendientes de p
+		eliminarRepetidos: conj(participante) × conj(participante) -> conj(participante)   // elimina del conjA los que estan en el conjB
+		desciende: red r × participante p1 × participante p2 -> Bool   {p1 ∈ participantes(r) ∧ p2 ∈ participantes(r)} 		// se fija si p1 desciende de p2 
+		debenExpulsarAlParticipante: red r × participante p -> Bool {p ∈ participantes(r)}
+		eliminarItem: secu(α) × α -> secu(α)
+	Axiomas:
+		participantes(CrearRed(lider)) ≡ Ag(lider, Ø)
+		participantes(AgregarParticipante(red, convocante, convocado)) ≡ Ag(convocado, participantes(red))
+		participantes(EnjuiciarParticipante(red, participante)) ≡ 
+			// verifico si mas de la mitad del tribunal desciende del participante enjuiciado
+			if !debenExpulsarAlParticipante(red, participante)
+			then
+				participantes(red)
+			else
+				eliminarRepetidos(participantes(red), descendientes(red, participante))
+			fi
+		participantes(AbsolverEnjuiciado(red, participante)) ≡ participantes(red)
+
+		seguidores(CrearRed(lider), p1) ≡ <>  // asumo que p1 es igual a lider porque solo hay un participante al crear la RedAntisocial
+		seguidores(AgregarParticipante(red, convocante, convocado), p2) ≡
+			if convocante = p1 then
+				seguidores(p2) ◦ convocado
+			else
+				seguidores(p2)
+			fi
+		seguidores(EnjuiciarParticipante(red, participante), p2) ≡ seguidores(p2)   // QUE HACER ACA? PORQUE ESTE PARTICIPANTE SE VA A BORRAR EN CASO DE SER EXPULSADO
+		seguidores(AbsolverEnjuiciado(red, participante), p2) ≡ seguidores(p2) 
+		
+		expulsados(CrearRed(lider)) ≡ <>
+		expulsados(AgregarParticipante(red, convocante, convocado)) ≡ expulsados(red)
+		expulsados(EnjuiciarParticipante(red, participante)) ≡ 
+			// verifico si mas de la mitad del tribunal desciende del participante enjuiciado
+			if !debenExpulsarAlParticipante(red, participante)
+			then
+				expulsados(red)
+			else
+				expulsados(red) ◦ participante
+			fi
+		expulsados(AbsolverEnjuiciado(red, participante)) ≡ eliminarItem(expulsados(red), participante, <>)
+		
+		eliminarItem(secuencia, item, resultado) ≡
+			if vacía?(secuencia) then
+				resultado
+			else
+				if prim(secuencia) = item then
+					eliminarItem(fin(secuencia), item, resultado)
+				else
+					prim(secuencia) • eliminarItem(fin(secuencia), item, resultado)
+				fi
+			fi
+		
+		generarUnTribunal(posibilidades) ≡ {Ag(dameUno(posibilidades - dameUno(posibilidades) - dameUno(posibilidades - dameUno(posibilidades))) , 
+																				 Ag(dameUno(posibilidades - dameUno(posibilidades))
+			                                  , Ag(dameUno(posibilidades), Ø)))
+																			  }
+		
+		debenExpulsarAlParticipante(red, participante) ≡
+		!(desciende?(red, dameUno(generarUnTribunal(participantes(red) - participante)), participante)
+			∧ desciende?(red, dameUno((generarUnTribunal(participantes(red) - participante) - sinUno(generarUnTribunal(participantes(red) - participante)))), participante))
+		
+		todosLosDescendientes(red, participantes) ≡
+			if Ø(participantes) then
+				Ø
+			else
+				Ag(descendientes(red, dameUno(participantes)), todosLosDescendientes(red, sinUno(participantes)))
+			fi
+			
+		descendientes(red, participante) ≡ 
+			if Ø?(seguidores(red, participante)) then
+				{participante}
+			else
+				Ag(participante, todosLosDescendientes(red, seguidores(red, participante)))
+			fi
+		
+		eliminarRepetidos(conjA, conjB) ≡
+			if Ø?(conjA) then
+				Ø
+			else
+				if dameUno(conjA) ∈ conjB then
+					eliminarRepetidos(sinUno(conjA), conjB)
+				else
+					eliminarRepetidos(conjA, conjB)
+				fi
+			fi
+			
+		desciende?(red, p1, p2) ≡ 
+			if Ø?(seguidores(red, p2)) then
+				false
+			else
+				if p1 ∈ seguidores(red, p2) then
+					true
+				else
+					p1 ∈ seguidores(red, dameUno(red, seguidores(p2))) ∨ desciende(red, p1, sinUno(seguidores(red, p2)))
+				fi
+			fi
+Fin TAD
+
+
+
 	
