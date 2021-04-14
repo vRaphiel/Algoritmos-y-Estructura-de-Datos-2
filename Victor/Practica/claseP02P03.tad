@@ -1,0 +1,86 @@
+// Ejercicio de parcial
+TAD Cancha es NAT
+TAD Personas es NAT
+TAD SCF
+	Generos scf
+	Exporta Generos, Observadores Básicos, Generadores, canchasLibres, canchasOcupadas, personasEnPredio, mayorAsist
+	Igualdad Observacional:
+		(∀ s1, s2 : scf)(s1 =obs s2 ↔)
+		
+	Observadores Básicos:
+		canchas : scf -> conj(cancha)
+		salaDeEspera : scf -> conj(persona)
+		gentePorCancha : scf x cancha -> nat {c ∈ canchas(s)}
+		asistenciaPorCancha : scf x person ax cancha -> nat { c ∈ canchas(s)}
+		
+		Ideas:
+			operacionA : scf s x cancha -> dicc(persona, nat) // Esto es sobre especificar
+	Generadores:
+		iniciarSCF : conj(cancha) c -> scf			{¬(vacio?(c))}
+		llegaGrupo: scf s x conj(persona) ps -> scf	{¬vacio(ps) ∧ vacio?(personasEnPredio(s) ∩ ps)}
+		liberarCancha : scf s x cancha c -> scf {c ∈ canchas(s) ∧L c ∈ canchasOcupadas(s)}
+		
+	Otras Operaciones:
+		canchasOcupadas : scf -> conj(cancha) {...}
+		personasEnPredio : scf -> conj(persona)  -> la deducimos a partir de salaDeEspera y gentePorCancha
+		canchasLibres : scf -> conj(cancha)
+		mayorAsist : scf s x cancha c -> persona {c ∈ canchas(s) ∧L (∃p : persona , asistenciaPorCancha(s,c,p) > 0)}
+		
+		// Modelar la funcion auxiliar para manejar el comportamiento automatico
+		// Cada vez que podamos usar una operacion auxiliar para evitar escribir siempre lo mismo, usarlo
+		// No se exporta, es comportamiento automatico, no es una operacion que queremos que utilice el usuario
+		// simplemente es una funcion para manejarnos nosotros
+		// Si la exportamos no pasa nada, pero no tiene sentido, pues solo es otro auxiliar
+		asignar : conj(cancha) x conj(persona) -> dicc(cancha, conj(persona)) 
+		sinAsignar : conj(cancha) x conj(persona) -> conj(persona)
+	Axiomas:
+		canchas(iniciarSCF(c)) ≡ c
+		canchas(llegaGrupo(s, ps)) ≡ canchas(s)
+		canchas(liberarCancha(s, c)) ≡ canchas(s)
+		
+		salaDeEspera(iniciarSCF(s)) ≡ Ø
+		//Juega el comportamiento automatico aca -> Lo tenemos este problema en todo el sistema
+		// cada vez que se da este comportamiento automatico se modifica todo
+		// quienes estan esperando despues de asignar la gente que llego + la que esta esperando a las canchas libres del sistema
+		salaDeEspera(llegaGrupo(s, ps)) ≡ sinAsignar( canchasLibres(s),< ps ∪ salaDeEspera(s))
+		salaDeEspera(librarCancha(s, c)) ≡ sinAsignar({c} ∪ canchasLibres(s), salaDeEspera(s))
+		
+		gentePorCancha(iniciarSCF(cs), c) ≡ Ø
+		gentePorCancha(llegaGrupo(s, ps), c) ≡ 
+			if c ∈ canchasOcupadas(s) 
+				then gentePorCancha(s, c)
+				
+				// Si esta vacia puede estar ocupada ahora nuevamente -> comportamiento automatico
+				else  if c ∈ claves(asignar(canchasLibres(s), ps ∪ salaDeEspera(s))) 
+								then obtener(c, asignar(canchasLibres(s), ps ∪ salaDeEspera(s)))
+								else Ø
+							fi
+			fi
+			
+		gentePorCancha(liberarCancha(s, c), c') ≡
+			if c = c' 
+				then ...
+				else ...
+			fi
+			
+		asistenciaPorCancha(iniciarSCF(cs), p, c) ≡ 0
+		asistenciaPorCancha(llegaGrupo(s, ps), p, c) ≡ asistenciaPorCancha(s, p, c)
+		asistenciaPorCancha(librarCancha(s, c), p, c') ≡ 
+			if c = c'
+				then  if p ∈ gentePorCancha(s,c) 
+								then 
+								else 
+							fi
+		
+		asignar(cs, ps) ≡
+			if vacio?(cs) ∨ #ps<10
+				then vacio
+				else definir(dameUno(cs), dameN(ps, 10), asignar(sinUno(cs), sinN(p, 10)))
+				
+		sinAsignar(cs, ps) ≡
+			if vacio?(cs) ∨  
+					then ps
+					else sinAsignar(sinUno(cs), sinN(p, 10))
+			fi
+		tarea: dameN, sinN (Extensiones del TAD Conjunto)
+Fin TAD

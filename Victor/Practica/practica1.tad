@@ -373,3 +373,274 @@ Fin TAD
 
 // Ejercicio 10
 // a)
+Registrar -> apertura de ventanilla, llegada de nuevo cliente a la fila, atendion del cliente en primer lugar
+-> Fila -> Cola
+fila vacia?, longitud de fila?
+si un cliente estao o no esperando
+Si esta esperando, cual es su posicion?
+
+TAD Fila
+	Igualdad Observacional:();
+	Géneros: fila
+	Exporta: Generos, Observadores Basicos, Generadores,
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		esperando: persona x fila -> bool		
+		posicion : persona p x fila f -> nat 		{Esperando(p,f)}
+	Generadores:
+		abrirVentanilla : -> fila
+		Llegar: persona p x fila f -> fila		{¬Esperando(p, f)}
+		Atender: fila f -> fila		{¬Vacia(f)}
+	Otras Operaciones:
+		vacia : fila -> bool
+		longitud: fila -> nat
+	Axiomas:
+		esperando(p, abrirVentanilla) ≡ false
+		esperando(p, llegar(p', f)) ≡ p = p' ∨L esperando(p', f)
+		esperando(p, atender(f)) ≡ esperando(p, f) ∧L posicion(p, f) != 1
+
+		posicion(p, llegar(p', f)) ≡ 
+			if p = p' then
+				Longitud(f) + 1
+			else
+				Posicion(p, f)
+			fi
+		posicion(p, Atender(f)) ≡ Longitud(f) - 1
+		
+		vacia(f) ≡ Longitud(f) = 0
+		
+		longitud(abrirVentanilla) ≡ 0
+		longitud(llegar(p, f)) ≡ longitud(f) + 1
+		longitud(atender(f)) ≡ longitud(f) - 1	
+Fin TAD
+
+// b)
+TAD Fila
+	Igualdad Observacional:();
+	Géneros: fila
+	Exporta: Generos, Observadores Basicos, Generadores,
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		esperando: persona x fila -> bool		
+		posicion : persona p x fila f -> nat 		{Esperando(p,f)}
+		seColo? : persona p x fila f -> bool 		{Esperando(p,f)}
+	Generadores:
+		abrirVentanilla : -> fila
+		Llegar: persona p x fila f -> fila		{¬Esperando(p, f)}
+		Atender: fila f -> fila		{¬Vacia(f)}
+		Retirarse : persona p x fila f -> fila {¬Esperando(p, f)}
+		ColarseAdelanteDe : persona p x persona q x fila f -> fila 		{¬Esperando(p, f) ∧ Esperando(q, f)}
+	Otras Operaciones:
+		vacia : fila -> bool
+		longitud: fila -> nat
+		
+	Axiomas:
+		esperando(p, abrirVentanilla) ≡ false
+		esperando(p, llegar(p', f)) ≡ p = p' ∨L esperando(p', f)
+		esperando(p, atender(f)) ≡ esperando(p, f) ∧L posicion(p, f) != 1
+		esperando(p, Retirarse(p', f)) ≡ Esperando(p, f) ∧ p != p'
+		esperando(p, ColarseAdelanteDe(pc, q, f)) ≡ p = pc ∨ Esperando(p, f)
+		
+		posicion(p, llegar(p', f)) ≡ 
+			if p = p' then
+				Longitud(f) + 1
+			else
+				Posicion(p, f)
+			fi
+		posicion(p, Atender(f)) ≡ Longitud(f) - 1
+		posicion(p, Retirarse(p', f)) ≡ Posicion(p, f) - β(Posicion(p, f) ≥ Posicion(p', f))	
+		posicion(p, ColarseAdelanteDe(pc, q, f)) ≡
+			if p = pc then
+				Posicion(p, f)
+			else
+				Posicion(p, f) + β(Posicion(p,f) ≥ Posicion(q, f))
+			fi
+			
+		seColo?(p, llegar(p', f)) ≡ if p = p' then false else seColo?(p, f) fi
+		seColo?(p, Atender(f)) ≡ seColo?(p, f)
+		seColo?(p, Retirarse(p', f)) ≡ seColo?(p, f)
+		seColo?(p, ColarseAdelanteDe(pc, pr, f)) ≡ if p = pc then true else seColo?(p, f) fi
+			
+		vacia(f) ≡ Longitud(f) = 0
+		
+		longitud(abrirVentanilla) ≡ 0
+		longitud(llegar(p, f)) ≡ longitud(f) + 1
+		longitud(atender(f)) ≡ longitud(f) - 1	
+		longitud(ColarseAdelanteDe(pc, pr, f)) ≡ longitud(f) +1
+		longitud(Retirarse(p, f)) ≡ longitud(f) - 1 
+Fin TAD
+
+// c)
+TAD Fila
+	Igualdad Observacional:(
+		(∀ f1, f2 : file)(f1 =obs f2 ↔ (∀ p : persona)(esperando(p, f1) = esperando(p, f2) ∧L
+			posicion(p, f1) = posicion(p, f2) ∧ 
+		))
+		);
+	Géneros: fila
+	Exporta: Generos, Observadores Basicos, Generadores,
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		esperando: persona x fila -> bool		
+		posicion : persona p x fila f -> nat 		{Esperando(p,f)}
+		seColo? : persona p x fila f -> bool 		{Esperando(p,f)}
+		Entro? : persona x fila -> bool
+		FueAtendido? : persona x fila -> bool
+	Generadores:
+		abrirVentanilla : -> fila
+		Llegar: persona p x fila f -> fila		{¬Esperando(p, f)}
+		Atender: fila f -> fila		{¬Vacia(f)}
+		Retirarse : persona p x fila f -> fila {¬Esperando(p, f)}
+		ColarseAdelanteDe : persona p x persona q x fila f -> fila 		{¬Esperando(p, f) ∧ Esperando(q, f)}
+	Otras Operaciones:
+		vacia : fila -> bool
+		longitud: fila -> nat
+		
+	Axiomas:
+		esperando(p, abrirVentanilla) ≡ false
+		esperando(p, llegar(p', f)) ≡ p = p' ∨L esperando(p', f)
+		esperando(p, atender(f)) ≡ esperando(p, f) ∧L posicion(p, f) != 1
+		esperando(p, Retirarse(p', f)) ≡ Esperando(p, f) ∧ p != p'
+		esperando(p, ColarseAdelanteDe(pc, q, f)) ≡ p = pc ∨ Esperando(p, f)
+		
+		posicion(p, llegar(p', f)) ≡ 
+			if p = p' then
+				Longitud(f) + 1
+			else
+				Posicion(p, f)
+			fi
+		posicion(p, Atender(f)) ≡ Longitud(f) - 1
+		posicion(p, Retirarse(p', f)) ≡ Posicion(p, f) - β(Posicion(p, f) ≥ Posicion(p', f))	
+		posicion(p, ColarseAdelanteDe(pc, q, f)) ≡
+			if p = pc then
+				Posicion(p, f)
+			else
+				Posicion(p, f) + β(Posicion(p,f) ≥ Posicion(q, f))
+			fi
+			
+		seColo?(p, llegar(p', f)) ≡ if p = p' then false else seColo?(p, f) fi
+		seColo?(p, Atender(f)) ≡ seColo?(p, f)
+		seColo?(p, Retirarse(p', f)) ≡ seColo?(p, f)
+		seColo?(p, ColarseAdelanteDe(pc, pr, f)) ≡ if p = pc then true else seColo?(p, f) fi
+		
+		Entro?(p, AbrirVentanilla) ≡ f alse
+		Entro?(p, Llegar(pl, f)) ≡ p = pl ∨ Entro?(p, f)
+		Entro?(p, Atender(f)) ≡ Entro?(p, f)
+		Entro?(p, ColarseAdelanteDe(pc, pf, f)) ≡ p = pc ∨ Entro?(p, f)
+		Entro?(p, Retirarse(pr, f)) ≡ Entro?(p, f)
+		FueAtendido?(p, AbrirVentanilla) ≡ f alse
+		FueAtendido?(p, Llegar(pl, f)) ≡ FueAtendido?(p, f)
+		FueAtendido?(p, Atender(f)) ≡ (Esperando?(p, f) ∧L Posicion(p) = 1) ∨
+		
+		FueAtendido?(p, f)
+		FueAtendido?(p, ColarseAdelanteDe(pc, pf, f)) ≡ FueAtendido?(p, f)
+		FueAtendido?(p, Retirarse(pr, f)) ≡ FueAtendido?(p, f)
+
+		vacia(f) ≡ Longitud(f) = 0
+		
+		longitud(abrirVentanilla) ≡ 0
+		longitud(llegar(p, f)) ≡ longitud(f) + 1
+		longitud(atender(f)) ≡ longitud(f) - 1	
+		longitud(ColarseAdelanteDe(pc, pr, f)) ≡ longitud(f) +1
+		longitud(Retirarse(p, f)) ≡ longitud(f) - 1 
+Fin TAD
+
+// Ejercicio 11
+TAD Producto es String
+TAD Stock
+	Igualdad Observacional:();
+	Géneros: nombreTad
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		estaRegistrado : producto p x stock s -> bool
+		compras : producto p x stock s -> nat			{estaRegistrado(p, s)}
+		ventas : producto p x stock s -> nat		{estaRegistrado(p, s)}
+		minimo : producto p x stock s -> nat		{estaRegistrado(p, s)}
+		esSustituto: producto a x producto b x stock s -> bool		{estaRegistrado(a, s) ∧ estaRegistrado(b, s)}
+	Generadores:
+		crearStock : -> stock
+		registrarProducto : producto p x nat n x stock s -> stock 	{¬(estaRegistrado(p, s))}
+		comprar: producto p x nat n x stock s -> stock
+		vender: producto p x nat n x stock s -> stock {estaRegistrado(p, s) ∧L compras(p, s) ≥ n}
+		informarSustituto: producto a x producto b x stock s -> {estaRegistrado(a, s) ∧L estaRegistrado(b, s) ∧L
+			 																											¬(∃ p:producto)(esSustituto(p, b, s) ∧ a != b)}
+	Otras Operaciones:
+		stockBajos : stock -> conj(productos)
+		tieneSus: producto p x stock s -> bool {estaRegistrado(p, s)}
+		obtenerSus : producto p x stock s -> producto {estaRegistrado(p, s)}
+		productos : stock -> conj(productos)
+		quitarBuenos : conj(producto) x stock -> conj(productos)
+	Axiomas:
+		estaRegistrado(p, crearStock) ≡ false
+		estaRegistrado(p, registrarProducto(p', n, s)) ≡ p = p' ∨ registrarProducto(p, s)
+		estaRegistrado(p, comprar(p', n, s)) ≡ p = p' ∨L estaRegistrado(p, s)
+		estaRegistrado(p, vender(p', n, s)) ≡ p = p' ∨L estaRegistrado(p, s)
+		estaRegistrado(p, informarSustituto(a, b, s)) ≡ estaRegistrado(p, s)
+		
+		compras(p, registrarProducto(p', n, s)) ≡ if p = p' then 0 else compras(p, s) fi
+		compras(p, comprar(p', n, s)) ≡ if p = p' then n + compras(p, s) else compras(p, s) fi
+		compras(p, vender(p', n, s)) ≡ compras(p, s)
+		compras(p, informarSustituto(a,b,s)) ≡ compras(p, s)
+		
+		ventas(p, registrarProducto(p', n, s)) ≡ if p = p' then 0 else ventas(p, s)
+		ventas(p, comprar(p', n, s)) ≡ if p = p' then n + ventas(p,s) else ventas(p ,s)
+		ventas(p, vender(p', n, s)) ≡ ventas(p, s)
+		ventas(p, informarSustituto(a, b, s)) ≡ ventas(p, s)
+		
+		minimo(p, registrarProducto(p', n, s)) ≡ if p = p' then n else minimo(p,s) fi
+		minimo(p, comprar(p', n, s)) ≡ minimo(p, s)
+		minimo(p, vender(p', n, s)) ≡ minimo(p, s)
+		minimo(informarSustituto(a, b, s)) ≡ minimo(p, s)
+		
+		esSustituto(a, b, registrarProducto(p, n, s)) ≡ if a = p ∨ b = p then false else esSustituto(a, b, s) fi
+		esSustituto(a, b, comprar(p, n, s)) ≡ esSustituto(a, b, s)
+		esSustituto(a, b, vender(p, n, s)) ≡ esSustituto(a, b, s)
+		esSustituto(a, b, informarSustituto(c, d, s)) ≡ (a = c ∨ b = d) ∨ esSustituto(a, b, s)
+		
+		
+Fin TAD
+
+// Ejercicios de parcial
+// Ejercicio 17
+TAD Cabina ES Nat
+TAD Precio ES Nat
+TAD Peajes del Zar
+	Igualdad Observacional:();
+	Géneros: PdZ
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		
+	Generadores:
+		agregarAuto : auto a x cabina c -> cabina
+		atenderAuto : auto a x cabica c -> cabina
+		
+		
+	Otras Operaciones:
+		
+	Axiomas:
+		
+Fin TAD
+
+// Ejercicio 18
+TAD RA
+	Igualdad Observacional:();
+	Géneros: nombreTad
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		
+	Generadores:
+		
+	Otras Operaciones:
+		
+	Axiomas:
+		
+Fin TAD
