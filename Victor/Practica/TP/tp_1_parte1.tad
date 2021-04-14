@@ -1,0 +1,177 @@
+// Que no se asuste (se queda inmovil) porque pierde
+// Se puede mover arriba, abajo, derecha, izquierda de a un casillero por vez
+// Las partidas comienzan con el mapa definido, mapa ≡ grilla finita de dos dimensiones
+// Cada casillero puede ser una pared o un espacio vacio. Se asignan dos casilleros especiales al principio un inicio y un fin.
+//Asignar casilleros fantasma que no se mueven
+// El jugador solo se puede mover en espacios vacios
+// Solo se puede mover si no gano o no perdio la partida 
+// Se asusta a menos de 3 casilleros de distancia
+
+TAD Coordenada es tupla(nat, nat)  //devuelve (x, y)
+TAD Dirección es string
+
+TAD Mapa
+	Igualdad Observacional:   // FALTA
+	Generos: mapa
+	Exporta: ....
+	Usa: ...
+	
+	Observadores Basicos:
+		dimension:	mapa -> tupla(nat, nat)      //devuelve en la primera posicion el tamaño en x y en la segunda el tamaño en y
+		fantasmas : mapa m-> conj(Coordenada) 
+								{paredes(m) ∩ fantasmas(m) = Ø}
+		paredes : mapa m -> conj(Coordenada)
+		            {paredes(m) ∩ fantasmas(m) = Ø}
+		puntoInicio : mapa m -> Coordenada
+								{¬(puntoInicio ∈ (paredes(m) ∪ fantasmas(m)))}
+		puntoLlegada : mapa m -> Coordenada
+		            {¬(puntoLlegada ∈ (paredes(m) ∪ fantasmas(m)))}
+	Generadores:
+		crearMapa: nat tamañoX × nat tamañoY × Coordenada posInicio × Coordenada posFin  -> mapa
+		          {¬(posFin=posInicio) ∧ tamañoX > 0 ∧ tamañoY > 0
+							∧ 
+							0 ≤ π1(posInicio) < tamañoX ∧  0 ≤ π2(posInicio) < tamañoY  
+							∧
+							0 ≤ π1(posFin) < tamañoX ∧ 0 ≤ π2(posFin) < tamañoY  
+							}
+		AgregarPared: mapa m × Coordenada posPared -> mapa   {posPared ∈ coordenasDelMapa(m) ∧ ¬(posPared ∈ fantasmas(m)) ∧ ¬(posPared=puntoInicio(m)) ∧ ¬(posPared=puntoLlegada(m))}		 	
+		AgregarFantasma: mapa m × Coordenada posFantasma -> mapa  {posFantasma ∈ coordenasDelMapa(m) ∧ ¬(posFantasma ∈ paredes(m)) ∧ ¬(posFantasma=puntoInicio(m)) ∧ ¬(posFantasma=puntoLlegada(m))}	
+	Otras Operaciones:
+		coordenasDelMapa: mapa -> conj(Coordenada)
+		esCoordenadaValidaParaAvanzar?: mapa × Coordenada -> Bool
+		posiblesCombinaciones : nat × nat -> conj(Coordenada)
+		espaciosVacios: mapa m -> conj(Coordenada) 
+								{(paredes(m) ∪ fantasmas(m)) ∩ espaciosVacios(m) = Ø}
+		generarEspaciosVacios: conj(Coordenada) × conj(Coordenada) × conj(Coordenada) -> conj(Coordenada) 					
+	Axiomas:
+		dimension(crearMapa(tX, tY, pI, pL)) ≡  <tX, tY>
+		dimension(AgregarPared(m, pos)) ≡ dimension(m)
+		dimension(AgregarFantasma(m, pos)) ≡ dimension(m)
+		
+		fantasmas(crearMapa(tX, tY, pI, pL)) ≡ Ø
+		fantasmas(AgregarPared(m, pos)) ≡ fantasmas(m)
+		fantasmas(AgregarFantasma(m, pos)) ≡ Ag(pos, fantasmas(m))
+
+		paredes(crearMapa(tX, tY, pI, pL)) ≡ Ø
+		paredes(AgregarPared(m, pos)) ≡ Ag(pos, paredes(m))
+		paredes(AgregarFantasma(m, pos)) ≡ paredes(m)
+		
+		puntoInicio(crearMapa(tX, tY, pI, pL)) ≡  pI
+		puntoInicio(AgregarPared(m, pos)) ≡ puntoInicio(m)
+		puntoInicio(AgregarFantasma(m, pos)) ≡ puntoInicio(m) 
+		
+		puntoLlegada(crearMapa(tX, tY, pI, pL)) ≡  pL
+		puntoLlegada(AgregarPared(m, pos)) ≡ puntoLlegada(m)
+		puntoLlegada(AgregarFantasma(m, pos)) ≡ puntoLlegada(m) 
+		
+		coordenasDelMapa(m) ≡ posiblesCombinaciones(π1(dimension(m)), π2(dimension(m)))
+		
+		posiblesCombinaciones(x, y) ≡ 
+			if x = 0 ∧ y = 0 then                    // revisar este, no funciona
+				<0,0>
+			else
+				if x = 0 then
+					Ag(<x,y>, posiblesCombinaciones(x, y-1))
+				else
+					Ag(<x,y>, posiblesCombinaciones(x-1, y)) ∪ posiblesCombinaciones(x, y-1)
+				fi
+			fi
+		
+		esCoordenadaValidaParaAvanzar?(m, coordenada) ≡ (coordenada ∈ coordenasDelMapa(m)) ∧ ¬(coordenada ∈ paredes(m))
+		
+		espaciosVacios(m) ≡ generarEspaciosVacios(coordenasDelMapa(m), paredes(m), fantasmas(m)) 
+
+		generarEspaciosVacios(coordenadasDelMapa, paredes, fantasmas) ≡ 
+			if Ø?(paredes) ∧ Ø?(fantasmas) then
+				coordenadasDelMapa
+			else
+				if Ø?(paredes) then
+					generarEspaciosVacios(coordenasDelMapa - dameUno(fantasmas), paredes, sinUno(fantasmas))
+				else
+					if Ø?(fantasmas) then
+						generarEspaciosVacios(coordenasDelMapa - dameUno(paredes), sinUno(paredes), fantasmas)
+					else
+						generarEspaciosVacios((coordenasDelMapa - dameUno(paredes)) - dameUno(fantasmas), sinUno(paredes), sinUno(fantasmas))
+					fi
+				fi
+			fi
+Fin TAD
+
+TAD Partida
+	Igualdad Observacional: ....
+	Generos: partida
+	Exporta: ....
+	Usa: ...
+	
+	Observadores Basicos:
+		movimientos: partida -> secu(Coordenada)
+		mapa: partida -> mapa
+	Generadores:
+		nuevaPartida:	mapa m -> partida   //restringir a que el punto de inicio en el mapa este a 3 o mas casilleros del fantasma mas cercano
+		moverse: partida × mapa × Dirección d -> partida  {d='ARRIBA' ∨ d='ABAJO' ∨ d='DERECHA' ∨ d='IZQUIERDA'}
+	Otras Operaciones:
+		perdio? : partida -> Bool	
+		gano? : partida -> Bool	
+		partidaTerminada?: partida -> Bool
+		fantasmaMasCercano: partida -> Coordenada
+		calcularDistancia: Coordenada × Coordenada -> Nat
+		siguienteCoordenada: partida -> secu(Coordenada)
+		buscarFantasmaMasCercano: Coordenada × conj(Coordenada) × Coordenada -> Coordenada 
+		posActual: partida -> Coordenada
+	Axiomas:
+		movimientos(nuevaPartida(m)) ≡ <puntoInicio(m)>
+		movimientos(moverse(p, m, d)) ≡ 
+			if ¬partidaTerminada?(p) then
+					movimientos(p) & siguienteCoordenada(p)
+			else
+				movimientos(p)
+			fi	
+		
+		siguienteCoordenada(p) ≡ 
+			if d='ARRIBA' ∧ esCoordenadaValidaParaAvanzar?((π1(ult(movimientos(mapa(p)))), π2(ult(movimientos(mapa(p)))) + 1)) then
+				<(π1(ult(movimientos(mapa(p)))), π2(ult(movimientos(mapa(p)))) + 1)>
+			else
+				if d='ABAJO' ∧ esCoordenadaValidaParaAvanzar?((π1(ult(movimientos(mapa(p)))), π2(ult(movimientos(mapa(p)))) - 1)) then
+					<(π1(ult(movimientos(mapa(p)))), π2(ult(movimientos(mapa(p)))) - 1)>
+				else
+					if d='DERECHA' ∧ esCoordenadaValidaParaAvanzar?((π1(ult(movimientos(mapa(p)))) + 1, π2(ult(movimientos(mapa(p)))))) then
+						<(π1(ult(movimientos(mapa(p)))) + 1, π2(ult(movimientos(mapa(p)))))>
+					else
+						if d='IZQUIERDA' ∧ esCoordenadaValidaParaAvanzar((π1(ult(movimientos(m))) - 1, π2(ult(movimientos(m))))) then
+							<(π1(ult(movimientos(mapa(p)))) - 1, π2(ult(movimientos(mapa(p)))))>
+						else
+							<>
+						fi
+					fi
+				fi
+			fi
+			
+		mapa(nuevaPartida(m)) ≡ m
+		mapa(moverse(p, m, d)) ≡ mapa(p)
+		
+		posActual(p) ≡ ult(movimientos(p))
+				 
+		perdio?(p) ≡ calcularDistancia(fantasmaMasCercano(p), posActual(p)) < 3	 
+		
+		gano?(p) ≡ posActual(p) = puntoLlegada(mapa(p))
+		
+		partidaTerminada?(p) ≡ perdio?(p) ∨ gano?(p)
+
+		// no evaluo el caso en el que el conjunto de fantasmas sea vacio, porque se asume en el enunciado que se deben colocar fantasmas en el mapa
+	 fantasmaMasCercano(p) ≡ buscarFantasmaMasCercano(posActual(p), sinUno(fantasmas(mapa(p))), dameUno(fantasmas(mapa(p))) )
+	 		
+		calcularDistancia(coordenada1, coordenada2) ≡ 
+		 	(max(π1(coordenada1), π1(coordenada2)) - min(π1(coordenada1), π1(coordenada2))) +
+			(max(π2(coordenada1), π2(coordenada2)) - min(π2(coordenada1), π1(coordenada2)))
+			
+		buscarFantasmaMasCercano(posActual, fantasmas, masCercano) ≡
+			if Ø?(fantasmas) then
+				masCercano
+			else
+				if calcularDistancia(posActual, dameUno(fantasmas)) < calcularDistancia(posActual, masCercano) then
+					buscarFantasmaMasCercano(posActual, sinUno(fantasmas), dameUno(fantasmas))
+				else
+					buscarFantasmaMasCercano(posActual, sinUno(fantasmas), masCercano)
+				fi
+			fi
+Fin TAD

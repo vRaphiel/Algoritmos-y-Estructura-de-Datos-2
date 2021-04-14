@@ -1,0 +1,76 @@
+Idea:
+	 Tengo varios tipos de datos
+	 Tipo Persona:
+	 	Es un personaje
+		Ese personaje despierta o aparece
+		Se mueve, arriba, abajo, izquierda, derecha
+		Puede asustarse si un fantasma esta a 3 casillas de distancia
+		Se mueve a traves de casilleros vacios
+		Se mueve solamente si aun no gano/perdio la partida
+		
+	Tipo Fantasma:
+		No se pueden mover
+		
+	Tipo Mapa:
+		Es aleatorio, se genera al principio
+		Tamaño mayor a 2x2
+		Tiene casilleros
+	
+	Tipo Casilleros:
+		Hay varios en un Mapa
+		Hay 2 casilleros especiales : inicio y final
+		Cada otro casillero puede ser: vacio, fantasma, pared
+		
+TAD Casillero ES tupla(nat, nat, nat)
+TAD Posicion Es tupla(nat, nat)
+
+TAD Persona
+	Igualdad Observacional:();
+	Géneros: persona
+	Observadores Básicos:
+		asustado? : -> bool
+		obtenerPosicion : personaje -> posicion
+	Generadores:
+		nacer : -> persona
+		arriba    : persona -> persona
+		abajo     : persona -> persona
+		izquierda : persona -> persona
+		derecha   : persona -> persona
+	Otras Operaciones:
+		
+	Axiomas:
+		
+Fin TAD
+
+TAD Mapa
+	Igualdad Observacional:();
+	Géneros: mapa
+		
+	Observadores Básicos:
+		obtenerTipo: mapa x nat x nat -> nat
+	Generadores:
+		generarMapa: -> mapa
+		
+	Otras Operaciones:
+		
+	Axiomas:
+		
+Fin TAD
+
+TAD Casillero
+	Igualdad Observacional:();
+	Géneros: nombreTad
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		obs?:	nombreTad t × nat n	-> bool 	{ n ≥ 1 }
+	Generadores:
+		nil:			-> nombreTad
+	Otras Operaciones:
+		otra:	nombreTad t × nat n	-> bool 	{ n ≥ 1 }
+	Axiomas:
+		obs?(nil)	= 	true
+		otra(t, n)	= 	n
+		...
+Fin TAD

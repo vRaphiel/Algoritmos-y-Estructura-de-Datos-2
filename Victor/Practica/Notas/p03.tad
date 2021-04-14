@@ -81,5 +81,52 @@ TAD Laberinto
 			fi
 Fin TAD
 
+TAD Jugador ES Nat
+
 TAD Temporada
+	Géneros: temp
+	
+	Observadores Básicos:
+		jugadores : temp -> conj(jugador)
+		actual : temp x jugador -> acertijo { j ∈ jugadores(t) }
+		resueltos : temp t x jugador j -> conj(acertijo) {j ∈ jugadores(t) }
+		laberinto : temp -> lab
+	Generadores:
+		nuevaTemp : conj(jugador) x lab l -> temp 		{ #(acertijosFinales(l)) = 1 }
+		resolver : temp t x jugador j x acertijo elec -> temp { ¬finalizada?(t) ∧ j ∈ jugadores(t) ∧L elec ∈ opciones(laberinto(t), actual(t, j))}
+		resolverFinal : temp x jugador -> temp { ¬finalizada?(t) ∧ j ∈ jugadores(t) ∧L Ø?(opciones(laberinto(t), actual(t, j))) }
+	Otras Operaciones:
+		finalizada? : temp -> bool
+	Axiomas:
+		jugadores(nuevaTemp(js, l)) ≡ js
+		jugadores(resolver(t, j, elec)) ≡ jugadores(t)
+		jugadores(resolverFinal(t, j)) ≡ jugadores(t)
+		
+		actual(nuevaTemp(js, l), j) ≡ acertijoInicial(l)
+		actual(resolver(t, j, elec), j') ≡
+			if j = j' 
+				then elec
+				else actual(t, j')
+			fi
+		actual(resolverFinal(t, j), j') ≡ actual(t, j')
+		
+		resueltos(nuevaTemp(js, l), j)      ≡ Ø
+		resueltos(resolver(t, j, elec), j') ≡ 
+			resueltos(t, j') ∪ if j = j' 
+														then {actual(t, j)}
+														else Ø
+												 fi
+		resueltos(resolverFinal(t, j), j')  ≡
+			resueltos(t, j') ∪ if j = j' 
+														then {actual(t, j)}
+														else Ø
+												 fi
+											
+		laberinto(nuevaTemp(js, l)) ≡ l
+		laberinto(resolver(t,j,elec)) ≡ laberinto(t)
+		laberinto(resolverFinal(t, j)) ≡ laberinto(t)
+		
+		finalizada?(nuevaTemp(js, l)) ≡ false
+		finalizada?(resolver(t, j, elec)) ≡ false
+		finalizada?(resolverFinal(t, j)) ≡ true
 Fin TAD
