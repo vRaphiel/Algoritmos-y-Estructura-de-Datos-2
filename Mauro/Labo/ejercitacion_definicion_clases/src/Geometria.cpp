@@ -16,7 +16,6 @@ class Rectangulo {
     private:
         int alto_;
         int ancho_;
-
 };
 
 Rectangulo::Rectangulo(uint alto, uint ancho) : alto_(alto), ancho_(ancho) {};
