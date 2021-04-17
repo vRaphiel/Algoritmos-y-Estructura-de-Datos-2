@@ -1,0 +1,260 @@
+Parcial del 23 de abril del 2016
+Buscaminas ->
+Grilla rectangular -> tablero
+Posiciones -> celdas (tupla <x,y>)
+3 celdas : Minadas -> mina
+					 Pistas -> Lindantes al menos a una mina
+					 Libres -> ni minas ni pistas
+					 
+Tenemos una cantidad de minas en distintas posiciones
+Todas las celdas estan tapadas -> no se conoce el tipo de ninguna celda
+El jugador elige revelar una celda
+Juego terminado -> revela todas las que no son minas (ganar), revela alguna mina (perder)
+Al revelar la celda, si no esta libre, se revela (x,y), si esta libre se revelan sus lindantes -> Recursivo
+Celda pista -> asociada a un numero -> definido como la canatidad de celdas minadas que son lindantes a la pista
+Cuando se liberan las pistas, se pueden usar para determinar las posiciones a fin de evitarlas
+
+Se desea saber que celdas estan reveladas
+Si el juego termino -> con su resultado
+cualquier pista asociada
+seguroLindaAMinas -> dado una mina y la posicion de una celda c revelada, decir las pistas lindantes no reveladas
+
+TAD Posicion ES tupla(nat, nat)
+TAD Pista es Nat
+TAD Buscaminas
+	Igualdad Observacional:();
+	Géneros: busc
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		dimension : busc b -> tupla(nat, nat)
+		minas : busc bus -> conj(Posicion)
+		reveladas : busc -> conj(Posicion)
+	Generadores:
+		crearTablero : nat tamX x nat tamY -> busc {tamX ≥ 0 ∧L tamY ≥ 0}
+		agregarMinas : busc b x conj(Posicion) minas -> busc {(∀ p : Posicion, p ∈ minas)(p ∈ coordTableros(b))}
+		revelarPosicion : busc b x Posicion pos -> busc			{p in coordTableros(b)}
+		
+	Otras Operaciones:
+		termino? : busc -> bool
+		gano? : busc -> bool
+		perdio? : busc -> bool
+		seguroLindaAMinas : busc b x Posicion p -> bool		{celdaValida(b, c)}
+		
+		pistaN: busc b x Posicion c -> Pista
+		
+		lindantes : busc x pos -> conj(pos)
+		coordTableros : busc p -> conj(Posicion)		
+		posiblesCombinaciones : nat × nat -> conj(Coordenada)
+
+		vacias : Buscaminas p -> conj(Posici	on)  (todas las coordenadas - minas - pistas)
+		esCeldaPista? : busc x Posicion -> bool
+		celdaLibre? : busc bus x Posicion p -> bool
+		validarLindante : busc bus x Posicion p -> nat
+		extenderLibres : busc bus x Posicion p -> conj()
+		
+		algunaMinaEnRevelados: busc x minas -> bool
+		
+	Axiomas:
+		dimension(crearTablero(x, y)) ≡ <x, y>
+		dimension(agregarMina(b, pos)) ≡ dimension(b)
+		dimension(revelarPosicion(b, pos)) ≡ dimension(b)
+		
+		minas(crearTablero(x, y)) ≡ 0
+		minas(agregarMina(b, m)) ≡ minas(b) ◦ b
+		minas(revelarPosicion(b, pos)) ≡ if pos ∈ minas(b) then minas(b) - Ag(pos, Ø) else minas(b)  fi
+				
+		reveladas(crearTablero(x, y)) ≡ 0
+		reveladas(agregarMina(b, m)) ≡ reveladas(b)
+		reveladas(revelarPosicion(b, pos)) ≡ reveladas(b) ◦ pos
+		
+		gano?(b) ≡ (coordTableros(b) - reveladas(b)) = minas
+		perdio?(b) ≡ algunaMinaEnRevelados?(busc, minas)
+		termino?(b) ≡ gano?(b) ∨ perdio?(b)
+		
+		lindantes(b, c) ≡
+		 ( if π1(c) = 0 then Ø else
+		 		( if π2(c) = 0 then Ø else Ag(<π1(c)-1, π2(c)-1>, Ø) fi ) ∪
+				( if π2(c) + 1 = π2(dimension(b)) then Ø else Ag(<π1(c)+1, π2(c)+1>, Ø) fi ) ∪
+				Ag(<π1(c)+1, π2(c)>, Ø)
+		 fi )	∪
+		 ( if π1(c)+1 = π)
+		
+		pistaN(b, c) ≡ if c ∈ minas then 0 else 
+		
+		
+		algunaMinaEnRevelados?(busc, minas) ≡ if dameUno(minas) ∈ minas(busc) then true else algunaMinaEnRevelados?(busc, sinUno(minas))
+Fin TAD
+
+Parcial 3 de mayo de 2017
+Centro de gestion de tramites
+TAD TiposDeTramite ES Nat
+TAD CGT
+	Igualdad Observacional:();
+	Géneros: cgt
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		#ventanillas : cgt -> nat
+		fila : cgt c x nat ventanilla -> cola(persona)		{1 ≤ ventanilla ≤ #ventanillas(c)}
+		#atendidos : cgt c x nat ventanillas -> nat			{1 ≤ ventanilla ≤ #ventanillas(c)}
+		ocupada?: cgt c x nat ventanilla -> bool			{1 ≤ ventanilla ≤ #ventanillas(c)}
+		cliente : cgt c x nat ventanilla -> persona
+			{1 ≤ ventanilla ≤ #ventanillas(c) ∧L ocupada?(c, ventanilla)}
+		ventanillasPend : cgt c x persona p -> secu(nat)		{p ∈ todasLasPersonas(c)}
+		
+	Generadores:
+		abrirCGT : nat cantVentanillas -> cgt 			{1 ≤ cantVentanillas}
+		llegarPersona : ctg c x persona p x secu(nat) ventanillas -> cgt
+			{ ¬(p ∈ todasLasPersonas(c)) ∧ ¬vacia?(ventanillas) ∧ sinRepetidos(ventanillas) ∧ (∀n:nat)(esta?(n, ventanillas) => 1 ≤ n ≤ #ventanillas(c)) }
+		atender: ctg c x nat ventanilla -> cgt {1 ≤ ventanilla ∧L ventanillaNoOcupada}
+	Otras Operaciones:
+		atendioMas: cgt -> nat		{ Para que tenga sentido hay que pedir que se haya atendido a mas de una persona }
+		atendioMaxAux : cgt c x nat ventsAMirar -> nat		{ 1 ≤ ventsAMirar ≤ #ventanillas(c)}
+		todasLasPersonas: cgt c -> conj(persona)
+		todasLasPersonasAux : cgt c x nat ventsAMirar -> conj(persona)
+	Axiomas:
+		#ventanillas(abrirCGT(n)) ≡ n
+		#ventanillas(llegarPerson(c,p,s)) ≡ #ventanilla(c)
+		#ventanillas(atender(c, v)) ≡ #ventanillas(c)
+		
+		fila(abrirCGT(n), n') ≡ vacia
+		fila(llegarPersona(c, p, s), n) ≡ if n = prim(s) then	
+																				if ¬ocupada?(c, n) then
+																					vacia
+																				else
+																					encolar(p, fila(c,v))
+																				fi
+																			else
+																				fila(c, v)
+																			fi
+																			
+		fila(atender(c, n), n') ≡ if ¬vacia?(ventanillasPend(cliente(c, n))) ∧L v = prim(ventanillasPend(cliente(c, n))) then encolar(cliente(c,n), fila(c,v)) else fila(c,v) fi
+		
+		#atendidos(abrirCGT(n)), n') ≡ 0
+		#atendidos(llegarPersona(c, p, v), n) ≡ #atendidos(c, n)
+		#atendidos(atender(c, v), n) ≡ (if v = n then 1 else 0) + atendidos(c, n)
+		
+		ocupada?(nuevoCGT(n), v) ≡ false
+		// Si v es la primera ventanilla a la que tiene que ir la nueva persona, sguro que va a estar ocupada,
+		// ya sea porque lo estaba antes o porque estaba libre e inmediatamente se puso a atender al cliente. Si v
+		// es cualquier otra ventanilla, la llegada del nuevo cliente no la afecta en nada
+		ocupada?(llegarPersona(c,p,vents), n) ≡ if n = prim(vents) then true else ocupada?(c, n) fi		
+		ocupada?(atender(c, v), n) ≡
+			if v = n then
+				if vacia?(fila(c, v)) 
+					then // si no hay a quien atender, queda libre
+						false
+					else // en caso contrario atiende al proximo
+						true
+					fi
+			else
+				if ¬vacia?(ventanillasPend(cliente(c, v)) ∧L v=prim(ventanillasPend(cliente(c, v))))
+					then true //razonamiento analogo al (1)
+					else ocupada?(c, v)
+				fi
+			fi
+		
+		cliente(llegarPersona(c, p, vents), v) ≡
+			if ¬ocupada?(c, v) ∧ v = prim(vents) then p else cliente(c, v) fi
+		cliente(atender(c, v), n) ≡ if v = n then proximo(fila(v)) else cliente(c, v) fi
+		
+		ventanillasPend(llegarPersona(c, p, vents), p') ≡ if p = p' then  if ¬ocupada?(c, prim(vents)) then fin(vents) else vents fi else ventanillasPend(c, p) fi
+		ventanillasPend(atender(c, v), p) ≡ if p = cliente(c, v) then fin(ventanillasPend(c, p)) else ventanillasPend(c, p) fi
+		
+		atendioMas(c) ≡ atendioMasAux(c, #ventanilas(c))
+		atendioMasAux(c, vs) ≡ if vs = 1 then 1 else  if #atendidos(c, vs) > #atendidos(c, atendioMasAux(c, vs-1)) then vs else atendioMasAux(c, vs-1) fi  fi
+		
+		todasLasPersonas(c) ≡ todasLasPersonasAux(c, #ventanillas(c))
+		
+		todasLasPersonasAux(c, vs) ≡ ((if ocupada?(c, vs) then {cliente(c, vs)} else Ø fi) ∪ colaAConj(fila(c, vs))) ∪
+		(if vs = 1 then Ø else todasLasPersonasAux(c, vs-1) fi )
+		
+Fin TAD		
+
+// Parcial del 5 de mayo del 2018														
+Centro Comunitario de Carpinteros -> Aprender carpinteria
+10 niveles y es gratuito
+Conjunto de maestros
+Una persona puede iniciar el curso empezando por nivel 1. En ese momento se asigna un tutor. Este puede ser un maestro o una persona de niveles anteriores
+Persona -> aprendiz, si sobresale se lo pasa al siguiente nivel
+No es deseable que el aprendiz tenga el mismo nivel que el tutor
+Si el aprendiz avanza al nivel de su tutor, se le asigna un nuevo tutor siguiendo las reglas. Si completo el nivel 10 ya no se le asigna ningun tutor
+entonces pasa a ser Carpinteros
+Se puede desertar. Si p es tutor, sus aprendices pasan a ser aprendices del tutor de p
+Si p es maestro, sus aprendices pasan a ser aprendices de otro maestro
+CCC nuunca sin carpinteros
+Si deserta el ccc no puede volver
+Dado un miembro, se interesa saber sus descencientes academicos -> todos sus aprendices y aprendices de sus aprendices y asi recursivamente
+
+TAD Persona ES Nat
+TAD CCC
+	Igualdad Observacional:(
+		(∀ CCC1, CCC2: ccc)(c1 =obs c2 ↔ maestros(c1) = maestros(c2) ∧
+																		 desertores(c1) = desertores(c2) ∧
+																		 estudiantes(c1) = estudiantes(c1) ∧L
+																		 (∀ p: persona)(p ∈ estudiantes(c1) ∪ maestros(c1) =>L
+																		 	aprendicesDe(c1, p) = aprendicesDe(c2, p)) ∧
+																		 (∀ p:persona)(p ∈ estudiantes(c1) =>L nivelDe(c1, p) = nivelDe(c2, p)))
+		);
+	Géneros: nombreTad
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		maestros : ccc -> conj(Persona)
+		desertores : ccc -> conjunto(Persona)
+		estudiantes : ccc c -> Conjunto(Persona)
+		aprendicesDe : ccc c x Persona p -> Conjunto(Persona)	{p ∈ estudiantes(c) ∪ maestros(c)}
+		nivel : ccc c x Persona t -> nat {t ∈ estudiantes(c)}
+	Generadores:
+		abrirCCC : conj(Persona) persons -> ccc {¬Ø?(persons)}
+		nuevoAlumno : ccc c x Persona p -> ccc {¬(p ∈ (maestros(c) ∪ desertores(c) ∪ estudiantes(c))}
+		ascenderAlumno : ccc c x Persona p -> ccc {p ∈ estudiantes(c) ∧L p ∉ maestros(c)}
+		desertar : ccc c x Persona p -> ccc {(p ∈ maestros(c) ∧ #maestros(c) > 1) ∨ (p ∈ maestros(c) ∪ estudiantes(c))}
+	Otras Operaciones:
+		
+	Axiomas:
+		maestros(abrirCCC(p)) ≡ p
+		maestros(nuevoAlumno(c, p)) ≡ maestros(c)
+		maestros(ascenderAlumno(c, p)) ≡ maestros(c) ∪ if nivel(c, p) = 10 then {p} else Ø fi	
+		maestros(desertar(c, p)) ≡ maestros(c) - if p ∈ maestros then {p} else Ø fi
+		
+		desertores(abrirCCC(p)) ≡ Ø
+		desertores(nuevoAlumno(c, p)) ≡ desertores(c)
+		desertores(ascenderAlumno(c, p)) ≡ desertores(c)
+		desertores(desertar(c, p)) ≡ desertores(c) ∪ {p}
+		
+		estudiantes(abrirCCC(p)) ≡ Ø
+		estudiantes(nuevoAlumno(c, p)) ≡ estudiantes(c) ∪ {p}
+		estudiantes(ascenderAlumno(c, p)) ≡ estudiantes(c) - if nivelDe(c,p) = 10 then Ø else {p} fi
+		estudiantes(desertar(c, p)) ≡ estudiantes(c) - if p ∈ estudiantes(c) then {p} else Ø fi
+		
+		aprendicesDe(abrirCCC(c), p) ≡ Ø
+		aprendicesDe(nuevoAlumno(c, p), p') ≡ if p = p' then Ø else 
+		 	if nivel(c, p) > 1 ∧L dameUno(estudiantes(c) ∪ maestros(c)) = p then
+				aprendicesDe(c, p) ∪ {p}
+		 	else
+		 		aprendicesDe(c, p)
+		 	fi
+		fi
+		
+		aprendicesDe(desertar(c, p), p') ≡ if p' ∈ AprendicesDe(c, p) then aprendicesDe(c, p) - {p'} else if p = p' then Ø else 
+																				if  (dameUno(estudiantes(desertar(c, p')) ∪ maestros(desertor(c, p'))) = p ∧ (p' ∈ maestros(c)))
+																				then	aprendicesDe(c, p) ∪ aprendicesDe(c, p') else if(p' ∉ maestros(c) ∧L tutorDe(c, p') = p) then 
+																				aprendicesDe(c, p) ∪ aprendicesDe(c, p') else aprendicesDe(c, p) fi  fi  fi
+		aprendicesDe(ascenderAlumno(c, p), p') ≡ if (p' ∈ aprendicesDe(c, p) ∧ nivelDe(c, p') = nivelDe(c, p) -1) then aprendicesDe(c, p) - {p'} 
+																							else  if (nivelDe(c, p') = nivelDe(c, tutorDe(c, p')) -1 ∧ dameUno(estudiantes(c) ∪ maestros(c)) = p ∧ nivelDe(ascenderAlumno(c, p'), p') < nivelDe(c, p))
+																										then aprendicesDe(c, p) ∪ {p'} else aprendices(c, p) fi  fi
+		
+		descendientesDe(c, p) ≡ recorrerDescencientesDe(c, {p})
+		recorrerDescendientesDe(c, cp) ≡ if aprDeApr(c, cp) ⊆ cp then cp else recorrerDescencientesDe(c, aprDeApr(c, cp)) fi
+		aprDeApr(c, cp) ≡ if Ø?(cp) then Ø else aprendicesDe(dameUno(cp)) ∪ aprDeApr(c, sinUno(c)) fi
+		tutorDe(c, p) ≡ tutorDeAux(c, p, estudiantes(c) ∪ maestros(c))
+		tutorDeAux(c, p, cem) ≡ if #cen = 1 then dameUno(cen) else  if p ∈ aprendicesDe(c, dameUno(cen)) then dameUno(cen) else tutorDeAux(c, p, sinUno(cen))	fi  fi
+		
+Fin TAD
+
+// Parcial del 30 de septiembre de 2017

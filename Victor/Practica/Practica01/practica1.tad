@@ -644,3 +644,70 @@ TAD RA
 	Axiomas:
 		
 Fin TAD
+
+// Ejercicio 20
+-> Si hay necesidad se solicita un tecnico, si este no esta ocupado, entonces va
+	 Si no hay tecnico, el pedido queda pendiente a la espera de que algun tecnico se libere
+	 conjunto de tecnicos
+	 conjunto de tecnicos en central
+	 conjunto de pedidos
+	 registrar un pedido
+	 aceptar un pedido -> tomo el primero de la lista, pues es una cola, primero en entrar, primero en salir
+-> Si un tecnico termina de resolver un problema, avisa y busca otro trabajo
+	 Si en ese momento hay uno pendiente, se dirige, si no, regresa a la central
+	 conjunto de tecnicos afuera
+	 
+	 
+-> Yo debo crear el sistema con tecnicos, entonces, necesito tecnicos
+-> A un tecnico, le debo asignar un trabajo, no tengo nada para definir, debe ser un generador entonces
+-> finalizar, dado un tecnico y su servicio, este informa o no, necesito esto para el resto, si no no puedo
+TAD Tecnico ES Nat
+TAD Direccion ES String
+TAD TecnicosADomicilio
+	Igualdad Observacional:();
+	Géneros: TaD
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		disponibles : TaD -> conj(Tecnico)
+		ocupados : TaD -> conj(Tecnico)
+		pendientes : TaD -> secu(Dir)
+		ubicacion : TaD tad x Tecnico t -> Dir		{t ∈ ocupados(tad)}
+		#visitas : TaD tad x Tecnico t x Direccion d -> nat		{t ∈ disponibles(tad) ∪ ocupados(t)}
+		 
+	Generadores:
+		crear: conj(Tecnico) c -> TaD				{¬Ø?(c)}
+		solicitar : TaD x Direccion -> TaD
+		finalizar : Tecnico tec x TaD t -> TaD
+		
+	Otras Operaciones:
+			
+	Axiomas:
+			disponibles(crear(c)) ≡ c
+			disponibles(asignar(t, d)) ≡ if Ø?(disponibles(t)) then Ø else sinUno(disponibles(t)) fi
+			disponibles(finalizar(Tec, t)) ≡ disponibles(t) ∪ if vacia?(pendientes(t)) then {Tec} else Ø fi
+			
+			ocupados(crear(c)) ≡ Ø
+			ocupados(solicitar(t, d)) ≡ if Ø?(ocupados(t)) then Ø else dameUno(disponibles(t)) fi
+			ocupados(finalizar(Tec, t)) ≡ ocupados(t) ∪ if vacia?(pendientes(t)) then Ø else {Tec} fi
+			
+			pendientes(crear(c)) ≡ <>
+			pendientes(solicitar(t, d)) ≡ if Ø?(disponibles(t)) then d ◦ pendientes(t) else <> fi
+			pendientes(finalizar(Tec, t)) ≡ if vacia?(pendientes(t)) then <> else sacar(masCercano(pendientes(t),ubicacion(t,p)), pendientes(t)) fi
+			
+			ubicacion(solicitar(t, d), t') ≡ if t' ∈ ocupados(t) then ubicacion(t, t') else d fi
+			ubicacion(finalizar(Tec, t), Tec') if Tec != Tec' then ubicacion(t, Tec') else masCercano(pendientes(t,ubicacion(t,p))) fi
+			
+			#visitas(crear(c), Tec, d) ≡ 0
+			#visitas(solicitar(tad, dir), tec, dir') ≡ #visitas(tad, tec, dir) + if dir = dir' ∧L ¬Ø?(disponibles(t)) ∧L tec = dameUno(disponibles(t)) then 1 else 0 fi
+			#visitas(finalizar(tad, dir), tec, dir') ≡ #visitas(tad, tec, dir) + if dir = dir' ∧L ¬vacia?(pendientes(tad)) ∧L tec = masCercano(pendientes(t), ubicacion(t,p)) then 1 else 0 fi
+			
+			Funciones auxiliares
+			masCercano : secu(Dir) s x Dir d -> Dir 		{¬vacia?(s)}
+			masCercano(s, d) ≡ if long(s) = 1 then prim(s) else  if dist(d, prim(s)) ≤ dist(d, masCercano(fin(s), d)) then prim(s) else masCercano(fin(s), d) fi fi
+			
+			sacar : secu(α) s x α e -> secu(α)
+			sacar(s, e) ≡ if vacia?(s) then <> else  if prim(s)=e then fin(s) else prim(s) • sacar(fin(s), e) fi
+				
+Fin TAD

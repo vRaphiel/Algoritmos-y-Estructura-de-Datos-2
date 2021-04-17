@@ -1,0 +1,133 @@
+// Ejercicio 17	
+Grupo de cabinas -> conj(cabinas)
+autos llegan a las cabinas, van a alguna, se atienden en orden de llegada
+Entronces los autos son secuencia, nos interesa el orden -> secu(autos)
+
+
+
+TAD Cabina ES Nat
+TAD Auto ES Nat
+
+TAD Peajes del Zar
+	Igualdad Observacional:();
+	Géneros: PDZ
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		autos : PDZ x Cabina -> secu(Auto)
+		cabinas : PDZ -> conj(Cabina)
+		limite : PDZ -> nat
+		autosCobrados : PDZ x Cabina -> conj(Auto)
+		
+		
+	Generadores:
+		abrirPeaje : conj(Cabina) cabinas x nat n -> PDZ 		{¬Ø?(cabinas) ∧ n > 0}
+		ingresarAuto : PDZ pdz x Cabina c  x Auto a -> PDZ
+		registrarCobro : PDZ pdz x Cabina c x Auto a x Precio p -> PDZ
+		levantarBarrera : PDZ pdz x Cabina c -> PDZ
+	Otras Operaciones:
+		
+		
+	Axiomas:
+		
+Fin TAD
+
+// Ejercicio 18
+-> Iniciar Red. Recibe un lider y devuelve una Red
+-> Invitar usuarios -> todos son invitados por un preexistente
+-> Tengo personas tipo Nat
+-> El juicio tiene impacto en los observadores
+-> Si se expulsa al miembro, todos sus elegidos seran expulsados -> Automatico
+-> Un ex-miembro puede ser absuelto, entonces se eliminan sus datos y entra como nueva persona convocada -> Generador
+-> Tortal de seguidores de la red -> Otra operacion, teniendo los seguidores y el lider podemos determinarlo
+
+-> Necesito una funcion que me diga los descendientesDe
+TAD Persona ES Nat
+
+TAD RedAntisocial
+	Igualdad Observacional:();
+	Géneros: RA
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		seguidores : RA -> conj(Persona)
+		expulsados : RA -> conj(Persona)
+		
+	Generadores:
+		generarRed : Persona -> RA
+		agregarSeguidor : RA ra x Persona p1 x Persona p2-> RA 		{p1 ∉ seguidores(ra) ∧ p2 ∈ seguidores(ra)}
+		absolucion : RA ra x Persona p -> RA			{p ∉ seguidores(ra) ∧ p ∈ expulsados(ra)}
+		enjuiciar : RA ra x Persona p x Persona p x Persona p x Persona x -> RA
+		
+	Otras Operaciones:
+		descendientesDe : RA ra x Persona p -> conj(Persona)
+	Axiomas:
+		
+Fin TAD
+
+// Ejercicio 19
+La oficina almacena, adminsitra y entrega. Sin acciones -> Generan mi modelo
+La oficina se maneja con codigos postales -> Zona es Nat
+Los paquetes tienen un codigo postal y un peso
+Tenemos empleados, cada uno tiene un unico codigo postal
+La relacion es muchos paquetes a un cartero, un cartero a un codigo postal
+Al recibir paquetes si estos no tienen ningun codigo de ningun cartero se devuelven, si no ingresan
+Accion -> Ingresar paquetes y registrarlo con correo
+Necesito saber entonces los codigos de mis empleados, entonces al ingresar el paquete automaticamente
+reviso que, si el paquete corresponde a algun codigo, entonces actuo, si no no
+
+Reparticion: A cada cartero le corresponden paquetes de un codigo postal
+Cada cartero puede cargar hasta 25kg, no mas. Entrega de paquetes es mientras el cargamento sea 25kg
+Si un paquete no se entrego reingresa al deposito
+Este es un conjunto de paquetes
+
+Una oficina se abre si tengo carteros. Entonces necesito un conjunto de carteros
+Hay paquetes, estos van a la oficina con un Codigo Postal y un Peso. Tomo que si el peso supera
+los 25kg es devuelto
+Los paquetes seran entregados por un cartero al cual se le asigne el codigo postal del producto
+
+
+TAD Cartero es Nat
+TAD Paquete es Nat
+TAD Peso es Nat
+TAD Zona es Nat
+
+TAD OficinaPostal
+	Igualdad Observacional:();
+	Géneros: OP
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		Carteros : OP -> conj(Cartero)
+		Zona : OP -> conj(Zona)
+		RecorridosActivos : OP -> conj(Carteros)
+		Paquetes : OP -> conj(Paquete)
+		PaquetesRebotados : OP -> conj(Paquete) // PaquetesRebotados ⊆ Paquetes
+		
+		
+	Generadores:
+		GenerarOficina : conj(Cartero) x conj(Zona) -> OP
+		AlmacenarPaquete : OP op x conj(Paquete) p -> OP
+		
+		IniciarRecorrido : OP op x Cartero c x conj(Paquete) pack -> OP		{pesoTotal(pack) ≤ 25 
+																																			∧ (∀pq:paquete, pq ∈ pack)(paqueteCP(op, pq) = carteroCP(op, c)) 
+																																			∧ ¬(c ∈ CodigosPostales(RecorridosActivos(op))}
+		ReportarRecorrido : OP op x Cartero c x conj(Paquete) pack -> OP 	
+		
+	Otras Operaciones:
+		CodigosPostales : conj(Carteros) -> conj(Zona);		// Esta aca porque puedo decidirlo de los codigos postales de los carteros
+		Zona : Cartero -> Nat
+		Reingresados : OP op x Cartero c -> conj(Paquete) // Se resume de PaquetesDe y EntregadosDe
+		PesoTotal : conj(Paquete) -> nat
+
+	Axiomas:
+		Carteros(GenerarOficina(c, z)) ≡ c
+		Carteros(AlmacenarPaquete(op, p)) ≡ Carteros(op)
+		Carteros(IniciarRcorrido(op, c, pack)) ≡ Carteros(op)
+		
+		
+		
+Fin TAD

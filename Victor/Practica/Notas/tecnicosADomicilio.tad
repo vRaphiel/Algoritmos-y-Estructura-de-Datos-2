@@ -1,0 +1,136 @@
+// Ejercicio 20 -> Tecnicos a Domicilio
+
+// La empresa tiene tecnicos
+
+// Historial de tecnico por direccion: tecnicosPorDireccion (puede ser un diccionario de clave x direccion -> secuencia o conjunto)
+
+// Lo puedo ver a partir de la igualdad observacional
+// PedidosPendientes -> Observadores
+// TecnicosDisponibles -> Observadores
+
+// Solicitar un tecnico -> Generador
+// Resolver un problema, lo hace un tecnicos -> Generador.
+// Comportamiento automatico, si hay algun pedido pendiente, me fijo al mas cercano al Domicilio
+// y automaticamente se lo asigna
+
+// Si un tecnico esta en la empresa, lo envia al domicilio
+// El pedido tiene una direccion. El tecnico busca la direccion y se dirige al mas cercano
+
+// Si no hay pedidos pendientes, lo suma a tecnicos TecnicosDisponibles
+// Si no, saco uno de pedidos pendientes y lo asigno al tecnico
+
+TAD Tecnico es Nat
+TAD Pedido es Direccion
+
+TAD TecnicosADomicilio
+	Igualdad Observacional:();
+	Géneros: tad
+	Exporta: generos, observadores basicos, generadores, tecnicosQueLaVisitaronMasVeces
+	Usa: Bool, Nat, Direccion, Conj, Dicc
+	
+	Observadores Básicos:
+		tecnicos : tad -> conj(Tecnico) 
+		pedidosPendientes : tad -> conj(Pedido) // Nada me dice que no pueda pedir 2 veces el mismo. Pedidos pendients de asignacion
+		historialPedidos : tad -> dicc(tecnico, secu(Pedido)) // Cuando yo le pase un tad me da mi diccionario con tecnico y pedidos
+		// Cada vez que un tecnico tiene asignado un pedido, se guarda aca
+		// Imaginar que pide el ej. que si o si el pedido este resuelto
+		// Entonces, el tecnico esta en tecnicos y no en tecnicos disponibles
+		// Entonces, el ultimo pedido de la secuencia de pedidos no estaria en la secuencia, pues todavia no esta terminado
+		// Entonces, puedo sacar de aqui si un pedido esta terminado o no
+		tecnicosDisponibles : tad -> conj(Tecnico)
+	Generadores:
+		crearTaD : conj(Tecnico) c -> tad		{¬Ø?(c)}
+		hacerUnPedido : tad t x Pedido p -> tad		{¬(p ∈ pedidosPendientes(tad))}
+		resolverUnPedido : tad t x Pedido p x tecnico tec -> tad 		{ult(obtener(tec, historialPedidos(t))) = p}
+	Otras Operaciones:
+		estaEnElHistorialDePedidos? : tad x pedido p -> bool
+		generarHistorialPedidosDefault : conj(Tecnico) x dicc(Tecnico, secu(Pedido)) -> dicc(Tecnico, secu(Pedido))
+		tecnicosQueLaVisitaronMasVeces : tad x pedido -> conj(tecnico)
+		tecnicosQueLaVisitaronMasVecesAux : tad x pedido x conj(tecnico) x conj(tecnico) -> conj(tecnico)
+	Axiomas:
+		tecnicos(crearTaD(c)) ≡ c
+		tecnicos(hacerUnPedido(t, p)) ≡ tecnicos(t)
+		tecnicos(resolverUnPedido(t, p, tec)) ≡ tecnicos(t)
+		
+		pedidosPendientes(crearTaD(c)) ≡ Ø
+		pedidosPendientes(hacerUnPedido(tad, pedido)) ≡ 
+			if Ø?(tecnicosDisponibles(tad)) then
+				Ag(pedido, pedidosPendientes(tad))		
+			else
+				pedidosPendientes(tad)
+			fi
+		pedidosPendientes(resolverUnPedido(tad, pedido, tecnico)) ≡ 
+			if Ø?(pedidosPendientes(tad)) then
+				pedidosPendientes(tad)
+			else
+				pedidosPendientes(tad) - pedidoMasCercanoAlTecnico(tad, tecnico)
+			fi
+		
+		// Crear un diccionario vacio y le asigno las claves y significados
+		historialPedidos(crearTaD(c)) ≡ generarHistorialPedidosDefault(c, vacio())
+		historialPedidos(hacerUnPedido(tad, pedido)) ≡ 
+			if Ø?(tecnicosDisponibles(tad)) then
+				historialPedidos(tad)	
+			else
+				// Me fijo el tecnico mas cercano a la direccion
+				definir(dameUno(TecnicosDisponibles(tad)), (obtener(dameUno(TecnicosDisponibles(tad)), historialPedidos(tad)) ◦ pedido), historialPedidos(tad))
+			fi
+		historialPedidos(resolverUnPedido(tad, pedido, tec)) ≡ 
+			if Ø?(pedidosPendientes(tad)) then
+				historialPedidos(tad)
+			else
+				definir(tecnico, obtener(tecnico), historialPedidos(tad) ◦ pedidoMasCercanoAlTecnico(tad, tecnico), historialPedidos(tad))
+			fi
+		
+		tecnicosDisponibles(crearTaD(c)) ≡ c
+		tecnicosDisponibles(hacerUnPedido(tad, pedido)) ≡
+			if Ø?(tecnicosDisponibles(tad)) then
+				tecnicosDisponibles(tad)
+			else
+				tecnicosDisponibles(tad) - dameUno(tecnicosDisponibles(tad))
+			fi
+		tecnicosDisponibles(resolverUnPedido(tad, pedido, tecnico)) ≡
+			if Ø?(pedidosPendientes(tad)) 
+				then Ag(tecnicosDisponibles(tad), tecnico)
+				else tecnicosDisponibles(tad)
+			fi
+		
+		generarHistorialPedidosDefault(tecnicos, diccionario) ≡
+			if Ø?(tecnicos) then diccionario else generarHistorialPedidosDefault(sinUno(tecnicos), definir(dameUno(tecnico), <>, diccionario)) fi
+			
+		pedidoMasCercanoAlTecnico(tad, tecnico) ≡
+			buscarMasCercanoAux(tad, sinUno(pedidosPendientes(tad)), dameUno(pedidosPendientes(tad)), tecnico)
+			
+		buscarMasCercanoAux(tad, pedidosPendientes, masCercano, tecnico) ≡
+			if Ø?(pedidosPendientes) then
+				masCercano
+			else
+				if dist(masCercano, ult(obtener(tecnico, historialDePedidos(tad)))) > dist(dameUno(pedidosPendientes), ult(obtener(tecnico, historialDePedidos(tad)))) then
+					buscarMasCercanoAux(tad, sinUno(pendientes), dameUno(PedidosPendientes), tecnico)
+				else
+					buscarMasCercanoAux(tad, sinUno(pedidosPendientes), masCercano, tecnico)
+				fi
+			fi
+		
+		tecnicosQueLaVisitaronMasVeces(tad, direccion) ≡ 
+			tecnicosQueLaVisitaronMasVecesAux(tad, direccion, sinUno(tecnicos), {dameUno(tecnicos)})
+			
+		tecnicosQueLaVisitaronMasVecesAux(tad, direccion, tecnicos, resultado) ≡ 
+			if Ø?(tecnicos) then resultado else
+				if CantidadDeApariciones(direccion, obtener(dameUno(tecnicos), historialDePedidos(tad))) > 
+					 CantidadDeApariciones(direccion, obtener(dameUno(resultado), historialDePedidos(tad))) 
+					then
+						Ag(dameUno(tecnicos), Ø)
+					else
+						if  CantidadDeApariciones(direccion, obtener(dameUno(tecnicos), historialDePedidos(tad))) =
+						 		CantidadDeApariciones(direccion, obtener(dameUno(resultado), historialDePedidos(tad))) 
+								then
+									Ag(dameUno(tecnicos), resultado)
+								else
+									resultado
+						fi
+				 fi
+			fi
+					
+Fin TAD
+ 

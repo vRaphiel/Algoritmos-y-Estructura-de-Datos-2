@@ -1,0 +1,38 @@
+// Crear juego me da un juego tupla. D es tupla, T es tablero, A es un conjunto de tuplas?
+
+direccionXJUgador(CrearJuego(D,T), A) ≡
+	if A = π1(DameUno(D)) then π2(dameUno(D)) else direccionXJUgador(crearJuego(sinUno(D), T), A) fi
+
+// Consultas Pre Parcial
+nuevoTablero(10, )
+TAD Baldosa es ℕ
+TAD Tablero
+	Igualdad Observacional:();
+	Géneros: nombreTad
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Nat, Bool, 
+	
+	Observadores Básicos:
+		llegada : tableto t -> Nat
+		efecto : tableto T x Baldosa b -> String { ? }
+	Generadores:
+		nuevoTablero : ℕ llegada x Secu(ℕxℕ) efectos-> tablero {¬(llegada = 0)}
+	Otras Operaciones:
+		
+	Axiomas:
+		
+Fin TAD
+
+
+// Ejercicio 16
+No esta mal que agregues operaciones auxiliares, permite que sea legible la especificacion
+Idea de comportamiento automatico -> Cuando preguntas algo
+Miras a los generadores
+El jugador que perdio no aparecera en el conjunto de jugadores aunque haya un generador explicito
+Lo importante es tener claro el concepto
+Donde meto las cosas? Donde van los conceptos y operaciones?
+ 
+DameUno es lo que usamos para no hardcodear ciertas cosas -> No esforzar un orden determinado
+DameUno != DameAleatorio
+
+Matematicamente son Funciones -> Se le llaman operaciones por simplicidad

@@ -1,0 +1,22 @@
+
+diccToMulticonj: dicc(α, nat) -> multiconj(α)
+diccToMulticonj(a, n) ≡ if n = 0 then Ø else Ag(a, Ag(diccToMulticonj(a, n-1), Ø)) fi
+
+obtenerSecusValidas : dicc(α, nat) x conj(secu(α)) -> conj(secu(α))
+obtenerSecusValidas(d, c) ≡ if ¬vacia?(c) then 
+															if esSubValida(diccToMulticonj(d), dameUno(c)) 
+																	then dameUno(c) ∩ {obtenerSecusValidas(d, sinUno(c))}
+																	else obtenerSecusValidas(d, sinUno((c)))
+															fi
+														else Ø
+														fi
+														
+esSubValida : multiconj(α) x secu(α) -> bool
+esSubValida(d, s) ≡ if vacia?(s) 
+											then true 
+											else 
+												if prim(s) ∈ d 
+													then esSubValida(d - {prim(s)}, fin(s)) 
+													else false 
+												fi
+										fi
