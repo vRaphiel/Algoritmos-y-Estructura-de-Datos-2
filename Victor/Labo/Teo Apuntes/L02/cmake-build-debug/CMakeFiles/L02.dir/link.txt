@@ -1,1 +1,1 @@
-/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/L02.dir/main.cpp.o  -o L02.exe -Wl,--out-implib,libL02.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+/usr/bin/c++.exe -g -Wl,--enable-auto-import CMakeFiles/L02.dir/main.cpp.o CMakeFiles/L02.dir/LU.cpp.o -o L02.exe -Wl,--out-implib,libL02.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

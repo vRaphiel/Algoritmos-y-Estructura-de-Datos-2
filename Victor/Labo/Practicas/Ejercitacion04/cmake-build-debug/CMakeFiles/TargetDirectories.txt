@@ -1,0 +1,12 @@
+/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion04/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion04/cmake-build-debug/CMakeFiles/edit_cache.dir
+/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion04/cmake-build-debug/CMakeFiles/ej5_correrValgrind.dir
+/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion04/cmake-build-debug/CMakeFiles/ej2_correrValgrind.dir
+/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion04/cmake-build-debug/CMakeFiles/ej7.dir
+/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion04/cmake-build-debug/CMakeFiles/ej4.dir
+/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion04/cmake-build-debug/CMakeFiles/ej3_correrValgrind.dir
+/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion04/cmake-build-debug/CMakeFiles/ej3.dir
+/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion04/cmake-build-debug/CMakeFiles/ej1.dir
+/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion04/cmake-build-debug/CMakeFiles/ej6.dir
+/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion04/cmake-build-debug/CMakeFiles/gtest_main.dir
+/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion04/cmake-build-debug/CMakeFiles/gtest.dir

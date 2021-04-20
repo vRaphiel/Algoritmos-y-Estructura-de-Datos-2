@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L02/LU.cpp">
+			<Option target="L02"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L02/LU.h">
+			<Option target="L02"/>
+		</Unit>
 		<Unit filename="/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L02/main.cpp">
 			<Option target="L02"/>
 		</Unit>

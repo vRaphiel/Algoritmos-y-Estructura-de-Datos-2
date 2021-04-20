@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/L02.dir/LU.cpp.o"
   "CMakeFiles/L02.dir/main.cpp.o"
   "L02.exe"
   "L02.pdb"

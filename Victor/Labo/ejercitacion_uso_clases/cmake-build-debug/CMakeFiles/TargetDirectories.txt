@@ -1,6 +1,0 @@
-/cygdrive/d/CLionProjects/Algo2/Victor/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/cygdrive/d/CLionProjects/Algo2/Victor/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles/edit_cache.dir
-/cygdrive/d/CLionProjects/Algo2/Victor/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles/gtest_main.dir
-/cygdrive/d/CLionProjects/Algo2/Victor/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles/gtest.dir
-/cygdrive/d/CLionProjects/Algo2/Victor/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles/tests_ejercitacion.dir
-/cygdrive/d/CLionProjects/Algo2/Victor/Labo/ejercitacion_uso_clases/cmake-build-debug/CMakeFiles/tests_algobot.dir
