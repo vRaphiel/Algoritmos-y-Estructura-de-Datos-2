@@ -52,7 +52,11 @@ void Fecha::incrementar_dia() {
         dia_ = dia_ + 1;
     } else {
         dia_ = 1;
-        mes_ = mes_+1;
+        if(mes_ == 12){
+            mes_ = 1;
+        }else{
+            mes_ = mes_+1;
+        }
     }
 }
 
@@ -84,9 +88,11 @@ uint Horario::hora() {return hora_;}
 uint Horario::min() {return min_;}
 
 bool Horario::operator<(Horario h) {
-    bool igual_hora = this->hora_ <= h.hora();
-    bool igual_min = this->min_ <= h.min();
-    return igual_hora && igual_min;
+    if(this->hora() == h.hora()){
+        return this->min() < h.min();
+    }
+
+    return this->hora() < h.hora();
 }
 
 ostream& operator<<(ostream& os, Horario h){
@@ -158,12 +164,18 @@ void Agenda::incrementar_dia() {
 
 list<Recordatorio> Agenda::recordatorios_de_hoy() {
     vector<Recordatorio> lRecAux = {};
+
+    // Selecciono de todos los recordatorios, los que sean del dia actual
     for(Recordatorio recAux : recordatorios_){
+        /* Opte por ponerlo asi en vez de comparar la fecha directamente ya que, el operador == esta habilitado desde el ej. 9
+         * en adelante y, si estoy en un caso de ejercicio distinto al 9, no lo encuentra y explota el programa */
         if(recAux.fecha().dia() == hoy().dia() &&
             recAux.fecha().mes() == hoy().mes()){
             lRecAux.push_back(recAux);
         }
     }
+
+    // Si tengo almenos un recordatorio del dia actual, entonces ordeno la lista por horario
     if(lRecAux.size()>0){
         for(int i = 0; i < lRecAux.size()-1; i++){
             for(int j = 0; j< lRecAux.size()-1; j++){
@@ -176,6 +188,7 @@ list<Recordatorio> Agenda::recordatorios_de_hoy() {
         }
     }
 
+    // Como debo devolver una lista, "convierto" el vector en lista
     list<Recordatorio> entrega = {};
     for(int i = 0; i < lRecAux.size(); i++){
         entrega.push_back(lRecAux[i]);

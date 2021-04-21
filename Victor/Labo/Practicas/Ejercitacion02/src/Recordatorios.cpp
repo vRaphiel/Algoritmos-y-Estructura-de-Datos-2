@@ -9,10 +9,10 @@ using uint = unsigned int;
 // Pre: 0 <= mes < 12
 uint dias_en_mes(uint mes) {
     uint dias[] = {
-        // ene, feb, mar, abr, may, jun
-        31, 28, 31, 30, 31, 30,
-        // jul, ago, sep, oct, nov, dic
-        31, 31, 30, 31, 30, 31
+            // ene, feb, mar, abr, may, jun
+            31, 28, 31, 30, 31, 30,
+            // jul, ago, sep, oct, nov, dic
+            31, 31, 30, 31, 30, 31
     };
     return dias[mes - 1];
 }
@@ -21,18 +21,18 @@ uint dias_en_mes(uint mes) {
 
 // Clase Fecha
 class Fecha {
-  public:
+public:
     Fecha(uint mes, uint dia);
     uint mes();
     uint dia();
     void incrementar_dia();
 
     // Completar declaraciones funciones
-    #if EJ >= 9 // Para ejercicio 9
+#if EJ >= 9 // Para ejercicio 9
     bool operator==(Fecha o);
-    #endif
+#endif
 
-  private:
+private:
     //Completar miembros internos
     uint mes_;
     uint dia_;
@@ -52,10 +52,13 @@ void Fecha::incrementar_dia() {
         dia_ = dia_ + 1;
     } else {
         dia_ = 1;
-        mes_ = mes_+1;
+        if(mes_ == 12){
+            mes_ = 1;
+        }else{
+            mes_ = mes_+1;
+        }
     }
 }
-
 
 #if EJ >= 9
 bool Fecha::operator==(Fecha o) {
@@ -68,21 +71,16 @@ bool Fecha::operator==(Fecha o) {
 
 // Ejercicio 11, 12
 
-
-#if EJ >= 11
-
-#endif
-
 // Clase Horario
 class Horario{
-    public:
-        Horario(uint hora, uint min);
-        uint hora();
-        uint min();
-        bool operator<(Horario h);
-    private:
-        uint hora_;
-        uint min_;
+public:
+    Horario(uint hora, uint min);
+    uint hora();
+    uint min();
+    bool operator<(Horario h);
+private:
+    uint hora_;
+    uint min_;
 };
 
 Horario::Horario(uint hora, uint min) : hora_(hora), min_(min){}
@@ -90,9 +88,11 @@ uint Horario::hora() {return hora_;}
 uint Horario::min() {return min_;}
 
 bool Horario::operator<(Horario h) {
-    bool igual_hora = this->hora_ <= h.hora();
-    bool igual_min = this->min_ <= h.min();
-    return igual_hora && igual_min;
+    if(this->hora() == h.hora()){
+        return this->min() < h.min();
+    }
+
+    return this->hora() < h.hora();
 }
 
 ostream& operator<<(ostream& os, Horario h){
@@ -100,19 +100,19 @@ ostream& operator<<(ostream& os, Horario h){
     return os;
 }
 
-
 // Ejercicio 13
 
+// Clase Recordatorio
 class Recordatorio{
-    public:
-        Recordatorio(Fecha f, Horario h, string mensaje);
-        string mensaje();
-        Fecha fecha();
-        Horario horario();
-    private:
-        string mensaje_;
-        Fecha f_;
-        Horario h_;
+public:
+    Recordatorio(Fecha f, Horario h, string mensaje);
+    string mensaje();
+    Fecha fecha();
+    Horario horario();
+private:
+    string mensaje_;
+    Fecha f_;
+    Horario h_;
 };
 
 Recordatorio::Recordatorio(Fecha f, Horario h, string mensaje) : f_(f), h_(h), mensaje_(mensaje){}
@@ -127,18 +127,16 @@ ostream& operator<<(ostream& os, Recordatorio r){
 
 // Clase Agenda
 class Agenda{
-    public:
-        Agenda(Fecha fecha_inicial);
-        void agregar_recordatorio(Recordatorio rec);
-        void incrementar_dia();
-        list<Recordatorio> recordatorios_de_hoy();
-        Fecha hoy();
+public:
+    Agenda(Fecha fecha_inicial);
+    void agregar_recordatorio(Recordatorio rec);
+    void incrementar_dia();
+    list<Recordatorio> recordatorios_de_hoy();
+    Fecha hoy();
 
-
-
-    private:
-        Fecha dia_actual_;
-        list<Recordatorio> recordatorios_;
+private:
+    Fecha dia_actual_;
+    list<Recordatorio> recordatorios_;
 };
 
 ostream& operator<<(ostream& os, Agenda a){
@@ -166,11 +164,18 @@ void Agenda::incrementar_dia() {
 
 list<Recordatorio> Agenda::recordatorios_de_hoy() {
     vector<Recordatorio> lRecAux = {};
+
+    // Selecciono de todos los recordatorios, los que sean del dia actual
     for(Recordatorio recAux : recordatorios_){
-        if(recAux.fecha() == hoy()){
+        /* Opte por ponerlo asi en vez de comparar la fecha directamente ya que, el operador == esta habilitado desde el ej. 9
+         * en adelante y, si estoy en un caso de ejercicio distinto al 9, no lo encuentra y explota el programa */
+        if(recAux.fecha().dia() == hoy().dia() &&
+           recAux.fecha().mes() == hoy().mes()){
             lRecAux.push_back(recAux);
         }
     }
+
+    // Si tengo almenos un recordatorio del dia actual, entonces ordeno la lista por horario
     if(lRecAux.size()>0){
         for(int i = 0; i < lRecAux.size()-1; i++){
             for(int j = 0; j< lRecAux.size()-1; j++){
@@ -183,6 +188,7 @@ list<Recordatorio> Agenda::recordatorios_de_hoy() {
         }
     }
 
+    // Como debo devolver una lista, "convierto" el vector en lista
     list<Recordatorio> entrega = {};
     for(int i = 0; i < lRecAux.size(); i++){
         entrega.push_back(lRecAux[i]);
