@@ -28,9 +28,7 @@ public:
     void incrementar_dia();
 
     // Completar declaraciones funciones
-#if EJ >= 9 // Para ejercicio 9
     bool operator==(Fecha o);
-#endif
 
 private:
     //Completar miembros internos
@@ -60,14 +58,12 @@ void Fecha::incrementar_dia() {
     }
 }
 
-#if EJ >= 9
 bool Fecha::operator==(Fecha o) {
     bool igual_dia = this->dia_ == o.dia();
     bool igual_mes = this->mes_ == o.mes();
     // Completar iguadad (ej 9)
     return igual_dia && igual_mes;
 }
-#endif
 
 // Ejercicio 11, 12
 
@@ -167,15 +163,13 @@ list<Recordatorio> Agenda::recordatorios_de_hoy() {
 
     // Selecciono de todos los recordatorios, los que sean del dia actual
     for(Recordatorio recAux : recordatorios_){
-        /* Opte por ponerlo asi en vez de comparar la fecha directamente ya que, el operador == esta habilitado desde el ej. 9
-         * en adelante y, si estoy en un caso de ejercicio distinto al 9, no lo encuentra y explota el programa */
-        if(recAux.fecha().dia() == hoy().dia() &&
-           recAux.fecha().mes() == hoy().mes()){
+        if(recAux.fecha() == hoy()){
             lRecAux.push_back(recAux);
         }
     }
 
     // Si tengo almenos un recordatorio del dia actual, entonces ordeno la lista por horario
+    // Metodo de ordenamiento por burbuja
     if(lRecAux.size()>0){
         for(int i = 0; i < lRecAux.size()-1; i++){
             for(int j = 0; j< lRecAux.size()-1; j++){

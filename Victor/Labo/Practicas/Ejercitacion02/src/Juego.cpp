@@ -16,7 +16,14 @@ char IZQUIERDA = '>';
 
 class Juego {
     public:
+        Juego(bool esta);
+        bool esta();
     private:
-
+        bool esta_;
 };
 
+Juego::Juego(bool esta) : esta_(esta) {}
+
+bool Juego::esta() {
+    return esta_;
+}

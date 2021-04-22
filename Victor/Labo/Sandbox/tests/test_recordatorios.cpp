@@ -42,29 +42,34 @@ TEST(Fecha, igualdad) {
 #if EJ >= 10
 
 TEST(Fecha, incrementar) {
-  Fecha f(6, 28);
-  EXPECT_EQ(f.mes(), 6);
-  EXPECT_EQ(f.dia(), 28);
+    Fecha f(6, 28);
+    EXPECT_EQ(f.mes(), 6);
+    EXPECT_EQ(f.dia(), 28);
 
-  f.incrementar_dia();
-  EXPECT_EQ(f.mes(), 6);
-  EXPECT_EQ(f.dia(), 29);
+    f.incrementar_dia();
+    EXPECT_EQ(f.mes(), 6);
+    EXPECT_EQ(f.dia(), 29);
 
-  f.incrementar_dia();
-  EXPECT_EQ(f.mes(), 6);
-  EXPECT_EQ(f.dia(), 30);
-  
-  f.incrementar_dia();
-  EXPECT_EQ(f.mes(), 7);
-  EXPECT_EQ(f.dia(), 1);
+    f.incrementar_dia();
+    EXPECT_EQ(f.mes(), 6);
+    EXPECT_EQ(f.dia(), 30);
 
-  f = Fecha(2, 28);
-  EXPECT_EQ(f.mes(), 2);
-  EXPECT_EQ(f.dia(), 28);
+    f.incrementar_dia();
+    EXPECT_EQ(f.mes(), 7);
+    EXPECT_EQ(f.dia(), 1);
 
-  f.incrementar_dia();
-  EXPECT_EQ(f.mes(), 3);
-  EXPECT_EQ(f.dia(), 1);
+    f = Fecha(2, 28);
+    EXPECT_EQ(f.mes(), 2);
+    EXPECT_EQ(f.dia(), 28);
+
+    f.incrementar_dia();
+    EXPECT_EQ(f.mes(), 3);
+    EXPECT_EQ(f.dia(), 1);
+
+    Fecha g(12, 31);
+    g.incrementar_dia();
+    EXPECT_EQ(g.mes(), 1);
+    EXPECT_EQ(g.dia(), 1);
 }
 
 #endif
@@ -163,5 +168,6 @@ TEST(Agenda, cambio_dia) {
     ss2c << "Labo Algo2 @ 10/5 11:0" << endl;
     EXPECT_EQ(ss2.str(), ss2c.str());
 }
+
 
 #endif

@@ -3,6 +3,7 @@
 
 #include "ConexionJugador.h"
 #include <string>
+#include <vector>
 
 #if EJ == 4 || EJ == 5
 #include "Proxy.h"
