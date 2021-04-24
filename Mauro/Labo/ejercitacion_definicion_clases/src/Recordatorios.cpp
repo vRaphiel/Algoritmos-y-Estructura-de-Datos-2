@@ -5,18 +5,17 @@ using namespace std;
 
 using uint = unsigned int;
 
-namespace UTIL {
-    // Pre: 0 <= mes < 12
-    uint dias_en_mes(uint mes) {
-        uint dias[] = {
-                // ene, feb, mar, abr, may, jun
-                31, 28, 31, 30, 31, 30,
-                // jul, ago, sep, oct, nov, dic
-                31, 31, 30, 31, 30, 31
-        };
-        return dias[mes - 1];
-    }
+// Pre: 0 <= mes < 12
+uint dias_en_mes(uint mes) {
+    uint dias[] = {
+            // ene, feb, mar, abr, may, jun
+            31, 28, 31, 30, 31, 30,
+            // jul, ago, sep, oct, nov, dic
+            31, 31, 30, 31, 30, 31
+    };
+    return dias[mes - 1];
 }
+
 
 // Ejercicio 7, 8, 9 y 10
 
@@ -28,7 +27,6 @@ class Fecha {
     int dia();
     void incrementar_dia();
 
-    // Completar declaraciones funciones
     #if EJ >= 9 // Para ejercicio 9
     bool operator==(Fecha o);
     #endif
@@ -57,7 +55,7 @@ void Fecha::incrementar_dia() {
     int siguiente_dia = this->dia() + 1;
     int siguiente_mes = this->mes();
 
-    if (siguiente_dia > UTIL::dias_en_mes(this->mes())) {
+    if (siguiente_dia > dias_en_mes(this->mes())) {
         siguiente_dia = 1;
         siguiente_mes = (siguiente_mes + 1) % 12;
     }
@@ -168,13 +166,14 @@ class Agenda {
 
     private:
         Fecha hoy_;
+        vector<Recordatorio> recordatorios_;
         list<Recordatorio> recordatorios_de_hoy_;
 };
 
 Agenda::Agenda(Fecha fecha_inicial): hoy_(fecha_inicial) {}
 
 void Agenda::agregar_recordatorio(Recordatorio rec) {
-    this->recordatorios_de_hoy_.push_back(rec);
+    this->recordatorios_.push_back(rec);
 }
 
 void Agenda::incrementar_dia() {
@@ -182,6 +181,31 @@ void Agenda::incrementar_dia() {
 }
 
 list<Recordatorio> Agenda::recordatorios_de_hoy() {
+    vector<Recordatorio> recordatorios_de_hoy_parcial_;
+
+    // me quedo solo con los recordatorios de hoy
+    for (int i = 0; i < this->recordatorios_.size(); ++i) {
+        if (this->recordatorios_[i].fecha() == this->hoy()) {
+            recordatorios_de_hoy_parcial_.push_back(this->recordatorios_[i]);
+        }
+    }
+
+    // ordeno los recordatorios de hoy
+    for (int i = 0;i < recordatorios_de_hoy_parcial_.size(); i++){
+            for (int j = 0; j< recordatorios_de_hoy_parcial_.size()-1; j++){
+                if (recordatorios_de_hoy_parcial_[j+1].horario() < recordatorios_de_hoy_parcial_[j].horario() ) {
+                    Recordatorio recordatorioParcial = recordatorios_de_hoy_parcial_[j];
+                    recordatorios_de_hoy_parcial_[j] = recordatorios_de_hoy_parcial_[j+1];
+                    recordatorios_de_hoy_parcial_[j+1] = recordatorioParcial;
+                }
+            }
+    }
+
+    // guardo los recordatorios de hoy ordenados en recordatorios_de_hoy
+    for (int i = 0; i < recordatorios_de_hoy_parcial_.size(); ++i) {
+        this->recordatorios_de_hoy_.push_back(recordatorios_de_hoy_parcial_[i]);
+    }
+
     return this->recordatorios_de_hoy_;
 }
 
@@ -193,8 +217,8 @@ ostream& operator<<(ostream& os, Agenda a) {
     os << a.hoy() << endl;
     os << "=====" << endl;
 
-    for (auto v : a.recordatorios_de_hoy())
-        os << v << endl;
+    for (auto recordatorio : a.recordatorios_de_hoy())
+        os << recordatorio << endl;
 
     return os;
 }

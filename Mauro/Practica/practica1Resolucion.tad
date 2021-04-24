@@ -834,3 +834,262 @@ TAD TaD
 				fi
 			fi
 Fin TAD	
+
+
+
+
+
+
+
+// centrosDeVacunacion -> tad ->    dicc()
+// vacunados
+// pendientesPorVacunarse
+// #vacunasDisponibles
+// inscribirse solo se pueden inscribir en una sola ciudad, en una planilla de a una o varias personas 
+// abrirFrascoDeVacunas, solo se puede abrir si hay 5 personas disponibles, comportamiento automatico
+// LleganVacunaAlCentro, centro × cantidad
+// se quiere saber que provincia vacuno mas y cual tiene mas vacunas disponibles
+
+AZZOLLINI MAURO EZEQUIEL  LU: 774/19
+TAD centroDeVacunacion ES String      // el centro de vacunacion va a ser una ciudad
+TAD persona es Nat
+
+TAD Sistema de Vacunación
+	Igualdad Observacional: (
+		(∀sv1, sv2: sv ) (sv1 =obs sv2  <-> centrosDeVacunacion(sv1) =obs centroDeVacunacion(sv2) ∧ 
+			(∀ centro: centroDeVacunacion, centro ∈ claves(centrosDeVacunacion(sv1)) ∧ centro ∈ claves(centrosDeVacunacion(sv2)))(
+				#vacunasDisponibles(sv1, centro) =obs #vacunasDisponibles(sv2, centro) ∧
+				vacunados(sv1, centro) =obs vacunados(sv2, centro) ∧
+				pendientesPorVacunarse(sv1, centro) =obs pendientesPorVacunarse(sv2, centro)
+				)
+		)
+		
+		);
+	Géneros: sv
+	Exporta: generos, observadores basicos, generadores, ciudadQueMasVacuno, ciudadConMasVacunasDisponibles
+	Usa: Nat, Dicc, Conj, centroDeVacunacion, persona
+	
+	Observadores Básicos:
+		centrosDeVacunacion: sv -> dicc(centroDeVacunacion, conj(persona))
+		#vacunasDisponibles: sv × centrosDeVacunacion -> Nat
+		vacunados: sv × centroDeVacunacion -> conj(personas)
+		pendientesPorVacunarse: sv × centroDeVacunacion -> conj(persona)
+	Generadores:
+		crearSV:	dicc(centroDeVacunacion, conj(persona)) centros -> sv       {¬(Ø?claves(centros))} // un diccionario que tenga asignado a cada centro los habitantes de la ciudad
+		LleganVacunas: sv t × centroDeVacunacion c × nat cant-> sv     {c ∈ claves(centrosDeVacunacion(t)) ∧ cant % 5 = 0}
+		LleganInscripciones: sv t × centroDeVacunacion c × conj(persona) habitantes -> sv      {c ∈ claves(centrosDeVacunacion(t)) ∧ habitantes ⊆ obtener(c, centroDeVacunacion(t))}
+	Otras Operaciones:
+		ciudadQueMasVacuno:	sv -> centroDeVacunacion
+		ciudadConMasVacunasDisponibles: sv -> centroDeVacunacion
+		ciudadesQueMasVacunaronAux: sv × conj(centroDeVacunacion) × conj(centroDeVacunacion) -> conj(centroDeVacunacion)
+		ciudadesConMasVacunasDisponibles: sv × conj(centroDeVacunacion) × conj(centroDeVacunacion) -> conj(centroDeVacunacion)
+		dameN: Nat × conj(persona) -> conj(persona)
+		sinN: Nat × conj(persona) -> conj(persona)
+		damePendientesDeVacunarseValidos: sv t × centroDeVacunacion c × conj(persona) -> conj(persona)    {c ∈ claves(centrosDeVacunacion(t))} 
+		generarNuevosVacunados: sv × centroDeVacunacion × Nat × conj(persona) × conj(persona) -> conj(persona) 
+	Axiomas:
+		centrosDeVacunacion(crearSV(centrosDeVacunacion)) ≡ centrosDeVacunacion
+		centrosDeVacunacion(LleganVacunas(sv, centro, cantidad)) ≡ centrosDeVacunacion(sv)
+		centroDeVacunacion(LleganInscripciones(sv, centro, inscripciones)) ≡ centrosDeVacunacion(sv)
+		
+		#vacunasDisponibles(crearSV(centrosDeVacunacion), c) ≡ 0
+		#vacunasDisponibles(LleganVacunas(sv, cA, cantidad), cB) ≡ 
+			if cA=cB then
+				if Ø?(pendientesPorVacunarse(sv, cB)) then
+					#vacunasDisponibles(sv, cB) + cantidad
+				else
+					#vacunasDisponibles(sv, cB) + cantidad - #generarNuevosVacunados(sv, cB, #vacunasDisponibles(sv, cB) + cantidad, pendientesPorVacunarse(sv, cB), Ø)
+				fi
+			else
+				#vacunasDisponibles(sv, cB)
+			fi
+		#vacunasDisponibles(LleganInscripciones(sv, cA, inscripciones), cB) ≡ 
+			#vacunasDisponibles(sv, cB) - #generarNuevosVacunados(sv, cB, #vacunasDisponibles(sv, cB), pendientesPorVacunarse(sv, cB), Ø)
+		
+		
+		vacunados(crearSV(centrosDeVacunacion), c) ≡ Ø
+		vacunados(LleganVacunas(sv, cA, cantidad), cB) ≡ 
+			if cB=cA then
+				vacunados(cB) ∪ generarNuevosVacunados(sv, cB, #vacunasDisponibles(sv, cB), pendientesDeVacunarse(sv, cB), Ø)
+			else
+				vacunados(sv, cB)
+			fi
+		vacunados(LleganInscripciones(sv, cA, inscripciones), cB) ≡ 
+			if cB=cA then
+				vacunados(cB) ∪ generarNuevosVacunados(sv, cB, #vacunasDisponibles(sv, cB), pendientesDeVacunarse(sv, cB), Ø)
+			else
+				vacunados(sv, cB)
+			fi
+			
+		pendientesPorVacunarse(crearSV(centrosDeVacunacion), c)	≡ Ø
+		pendientesPorVacunarse(LleganVacunas(sv, cA, cantidad), cB) ≡ 
+			if cA=cB then
+				pendientesPorVacunarse(sv, cB) - generarNuevosVacunados(sv, cB, #vacunasDisponibles(sv, cB), pendientesPorVacunarse(sv, cB), Ø)
+			else
+				pendientesPorVacunarse(cB)
+			fi
+		pendientesPorVacunarse(LleganInscripciones(sv, cA, inscripciones), cB) ≡
+				if cA=cB then
+					(pendientesPorVacunarse(sv, cB) ∪ damePendientesDeVacunarseValidos(sv, cB, inscripciones)) - 
+					generarNuevosVacunados(sv, cB, #vacunasDisponibles(sv, cB), pendientesPorVacunarse(sv, cB) ∪ damePendientesDeVacunarseValidos(sv, cB, inscripciones), Ø)
+				else
+					pendientesPorVacunarse(sv, cB)
+				fi
+		
+		ciudadQueMasVacuno(sv) ≡ dameUno(ciudadesQueMasVacunaronAux(sv, sinUno(claves(centrosDeVacunacion(sv))), Ag(dameUno(claves(centrosDeVacunacion(sv))), Ø )))
+		
+		ciudadesQueMasVacunaronAux(sv, centrosDeVacunacion, resultado) ≡
+		 	if Ø?(centrosDeVacunacion) then
+		 		resultado
+		 	else
+		 		if #vacunados(sv, dameUno(centrosDeVacunacion)) > #vacunados(sv, dameUno(resultado))  then
+		 			ciudadesQueMasVacunaronAux(sv, sinUno(centroDeVacunacion), Ag(dameUno(centrosDeVacunacion), Ø))    
+		 		else
+		 			if #vacunados(sv, dameUno(centrosDeVacunacion)) = #vacunados(sv, dameUno(resultado)) then
+		 				ciudadesQueMasVacunaronAux(sv, sinUno(centroDeVacunacion), Ag(dameUno(centrosDeVacunacion), resultado))    
+		 			else
+		 				ciudadesQueMasVacunaronAux(sv, sinUno(centroDeVacunacion), resultado)
+		 			fi
+		 		fi
+		 	fi
+		
+		ciudadConMasVacunasDisponibles(sv) ≡ dameUno(ciudadesConMasVacunasDisponibles(sv, sinUno(claves(centrosDeVacunacion(sv))), Ag(dameUno(claves(centrosDeVacunacion(sv))), Ø )))
+
+		ciudadesConMasVacunasDisponibles(sv, centrosDeVacunacion, resultado) ≡
+			if Ø?(centrosDeVacunacion) then
+				resultado
+			else
+				if #vacunasDisponibles(sv, dameUno(centrosDeVacunacion)) > #vacunasDisponibles(sv, dameUno(resultado))  then
+					ciudadesQueMasVacunaronAux(sv, sinUno(centroDeVacunacion), Ag(dameUno(centrosDeVacunacion), Ø))    
+				else
+					if #vacunasDisponibles(sv, dameUno(centrosDeVacunacion)) = #vacunasDisponibles(sv, dameUno(resultado)) then
+						ciudadesQueMasVacunaronAux(sv, sinUno(centroDeVacunacion), Ag(dameUno(centrosDeVacunacion), resultado))    
+					else
+						ciudadesQueMasVacunaronAux(sv, sinUno(centroDeVacunacion), resultado)
+					fi
+				fi
+			fi
+		
+		dameN(n, conjunto) ≡ if (Ø?(conjunto) ∨ n=0) then Ø else Ag(dameUno(conjunto), dameN(n-1, sinUno(conjunto))) fi
+		sinN(n, conjunto) ≡ if (Ø?(conjunto) ∨ n=0) then Ø else sinN(n-1, sinUno(conjunto))) fi
+		
+		damePendientesDeVacunarseValidos(sv, centro, inscripciones) {         // se fija que las inscripciones nuevas no hayan sido vacunados
+			if Ø?(pendientes) then
+				Ø
+			else
+				if ¬(dameUno(pendientes) ∈ vacunados(sv, centro)) then
+					Ag(dameUno(pendientes), damePendientesDeVacunarseValidos(sv, centro, sinUno(pendientes)))
+				else
+					damePendientesDeVacunarseValidos(sv, centro, sinUno(pendientes))
+				fi
+			fi
+		}
+		
+		generarNuevosVacunados(sv, centro, cantidadVacunasDisponibles, pendientes, nuevosVacunados) ≡      		// genera conjunto de nuevos vacunados en el centro
+			if cantidadVacunasDisponibles >= 5 ∨ pendientes >= 5 then
+				generarNuevosVacunados(
+					sv, centro, cantidadVacunasDisponibles - 5, sinN(5, pendientes) ,Ag(dameN(5, pendientes),  nuevosVacunados))
+			else
+				nuevosVacunados
+			fi
+Fin TAD
+
+
+
+
+AZZOLLINI MAURO EZEQUIEL  LU: 774/19
+// Ejercicio 1 
+prim: secuComp(α) s  -> tupla(α, nat)   {¬vacía?(s)}
+prim(e • s) ≡ e 
+
+fin: secuComp(α) s  -> secuComp(α)   {¬vacía?(s)}
+prim(e • s) ≡ s
+
+// comprimir
+comprimir: secu(α) -> secuComp(α)
+comprimir(s) ≡ 
+	if vacía?(s) then
+		<>
+	else
+		<prim(s), cantidadInicialDeApariciones(prim(s), s)> • comprimir(eliminarPrimerosN(cantidadInicialDeApariciones(prim(s), s), s))
+	fi
+
+pertenece: α × secuComp(α) -> Bool
+cantApar(e, s) ≡
+	if vacía?(s) then
+		false
+	else
+		e = π1(prim(s)) ∨ pertenece(e, fin(s))
+	fi
+
+cantidadInicialDeApariciones: α × secu(α) -> Nat
+cantidadInicialDeApariciones(ele, s) ≡
+ 		if vacía?(s) then
+ 			0
+ 		else
+ 			if prim(s)=ele then
+ 				1 + cantidadInicialesDeApariciones(ele, fin(s))
+ 			else
+ 				0
+ 			fi
+ 		fi
+
+eliminarPrimerosN: Nat n × secu(α) s-> secu(α)     {n <= long(s)}
+eliminarPrimerosN(n, secu) ≡
+	if n=0 then
+		secu
+	else
+		eliminarPrimerosN(n-1, fin(s))
+	fi
+
+
+
+
+//2
+maxApsContiguas: secu(α) s -> α    {¬vacía?(s)}
+maxApsContiguas(s) ≡ buscarMaximo(comprimirSecuenciaComprimidaAlMaximo(s)))
+
+cantidadInicialDeApariciones2: α × secuComp(α) -> Nat
+cantidadInicialDeApariciones2(ele, s) ≡
+ 		if vacía?(s) then
+ 			0
+ 		else
+ 			if π1(prim(s))=ele then
+ 				1 + cantidadInicialesDeApariciones(ele, fin(s))
+ 			else
+ 				0
+ 			fi
+ 		fi
+
+comprimir: secuComp(α) -> secuComp(α)
+comprimirSecuenciaComprimidaAlMaximo(s) ≡ 
+	if vacía?(s) then
+		<>
+	else
+		<π1(prim(s)), cantidadInicialDeApariciones2(π1(prim(s)), s)> • comprimir(eliminarPrimerosN(cantidadInicialDeApariciones2(π1(prim(s)), s), s))
+	fi
+
+buscarMaximo: secuComp(α) × tupla(α, Nat) -> α    
+buscarMaximo(s, maximo) ≡
+	if vacía?(s) then
+		π1(maximo)
+	else
+		if π2(maximo) < π2(prim(s)) then
+			buscarMaximo(fin(s), prim(s))
+		else
+			buscarMaximo(fin(s), maximo)
+		fi
+	fi
+	
+
+//3 
+longComprimida: secuComp(α) -> nat    {¬vacía?(s)}
+longComprimida(s) ≡ longitud(comprimirSecuenciaComprimidaAlMaximo(s))	
+
+longitud: secuComp(α) -> nat 
+longitud(s) ≡
+		if vacía?(s) then
+			0
+		else
+			1 + longitud(fin(s))
+		fi
