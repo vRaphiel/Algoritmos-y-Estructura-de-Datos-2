@@ -1,0 +1,42 @@
+TAD Partida
+TAD Mapa
+
+TAD Jugador es String
+TAD Puntaje es Nat
+
+// Ranking Posicion
+TAD RPos es Tupla(Jugador, Partida)
+
+TAD Juego
+	// Completar
+	Igualdad Observacional:();
+	Géneros: nombreTad
+	Exporta: Generos, Observadores Basicos, Generadores
+	Usa: Nat, RPos, Puntaje, Jugador, Partida, Mapa, secu
+	
+	Observadores Básicos:
+		obtenerRanking: Juego -> secu(RPos)
+		obtenerPartidasEnCurso: Juego -> secu(RPos)
+		
+	Generadores:
+		iniciarRanking: -> Juego
+		
+		// Combinar estas dos
+		agregarJugador: Juego x RPos -> Juego										{ El jugador no esta en la secuencia de jugadores y partida ganada }
+		actualizarPuntaje: Juego x RPos -> Juego								{ El jugador esta en la secuencia de jugadores y partida ganada y esta en las partidas en curso }
+		
+		// Partidas en curso -> Agregar una
+		agregarPartidaAPartidasEnCurso: Juego x Jugador x Partida -> Juego			{ No esta en partidas en curso }
+		
+	Otras Operaciones:
+		// Obtener puntaje de __ en ranking
+		obtenerPuntajeDe: Juego x Jugador -> Puntaje
+		obtenerPuntajeActual: Partida -> Puntaje 				// Partida en curso
+		// Puntaje actual, ranking, otro mejor
+		obtenerSiguienteMejor: Juego x Partida -> RPos  // Devuelve posicion en ranking si es que hay
+		// laMejorPartidaDelAnterior : Juego x Jugador 
+				
+	Axiomas:
+		
+		
+Fin TAD
