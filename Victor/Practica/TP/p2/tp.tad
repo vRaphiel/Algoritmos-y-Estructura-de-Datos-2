@@ -71,7 +71,36 @@ TAD Mapa
 		puntoLlegada(AgregarBarraDeChocolate(m, pos))≡puntoLlegada(m)
 		
 		coordenadasDelMapa(m)≡posiblesCombinaciones(π₁(casilleros(m)),π₁(casilleros(m)))
+		posiblesCombinaciones(x, y) ≡ if y = 0 then
+																		<0,0>
+																	else
+																		posiblesCombinaciones(x,y) ∪ posiblesCombinaciones(x, y-1)
+																	fi
+																	
+		posiblesCombinacionesAux(x, y):	if x = 0 then
+																			<0, Y>
+																		else
+																			Ag(<x,y>, posiblesCombinaciones(x-1, y))
+																		fi 
+		esCoordenadaVAlidaParaAvanzar?(m, coordenada) ≡ (coordenada ∈ coordenadasDelMapa(m)) ∧
+																										¬(coordenada ∈ paredes(m))
+	
+		espaciosVacios(m) ≡ generarEspaciosVacios(coordenadasDelMapa(m), paredes(m), fantasmas(m))
 		
+		generarEspaciosVacios(coordenadasDelMapa, paredes, fantasmas) ≡
+		if Ø?(paredes) ∧ Ø?(fantasmas) then
+			coordenadasDelMapa
+		else
+			if Ø?(paredes) then
+				generarEspaciosVacios(coordenadasDelMapa - dameUno(fantasmas), paredes, sinUno(fantasmas))
+			else
+				if Ø?(fantasmas) then
+					generarEspaciosVacios(coordenadasDelMapa - dameUno(paredes), sinUno(paredes), fantasmas)
+				else
+					generarEspaciosVacios((coordenadasDelMapa - dameUno(paredes)) - dameUno(fantasmas), sinUno(paredes), sinUno(fantasmas))
+				fi
+			fi
+		fi
 Fin TAD
 
 TAD Partida
@@ -107,5 +136,36 @@ TAD Partida
 		movimientosDeInmunidadDisponibles : partidapd -> nat{¬(partidaTerminada?(p))}
 		
 	Axiomas:
+		movimientos(nuevaPartida(m)) ≡ <puntoInicio(m)>
+		movimientos(moverse(p, m, d)) ≡ if ¬partidaTerminada?(p) then
+																			siguienteCoordenada(p) • movimientos(p)
+																		else
+																			movimientos(p)
+																		fi
+		mapa(nuevaPartida(m)) ≡ m
+		mapa(moverse(p, m, d)) ≡
+			if puedeMoverse?(p) ∧ esSiguienteCoordenadaChocolate?(p) then
+				agregarTodosLosFantasmas(agregarTodasLasParedes(
+				agregarTodosLosChocolates(crearMapa(
+				π1(dimension(mapa(p))), π2(dimension(mapa(p))), puntoInicio(mapa(p)),
+				puntoLlegada(mapa(p)), barrasDeChocolate(mapa(p)), barrasDeChocolateComidas(p)),
+				paredes(mapa(p))), fantasmas(mapa(p))))
+			else
+				mapa(p)
+			fi
+			
+			barrasDeChocolate(nuevaPartida(m)) ≡ 
+				if puntoInicio ∈ barrasDeChocolate(m) then
+					Ag(puntoInicio, Ø)
+				else
+					Ø
+				fi
+			barrasDeChocolate(moverse(p,m,d)) ≡
+				if puedeMoverse?(p) ∧ esSiguienteCoordenadaChocolate?(p) then
+					Ag(prim(siguienteCoordenada(p)), barrasDeChocolateComidas(p))
+					resultado
+				else
+					barrasDeChocolateComidas(p)
+				fi
 		
 Fin TAD
