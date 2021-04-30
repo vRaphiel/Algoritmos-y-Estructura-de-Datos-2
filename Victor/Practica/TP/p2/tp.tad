@@ -1,0 +1,111 @@
+PARTE 2
+
+TAD Mapa
+	Igualdad Observacional:()
+	(∀ m, m' : mapa)(m =obs m' ⇐⇒ 
+		(dimension(m) =obs dimension(m') ∧ fantasmas(m) =obs fantasmas(m') ∧
+		paredes(m) =obs paredes(m') ∧ puntoInicio(m) =obs puntoInicio(m') ∧ 
+		puntoLlegada(m) =obs puntoLlegada(m') ∧ barrasDeChocolate(m) =obs barrasDeChocolate(m')
+	));
+	Géneros: mapa
+	Exporta: generos, observadores basicos, generadores, coordenadasDelMapa, 
+	esCoordenadaVAlidaParaAvanzar, espaciosVacios
+	Usa: Tupla, Coordenada, Conjunto, Bool, Nat
+	
+	Observadores Básicos:
+		dimension: mapa -> tupla(nat, nat)
+		fantasmas: mapa -> conj(Coordenada) {paredes(m) ∩ fantasmas(m) = Ø}
+		paredes: mapa m -> conj(Coordenada) {paredes(m) ∩ fantasmas(m) = Ø}
+		puntoInicio: mapa m -> Coordenada {¬(puntoInicio ∈ (paredes(m) ∪ fantasmas(m)))}
+		puntoLlegada: mapa m -> Coordenada {¬(puntoLlegada ∈ (paredes(m) ∪ fantasmas(m)))}
+		barrasDeChocolate: mapa m -> conj(Coordenada) {barrasDeChocolate(m) ∩ (paredes(m) ∪ fantasmas(m)) = Ø}
+	Generadores:
+		crearMapa: nat tamX x nat tamY x Coordenada posInicio x Coordenada posFin -> mapa
+								{¬(posFin=posInicio) ∧ tamX > 0 ∧ tamY > 0 ∧ 0 ≤ π₁(posInicio) < tamX ∧
+								0 ≤ π₂(posInicio) < tamY ∧ 0 ≤ π₁(posFin) < tamX ∧ 0 ≤ π₂(posFin) < tamY}
+		agregarPared: mapa m x Coordenada posPared -> mapa
+								{posPared ∈ coordenadasDelMapa(m) ∧ ¬(posFantasma ∈ paredes(m)) ∧
+								¬(posPared=puntoInicio(m)) ∧ ¬(posPared=puntoLlegada(m))}
+		agregarFantasma: mapa m x Coordenada posFantasma -> mapa
+								{posFantasma ∈ coordenadasDelMapa(m) ∧ ¬(posFantasma ∈ paredes(m)) ∧
+								¬(posFantasma=puntoInicio(m)) ∧ ¬(posFantasma=puntoLlegada(m))}
+		agregarBarraDeChocolate: mapa m x Coordenada posBarraDeChocolate -> mapa
+								{posBarraDeChocolate ∈ coordenadasDelMapa(m) ∧ ¬(posBarraDeChocolate ∈ paredes(m))
+								∧ ¬(posBarraDeChocolate ∈ fantasmas(m))}
+	Otras Operaciones:
+		coordenadasDelMapa: mapa -> conj(Coordenada)
+		esCoordenadaVAlidaParaAvanzar?: mapa x Coordenada -> Bool
+		espaciosVacios: mapa m -> conj(Coordenada) {(paredes(m) ∪ fantasmas(m)) ∈ espaciosVacios(m) =	Ø}
+		generarEspaciosVacios: conj(Coordenada) x conj(Coordenada) x conj(Coordenada) -> conj(Coordenada)
+		posiblesCombinaciones : nat x x nat y -> conj(Coordenada)		{0 ≤ x ∧ 0 ≤ y}
+		posiblesCombinacionesAux: nat x x nat y -> conj(Coordenada)		{0 ≤ x ∧ 0 ≤ y}
+	Axiomas:
+		dimension (crearMapa(tX, tY, pI, pL))≡ 〈tX,tY〉
+		dimension (agregarPared(m, pos))≡dimension(m)
+		dimension (agregarFantasma(m, pos))≡dimension(m)
+		dimension (agregarBarraDeChocolate(m, pos))≡dimension(m)
+		
+		barrasDeChocolate(crearMapa(tX, tY, pI, pL))≡ Ø
+		barrasDeChocolate(AgregarPared(m, pos))≡barrasDeChocolate(m)
+		barrasDeChocolate(AgregarFantasma(m, pos))≡barrasDeChocolate(m)
+		barrasDeChocolate(AgregarBarraDeChocolate(m, pos))≡Ag(pos,  barrasDeChocolate(m))
+		
+		fantasmas(crearMapa(tX, tY, pI, pL)) ≡ Ø
+		fantasmas(AgregarPared(m, pos))≡fantasmas(m)
+		fantasmas(AgregarFantasma(m, pos))≡Ag(pos, fantasmas(m))
+		fantasmas(AgregarBarraDeChocolate(m, pos))≡fantasmas(m)
+		
+		paredes(crearMapa(tX, tY, pI, pL))≡ Ø
+		paredes(AgregarPared(m, pos))≡Ag(pos, paredes(m))
+		paredes(AgregarFantasma(m, pos))≡paredes(m)
+		paredes(AgregarBarraDeChocolate(m, pos))≡paredes(m)
+		
+		puntoInicio(crearMapa(tX, tY, pI, pL))≡pI
+		puntoInicio(AgregarPared(m, pos))≡puntoInicio(m)
+		puntoInicio(AgregarFantasma(m, pos))≡puntoInicio(m)
+		puntoInicio(AgregarBarraDeChocolate(m, pos))≡puntoInicio(m)
+		
+		puntoLlegada(crearMapa(tX, tY, pI, pL))≡pL
+		puntoLlegada(AgregarPared(m, pos))≡puntoLlegada(m)
+		puntoLlegada(AgregarFantasma(m, pos))≡puntoLlegada(m)
+		puntoLlegada(AgregarBarraDeChocolate(m, pos))≡puntoLlegada(m)
+		
+		coordenadasDelMapa(m)≡posiblesCombinaciones(π₁(casilleros(m)),π₁(casilleros(m)))
+		
+Fin TAD
+
+TAD Partida
+	Igualdad Observacional:();
+	Géneros: partida
+	Exporta: generos, observadores basicos, generadores, partidaTerminada?, posActual,
+	fantasmaMasCercano, puntajeDeLaPartida, movimientosDeInmunidadDisponibles
+	Usa: Nat, Coordenada, Bool, Direccion, Secuencia, Conjunto, Mapa
+	
+	Observadores Básicos:
+		movimientos : partida -> secu(Coordenada)
+		mapa : partida -> mapa
+		barrasDeChocolateComidas : partida -> conj(Coordenada)
+	Generadores:
+		nuevaPartida: mapa m -> partida
+		moverse: partida x mapa x Direccion d -> partida
+						{d='ARRIBA' ∨ d='ABAJO' ∨ d='DERECHA' ∨ d='IZQUIERDA'}
+	Otras Operaciones:
+		perdio? : partidad -> Bool
+		gano? : partidad -> Bool
+		puedeMoverse? : partidad -> Bool
+		esSiguienteCoordenadaChocolate? : partidad -> Bool
+		partidaTerminada? : partidad -> Bool
+		fantasmaMasCercano : partidad -> Coordenada
+		agregarTodosLosFantasmas : Coordenada x conj(Coordenada)d -> mapa
+		agregarTodasLasParedes : Coordenada x conj(Coordenada)d -> mapa
+		agregarTodosLosChocolates : Coordenada x conj(Coordenada) x conj(Coordenada)d -> mapa
+		calcularDistanciaAFantasma : Coordenada x Coordenadad -> nat
+		siguienteCoordenada : partidad -> secu(Coordenada)
+		buscarFantasmaMasCercano : Coordenada x conj(Coordenada) x Coordenadad -> Coordenada
+		posActual : partidad -> Coordenada
+		puntajeDeLaPartida : partidad -> nat
+		movimientosDeInmunidadDisponibles : partidapd -> nat{¬(partidaTerminada?(p))}
+		
+	Axiomas:
+		
+Fin TAD

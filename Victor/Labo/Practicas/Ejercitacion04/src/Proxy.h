@@ -10,7 +10,7 @@ class Proxy {
 public:
     Proxy(ConexionJugador* conn);
     void enviarMensaje(string msg);
-
+    //~Proxy();
 private:
     ConexionJugador* _conn;
 
@@ -19,3 +19,4 @@ private:
 };
 
 #endif
+li
