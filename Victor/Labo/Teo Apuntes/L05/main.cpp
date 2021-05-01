@@ -13,12 +13,6 @@ int main() {
  * EL SIGUIENTE A APUNTAR ES UN NODO
 */
 
-class Node{
-public:
-    Node* next;
-    int data;
-};
-
 class LinkedList{
     public:
         int length;
@@ -29,14 +23,14 @@ class LinkedList{
         void add(int data);
         void print();
     private:
-    void _destruir();
+        void _destruir();
 
-    struct Nodo{
-        Nodo(const int& elem);
-        int valor;
-        Nodo* siguiente;
-    };
-    Nodo *_primero;
+        struct Nodo{
+            Nodo(const int& elem);
+            int valor;
+            Nodo* siguiente;
+        };
+        Nodo *_primero;
 };
 
 LinkedList::LinkedList() :length(0), head(NULL){};

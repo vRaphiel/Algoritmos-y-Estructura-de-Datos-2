@@ -1,0 +1,48 @@
+/snap/clion/151/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- The C compiler identification is unknown
+-- The CXX compiler identification is unknown
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - failed
+-- Check for working C compiler: /usr/local/bin/cc
+-- Check for working C compiler: /usr/local/bin/cc - broken
+CMake Error at /snap/clion/151/bin/cmake/linux/share/cmake-3.19/Modules/CMakeTestCCompiler.cmake:66 (message):
+  The C compiler
+
+    "/usr/local/bin/cc"
+
+  is not able to compile a simple test program.
+
+  It fails with the following output:
+
+    Change Dir: /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp
+    
+    Run Build Command(s):/usr/bin/make cmTC_6f7f6/fast && /usr/bin/make  -f CMakeFiles/cmTC_6f7f6.dir/build.make CMakeFiles/cmTC_6f7f6.dir/build
+    make[1]: Entering directory '/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp'
+    Building C object CMakeFiles/cmTC_6f7f6.dir/testCCompiler.c.o
+    /usr/local/bin/cc    -o CMakeFiles/cmTC_6f7f6.dir/testCCompiler.c.o -c /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+    cc: fatal error: cannot execute ‘cc1’: execvp: No such file or directory
+    compilation terminated.
+    make[1]: *** [CMakeFiles/cmTC_6f7f6.dir/build.make:85: CMakeFiles/cmTC_6f7f6.dir/testCCompiler.c.o] Error 1
+    make[1]: Leaving directory '/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp'
+    make: *** [Makefile:140: cmTC_6f7f6/fast] Error 2
+    
+    
+
+  
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeError.log".

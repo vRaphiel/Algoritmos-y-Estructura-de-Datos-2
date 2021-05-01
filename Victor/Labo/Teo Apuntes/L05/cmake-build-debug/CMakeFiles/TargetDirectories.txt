@@ -1,3 +1,0 @@
-/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles/edit_cache.dir
-/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles/L05.dir

@@ -8,4 +8,4 @@ void Proxy::enviarMensaje(string msg) {
 
 //Proxy::~Proxy() {
 //    delete _conn;
-//}
+//

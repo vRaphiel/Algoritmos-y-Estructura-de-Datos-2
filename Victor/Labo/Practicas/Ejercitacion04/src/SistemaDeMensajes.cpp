@@ -41,7 +41,7 @@ SistemaDeMensajes::~SistemaDeMensajes(){
 }
 
 Proxy* SistemaDeMensajes::obtenerProxy(int id) {
-    Proxy* proxy = new Proxy(_conns[id]);
+    Proxy* proxy = new Proxy(&_conns[id]);
     _proxyVec.push_back(proxy);
     return proxy;
 }
