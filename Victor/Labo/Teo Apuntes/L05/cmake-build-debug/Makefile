@@ -58,19 +58,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cygdrive/c/Users/victor/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe
+CMAKE_COMMAND = /cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe
 
 # The command to remove a file.
-RM = /cygdrive/c/Users/victor/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E rm -f
+RM = /cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05"
+CMAKE_SOURCE_DIR = "/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug"
+CMAKE_BINARY_DIR = "/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -78,7 +78,7 @@ CMAKE_BINARY_DIR = "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/cygdrive/c/Users/victor/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -89,7 +89,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/cygdrive/c/Users/victor/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E echo No\ interactive\ CMake\ dialog\ available.
+	/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles" "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug//CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles" "/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug//CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -142,6 +142,60 @@ L05/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/L05.dir/build.make CMakeFiles/L05.dir/build
 .PHONY : L05/fast
 
+example.o: example.cpp.o
+
+.PHONY : example.o
+
+# target to build an object file
+example.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L05.dir/build.make CMakeFiles/L05.dir/example.cpp.o
+.PHONY : example.cpp.o
+
+example.i: example.cpp.i
+
+.PHONY : example.i
+
+# target to preprocess a source file
+example.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L05.dir/build.make CMakeFiles/L05.dir/example.cpp.i
+.PHONY : example.cpp.i
+
+example.s: example.cpp.s
+
+.PHONY : example.s
+
+# target to generate assembly for a file
+example.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L05.dir/build.make CMakeFiles/L05.dir/example.cpp.s
+.PHONY : example.cpp.s
+
+example2.o: example2.cpp.o
+
+.PHONY : example2.o
+
+# target to build an object file
+example2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L05.dir/build.make CMakeFiles/L05.dir/example2.cpp.o
+.PHONY : example2.cpp.o
+
+example2.i: example2.cpp.i
+
+.PHONY : example2.i
+
+# target to preprocess a source file
+example2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L05.dir/build.make CMakeFiles/L05.dir/example2.cpp.i
+.PHONY : example2.cpp.i
+
+example2.s: example2.cpp.s
+
+.PHONY : example2.s
+
+# target to generate assembly for a file
+example2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L05.dir/build.make CMakeFiles/L05.dir/example2.cpp.s
+.PHONY : example2.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -168,6 +222,33 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/L05.dir/build.make CMakeFiles/L05.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+structmember.o: structmember.cpp.o
+
+.PHONY : structmember.o
+
+# target to build an object file
+structmember.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L05.dir/build.make CMakeFiles/L05.dir/structmember.cpp.o
+.PHONY : structmember.cpp.o
+
+structmember.i: structmember.cpp.i
+
+.PHONY : structmember.i
+
+# target to preprocess a source file
+structmember.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L05.dir/build.make CMakeFiles/L05.dir/structmember.cpp.i
+.PHONY : structmember.cpp.i
+
+structmember.s: structmember.cpp.s
+
+.PHONY : structmember.s
+
+# target to generate assembly for a file
+structmember.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/L05.dir/build.make CMakeFiles/L05.dir/structmember.cpp.s
+.PHONY : structmember.cpp.s
 
 testStruct.o: testStruct.cpp.o
 
@@ -205,9 +286,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... L05"
+	@echo "... example.o"
+	@echo "... example.i"
+	@echo "... example.s"
+	@echo "... example2.o"
+	@echo "... example2.i"
+	@echo "... example2.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... structmember.o"
+	@echo "... structmember.i"
+	@echo "... structmember.s"
 	@echo "... testStruct.o"
 	@echo "... testStruct.i"
 	@echo "... testStruct.s"

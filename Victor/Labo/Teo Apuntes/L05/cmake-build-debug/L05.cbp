@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug"/>
+				<Option working_dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug"/>
+				<Option working_dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug"/>
+				<Option working_dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="L05">
-				<Option output="/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/L05.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug"/>
+				<Option output="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/L05.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -52,15 +52,15 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 L05"/>
-					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 L05"/>
+					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="L05/fast">
-				<Option output="/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/L05.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug"/>
+				<Option output="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/L05.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -73,23 +73,41 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 L05/fast"/>
-					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 L05/fast"/>
+					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo\ Apuntes/L05/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/main.cpp">
+		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/example.cpp">
 			<Option target="L05"/>
 		</Unit>
-		<Unit filename="/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/testStruct.cpp">
+		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/example.h">
 			<Option target="L05"/>
 		</Unit>
-		<Unit filename="/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/testStruct.h">
+		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/example2.cpp">
 			<Option target="L05"/>
 		</Unit>
-		<Unit filename="/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Teo Apuntes/L05/CMakeLists.txt">
+		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/example2.h">
+			<Option target="L05"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/main.cpp">
+			<Option target="L05"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/structmember.cpp">
+			<Option target="L05"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/structmember.h">
+			<Option target="L05"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/testStruct.cpp">
+			<Option target="L05"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/testStruct.h">
+			<Option target="L05"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

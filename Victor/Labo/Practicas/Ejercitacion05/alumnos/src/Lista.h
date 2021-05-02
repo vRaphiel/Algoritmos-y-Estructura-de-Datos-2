@@ -86,17 +86,12 @@ public:
     }
 
 private:
+
     struct Nodo {
-        Nodo(const int& elem);
-        int valor;
-        Nodo* prev;
-        Nodo* next;
-        friend class Lista;
+        // Completar
     };
 
-    int longitud_;
-    Nodo* header_;
-    Nodo* trailer_;
+    // Completar
 };
 
 #include "Lista.hpp"

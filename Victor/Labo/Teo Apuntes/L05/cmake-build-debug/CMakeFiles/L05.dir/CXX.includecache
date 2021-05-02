@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/example.cpp
+example.h
+/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/example.h
+
+/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/example.h
+iostream
+-
+cstdlib
+-
+
+/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/example2.cpp
+example2.h
+/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/example2.h
+
+/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/example2.h
+iostream
+-
+cstdlib
+-
+
+/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/main.cpp
+iostream
+-
+cstdlib
+-
+
+/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/testStruct.cpp
+testStruct.h
+/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/testStruct.h
+
+/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/testStruct.h
+string
+-
+iostream
+-
+
