@@ -250,33 +250,6 @@ structmember.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/L05.dir/build.make CMakeFiles/L05.dir/structmember.cpp.s
 .PHONY : structmember.cpp.s
 
-testStruct.o: testStruct.cpp.o
-
-.PHONY : testStruct.o
-
-# target to build an object file
-testStruct.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/L05.dir/build.make CMakeFiles/L05.dir/testStruct.cpp.o
-.PHONY : testStruct.cpp.o
-
-testStruct.i: testStruct.cpp.i
-
-.PHONY : testStruct.i
-
-# target to preprocess a source file
-testStruct.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/L05.dir/build.make CMakeFiles/L05.dir/testStruct.cpp.i
-.PHONY : testStruct.cpp.i
-
-testStruct.s: testStruct.cpp.s
-
-.PHONY : testStruct.s
-
-# target to generate assembly for a file
-testStruct.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/L05.dir/build.make CMakeFiles/L05.dir/testStruct.cpp.s
-.PHONY : testStruct.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -298,9 +271,6 @@ help:
 	@echo "... structmember.o"
 	@echo "... structmember.i"
 	@echo "... structmember.s"
-	@echo "... testStruct.o"
-	@echo "... testStruct.i"
-	@echo "... testStruct.s"
 .PHONY : help
 
 

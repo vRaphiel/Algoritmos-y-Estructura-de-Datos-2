@@ -88,10 +88,14 @@ public:
 private:
 
     struct Nodo {
-        // Completar
+        int value;
+        Nodo* next;
+        Nodo* prev;
     };
 
-    // Completar
+    int longitud_;
+    Nodo* head_;
+    Nodo* tail_;
 };
 
 #include "Lista.hpp"

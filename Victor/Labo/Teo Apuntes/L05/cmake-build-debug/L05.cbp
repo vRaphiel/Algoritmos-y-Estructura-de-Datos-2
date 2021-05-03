@@ -101,12 +101,6 @@
 		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/structmember.h">
 			<Option target="L05"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/testStruct.cpp">
-			<Option target="L05"/>
-		</Unit>
-		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/testStruct.h">
-			<Option target="L05"/>
-		</Unit>
 		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

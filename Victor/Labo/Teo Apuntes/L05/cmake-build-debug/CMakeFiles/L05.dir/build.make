@@ -89,22 +89,9 @@ CMakeFiles/L05.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/L05.dir/main.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/main.cpp" -o CMakeFiles/L05.dir/main.cpp.s
 
-CMakeFiles/L05.dir/testStruct.cpp.o: CMakeFiles/L05.dir/flags.make
-CMakeFiles/L05.dir/testStruct.cpp.o: ../testStruct.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/L05.dir/testStruct.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/L05.dir/testStruct.cpp.o -c "/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/testStruct.cpp"
-
-CMakeFiles/L05.dir/testStruct.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/L05.dir/testStruct.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/testStruct.cpp" > CMakeFiles/L05.dir/testStruct.cpp.i
-
-CMakeFiles/L05.dir/testStruct.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/L05.dir/testStruct.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/testStruct.cpp" -o CMakeFiles/L05.dir/testStruct.cpp.s
-
 CMakeFiles/L05.dir/example.cpp.o: CMakeFiles/L05.dir/flags.make
 CMakeFiles/L05.dir/example.cpp.o: ../example.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/L05.dir/example.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/L05.dir/example.cpp.o"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/L05.dir/example.cpp.o -c "/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/example.cpp"
 
 CMakeFiles/L05.dir/example.cpp.i: cmake_force
@@ -117,7 +104,7 @@ CMakeFiles/L05.dir/example.cpp.s: cmake_force
 
 CMakeFiles/L05.dir/example2.cpp.o: CMakeFiles/L05.dir/flags.make
 CMakeFiles/L05.dir/example2.cpp.o: ../example2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/L05.dir/example2.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/L05.dir/example2.cpp.o"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/L05.dir/example2.cpp.o -c "/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/example2.cpp"
 
 CMakeFiles/L05.dir/example2.cpp.i: cmake_force
@@ -130,7 +117,7 @@ CMakeFiles/L05.dir/example2.cpp.s: cmake_force
 
 CMakeFiles/L05.dir/structmember.cpp.o: CMakeFiles/L05.dir/flags.make
 CMakeFiles/L05.dir/structmember.cpp.o: ../structmember.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/L05.dir/structmember.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/L05.dir/structmember.cpp.o"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/L05.dir/structmember.cpp.o -c "/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/structmember.cpp"
 
 CMakeFiles/L05.dir/structmember.cpp.i: cmake_force
@@ -144,7 +131,6 @@ CMakeFiles/L05.dir/structmember.cpp.s: cmake_force
 # Object files for target L05
 L05_OBJECTS = \
 "CMakeFiles/L05.dir/main.cpp.o" \
-"CMakeFiles/L05.dir/testStruct.cpp.o" \
 "CMakeFiles/L05.dir/example.cpp.o" \
 "CMakeFiles/L05.dir/example2.cpp.o" \
 "CMakeFiles/L05.dir/structmember.cpp.o"
@@ -153,13 +139,12 @@ L05_OBJECTS = \
 L05_EXTERNAL_OBJECTS =
 
 L05.exe: CMakeFiles/L05.dir/main.cpp.o
-L05.exe: CMakeFiles/L05.dir/testStruct.cpp.o
 L05.exe: CMakeFiles/L05.dir/example.cpp.o
 L05.exe: CMakeFiles/L05.dir/example2.cpp.o
 L05.exe: CMakeFiles/L05.dir/structmember.cpp.o
 L05.exe: CMakeFiles/L05.dir/build.make
 L05.exe: CMakeFiles/L05.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable L05.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Teo Apuntes/L05/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable L05.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/L05.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -3,7 +3,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/L05.dir/example2.cpp.o"
   "CMakeFiles/L05.dir/main.cpp.o"
   "CMakeFiles/L05.dir/structmember.cpp.o"
-  "CMakeFiles/L05.dir/testStruct.cpp.o"
   "L05.exe"
   "L05.pdb"
   "libL05.dll.a"
