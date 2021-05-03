@@ -96,6 +96,7 @@ private:
     int longitud_;
     Nodo* head_;
     Nodo* tail_;
+
 };
 
 #include "Lista.hpp"

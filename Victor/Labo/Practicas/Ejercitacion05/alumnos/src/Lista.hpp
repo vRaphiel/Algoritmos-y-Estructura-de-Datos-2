@@ -8,35 +8,29 @@ Lista::Lista() {
     head_->prev = nullptr;
     tail_->next = nullptr;
     tail_->prev = head_;
-
 }
 
 Lista::Lista(const Lista& l) : Lista() {
-    //Inicializa una lista vacía y luego utiliza operator= para no duplicar el código de la copia de una lista.
     *this = l;
 }
 
 Lista::~Lista() {
-    while(head_->next != tail_){
-        eliminar(0);
-    }
-    delete head_;
-    delete tail_;
+    //while(head_->next != tail_){
+    //    eliminar(0);
+    //}
+    //delete head_;
+    //delete tail_;
 }
 
 Lista& Lista::operator=(const Lista& aCopiar) {
-    // Completar
-    this->head_ = aCopiar.head_;
-    this->tail_ = aCopiar.tail_;
-    this->longitud_ = aCopiar.longitud_;
-    if(longitud_>0){
-        int i = 0;
-        while(i < this->longitud_){
-            int aiesimo = aCopiar.iesimo(i);
-            this->agregarAtras(aiesimo);
-            i++;
-        }
+
+    Nodo* nodo = aCopiar.head_->next;
+
+    while(nodo->next != nullptr){
+        agregarAtras(nodo->value);
+        nodo = nodo->next;
     }
+
     return *this;
 }
 
@@ -46,7 +40,7 @@ void Lista::agregarAdelante(const int& elem) {
 
     Nodo* newNode = new Nodo();
     newNode->value = elem;
-    newNode->prev = nullptr;
+    newNode->prev = head_;
     head_->next = newNode;
 
     currentNode->prev = newNode;
@@ -96,31 +90,27 @@ int Lista::longitud() const {
 const int& Lista::iesimo(Nat i) const {
     int pos = 0;
     Nodo* nAux = head_->next;
-    Nodo* nFind = nullptr;
 
     while(pos < longitud()){
         if(pos == i){
-            nFind = nAux;
+            return nAux->value;
         }
         nAux = nAux->next;
         pos++;
     }
-    return nFind->value;
 }
 
 int& Lista::iesimo(Nat i) {
     int pos = 0;
     Nodo* nAux = head_->next;
-    Nodo* nFind = nullptr;
 
     while(pos < longitud()){
         if(pos == i){
-            nFind = nAux;
+            return nAux->value;
         }
         nAux = nAux->next;
         pos++;
     }
-    return nFind->value;
 }
 
 void Lista::mostrar(ostream& o) {

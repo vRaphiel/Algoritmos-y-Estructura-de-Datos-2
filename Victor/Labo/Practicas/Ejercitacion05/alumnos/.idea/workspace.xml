@@ -16,23 +16,13 @@
   <component name="ChangeListManager">
     <list default="true" id="1fbde1ab-f1d1-405f-8e2a-c0e95bc443d8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/tests/lista_tests.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/tests/lista_tests.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/correrTests.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/correrTests.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/correrTests.exe.stackdump" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/correrTests.exe.stackdump" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Lista.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lista.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Lista.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lista.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/lista_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/lista_tests.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/CMakeFiles/L05.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/CMakeFiles/L05.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/CMakeFiles/L05.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/CMakeFiles/L05.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/CMakeFiles/L05.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/CMakeFiles/L05.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/CMakeFiles/L05.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/CMakeFiles/L05.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/CMakeFiles/L05.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/CMakeFiles/L05.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/L05.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/L05.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Teo Apuntes/L05/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,26 +60,26 @@
     <property name="cmake.loaded.for.project" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Google Test.lista_test.test_agregar_un_elemento_adelante">
+  <component name="RunManager" selected="Google Test.lista_test.test_operador_asignacion">
     <configuration name="correrTests" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="taller_listas_enlazadas" TARGET_NAME="correrTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="taller_listas_enlazadas" RUN_TARGET_NAME="correrTests" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="lista_test.test_agregar_un_elemento_adelante" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="taller_listas_enlazadas" TARGET_NAME="correrTests" RUN_TARGET_PROJECT_NAME="taller_listas_enlazadas" RUN_TARGET_NAME="correrTests" TEST_CLASS="lista_test" TEST_METHOD="test_agregar_un_elemento_adelante" TEST_MODE="SUITE_TEST">
+    <configuration name="lista_test.test_agregar_varios_elementos_adelante_y_atras" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="taller_listas_enlazadas" TARGET_NAME="correrTests" RUN_TARGET_PROJECT_NAME="taller_listas_enlazadas" RUN_TARGET_NAME="correrTests" TEST_CLASS="lista_test" TEST_METHOD="test_agregar_varios_elementos_adelante_y_atras" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="lista_test.test_agregar_varios_elementos_solo_atras" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="taller_listas_enlazadas" TARGET_NAME="correrTests" RUN_TARGET_PROJECT_NAME="taller_listas_enlazadas" RUN_TARGET_NAME="correrTests" TEST_CLASS="lista_test" TEST_METHOD="test_agregar_varios_elementos_solo_atras" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="lista_test.test_constructor_por_copia" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="taller_listas_enlazadas" TARGET_NAME="correrTests" RUN_TARGET_PROJECT_NAME="taller_listas_enlazadas" RUN_TARGET_NAME="correrTests" TEST_CLASS="lista_test" TEST_METHOD="test_constructor_por_copia" TEST_MODE="SUITE_TEST">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-        <option name="BeforeTestRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="lista_test.test_constructor_vacio" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="taller_listas_enlazadas" TARGET_NAME="correrTests" RUN_TARGET_PROJECT_NAME="taller_listas_enlazadas" RUN_TARGET_NAME="correrTests" TEST_CLASS="lista_test" TEST_METHOD="test_constructor_vacio" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
@@ -127,29 +117,24 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="CMake Application.correrValgrind" />
       <item itemvalue="CMake Application.gtest" />
       <item itemvalue="CMake Application.gtest_main" />
       <item itemvalue="Google Test.correrTests" />
       <item itemvalue="Google Test.lista_test.test_eliminar_elementos" />
+      <item itemvalue="Google Test.lista_test.test_agregar_varios_elementos_solo_atras" />
+      <item itemvalue="Google Test.lista_test.test_agregar_varios_elementos_adelante_y_atras" />
       <item itemvalue="Google Test.lista_test.test_constructor_por_copia" />
       <item itemvalue="Google Test.lista_test.test_operador_asignacion" />
-      <item itemvalue="Google Test.lista_test.test_agregar_un_elemento_adelante" />
-      <item itemvalue="Google Test.lista_test.test_constructor_vacio" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Google Test.lista_test.test_agregar_un_elemento_adelante" />
-        <item itemvalue="Google Test.lista_test.test_constructor_vacio" />
-        <item itemvalue="Google Test.lista_test.test_constructor_por_copia" />
         <item itemvalue="Google Test.lista_test.test_operador_asignacion" />
+        <item itemvalue="Google Test.lista_test.test_constructor_por_copia" />
         <item itemvalue="Google Test.lista_test.test_eliminar_elementos" />
+        <item itemvalue="Google Test.lista_test.test_agregar_varios_elementos_adelante_y_atras" />
+        <item itemvalue="Google Test.lista_test.test_agregar_varios_elementos_solo_atras" />
       </list>
     </recent_temporary>
   </component>
@@ -168,112 +153,27 @@
       <workItem from="1588858682522" duration="243000" />
       <workItem from="1619989585699" duration="568000" />
       <workItem from="1619990186920" duration="15245000" />
+      <workItem from="1620039496674" duration="4286000" />
+      <workItem from="1620044497155" duration="2444000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>75</line>
-          <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>76</line>
-          <option name="timeStamp" value="99" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>77</line>
-          <option name="timeStamp" value="100" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>78</line>
-          <option name="timeStamp" value="101" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>80</line>
-          <option name="timeStamp" value="102" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>79</line>
-          <option name="timeStamp" value="103" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>81</line>
-          <option name="timeStamp" value="104" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>82</line>
-          <option name="timeStamp" value="106" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>85</line>
-          <option name="timeStamp" value="107" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>87</line>
-          <option name="timeStamp" value="108" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>86</line>
-          <option name="timeStamp" value="109" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>84</line>
-          <option name="timeStamp" value="110" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>83</line>
-          <option name="timeStamp" value="111" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>74</line>
-          <option name="timeStamp" value="112" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>73</line>
-          <option name="timeStamp" value="113" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>23</line>
-          <option name="timeStamp" value="114" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>22</line>
-          <option name="timeStamp" value="115" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>20</line>
-          <option name="timeStamp" value="116" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/Lista.hpp</url>
-          <line>19</line>
-          <option name="timeStamp" value="117" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeGoogleTestRunConfigurationType">
         <watch expression="l.head_-&gt;next-&gt;next-&gt;next-&gt;next-&gt;next" />
