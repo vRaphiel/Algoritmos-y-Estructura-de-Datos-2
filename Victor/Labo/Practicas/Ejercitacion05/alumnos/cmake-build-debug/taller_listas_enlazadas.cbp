@@ -8,48 +8,48 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
+				<Option working_dir="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
+				<Option working_dir="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
+				<Option working_dir="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="correrValgrind">
-				<Option working_dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
+				<Option working_dir="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 correrValgrind"/>
-					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 correrValgrind"/>
+					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="correrTests">
-				<Option output="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/correrTests.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
+				<Option output="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/correrTests.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -62,15 +62,15 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 correrTests"/>
-					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 correrTests"/>
+					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="correrTests/fast">
-				<Option output="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/correrTests.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
+				<Option output="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/correrTests.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -83,15 +83,15 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 correrTests/fast"/>
-					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 correrTests/fast"/>
+					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest_main">
-				<Option output="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/libgtest_main.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
+				<Option output="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/libgtest_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
@@ -104,15 +104,15 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 gtest_main"/>
-					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 gtest_main"/>
+					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest_main/fast">
-				<Option output="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/libgtest_main.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
+				<Option output="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/libgtest_main.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
@@ -125,15 +125,15 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
-					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
+					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest">
-				<Option output="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/libgtest.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
+				<Option output="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/libgtest.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
@@ -146,15 +146,15 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 gtest"/>
-					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 gtest"/>
+					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest/fast">
-				<Option output="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/libgtest.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
+				<Option output="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/libgtest.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
@@ -167,29 +167,29 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/10/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 gtest/fast"/>
-					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 gtest/fast"/>
+					<CompileFile command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/cygdrive/c/Strawberry/c/bin/gmake.exe -j12 -f &quot;/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/src/Lista.h">
+		<Unit filename="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/src/Lista.h">
 			<Option target="correrTests"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/src/Lista.hpp">
+		<Unit filename="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/src/Lista.hpp">
 			<Option target="correrTests"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/tests/gtest-1.8.1/gtest-all.cc">
+		<Unit filename="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/tests/gtest-1.8.1/gtest-all.cc">
 			<Option target="gtest"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/tests/gtest-1.8.1/gtest_main.cc">
+		<Unit filename="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/tests/gtest-1.8.1/gtest_main.cc">
 			<Option target="gtest_main"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/tests/lista_tests.cpp">
+		<Unit filename="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/tests/lista_tests.cpp">
 			<Option target="correrTests"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/CMakeLists.txt">
+		<Unit filename="/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

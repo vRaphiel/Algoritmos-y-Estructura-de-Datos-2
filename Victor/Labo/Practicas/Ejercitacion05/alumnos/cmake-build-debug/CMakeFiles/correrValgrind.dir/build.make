@@ -62,10 +62,10 @@ RM = /cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bi
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos
+CMAKE_SOURCE_DIR = /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug
+CMAKE_BINARY_DIR = /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug
 
 # Utility rule file for correrValgrind.
 
@@ -90,6 +90,6 @@ CMakeFiles/correrValgrind.dir/clean:
 .PHONY : CMakeFiles/correrValgrind.dir/clean
 
 CMakeFiles/correrValgrind.dir/depend:
-	cd /cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos /cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos /cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug /cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug /cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir/DependInfo.cmake --color=$(COLOR)
+	cd /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/correrValgrind.dir/depend
 

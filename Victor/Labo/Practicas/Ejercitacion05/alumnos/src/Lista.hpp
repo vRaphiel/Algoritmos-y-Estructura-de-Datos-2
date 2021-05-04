@@ -15,19 +15,25 @@ Lista::Lista(const Lista& l) : Lista() {
 }
 
 Lista::~Lista() {
-    //while(head_->next != tail_){
-    //    eliminar(0);
-    //}
-    //delete head_;
-    //delete tail_;
+    while(head_->next != tail_){
+        eliminar(0);
+    }
+    delete head_;
+    delete tail_;
 }
 
 Lista& Lista::operator=(const Lista& aCopiar) {
 
+    while(head_->next != tail_){
+        eliminar(0);
+    }
+    head_->next = tail_;
+    tail_->prev = head_;
+
     Nodo* nodo = aCopiar.head_->next;
 
-    while(nodo->next != nullptr){
-        agregarAtras(nodo->value);
+    while(nodo != aCopiar.tail_){
+        this->agregarAtras(nodo->value);
         nodo = nodo->next;
     }
 

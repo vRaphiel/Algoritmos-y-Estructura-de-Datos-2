@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
 
-The C compiler identification is GNU, found in "/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdC/a.exe"
+The C compiler identification is GNU, found in "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdC/a.exe"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++.exe 
@@ -23,33 +23,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
 
-The CXX compiler identification is GNU, found in "/cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdCXX/a.exe"
+The CXX compiler identification is GNU, found in "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdCXX/a.exe"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_f0238/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_f0238.dir/build.make CMakeFiles/cmTC_f0238.dir/build
-gmake[1]: Entering directory 'C:/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_f0238.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_f0238.dir/testCCompiler.c.o -c /cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_f0238.exe
-/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_f0238.dir/link.txt --verbose=1
-/usr/bin/cc -Wl,--enable-auto-import  CMakeFiles/cmTC_f0238.dir/testCCompiler.c.o -o cmTC_f0238.exe -Wl,--out-implib,libcmTC_f0238.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
-gmake[1]: Leaving directory 'C:/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_f4274/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_f4274.dir/build.make CMakeFiles/cmTC_f4274.dir/build
+gmake[1]: Entering directory 'C:/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f4274.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_f4274.dir/testCCompiler.c.o -c /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_f4274.exe
+/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_f4274.dir/link.txt --verbose=1
+/usr/bin/cc -Wl,--enable-auto-import  CMakeFiles/cmTC_f4274.dir/testCCompiler.c.o -o cmTC_f4274.exe -Wl,--out-implib,libcmTC_f4274.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+gmake[1]: Leaving directory 'C:/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_3c5a6/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_3c5a6.dir/build.make CMakeFiles/cmTC_3c5a6.dir/build
-gmake[1]: Entering directory 'C:/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_3c5a6.dir/testCXXCompiler.cxx.o
-/usr/bin/c++.exe    -o CMakeFiles/cmTC_3c5a6.dir/testCXXCompiler.cxx.o -c /cygdrive/c/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_3c5a6.exe
-/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_3c5a6.dir/link.txt --verbose=1
-/usr/bin/c++.exe -Wl,--enable-auto-import  CMakeFiles/cmTC_3c5a6.dir/testCXXCompiler.cxx.o -o cmTC_3c5a6.exe -Wl,--out-implib,libcmTC_3c5a6.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
-gmake[1]: Leaving directory 'C:/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_510cf/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_510cf.dir/build.make CMakeFiles/cmTC_510cf.dir/build
+gmake[1]: Entering directory 'C:/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_510cf.dir/testCXXCompiler.cxx.o
+/usr/bin/c++.exe    -o CMakeFiles/cmTC_510cf.dir/testCXXCompiler.cxx.o -c /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_510cf.exe
+/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_510cf.dir/link.txt --verbose=1
+/usr/bin/c++.exe -Wl,--enable-auto-import  CMakeFiles/cmTC_510cf.dir/testCXXCompiler.cxx.o -o cmTC_510cf.exe -Wl,--out-implib,libcmTC_510cf.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+gmake[1]: Leaving directory 'C:/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 
