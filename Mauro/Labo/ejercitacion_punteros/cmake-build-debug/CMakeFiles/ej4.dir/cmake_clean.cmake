@@ -4,9 +4,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ej4.dir/src/Proxy.cpp.o"
   "CMakeFiles/ej4.dir/src/SistemaDeMensajes.cpp.o"
   "CMakeFiles/ej4.dir/tests/sdm_tests.cpp.o"
-  "ej4.exe"
+  "ej4"
   "ej4.pdb"
-  "libej4.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

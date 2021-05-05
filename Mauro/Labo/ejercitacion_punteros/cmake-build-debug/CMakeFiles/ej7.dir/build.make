@@ -53,19 +53,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cygdrive/c/Users/digbang/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe
+CMAKE_COMMAND = /opt/clion-2021.1.1/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /cygdrive/c/Users/digbang/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E rm -f
+RM = /opt/clion-2021.1.1/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros"
+CMAKE_SOURCE_DIR = /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug"
+CMAKE_BINARY_DIR = /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ej7.dir/depend.make
@@ -78,55 +78,55 @@ include CMakeFiles/ej7.dir/flags.make
 
 CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.o: CMakeFiles/ej7.dir/flags.make
 CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.o: ../tests/sdm_tests_bonus.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.o -c "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/tests/sdm_tests_bonus.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.o -c /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/tests/sdm_tests_bonus.cpp
 
 CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/tests/sdm_tests_bonus.cpp" > CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/tests/sdm_tests_bonus.cpp > CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.i
 
 CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/tests/sdm_tests_bonus.cpp" -o CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/tests/sdm_tests_bonus.cpp -o CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.s
 
 CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.o: CMakeFiles/ej7.dir/flags.make
 CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.o: ../src/SistemaDeMensajes.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.o -c "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/SistemaDeMensajes.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.o -c /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/SistemaDeMensajes.cpp
 
 CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/SistemaDeMensajes.cpp" > CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/SistemaDeMensajes.cpp > CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.i
 
 CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/SistemaDeMensajes.cpp" -o CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/SistemaDeMensajes.cpp -o CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.s
 
 CMakeFiles/ej7.dir/src/Internet.cpp.o: CMakeFiles/ej7.dir/flags.make
 CMakeFiles/ej7.dir/src/Internet.cpp.o: ../src/Internet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ej7.dir/src/Internet.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej7.dir/src/Internet.cpp.o -c "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/Internet.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ej7.dir/src/Internet.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej7.dir/src/Internet.cpp.o -c /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/Internet.cpp
 
 CMakeFiles/ej7.dir/src/Internet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ej7.dir/src/Internet.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/Internet.cpp" > CMakeFiles/ej7.dir/src/Internet.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/Internet.cpp > CMakeFiles/ej7.dir/src/Internet.cpp.i
 
 CMakeFiles/ej7.dir/src/Internet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ej7.dir/src/Internet.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/Internet.cpp" -o CMakeFiles/ej7.dir/src/Internet.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/Internet.cpp -o CMakeFiles/ej7.dir/src/Internet.cpp.s
 
 CMakeFiles/ej7.dir/src/ConexionJugador.cpp.o: CMakeFiles/ej7.dir/flags.make
 CMakeFiles/ej7.dir/src/ConexionJugador.cpp.o: ../src/ConexionJugador.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ej7.dir/src/ConexionJugador.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej7.dir/src/ConexionJugador.cpp.o -c "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/ConexionJugador.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ej7.dir/src/ConexionJugador.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej7.dir/src/ConexionJugador.cpp.o -c /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/ConexionJugador.cpp
 
 CMakeFiles/ej7.dir/src/ConexionJugador.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ej7.dir/src/ConexionJugador.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/ConexionJugador.cpp" > CMakeFiles/ej7.dir/src/ConexionJugador.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/ConexionJugador.cpp > CMakeFiles/ej7.dir/src/ConexionJugador.cpp.i
 
 CMakeFiles/ej7.dir/src/ConexionJugador.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ej7.dir/src/ConexionJugador.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/ConexionJugador.cpp" -o CMakeFiles/ej7.dir/src/ConexionJugador.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/ConexionJugador.cpp -o CMakeFiles/ej7.dir/src/ConexionJugador.cpp.s
 
 # Object files for target ej7
 ej7_OBJECTS = \
@@ -138,19 +138,19 @@ ej7_OBJECTS = \
 # External object files for target ej7
 ej7_EXTERNAL_OBJECTS =
 
-ej7.exe: CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.o
-ej7.exe: CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.o
-ej7.exe: CMakeFiles/ej7.dir/src/Internet.cpp.o
-ej7.exe: CMakeFiles/ej7.dir/src/ConexionJugador.cpp.o
-ej7.exe: CMakeFiles/ej7.dir/build.make
-ej7.exe: libgtest.a
-ej7.exe: libgtest_main.a
-ej7.exe: CMakeFiles/ej7.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ej7.exe"
+ej7: CMakeFiles/ej7.dir/tests/sdm_tests_bonus.cpp.o
+ej7: CMakeFiles/ej7.dir/src/SistemaDeMensajes.cpp.o
+ej7: CMakeFiles/ej7.dir/src/Internet.cpp.o
+ej7: CMakeFiles/ej7.dir/src/ConexionJugador.cpp.o
+ej7: CMakeFiles/ej7.dir/build.make
+ej7: libgtest.a
+ej7: libgtest_main.a
+ej7: CMakeFiles/ej7.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ej7"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ej7.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/ej7.dir/build: ej7.exe
+CMakeFiles/ej7.dir/build: ej7
 
 .PHONY : CMakeFiles/ej7.dir/build
 
@@ -159,6 +159,6 @@ CMakeFiles/ej7.dir/clean:
 .PHONY : CMakeFiles/ej7.dir/clean
 
 CMakeFiles/ej7.dir/depend:
-	cd "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej7.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej7.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ej7.dir/depend
 

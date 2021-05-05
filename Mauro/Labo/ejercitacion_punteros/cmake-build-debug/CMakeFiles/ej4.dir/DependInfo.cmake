@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/ConexionJugador.cpp" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej4.dir/src/ConexionJugador.cpp.o"
-  "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/Internet.cpp" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej4.dir/src/Internet.cpp.o"
-  "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/Proxy.cpp" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej4.dir/src/Proxy.cpp.o"
-  "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/SistemaDeMensajes.cpp" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej4.dir/src/SistemaDeMensajes.cpp.o"
-  "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/tests/sdm_tests.cpp" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej4.dir/tests/sdm_tests.cpp.o"
+  "/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/ConexionJugador.cpp" "/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej4.dir/src/ConexionJugador.cpp.o"
+  "/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/Internet.cpp" "/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej4.dir/src/Internet.cpp.o"
+  "/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/Proxy.cpp" "/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej4.dir/src/Proxy.cpp.o"
+  "/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/src/SistemaDeMensajes.cpp" "/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej4.dir/src/SistemaDeMensajes.cpp.o"
+  "/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/tests/sdm_tests.cpp" "/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej4.dir/tests/sdm_tests.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -23,8 +23,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/gtest.dir/DependInfo.cmake"
-  "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/gtest_main.dir/DependInfo.cmake"
+  "/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

@@ -1,12 +1,12 @@
-/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/edit_cache.dir
-/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej5_correrValgrind.dir
-/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej2_correrValgrind.dir
-/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej7.dir
-/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej4.dir
-/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej3_correrValgrind.dir
-/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej3.dir
-/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej1.dir
-/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej6.dir
-/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/gtest_main.dir
-/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/gtest.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej3.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/gtest.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/gtest_main.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej5_correrValgrind.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej4.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej7.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej1.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej6.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej2_correrValgrind.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej3_correrValgrind.dir

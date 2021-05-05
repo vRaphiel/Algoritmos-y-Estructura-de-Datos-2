@@ -1,0 +1,6 @@
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir
+/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir

@@ -3,9 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ej3.dir/src/Internet.cpp.o"
   "CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.o"
   "CMakeFiles/ej3.dir/tests/sdm_tests.cpp.o"
-  "ej3.exe"
+  "ej3"
   "ej3.pdb"
-  "libej3.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

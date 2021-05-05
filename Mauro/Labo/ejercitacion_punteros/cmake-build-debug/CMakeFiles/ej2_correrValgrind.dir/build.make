@@ -53,26 +53,26 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cygdrive/c/Users/digbang/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe
+CMAKE_COMMAND = /opt/clion-2021.1.1/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /cygdrive/c/Users/digbang/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E rm -f
+RM = /opt/clion-2021.1.1/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros"
+CMAKE_SOURCE_DIR = /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug"
+CMAKE_BINARY_DIR = /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug
 
 # Utility rule file for ej2_correrValgrind.
 
 # Include the progress variables for this target.
 include CMakeFiles/ej2_correrValgrind.dir/progress.make
 
-CMakeFiles/ej2_correrValgrind: ej1.exe
+CMakeFiles/ej2_correrValgrind: ej1
 	valgrind --leak-check=full -v ./ej1 2>&1
 
 ej2_correrValgrind: CMakeFiles/ej2_correrValgrind
@@ -90,6 +90,6 @@ CMakeFiles/ej2_correrValgrind.dir/clean:
 .PHONY : CMakeFiles/ej2_correrValgrind.dir/clean
 
 CMakeFiles/ej2_correrValgrind.dir/depend:
-	cd "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug" "/cygdrive/c/Users/digbang/Facultad/Algo II/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej2_correrValgrind.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug /home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_punteros/cmake-build-debug/CMakeFiles/ej2_correrValgrind.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ej2_correrValgrind.dir/depend
 
