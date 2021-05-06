@@ -53,19 +53,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/151/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe
 
 # The command to remove a file.
-RM = /snap/clion/151/bin/cmake/linux/bin/cmake -E rm -f
+RM = /cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04
+CMAKE_SOURCE_DIR = /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04
+CMAKE_BINARY_DIR = /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ej6.dir/depend.make
@@ -78,68 +78,68 @@ include CMakeFiles/ej6.dir/flags.make
 
 CMakeFiles/ej6.dir/tests/sdm_tests.cpp.o: CMakeFiles/ej6.dir/flags.make
 CMakeFiles/ej6.dir/tests/sdm_tests.cpp.o: tests/sdm_tests.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ej6.dir/tests/sdm_tests.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej6.dir/tests/sdm_tests.cpp.o -c /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/tests/sdm_tests.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ej6.dir/tests/sdm_tests.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej6.dir/tests/sdm_tests.cpp.o -c /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/tests/sdm_tests.cpp
 
 CMakeFiles/ej6.dir/tests/sdm_tests.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ej6.dir/tests/sdm_tests.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/tests/sdm_tests.cpp > CMakeFiles/ej6.dir/tests/sdm_tests.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/tests/sdm_tests.cpp > CMakeFiles/ej6.dir/tests/sdm_tests.cpp.i
 
 CMakeFiles/ej6.dir/tests/sdm_tests.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ej6.dir/tests/sdm_tests.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/tests/sdm_tests.cpp -o CMakeFiles/ej6.dir/tests/sdm_tests.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/tests/sdm_tests.cpp -o CMakeFiles/ej6.dir/tests/sdm_tests.cpp.s
 
 CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.o: CMakeFiles/ej6.dir/flags.make
 CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.o: src/SistemaDeMensajes.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.o -c /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/SistemaDeMensajes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.o -c /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/SistemaDeMensajes.cpp
 
 CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/SistemaDeMensajes.cpp > CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/SistemaDeMensajes.cpp > CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.i
 
 CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/SistemaDeMensajes.cpp -o CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/SistemaDeMensajes.cpp -o CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.s
 
 CMakeFiles/ej6.dir/src/Proxy2.cpp.o: CMakeFiles/ej6.dir/flags.make
 CMakeFiles/ej6.dir/src/Proxy2.cpp.o: src/Proxy2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ej6.dir/src/Proxy2.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej6.dir/src/Proxy2.cpp.o -c /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/Proxy2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ej6.dir/src/Proxy2.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej6.dir/src/Proxy2.cpp.o -c /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/Proxy2.cpp
 
 CMakeFiles/ej6.dir/src/Proxy2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ej6.dir/src/Proxy2.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/Proxy2.cpp > CMakeFiles/ej6.dir/src/Proxy2.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/Proxy2.cpp > CMakeFiles/ej6.dir/src/Proxy2.cpp.i
 
 CMakeFiles/ej6.dir/src/Proxy2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ej6.dir/src/Proxy2.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/Proxy2.cpp -o CMakeFiles/ej6.dir/src/Proxy2.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/Proxy2.cpp -o CMakeFiles/ej6.dir/src/Proxy2.cpp.s
 
 CMakeFiles/ej6.dir/src/Internet.cpp.o: CMakeFiles/ej6.dir/flags.make
 CMakeFiles/ej6.dir/src/Internet.cpp.o: src/Internet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ej6.dir/src/Internet.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej6.dir/src/Internet.cpp.o -c /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/Internet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ej6.dir/src/Internet.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej6.dir/src/Internet.cpp.o -c /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/Internet.cpp
 
 CMakeFiles/ej6.dir/src/Internet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ej6.dir/src/Internet.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/Internet.cpp > CMakeFiles/ej6.dir/src/Internet.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/Internet.cpp > CMakeFiles/ej6.dir/src/Internet.cpp.i
 
 CMakeFiles/ej6.dir/src/Internet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ej6.dir/src/Internet.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/Internet.cpp -o CMakeFiles/ej6.dir/src/Internet.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/Internet.cpp -o CMakeFiles/ej6.dir/src/Internet.cpp.s
 
 CMakeFiles/ej6.dir/src/ConexionJugador.cpp.o: CMakeFiles/ej6.dir/flags.make
 CMakeFiles/ej6.dir/src/ConexionJugador.cpp.o: src/ConexionJugador.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ej6.dir/src/ConexionJugador.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej6.dir/src/ConexionJugador.cpp.o -c /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/ConexionJugador.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ej6.dir/src/ConexionJugador.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej6.dir/src/ConexionJugador.cpp.o -c /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/ConexionJugador.cpp
 
 CMakeFiles/ej6.dir/src/ConexionJugador.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ej6.dir/src/ConexionJugador.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/ConexionJugador.cpp > CMakeFiles/ej6.dir/src/ConexionJugador.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/ConexionJugador.cpp > CMakeFiles/ej6.dir/src/ConexionJugador.cpp.i
 
 CMakeFiles/ej6.dir/src/ConexionJugador.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ej6.dir/src/ConexionJugador.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/ConexionJugador.cpp -o CMakeFiles/ej6.dir/src/ConexionJugador.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/ConexionJugador.cpp -o CMakeFiles/ej6.dir/src/ConexionJugador.cpp.s
 
 # Object files for target ej6
 ej6_OBJECTS = \
@@ -152,20 +152,20 @@ ej6_OBJECTS = \
 # External object files for target ej6
 ej6_EXTERNAL_OBJECTS =
 
-ej6: CMakeFiles/ej6.dir/tests/sdm_tests.cpp.o
-ej6: CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.o
-ej6: CMakeFiles/ej6.dir/src/Proxy2.cpp.o
-ej6: CMakeFiles/ej6.dir/src/Internet.cpp.o
-ej6: CMakeFiles/ej6.dir/src/ConexionJugador.cpp.o
-ej6: CMakeFiles/ej6.dir/build.make
-ej6: libgtest.a
-ej6: libgtest_main.a
-ej6: CMakeFiles/ej6.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable ej6"
+ej6.exe: CMakeFiles/ej6.dir/tests/sdm_tests.cpp.o
+ej6.exe: CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.o
+ej6.exe: CMakeFiles/ej6.dir/src/Proxy2.cpp.o
+ej6.exe: CMakeFiles/ej6.dir/src/Internet.cpp.o
+ej6.exe: CMakeFiles/ej6.dir/src/ConexionJugador.cpp.o
+ej6.exe: CMakeFiles/ej6.dir/build.make
+ej6.exe: libgtest.a
+ej6.exe: libgtest_main.a
+ej6.exe: CMakeFiles/ej6.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable ej6.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ej6.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/ej6.dir/build: ej6
+CMakeFiles/ej6.dir/build: ej6.exe
 
 .PHONY : CMakeFiles/ej6.dir/build
 
@@ -174,6 +174,6 @@ CMakeFiles/ej6.dir/clean:
 .PHONY : CMakeFiles/ej6.dir/clean
 
 CMakeFiles/ej6.dir/depend:
-	cd /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej6.dir/DependInfo.cmake --color=$(COLOR)
+	cd /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej6.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ej6.dir/depend
 

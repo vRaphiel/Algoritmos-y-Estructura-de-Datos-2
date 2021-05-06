@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/ConexionJugador.cpp" "/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej6.dir/src/ConexionJugador.cpp.o"
-  "/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/Internet.cpp" "/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej6.dir/src/Internet.cpp.o"
-  "/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/Proxy2.cpp" "/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej6.dir/src/Proxy2.cpp.o"
-  "/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/SistemaDeMensajes.cpp" "/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.o"
-  "/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/tests/sdm_tests.cpp" "/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej6.dir/tests/sdm_tests.cpp.o"
+  "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/ConexionJugador.cpp" "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej6.dir/src/ConexionJugador.cpp.o"
+  "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/Internet.cpp" "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej6.dir/src/Internet.cpp.o"
+  "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/Proxy2.cpp" "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej6.dir/src/Proxy2.cpp.o"
+  "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/SistemaDeMensajes.cpp" "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.o"
+  "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/tests/sdm_tests.cpp" "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej6.dir/tests/sdm_tests.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -23,8 +23,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/gtest.dir/DependInfo.cmake"
-  "/media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/gtest_main.dir/DependInfo.cmake"
+  "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

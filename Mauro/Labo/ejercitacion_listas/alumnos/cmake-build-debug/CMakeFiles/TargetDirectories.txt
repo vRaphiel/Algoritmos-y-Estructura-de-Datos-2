@@ -1,6 +1,6 @@
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/edit_cache.dir
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir

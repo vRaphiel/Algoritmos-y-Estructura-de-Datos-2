@@ -1,9 +1,15 @@
 #include "Lista.h"
 
+Lista::Nodo::Nodo(int valor) {
+    this->value = valor;
+    this->next = nullptr;
+    this->prev = nullptr;
+}
+
 Lista::Lista() {
     longitud_ = 0;
-    head_ = new Nodo();
-    tail_ = new Nodo();
+    head_ = new Nodo(0);
+    tail_ = new Nodo(0);
     head_->next = tail_;
     head_->prev = nullptr;
     tail_->next = nullptr;
@@ -44,8 +50,7 @@ void Lista::agregarAdelante(const int& elem) {
 
     Nodo* currentNode = head_->next;
 
-    Nodo* newNode = new Nodo();
-    newNode->value = elem;
+    Nodo* newNode = new Nodo(elem);
     newNode->prev = head_;
     head_->next = newNode;
 
@@ -59,8 +64,7 @@ void Lista::agregarAdelante(const int& elem) {
 void Lista::agregarAtras(const int& elem) {
     Nodo* currentNode = tail_->prev;
 
-    Nodo* newNode = new Nodo();
-    newNode->value = elem;
+    Nodo* newNode = new Nodo(elem);
 
     tail_->prev = newNode;
     currentNode->next = newNode;
@@ -87,6 +91,7 @@ void Lista::eliminar(Nat i) {
         }
         pos++;
     }
+
 }
 
 int Lista::longitud() const {
@@ -96,29 +101,44 @@ int Lista::longitud() const {
 const int& Lista::iesimo(Nat i) const {
     int pos = 0;
     Nodo* nAux = head_->next;
-
+    Nodo* nReturn = new Nodo(0);
     while(pos < longitud()){
         if(pos == i){
-            return nAux->value;
+            nReturn = nAux;
         }
         nAux = nAux->next;
         pos++;
     }
+    return nReturn->value;
 }
 
 int& Lista::iesimo(Nat i) {
     int pos = 0;
     Nodo* nAux = head_->next;
-
+    Nodo* nReturn = new Nodo(0);
     while(pos < longitud()){
         if(pos == i){
-            return nAux->value;
+            nReturn = nAux;
         }
         nAux = nAux->next;
         pos++;
     }
+    return nReturn->value;
 }
 
+
+/* No entendi bien cuando expresaba [a_0, a_1, a_2, ...]
+ * si a era la posicion del nodo y el 0, 1, ... eran los valores
+ * Considere a como la posicion del nodo y seguido al  _ el valor en ese nodo
+ * */
 void Lista::mostrar(ostream& o) {
-    // Completar
+    o << "[";
+    Nodo* nodo = head_->next;
+    int i = 0;
+    while(nodo != tail_){
+        o << i << "_" << nodo->value << ", ";
+        i++;
+        nodo = nodo->next;
+    }
+    o << "]";
 }

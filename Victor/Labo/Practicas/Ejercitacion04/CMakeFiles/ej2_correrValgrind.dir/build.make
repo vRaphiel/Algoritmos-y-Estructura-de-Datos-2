@@ -53,26 +53,26 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/151/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe
 
 # The command to remove a file.
-RM = /snap/clion/151/bin/cmake/linux/bin/cmake -E rm -f
+RM = /cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04
+CMAKE_SOURCE_DIR = /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04
+CMAKE_BINARY_DIR = /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04
 
 # Utility rule file for ej2_correrValgrind.
 
 # Include the progress variables for this target.
 include CMakeFiles/ej2_correrValgrind.dir/progress.make
 
-CMakeFiles/ej2_correrValgrind: ej1
+CMakeFiles/ej2_correrValgrind: ej1.exe
 	valgrind --leak-check=full -v ./ej1 2>&1
 
 ej2_correrValgrind: CMakeFiles/ej2_correrValgrind
@@ -90,6 +90,6 @@ CMakeFiles/ej2_correrValgrind.dir/clean:
 .PHONY : CMakeFiles/ej2_correrValgrind.dir/clean
 
 CMakeFiles/ej2_correrValgrind.dir/depend:
-	cd /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /media/raphiel/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej2_correrValgrind.dir/DependInfo.cmake --color=$(COLOR)
+	cd /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej2_correrValgrind.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ej2_correrValgrind.dir/depend
 

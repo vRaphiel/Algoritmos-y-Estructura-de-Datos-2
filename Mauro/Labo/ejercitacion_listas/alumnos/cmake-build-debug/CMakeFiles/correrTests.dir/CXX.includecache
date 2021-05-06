@@ -6,19 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/src/Lista.h
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/src/Lista.h
 string
 -
 ostream
 -
 Lista.hpp
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/src/Lista.hpp
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/src/Lista.hpp
 
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/src/Lista.hpp
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/src/Lista.hpp
 Lista.h
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/src/Lista.h
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/src/Lista.h
 
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/tests/gtest-1.8.1/gtest.h
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/tests/gtest-1.8.1/gtest.h
 limits
 -
 ostream
@@ -160,19 +160,19 @@ vector
 tuple
 -
 absl/strings/string_view.h
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/tests/gtest-1.8.1/absl/strings/string_view.h
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/tests/gtest-1.8.1/absl/strings/string_view.h
 absl/types/optional.h
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/tests/gtest-1.8.1/absl/types/optional.h
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/tests/gtest-1.8.1/absl/types/optional.h
 absl/types/variant.h
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/tests/gtest-1.8.1/absl/types/variant.h
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/tests/gtest-1.8.1/absl/types/variant.h
 iosfwd
 -
 vector
 -
 
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/tests/lista_tests.cpp
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/tests/lista_tests.cpp
 gtest-1.8.1/gtest.h
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/tests/gtest-1.8.1/gtest.h
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/tests/gtest-1.8.1/gtest.h
 ../src/Lista.h
-/home/mauro/Facultad/Algoritmos-y-Estructura-de-Datos-2/Mauro/Labo/ejercitacion_listas/alumnos/src/Lista.h
+/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Mauro/Labo/ejercitacion_listas/alumnos/src/Lista.h
 

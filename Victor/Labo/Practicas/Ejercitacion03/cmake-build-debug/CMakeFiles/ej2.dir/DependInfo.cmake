@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion03/src/Periodo.cpp" "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/src/Periodo.cpp.o"
-  "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion03/tests/ej2_periodo_y_fecha.cpp" "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/tests/ej2_periodo_y_fecha.cpp.o"
+  "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion03/src/Periodo.cpp" "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/src/Periodo.cpp.o"
+  "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion03/tests/ej2_periodo_y_fecha.cpp" "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/tests/ej2_periodo_y_fecha.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -15,8 +15,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/DependInfo.cmake"
-  "/cygdrive/d/CLionProjects/Algo2/Victor/Labo/Practicas/Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/DependInfo.cmake"
+  "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

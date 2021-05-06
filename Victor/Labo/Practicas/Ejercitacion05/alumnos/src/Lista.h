@@ -91,6 +91,9 @@ private:
         int value;
         Nodo* next;
         Nodo* prev;
+
+        Nodo(int valor);
+        friend Lista;
     };
 
     int longitud_;

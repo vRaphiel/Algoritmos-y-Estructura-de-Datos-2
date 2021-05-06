@@ -2,6 +2,12 @@
 
 Lista::Lista() {
     _longitud = 0;
+    _primero = new Nodo();
+    _ultimo = new Nodo();
+    _primero->siguiente = _ultimo;
+    _primero->anterior = nullptr;
+    _ultimo->siguiente = nullptr;
+    _ultimo->anterior = _primero;
 }
 
 Lista::Lista(const Lista& l) : Lista() {
@@ -18,17 +24,18 @@ Lista& Lista::operator=(const Lista& aCopiar) {
 }
 
 void Lista::agregarAdelante(const int& elem) {
-    Nodo* n = new Nodo();
-    n->contenido = elem;
+    Nodo* currentNode = _primero->siguiente;
 
-    if (_primero != nullptr) {
-        n->siguiente = _primero;
-        n->anterior = nullptr;
-        _primero->anterior = n;
-    }
+    Nodo* newNode = new Nodo();
+    newNode->contenido = elem;
+    newNode->anterior = _primero;
+    _primero->siguiente = newNode;
 
-    _primero = n;
-    _longitud += 1;
+    currentNode->anterior = newNode;
+    newNode->siguiente = currentNode;
+
+    this->_longitud++;
+
 }
 
 void Lista::agregarAtras(const int& elem) {
@@ -44,13 +51,11 @@ int Lista::longitud() const {
 }
 
 const int& Lista::iesimo(Nat i) const {
-    // Completar
-    assert(false);
+
 }
 
 int& Lista::iesimo(Nat i) {
-    // Completar (hint: es igual a la anterior...)
-    assert(false);
+
 }
 
 void Lista::mostrar(ostream& o) {
