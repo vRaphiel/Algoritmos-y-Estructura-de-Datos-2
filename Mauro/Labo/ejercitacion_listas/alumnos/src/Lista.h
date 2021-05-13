@@ -26,6 +26,8 @@ public:
      */
     ~Lista();
 
+    void eliminarTodos();
+
     /**
      * Operador asignacion
      * @param aCopiar

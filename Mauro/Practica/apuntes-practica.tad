@@ -1,0 +1,104 @@
+Conj(α) se representa con Secu(α)
+
+Sombrerito: mundo de los TADS
+
+Abs: SECU(α) -> CONJ(α)
+Abs([1,5,2]) ≡ {2,5,1}
+
+
+CONJ se representa con estr 
+donde estr es tupla <elementos: secu(α), cantidad: nat>
+
+Abs: estr e -> CONJ(α)                   {Rep(e)}
+Abs(<[1,5,2], 3>) ≡ {2,5,1}                
+
+<[1,5,2],7> No representa nada, por lo tanto no se le puede hacer Abs.
+
+Rep: estr -> boolean 
+
+--------------------------
+Módulo Color src estr donde estr es tupla <r:nat, g:nat, b:nat>
+Pero:  0 ≤ r,g,b ≤ 255
+Esto lo pondremos en el invariante de representación
+
+
+-------------------------
+Varias pestañas
+Pestaña:
+	id 
+	texto
+
+
+Resuelto:
+
+1) Los numeros de las inactivas y la seleccionada, vaya de 0 a n y que sea una particion (n es el maximo entre seleccionada y el max de las inactivas)
+	a) interseccion entre vacias, no vacias y la seleccionada sea vacia
+  b) Las vacias no pueden estar en no vacias y viceversa
+2) Todas las pag. en no vacias, el texto es no vacio
+3) En las no vacias, no hay repetidos.  Ej: <1, "hola"><1, "chau">
+
+Rep: estr -> bool
+Rep(e) ≡ true <-> e.inactivasVacias ∩ indices(e.inactivasVacias) = Ø  ∧
+				¬(e.seleccionada ∈ e.inactivasVacias ∪ indices(e.inactivasVacias)) ∧   
+				(∀p: Nat) (1 ≤ p ≤ n ⇒L e.inactivasVacias ∪ indices(e.inactivasVacias) ∪ Ag(e.seleccionada, Ø)) ∧
+				¬(∃t, t': Nat × String) (t, t' ∈ e.inactivasNoVacias ∧ t!=t' ∧ π₀(t)=π₀(t')) 
+				2) 
+				
+				
+
+  donde n = #(e.inactivasVacias ∪ indices(e.inactivasNoVacias)) + 1
+	donde indices devuelve un conj(Nat) de todos los id de inactivasVacias
+	
+	
+
+
+Abs:
+	1- #inactivasVacias + #inactivasNoVacias + 1 = #pestañas(editor)
+	2- para toda pestaña de inactivasNoVacias no debe estar seleccionada
+	3- para toda pestaña de inactivasVacias no debe estar seleccionada
+	4- aplicar seleccionada?(editor, seleccionada.nro) = true
+	5- concatenar anteriores y posteriores deberia ser igual a texto(editor)
+	6- longitud de anteriores tiene que ser igual a longitud(texto) - posicionCursor(editor)	
+	
+Abs(e): ed <->
+#e.inactivasNoVacias + #e.inactivasVacias + 1 = #pestañas(ed) ∧
+e.anteriores & e.siguientes = texto(ed, e.seleccionada) ∧
+posicionCursor(ed) = long(e.anteriores) ∧
+
+
+-----------------------------
+Practica 3 
+
+//Ejercicio 1 
+Invariante de representacion:
+1) EL inicio y el fin deben ser menores que el tamaño de la secuencia
+2) El inicio y el fin tienen que ser contiguos modulo tamaño de la secuencia
+
+
+Cacotada se representa con estr donde estr es 
+	tupla <inicio: nat, fin: nat, elem: array[0...n] de nat>
+	
+Rep: estr -> bool
+Rep(e) ≡ true <-> 0 ≤ e.inicio, e.fin ≤ long(elem) ∧ 
+((e.inicio % long(elem) = e.fin + 1 % long(elem)) ∨ (e.fin % long(elem) = e.inicio + 1 % long(elem)))
+
+
+Funcion de abstraccion:
+1) para todo elemento desde inicio hasta fin deben ser iguales a los de verCola
+2) el tamaño del array debe ser igual a la capacidad
+
+Abs(e) : ed <->
+	#e.elem = capacidad(ed) ∧
+	convertirACola(e.elem, e.inicio, e.fin)=verCola(ed)
+
+convertirACola: array[nat] × nat × nat -> cola(nat) 
+convertirACola(arreglo, inicio, fin) ≡ 
+	if inicio = fin then
+		vacia()
+	else
+		encolar(arreglo[inicio], convertirACola(arreglo, (inicio + 1) % #(arreglo), fin))
+	fi
+
+
+//Ejercicio 2 
+polinomio se representa con estr
