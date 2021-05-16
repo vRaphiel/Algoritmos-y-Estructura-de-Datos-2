@@ -115,15 +115,13 @@ const int& Lista::iesimo(Nat i) const {
 int& Lista::iesimo(Nat i) {
     int pos = 0;
     Nodo* nAux = head_->next;
-    Nodo* nReturn = new Nodo(0);
     while(pos < longitud()){
         if(pos == i){
-            nReturn = nAux;
+            return nAux->value;
         }
         nAux = nAux->next;
         pos++;
     }
-    return nReturn->value;
 }
 
 
