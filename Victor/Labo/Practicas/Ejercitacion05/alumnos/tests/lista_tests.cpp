@@ -67,6 +67,21 @@ TEST(lista_test, test_agregar_varios_elementos_adelante_y_atras) {
     ASSERT_EQ(l.iesimo(4), 44);
 }
 
+TEST(lista_test, test_iesimo_extremo) {
+    Lista l;
+    l.agregarAdelante(42);
+    l.agregarAdelante(41);
+    l.agregarAtras(43);
+    l.agregarAdelante(40);
+    l.agregarAtras(44);
+    ASSERT_EQ(l.longitud(), 5);
+    ASSERT_EQ(l.iesimo(0), 40);
+    ASSERT_EQ(l.iesimo(1), 41);
+    ASSERT_EQ(l.iesimo(2), 42);
+    ASSERT_EQ(l.iesimo(3), 43);
+    ASSERT_EQ(l.iesimo(6), 0);
+}
+
 TEST(lista_test, test_eliminar_elementos) {
     Lista l;
     l.agregarAtras(42);
