@@ -1,0 +1,32 @@
+C:\Users\victo\AppData\Local\JetBrains\CLion2021.1\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion06/ejercitacion_templates_corregida
+-- The C compiler identification is GNU 10.2.0
+-- The CXX compiler identification is GNU 10.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - failed
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc - works
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - failed
+-- Check for working CXX compiler: /usr/bin/c++.exe
+-- Check for working CXX compiler: /usr/bin/c++.exe - works
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Deprecation Warning at tests/google-test/CMakeLists.txt:48 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- Found PythonInterp: /usr/bin/python (found version "3.6.13") 
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion06/ejercitacion_templates_corregida/cmake-build-debug
