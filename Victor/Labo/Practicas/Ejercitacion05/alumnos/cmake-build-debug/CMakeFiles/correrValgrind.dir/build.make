@@ -53,26 +53,26 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe
+CMAKE_COMMAND = /opt/clion-2021.1.1/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E rm -f
+RM = /opt/clion-2021.1.1/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos
+CMAKE_SOURCE_DIR = /media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug
+CMAKE_BINARY_DIR = /media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug
 
 # Utility rule file for correrValgrind.
 
 # Include the progress variables for this target.
 include CMakeFiles/correrValgrind.dir/progress.make
 
-CMakeFiles/correrValgrind: correrTests.exe
+CMakeFiles/correrValgrind: correrTests
 	valgrind --leak-check=full -v ./correrTests 2>&1
 
 correrValgrind: CMakeFiles/correrValgrind
@@ -90,6 +90,6 @@ CMakeFiles/correrValgrind.dir/clean:
 .PHONY : CMakeFiles/correrValgrind.dir/clean
 
 CMakeFiles/correrValgrind.dir/depend:
-	cd /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir/DependInfo.cmake --color=$(COLOR)
+	cd /media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos /media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos /media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug /media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug /media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/correrValgrind.dir/depend
 

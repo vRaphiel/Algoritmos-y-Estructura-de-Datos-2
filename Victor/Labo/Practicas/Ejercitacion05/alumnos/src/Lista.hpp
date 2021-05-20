@@ -122,6 +122,7 @@ int& Lista::iesimo(Nat i) {
         nAux = nAux->next;
         pos++;
     }
+    return nAux->value;
 }
 
 

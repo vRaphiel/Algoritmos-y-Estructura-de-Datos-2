@@ -15,288 +15,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1fbde1ab-f1d1-405f-8e2a-c0e95bc443d8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CMakeCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CMakeSystem.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdCXX/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/CMakeRuleHashes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/CMakeRuleHashes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/tests/lista_tests.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir/tests/lista_tests.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/cmake_clean_target.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/cmake_clean_target.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/tests/gtest-1.8.1/gtest-all.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest.dir/tests/gtest-1.8.1/gtest-all.cc.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/cmake_clean_target.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/cmake_clean_target.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/tests/gtest-1.8.1/gtest_main.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir/tests/gtest-1.8.1/gtest_main.cc.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/libgtest.a" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/libgtest.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/libgtest_main.a" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/libgtest_main.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/taller_listas_enlazadas.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/cmake-build-debug/taller_listas_enlazadas.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/src/Lista.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Mauro/Labo/ejercitacion_listas/alumnos/src/Lista.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CMakeCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CMakeRCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CMakeRCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CMakeSystem.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdC/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdC/a.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdCXX/a.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdCXX/a.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/CMakeError.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/CMakeError.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej1.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej1.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej1.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej1.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej1.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej1.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej1.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej1.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej1.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej1.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej1.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej1.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej1.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej1.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej2.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej3.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej3.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej3.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej3.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej3.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej3.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej3.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej3.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej3.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej3.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej3.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej3.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej3.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej3.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej_testing.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej_testing.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej_testing.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej_testing.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej_testing.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej_testing.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej_testing.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej_testing.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej_testing.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej_testing.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej_testing.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej_testing.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej_testing.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/ej_testing.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/cmake_clean_target.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/cmake_clean_target.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/cmake_clean_target.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/cmake_clean_target.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/gtest_main.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/solucion_testing.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/solucion_testing.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/solucion_testing.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/solucion_testing.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/solucion_testing.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/solucion_testing.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/solucion_testing.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/solucion_testing.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/solucion_testing.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/solucion_testing.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/solucion_testing.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/solucion_testing.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/solucion_testing.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/CMakeFiles/solucion_testing.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/solucion.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion03/cmake-build-debug/solucion.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.16.3/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.16.3/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.16.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.16.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.16.3/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.16.3/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.16.3/CompilerIdCXX/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.19.2/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.19.2/CMakeCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.19.2/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.19.2/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.19.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.19.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.19.2/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.19.2/CMakeSystem.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.19.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.19.2/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.19.2/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.19.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.19.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/3.19.2/CompilerIdCXX/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/CMakeRuleHashes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/CMakeRuleHashes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/cmake.check_cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/cmake.check_cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/src/ConexionJugador.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/src/Internet.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/src/SistemaDeMensajes.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej1.dir/tests/sdm_tests.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej2_correrValgrind.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej2_correrValgrind.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej2_correrValgrind.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej2_correrValgrind.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej2_correrValgrind.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej2_correrValgrind.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej2_correrValgrind.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej2_correrValgrind.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/src/ConexionJugador.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/src/Internet.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3.dir/tests/sdm_tests.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3_correrValgrind.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3_correrValgrind.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3_correrValgrind.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3_correrValgrind.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3_correrValgrind.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3_correrValgrind.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3_correrValgrind.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3_correrValgrind.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3_correrValgrind.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej3_correrValgrind.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/src/ConexionJugador.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/src/Internet.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/src/Proxy.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/src/SistemaDeMensajes.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej4.dir/tests/sdm_tests.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej5_correrValgrind.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej5_correrValgrind.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej5_correrValgrind.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej5_correrValgrind.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej5_correrValgrind.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej5_correrValgrind.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej5_correrValgrind.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej5_correrValgrind.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej5_correrValgrind.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej5_correrValgrind.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/src/ConexionJugador.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/src/Internet.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/src/Proxy2.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/src/SistemaDeMensajes.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej6.dir/tests/sdm_tests.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej7.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej7.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej7.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej7.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej7.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej7.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej7.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej7.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej7.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej7.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej7.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej7.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej7.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/ej7.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/cmake_clean_target.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/cmake_clean_target.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest.dir/tests/gtest-1.8.1/gtest-all.cc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/cmake_clean_target.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/cmake_clean_target.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/gtest_main.dir/tests/gtest-1.8.1/gtest_main.cc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/algo2_labo_clase4.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/algo2_labo_clase4.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ejercitacion04/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ejercitacion04/cmake_install.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/count.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.19.2/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.19.2/CMakeCCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.19.2/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.19.2/CMakeCXXCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.19.2/CMakeRCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.19.2/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.19.2/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdC/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.19.2/CompilerIdCXX/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeRuleHashes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeRuleHashes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/tests/lista_tests.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrTests.dir/tests/lista_tests.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrValgrind.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/correrValgrind.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest.dir/tests/gtest-1.8.1/gtest-all.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest.dir/tests/gtest-1.8.1/gtest-all.cc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest_main.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest_main.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest_main.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest_main.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest_main.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest_main.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest_main.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest_main.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest_main.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest_main.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest_main.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest_main.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest_main.dir/tests/gtest-1.8.1/gtest_main.cc.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/gtest_main.dir/tests/gtest-1.8.1/gtest_main.cc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/correrTests.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/correrTests.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/correrTests.exe.stackdump" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/correrTests.exe.stackdump" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Lista.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lista.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/libgtest.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/libgtest.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/libgtest_main.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/libgtest_main.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/taller_listas_enlazadas.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/taller_listas_enlazadas.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Lista.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lista.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/lista_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/lista_tests.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,7 +103,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Google Test.lista_test.test_constructor_por_copia">
+  <component name="RunManager" selected="CMake Application.correrValgrind">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="correrTests" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="taller_listas_enlazadas" TARGET_NAME="correrTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="taller_listas_enlazadas" RUN_TARGET_NAME="correrTests" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -355,13 +127,13 @@
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="lista_test.test_constructor_vacio" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="taller_listas_enlazadas" TARGET_NAME="correrTests" RUN_TARGET_PROJECT_NAME="taller_listas_enlazadas" RUN_TARGET_NAME="correrTests" TEST_CLASS="lista_test" TEST_METHOD="test_constructor_vacio" TEST_MODE="SUITE_TEST">
+    <configuration name="lista_test.test_constructor_vacio" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="taller_listas_enlazadas" TARGET_NAME="correrTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="taller_listas_enlazadas" RUN_TARGET_NAME="correrTests" TEST_CLASS="lista_test" TEST_METHOD="test_constructor_vacio" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="lista_test.test_eliminar_elementos" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="taller_listas_enlazadas" TARGET_NAME="correrTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="taller_listas_enlazadas" RUN_TARGET_NAME="correrTests" TEST_CLASS="lista_test" TEST_METHOD="test_eliminar_elementos" TEST_MODE="SUITE_TEST">
+    <configuration name="lista_test.test_iesimo_extremo" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="taller_listas_enlazadas" TARGET_NAME="correrTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="taller_listas_enlazadas" RUN_TARGET_NAME="correrTests" TEST_CLASS="lista_test" TEST_METHOD="test_iesimo_extremo" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
@@ -371,11 +143,6 @@
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="correrValgrind" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="taller_listas_enlazadas" TARGET_NAME="correrValgrind" CONFIG_NAME="Debug">
@@ -393,24 +160,29 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="CMake Application.correrValgrind" />
       <item itemvalue="CMake Application.gtest" />
       <item itemvalue="CMake Application.gtest_main" />
       <item itemvalue="Google Test.correrTests" />
-      <item itemvalue="Google Test.lista_test.test_eliminar_elementos" />
       <item itemvalue="Google Test.lista_test.test_agregar_varios_elementos_adelante_y_atras" />
       <item itemvalue="Google Test.lista_test.test_constructor_por_copia" />
       <item itemvalue="Google Test.lista_test.test_operador_asignacion" />
       <item itemvalue="Google Test.lista_test.test_constructor_vacio" />
+      <item itemvalue="Google Test.lista_test.test_iesimo_extremo" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Google Test.lista_test.test_iesimo_extremo" />
         <item itemvalue="Google Test.lista_test.test_constructor_por_copia" />
         <item itemvalue="Google Test.lista_test.test_operador_asignacion" />
         <item itemvalue="Google Test.lista_test.test_constructor_vacio" />
         <item itemvalue="Google Test.lista_test.test_agregar_varios_elementos_adelante_y_atras" />
-        <item itemvalue="Google Test.lista_test.test_eliminar_elementos" />
       </list>
     </recent_temporary>
   </component>
@@ -437,6 +209,8 @@
       <workItem from="1620182290910" duration="4333000" />
       <workItem from="1620218017939" duration="3638000" />
       <workItem from="1620341076449" duration="1593000" />
+      <workItem from="1621131356366" duration="52000" />
+      <workItem from="1621131427277" duration="2399000" />
     </task>
     <servers />
   </component>

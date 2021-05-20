@@ -1,6 +1,6 @@
-/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/edit_cache.dir
-/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir
-/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir
-/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir
-/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/gtest.dir
+/media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/edit_cache.dir
+/media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/gtest.dir
+/media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/correrTests.dir
+/media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/gtest_main.dir
+/media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles/correrValgrind.dir
