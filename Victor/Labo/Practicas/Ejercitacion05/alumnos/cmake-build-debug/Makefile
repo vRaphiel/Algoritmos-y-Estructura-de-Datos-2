@@ -58,38 +58,27 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/clion-2021.1.1/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe
 
 # The command to remove a file.
-RM = /opt/clion-2021.1.1/bin/cmake/linux/bin/cmake -E rm -f
+RM = /cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos
+CMAKE_SOURCE_DIR = /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug
+CMAKE_BINARY_DIR = /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/opt/clion-2021.1.1/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/opt/clion-2021.1.1/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -97,11 +86,22 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles /media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/victor/Raphiel/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion05/alumnos/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -130,17 +130,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named gtest
+# Target rules for targets named correrValgrind
 
 # Build rule for target.
-gtest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
-.PHONY : gtest
+correrValgrind: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 correrValgrind
+.PHONY : correrValgrind
 
 # fast build rule for target.
-gtest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gtest.dir/build.make CMakeFiles/gtest.dir/build
-.PHONY : gtest/fast
+correrValgrind/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/correrValgrind.dir/build.make CMakeFiles/correrValgrind.dir/build
+.PHONY : correrValgrind/fast
 
 #=============================================================================
 # Target rules for targets named correrTests
@@ -169,17 +169,17 @@ gtest_main/fast:
 .PHONY : gtest_main/fast
 
 #=============================================================================
-# Target rules for targets named correrValgrind
+# Target rules for targets named gtest
 
 # Build rule for target.
-correrValgrind: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 correrValgrind
-.PHONY : correrValgrind
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
 
 # fast build rule for target.
-correrValgrind/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/correrValgrind.dir/build.make CMakeFiles/correrValgrind.dir/build
-.PHONY : correrValgrind/fast
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gtest.dir/build.make CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
 
 tests/gtest-1.8.1/gtest-all.o: tests/gtest-1.8.1/gtest-all.cc.o
 

@@ -53,18 +53,29 @@ class Conjunto
         struct Nodo
         {
             // El constructor, toma el elemento al que representa el nodo.
-            Nodo(const T& v);
+            Nodo(const T& v) : valor(v), izq(nullptr), der(nullptr){}
             // El elemento al que representa el nodo.
             T valor;
             // Puntero a la raíz del subárbol izquierdo.
             Nodo* izq;
             // Puntero a la raíz del subárbol derecho.
-            Nodo* der; 
+            Nodo* der;
         };
 
         // Puntero a la raíz de nuestro árbol.
         Nodo* _raiz;
 
+        vector<Nodo* > _treeList;
+
+        int cardinalAux(Nodo*) const;
+        void insertarAux(Nodo*, const T&);
+        bool perteneceAux(Nodo*, const T&) const;
+        void borradoAux(Nodo* padre, Nodo* hijo, const T&);
+
+        const T& precedesorInmediato(Nodo*) const;
+        const T& sucesorInmediato(Nodo*) const;
+        void ordenarLista();
+        void swap(T*, T*);
 };
 
 template<class T>
