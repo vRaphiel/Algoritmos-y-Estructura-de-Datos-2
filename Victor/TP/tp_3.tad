@@ -1,0 +1,239 @@
+MODULO 1: Mapa
+
+Representación:
+	Mapa se representa con estr donde 
+		estr es tupla ⟨	tamaño:	tupla⟨nat, nat⟩,
+										inicioLlegada: tupla⟨coordenada, coordenada⟩,
+										paredes: conj(coordenada),
+										fantasmas: conj(coordenada),
+										chocolates: conj(coordenada)⟩
+
+Invariante de representación:
+	Para que las coordenadas de inicio y de llegada sean válidas, deben estar contenidas 
+	dentro de los límites de alto y ancho del mapa, es decir, cumplir que:
+		- π₁(π₁(e.inicioLlegada)) debe ser menor o igual que π₁(e.tamaño).
+		- π₂(π₁(e.inicioLlegada)) debe ser menor o igual que π₂(e.tamaño).
+		- π₁(π₂(e.inicioLlegada)) debe ser menor o igual que π₁(e.tamaño).
+		- π₂(π₂(e.inicioLlegada)) debe ser menor o igual que π₂(e.tamaño).
+	Lo mismo debe ocurrir con todo el conjunto de las coordenadas de paredes:
+		- π₁(e.paredes) debe ser menor o igual que π₁(e.tamaño).
+		- π₂(e.paredes) debe ser menor o igual que π₂(e.tamaño). 
+	Ídem con los fantasmas:
+		- π₁(e.fantasmas) debe ser menor o igual que π₁(e.tamaño).
+		- π₂(e.fantasmas) debe ser menor o igual que π₂(e.tamaño). 
+	Ídem con los chocolates	
+		- π₁(e.chocolates) debe ser menor o igual que π₁(e.tamaño).
+		- π₂(e.chocolates) debe ser menor o igual que π₂(e.tamaño). 
+
+Función de abstracción:
+	Abs:	estr	->	Mapa	{Rep(e)}
+	(∀e: estr) Abs(e) =obs m: Mapa | (1)∧(2)∧(3)∧(4)∧(5)∧(6)∧(7)
+		donde:
+		(1)	≡	largo(m) = π₁(e.tamaño)
+		(2)	≡	alto(m) = π₂(e.tamaño)
+		(3)	≡	inicio(m) = π₁(e.inicioLlegada)
+		(4)	≡	llegada(m) = π₂(e.inicioLlegada)
+		(5)	≡	paredes(m) = e.paredes
+		(6)	≡	fantasmas(m) = e.fantasmas
+		(7)	≡	chocolates(m) = e.chocolates
+		
+---
+Interfaz:
+	Parámetros formales:
+		Géneros:	α
+		Función:		//
+			Copiar(in a:α) -> res: α
+			Pre ≡ {true}
+			Post ≡ {res = a} 
+			Complejidad: Θ(copy(a))
+			Descripción: Función copia de α's.
+			---
+	Se explica con:	Mapa
+	Géneros:		mapa
+	
+	// Modificar aliasing y complejidad:
+	Operaciones básicas:
+		nuevoMapa(in largo: nat, in alto: nat, in inicio:coordenada, in llegada:coordenada, in paredes:conj(coordenada), in fantasmas:conj(coordenada), in chocolates:conj(coordenada))	-> res: Mapa
+		Pre ≡ {inicio ≠ llegada ∧ todosEnRango(paredes ∪ fantasmas ∪ chocolates ∪ {inicio, llegada}, largo, alto) 
+					∧ {inicio, llegada} ∩ (fantasmas ∪ paredes) = Ø ∧ disjuntosDeAPares(paredes, fantasmas, chocolates)}
+		Post ≡ {res =obs crearMapa(largo, alto, inicio, llegada, paredes, fantasmas, chocolates)}
+		Complejidad: Θ(1)
+		Descripción: Genera un nuevo mapa.
+		Aliasing: No presenta aspectos de aliasing.
+		---
+		distancia(in pos₁: coordenada, in pos₂: coordenada)	-> res: nat
+		Pre ≡ {true}
+		Post ≡ {res =obs distancia(pos₁, pos₂)}
+		Complejidad: Θ(1)
+		Descripción: Indica la distancia entre pos₁ a pos₂, es decir, los movimientos necesarios para llegar de pos₁ a pos₂.
+		Aliasing: No presenta aspectos de aliasing.
+		---
+		distConFantasmaMasCercano(in fantasmas: conj(coordenada), in pos: coordenada)	-> res: nat
+		Pre ≡ {¬vacío(fantasmas)}
+		Post ≡ {res =obs distConFantasmaMasCercano(fantasmas, pos)}
+		Complejidad: Θ(1)
+		Descripción: Indica la distancia entre la posición actual del jugador y el fantasma más cercano.
+		Aliasing: No presenta aspectos de aliasing.
+		---
+		enRango(in pos: coordenada, in largo: nat, in alto: nat) -> res: bool
+		Pre ≡ {true}
+		Post ≡ {res = true <-> enRango(pos, largo, alto)}
+		Complejidad: Θ(1)
+		Descripción: Indica si una coordenada está en rango en función del alto y largo del mapa.
+		Aliasing: No presenta aspectos de aliasing.
+		---
+		todasEnRango(in posiciones: conj(coordenada), in largo: nat, in alto: nat)	-> res: bool
+		Pre ≡ {true}
+		Post ≡ {res = true <-> todasEnRango(posiciones, largo, alto)}
+		Complejidad: Θ(1)
+		Descripción: Dadas ciertas coordenadas, devuelve true si todas están en rango.
+		Aliasing: No presenta aspectos de aliasing.
+		---
+		disjuntosDeAPares(in r: conj(α), in s: conj(α), in t: conj(α))	-> res: bool
+		Pre ≡ {true}
+		Post ≡ {res = true <->  disjuntosDeAPares(r, s, t)}
+		Complejidad: Θ(1)
+		Descripción: Genera ...
+		Aliasing: No presenta aspectos de aliasing.
+		---
+		
+	Algoritmos del módulo:
+	Para abreviar, llamaremos estr a la tupla ⟨	tamaño:	tupla⟨nat, nat⟩,
+																							inicioLlegada: tupla⟨coordenada, coordenada⟩,
+																							paredes: conj(coordenada),
+																							fantasmas: conj(coordenada),
+																							chocolates: conj(coordenada) ⟩
+	
+		iNuevoMapa(in largo: nat, in alto: nat, in inicio:coordenada, in llegada:coordenada, in paredes:conj(coordenada), in fantasmas:conj(coordenada), in chocolates:conj(coordenada)) -> res: estr
+			...
+		---
+		iDistancia(in pos₁: coordenada, in pos₂: coordenada)	-> res: nat
+			res <- | π₁(pos₁) - π₁(pos₂) | + | π₂(pos₁) - π₂(pos₂) |
+		---
+		iDistConFantasmaMasCercano(in fantasmas: conj(coordenada), in pos: coordenada)	-> res: nat
+			res <- iDistancia(fantasmas[0], pos)
+			i <- 1
+			while (i < #fantasmas)
+				if (iDistancia(fantasmas[i], pos) < res)
+					res <- iDistancia(fantasmas[i], pos)
+				endif
+			endwhile
+		---
+		iEnRango(in pos: coordenada, in largo: nat, in alto: nat) -> res: bool
+			res <- π₁(pos) <= largo ∧ π₂(pos) <= alto
+		---
+		iTodasEnRango(in posiciones: conj(coordenada), in largo: nat, in alto: nat)	-> res: bool
+			res <- true
+			i <- 0
+			while (i < #posiciones) 
+				if (¬ enRango(posiciones[i], largo, alto))
+					res <- false
+				endif
+			endwhile
+		---
+		iDisjuntosDeAPares(in r: conj(α), in s: conj(α), in t: conj(α))	-> res: bool
+			res ← #r + #s + #t = #(r ∪ s ∪ t)
+		---
+		
+MODULO 2: Partida
+
+Representación:
+	tipoDato se representa con estr donde 
+		estr es tupla ⟨	arg₀:	nat,
+						arg₁: 	puntero(nat) ⟩
+
+Solución Informal:
+	- e.arg₀ + 1 debe ser ...
+	- si e.arg₁ ...
+---
+Invariante de Representación:
+	Rep:	estr	->	boolean
+	(∀e: estr) Rep(e)	≡ true ⇐⇒ (1)∧(2)
+		donde: 
+		(1)	≡	e.arg₀ > ...
+		(2)	≡	(∀n: nat)(e.arg₁ < ...)
+---
+Función de abstracción:
+	Abs:	estr	->	tipoDato	{Rep(e)}
+	(∀e: estr) Abs(e) =obs td: tipoDato | (1)∧(2)
+		donde: 
+		(1)	≡	obs₁(td) = ...
+		(2)	≡	obs₂(td) = ...
+---
+Interfaz:
+	Parámetros formales:
+		Géneros:	α
+		Función:
+			Copiar(in a:α) -> res: α
+			Pre ≡ {true}
+			Post ≡ {res = a} 
+			Complejidad: Θ(copy(a))
+			Descripción: Función copia de α's.
+			---
+	Se explica con:	TipoDato
+	Géneros:		tipoDato
+	
+	Operaciones básicas:
+		NuevaOp(in n: nat)	-> res: tipoDato
+		Pre ≡ {true}
+		Post ≡ {res =obs ...}
+		Complejidad: Θ(1)
+		Descripción: Genera ...
+		Aliasing: No presenta aspectos de aliasing.
+		---		
+	Algoritmos del módulo:
+		iNuevaOp(in n: nat) -> res: estr
+			res ← ⟨0, 9⟩	// Ejemplo
+		---		
+		
+MODULO 3: Fichín		
+		
+		
+Representación:
+	tipoDato se representa con estr donde 
+		estr es tupla ⟨	arg₀:	nat,
+						arg₁: 	puntero(nat) ⟩
+
+Solución Informal:
+	- e.arg₀ + 1 debe ser ...
+	- si e.arg₁ ...
+---
+Invariante de Representación:
+	Rep:	estr	->	boolean
+	(∀e: estr) Rep(e)	≡ true ⇐⇒ (1)∧(2)
+		donde: 
+		(1)	≡	e.arg₀ > ...
+		(2)	≡	(∀n: nat)(e.arg₁ < ...)
+---
+Función de abstracción:
+	Abs:	estr	->	tipoDato	{Rep(e)}
+	(∀e: estr) Abs(e) =obs td: tipoDato | (1)∧(2)
+		donde: 
+		(1)	≡	obs₁(td) = ...
+		(2)	≡	obs₂(td) = ...
+---
+Interfaz:
+	Parámetros formales:
+		Géneros:	α
+		Función:
+			Copiar(in a:α) -> res: α
+			Pre ≡ {true}
+			Post ≡ {res = a} 
+			Complejidad: Θ(copy(a))
+			Descripción: Función copia de α's.
+			---
+	Se explica con:	TipoDato
+	Géneros:		tipoDato
+	
+	Operaciones básicas:
+		NuevaOp(in n: nat)	-> res: tipoDato
+		Pre ≡ {true}
+		Post ≡ {res =obs ...}
+		Complejidad: Θ(1)
+		Descripción: Genera ...
+		Aliasing: No presenta aspectos de aliasing.
+		---		
+	Algoritmos del módulo:
+		iNuevaOp(in n: nat) -> res: estr
+			res ← ⟨0, 9⟩	// Ejemplo
+		---
