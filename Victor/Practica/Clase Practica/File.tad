@@ -1,0 +1,15 @@
+Repaso de estructuras:
+	TADs vs Modulos
+	TAD ≡ Que es: ¿Es valido? ¿Tiene sentido? ¿Es relevante?
+	Modulo ≡ Como lo hago: Computo, algoritmos, estado
+	El modulo vive en algun ambiente.
+	Existe una variable temporal (Complejidad)
+	Pre/Post condiciones. 
+	
+	Representacion interna:
+ 		Armo un modulo en base a otro mas general
+		Armo una cadena de modulos representados en base a otros y asi hasta llegar al modulo mas primitivo
+		Modulo -> Modulo + 1 -> ... -> tipo de dato primitivo
+		
+
+Repaso de iteradores:

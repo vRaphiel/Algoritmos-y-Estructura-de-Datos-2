@@ -1,0 +1,35 @@
+Interfaz:
+  Algoritmos del módulo:
+		iDefinido?(in d:dicc(κ, σ), in c: κ)  -> res: bool
+		  it ← crearIt(d)
+			while(haySiguiente(it) ∧ siguienteClave(it) != c)
+				avanzar(it)
+			end while
+			if siguienteClave(it) = c
+				res <- true
+			else
+				res <- false
+			end if
+-------------------
+			iVacio?(in d:dicc(κ, σ))		-> res: bool
+				it <- crearIt(d)
+				if(haySiguiente(it))
+					res <- false
+				else
+					res <- true
+				end if
+---------------------
+	iSignificado(in d: dicc(κ, σ), in c: κ) -> res: α
+		it <- crearIt(d)
+		while (haySiguiente(it))
+			if (siguienteClave(it) = c)
+				res <- siguienteSignificado(it)
+			end if
+			avanzar(it)
+		end while
+--------------------
+	i
+			
+			
+		
+		

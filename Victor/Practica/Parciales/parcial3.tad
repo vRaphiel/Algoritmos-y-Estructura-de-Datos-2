@@ -1,0 +1,245 @@
+Ejercicio -> Sistema operativo
+SO se explica con estr
+donde estr es tupla
+	⟨
+ 		procesos: diccTrie(proceso, itDiccAVL),
+		recursos: diccAVL(recurso, tupla<cola(ItDiccTrie), itC: itConjLineal, itD: itDiccTrie>)
+		bloqueados: conjTrie(procesos),  			// A la espera de un recurso
+		siendoUsados: conjLineal(recursos)
+	⟩
+	
+	generos: sistemaoperativo
+	
+	en procesos se cuardan todos los procesos del so y en el significado un iterador a un recurso (el usado actualmente por el proceso solicitado) en el diccionario recursos
+	en recusos, hay una tupla como significados,donde hay:
+		- una cola de iterador de procesos, encolando los procesos que buscan usar ese recurso
+		- un iterador al conjunto de siendoUsados, donde se guardan los recursos siendo utilizados
+		- un iterador a procesos (si hay alguno)
+		
+	en el conjunto de bloqueados se guardan los procesos que ya solicitaron un recurso y estan a la espera
+
+	procesos es un diccionario sobre trie, lo cual, me permite buuscar, insertar y eliminar en O(log p) con log p cantidad de digitos de p ya que el trie recorre los digitos de los elementos
+	
+	recursos es un diccionario sobre ALV, lo cual me permite buscar en O(log R) ya que es un arbol balaceado y se realiza una busqueda binaria
+	
+	cola(diccTrie) permite encolar y desencolar en O(1) ya quue necesitamos solo insertar atras y remover adelante
+	
+	bloqueados es un conjunto sobre trie que siguue la misma logica del diccionario sobre trie ya que permite insertar, eliminar y buscar en O(log d)
+	
+	siendoUsados es un conjunto lineal que permite insertar en O(1) y obtener un iterador al ultimo elemento insertado tambien en O(1)
+	
+	lanzarProceso:
+		Toma un sistema operativo, e inicia un procesos
+		Este proceso se espera que este definido en procesos, si lo esta, puedo insertarlo bloqueados(procesos) para asi saber que el mismo esta siendo usado
+	
+	solicitar:
+		Tomo un sistema operativo e inicio un proceso en ese recurso
+		Me dijo, si el proceso existe en procesos, esa es una busqueda que es O(log p)
+		Por otro lado, hago busqueda binaria en recursos. Eso es O(log R)
+		Entonces, si tengo el recurso habilitado, lo asigno
+		Caso contrario, lo coloco en la cola de procesos
+		Tambien lo asigno a bloqueados
+		Y el recurso se va a siendoUsados
+		
+	liberar: Elimino el proceso de bloqueados, esto se hace en O(log p)
+	
+	bloqueados y siendoUsados: Ambos se obtiene en O(1) pues son variables del sistema
+	
+	lanzarProceso(in so: sistemaoperativo, in p: proceso, out b: conjLienal(procesos), out su: conjLineal(recursos))
+		definir(so.procesos, p, null)
+		b <- so.bloqueados
+		su <- so.siendoUsados
+	
+	solicitar(in so: sistemaoperativo, in p:proceso, in r: recurso)
+		itP <- crearIt(so.procesos)
+		itR <- crearIt(so.recursos)
+		
+		while(haySiguiente(itP) && actual(itP).claves != p)			// Esta busqueda es en O(log R)
+			avanzar(itP)
+		endwhile
+		
+		while(haySiguiente(itR) && actual(itR).claves != r)			// Esta busqueda es en O(log R)
+			avanzar(itR)
+		endwhile
+		
+		if actual(itR).significados().π3 <- iteradorNulo then
+			actual(itP).significados().π3 <- itP // O(1)
+			insertarAtras(so.siendoUsados)
+			actual(itR).significados().π2 <- iterador al ultimo elemento de e.siendoUsados
+			
+		else
+			encolar(actual(itR).significados.π1, p) 	// O(1)
+			insertar(p, e.bloqueados) // 	O(log p)
+		endif
+		actual(itP).significados <- itR
+		
+		liberar(in p: proceso, in so : sistemaoperativo)
+			itP <- significado(so.procesos, p)
+			itR <- significado(so.recursos, itP)
+			
+			if vacia?(siguienteSignificado(itR).π1) then
+				siguienteSignificado(itR).π2 = <>
+				siguienteSignificado(itR).π3 = iterador nulo
+			else
+				siguienteSignificado(itR).π3 = siguienteSignificado(siguiente(itR)).π1
+				borrar(siguienteSignificado(siguiente(itR)).π2, so.bloqueados)
+				descolar(siguienteSignificado(itR).π1)
+			enfid
+			actual(itP).π2 = iterador nulo
+
+// Parcial del 2do cuatrimestre de 2018
+Sistema MULT.AR	
+Registrar las multas de los vehiculos en el pais
+Localidad -> conjunto de camaras
+					-> conjunto de vehiculos registrados (los vehiculos pueden ir por todo el pais)
+					Si un vehiculo sobrepasa la velocidad maxima y lo registra una camara, se emite una multa
+					
+vehiculo se explica con string
+camaras se explica con nat
+multas se explica con tupla<vehiculo, camara, monto>
+multar se explica con estr
+donde estr es tupla
+⟨
+	localidades: diccTrie(localidad, tupla<vehiculos: conjTrie(vehiculo), camaras: conjLineal(camara), multas: multiConjLineal(multa))
+	vehiculos: diccTrie(vehiculo, <itLocalidades, conjLineal(itaMulticonj(multa)))
+	camaras: diccAVL(camara, itDiccTrie(localidad, conjTrie(vehiculo)))
+⟩
+
+En localidades tengo un diccionario implementado con trie que, dada una localidad, me da como significado una tupla que contiene:
+	- Un conjunto implementado sobre trie, que funciona de manera equiavalente al dicc trie, donde tengo todos los vehiculos
+	- un conjunto lineal, donde almaceno todas las camaras
+	- un multiconj lineal de multas, donde almaceno todas las multas de manera lineal de la localidad
+Como se trata de un diccTrie, las operaciones tales como definir, busqueda y eliminar del mismo se evaluan en O(|l|) siendo |l| la localidad
+El conjunto de vehiculos tambien para buscar un vehiculo en O(1), y registrar una multa
+
+Vehiculos es un diccTrie con clave al vehiculo. Al estar las claves acotadas, las operaciones como busqueda, eliminar y agregar se ejecutan en O(1)
+Luego, en significados guardo una tupla donde, como primer item tengo un iterador a la localidad del vehiculo y, un iterador al multiconjunto de multa
+Son iteradores para poder borrar casos en O(1), este conjunto es lineal para poder agregar un iterador en O(1)
+
+Camaras es un diccionario implementado sobre AVL lo cual me permite hacer busqueda, agregado y borrado en O(log n). En significado tengo un iterador a su
+localidad ya que voy a necesitar en registrar multa para saber cual es la localidad de la camara que tomo la infraccion
+
+Dada una localidad, obtener los vehiculos registrados, las camaras y las multas
+Para realizar este algoritmo, teniendo una localidad, basta buscar en el diccTrie el significado correspondiente
+Una vez obtenido este significado, yo puedo devolver por referencia no modificable los vehiculos, las camaras y las multas ya que, estos son significados
+de mi dicc trie
+Es a su vez una referencia no modificable para que el usuario no pueda modificar la informacion accediendo asi a la informacion sensible
+Por otro lado, este algoritno cumple con la complejidad pedida ya que la busqueda en un dicc trie, es de O(|l|)
+Ya que la definicion de dicctrie, es tener en su composicion los caracteres del elemento que se esté almacenando, en este lado las localidades
+
+Dado un vehiculo, obtener su localidad y sUS MULTAS EN O(1)
+Basta con este algoritmo, buscar el vehiculo en el diccTrie, la busqueda para el mismo se realiza en O(1) pues me dicen en el enunciado
+que la patente del vehiculo, que es lo que se guarda como clave del dicc, esta acotada por la patente, por lo tanto, la complejidad es constante
+Por otro lado, una vez obtenido el significado correspondiente a la clave, utilizo que en la tupla tengo un iterador a las localidades, para obtener la localidad
+a la cual pertenece usando las propiedades del iterador. En este caso, seria siguienteClave(itLocalidades) de forma que tenga la clave que es la localidad y,
+las multas, devuelvo directamente el conjunto lineal ya que son todas las multas correspondientes a este vehiculo
+
+Para registrar una nueva multa, yo tengo que tener una complejidad O(log n) siendo n la cantidad de camaras en el sistema
+Busco la camara que registro la multa en las camaras. Esta busqueda como es binaria y valida siendo un diccAVL el sitio donde guardo las camaras se ejeguta en O(log n)
+Obtenida la camara, accedo a su significado donde consigo la localidad de la misma
+En el significado de la localidad, teniendo los vehiculos, busco si el vehiculo pertenece a la localidad de la camara. Al tratarse de un conjunto sobre tries
+con claves acotadas la busqueda es O(1). Si el vehiculo pertenece, agrego la multa al multiconjunto de multas de la localidad (Esto puede ser O(1) por ser un conjlineal, entonces, agrego al final)
+y guardo un iterador
+Busco el vehiculo en el diccTrie de vehiuculos y guardo en el conjunto que tiene en su significado el iterador O(1)
+
+Si la localidad de la camara y el vehiculo difieren, realizo lo mismo que antes pero luego uso el iterador a su localidad que tiene el vehiculo en su significado y agrego la multa
+al multiconjunto, alli tambien, me guardo un iterador y lo agreego a las multas del vehiculo
+Todas esas operaciones se realizan en O(1)
+
+// PAGAR MULTAS
+registrarMulta(in m: multa, in/out mu: estr)
+	vehiculo v <- π1(m) 		// O(1)
+	it(conjLineal) <- crearIt(π2(obtener(v, mu.vehiculos))) 		// O(1)
+	
+	while(haySiguiente(it))									// O(m)
+		borrarSiguiente(siguiente(i))
+		avanzar(i)
+	endwhile
+	
+	borrar(π2(obtener(v, mu.vehiculos)))		// O(m)
+
+// Parcial del 2017
+Empresa DirectTV
+Adminitrar los clientes y los paquetes que contratan
+n: cantidad de clientes
+m: cantidad de paquetes que ofrece la empresa
+c: cantidad de paquetes de un cliente
+
+Asumo quue los clientes y los paquetes son naturales
+
+directvision se explica con estr
+donde estr es tupla
+⟨
+	clientes: diccAVL(cliente, diccAVL(paquete, PackStr))
+	paquetes: diccAVL(paquete, conjLineal(cliente))
+⟩
+donde PackStr es tupla de
+⟨itPaquete: itDiccAVL, itCliPaquete: itConjLineal⟩
+
+Explicacion de la estructura
+En paquetes tengo un diccionario de paquetes como claves y, en sus significados tengo un conjunto de clientes donde iran los clientes que pertenecen a un paquete
+donde clientes es un diccionarion con clientes como claves y, en su significado, tengo otro diccionario AVL donde tengo todos los paquetes que le pertenecen al usuario y,
+por cada uno tengo una tupla donde tengo iteradores, un iterador al paquete y un iterador al conjunto de paquetes
+
+diccALV es un diccionario pasado sobre un ALV, donde la clave es un nat. Esta estructura tiene como operaciones de 
+				obtener, eliminar y agregar complejidad O(log n) siendo n la cantidad de elementos que tiene
+itDiccAVL es un iterador implemetnado sobre el AVL. Puede acceder a la definicion del elemento en O(1), sea para lectura o modificacion
+conjLineal es un conjunto basado en nodos encadenados, sus operaciones como busqueda, borrado y modificado son O(#elementos)
+itConjLineal es un iterador del conjLineal y permite borrar un elemento del conjunto en O(1)
+
+Algoritmos
+AgregarCliente(in/out dv:directvision, in c: cliente)
+Para este algoritmo, basta con hacer un definir a dv.clientes y agregue un cliente
+Como significado de este definir, tengo un AVL vacio, sin datos, porque el cliente puede no tener paquetes a su servicio
+El definir en un AVL se realiza en O(log n) por ser un AVL valga la redundancia
+El crear el AVL como significado se realiza en O(1)
+
+AgregarPaquete(in/out dv: directvision, in p: paquete)
+Equivalente a agregarCliente, es agregar un cliente al AVL. Esto se realiza en O(log m) por definicion, la creacion del conjLineal se realiza en O(1)
+Por ende, la complejidad final es O(log n)
+
+DarDeAltaPaquete(in/out dv: directvision, in c: cliente, in p: paquete)
+La pre para este algoritmo es que el cliente y el paquete esten definidos, es decir, existan en los AVL, al menos existir, su significado no hace falta que tenga datos
+Dar de alta el paquete implica que, al cliente, se le asigna el paquete, por ende, primero:
+Creo una variable itPaquete, donde le asigno un iterador resultado de buscar el paquete en el diccAVL. En todo caso, busco el paquete. Coste: O(log m)
+Teniendo el iterador, ya que estamos, agrego al significado del paquete el cliente. Coste: O(1)
+Genero un iterador itCliente para tener una referencia al conjunto. Coste: O(1)
+Creo otra variable itCliente donde asigno un iterador resultado de buscar al cliente en el diccALV. En todo caso, busco el cliente. Coste: O(log n)
+Al significado del cliente, tomo el diccAVL:
+	Agrego al diccAVL el paquete que se da de alta. Coste: O(log c)
+	Creo una tupla PackStr donde agrego en π₁ el itPaquete y en π₂ el itConjCliente. Coste: O(1)
+	Agrego el PackStr como significado al diccAVL O(1)
+	
+Al final tengo como complejidad O(log c) + O(log n) + O(log m). Pero O(log c) ≤ O(log m) por tener el cliente como mucho todos los paquetes, entonces, esta acotado
+Por ende, la complejidad final es O(log n) + O(log m) = O(log n + log m)
+
+Eliminar Cliente:
+Tengo que primero, crear un iterador que me represente al diccAVL y me busque al usuario. itCliente. Coste: O(log n)
+Ahora, teniendo al usuario, debo recorrer todos los paquetes del diccAVL en significados del cliente, de tal forma que pueda usar los iteradores
+para borrar al cliente del paquete. Estas son acciones constantes. Coste: O(c) como recorrer el DiccAVL, O(1) como operaciones de borrado
+Luego:
+	O(log n) + O(c) = O(log n + c)
+	
+Obtener Clientes por Paquete:
+Este es sencillo porque mi unico objetivo es obtener el significado de un paquete en el DiccAVL
+Coste: O(log m)
+
+Eliminar Paquete:
+Obtendo los clientes por paquetes y, para cada paquete borro primero el paquete en el cliente y, luego, borro el paquete en paquetes
+Se puede usar DarDeBajaPaquete
+
+DarDeBajaPaquete
+Recorro el diccionario de los clientes. Encontrado mi cliente, recorro su significado
+Teniendo el significado encontrado, entonces uso los iteradores.
+Con el iterador del conjunto, lo borro del significado del paquete en diccALV en paquetes
+
+El obtener el paquete debe ser una referencia, para poder borrarlo del diccAVL
+
+DarDeBajaPaquete(in/out dv: directvision, in c: cliente, in p: paquete)
+	paqCliente <- &obtener(dv.clientes, c)		// O(log n)
+	PackStr <- significado(paqCliente, p)			// O(log c)
+	eliminar(PackStr.itPaquete, PackStr.itCliPaquete)		// O(1)
+	eliminar(paqCliente, p)										// O(log c)
+	
+Complejidad: O(log n + 2log c) = O(log n + log c)
+	

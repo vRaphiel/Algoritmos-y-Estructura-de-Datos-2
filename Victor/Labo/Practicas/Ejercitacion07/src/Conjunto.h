@@ -4,6 +4,7 @@
 #include <assert.h>
 #include <string>
 #include <iostream>
+#include <stack>
 
 using namespace std;
 
@@ -65,17 +66,14 @@ class Conjunto
         // Puntero a la raíz de nuestro árbol.
         Nodo* _raiz;
 
-        vector<Nodo* > _treeList;
+        vector<Nodo*> _treeList;
 
-        int cardinalAux(Nodo*) const;
-        void insertarAux(Nodo*, const T&);
-        bool perteneceAux(Nodo*, const T&) const;
+        void insertarAux(Nodo*&, const T&);
         void borradoAux(Nodo* padre, Nodo* hijo, const T&);
 
         const T& precedesorInmediato(Nodo*) const;
         const T& sucesorInmediato(Nodo*) const;
-        void ordenarLista();
-        void swap(T*, T*);
+        void destruir(Nodo*);
 };
 
 template<class T>

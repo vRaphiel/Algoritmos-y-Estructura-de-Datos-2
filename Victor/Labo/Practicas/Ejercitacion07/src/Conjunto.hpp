@@ -7,27 +7,31 @@ Conjunto<T>::Conjunto() {
 }
 
 template <class T>
-Conjunto<T>::~Conjunto() { 
-    // Completar
+Conjunto<T>::~Conjunto() {
+    _treeList.clear();
+    destruir(_raiz);
 }
 
 template <class T>
 bool Conjunto<T>::pertenece(const T& clave) const {
-    if(_raiz != nullptr){
-        if(_raiz->valor == clave){
-            return true;
-        }else{
-            return perteneceAux(_raiz->izq, clave) || perteneceAux(_raiz->der, clave);
+    bool esta = false;
+    if(_treeList.size() > 0){
+        for(int i = 0; i <_treeList.size(); i++){
+            Nodo* nodo = _treeList[i];
+            if(nodo->valor == clave){
+                esta = true;
+            }
         }
     }
-    return false;
+    return esta;
 }
 
 template <class T>
 void Conjunto<T>::insertar(const T& clave) {
-    _listaEnOrden.push_back(clave);
     if(_raiz == nullptr){
-        _raiz = new Nodo(clave);
+        Nodo* nodo = new Nodo(clave);
+        _raiz = nodo;
+        _treeList.push_back(nodo);
     }else{
         if(clave > _raiz->valor){
             insertarAux(_raiz->der, clave);
@@ -35,32 +39,18 @@ void Conjunto<T>::insertar(const T& clave) {
             insertarAux(_raiz->izq, clave);
         }
     }
-    insertarAux(_raiz, clave);
 }
 
 template <class T>
 void Conjunto<T>::remover(const T& valor) {
-    if(_raiz != nullptr){
-        if(_raiz->valor == valor){
-            _raiz = nullptr;
-        }else{
-            if(valor > _raiz->valor){
-                borradoAux(_raiz, _raiz->der, valor);
-            }else{
-                borradoAux(_raiz, _raiz->izq, valor);
-            }
-        }
+    if(_raiz->valor == valor){
+
     }
-}
+
+};
 
 template <class T>
 const T& Conjunto<T>::siguiente(const T& clave) {
-    ordenarLista();
-    for(int i = 0; i<_listaEnOrden.size(); i++){
-        if(_listaEnOrden[i] == clave){
-            return _listaEnOrden[i+1];
-        }
-    }
     return clave;
 }
 
@@ -76,7 +66,7 @@ const T& Conjunto<T>::maximo() const {
 
 template <class T>
 unsigned int Conjunto<T>::cardinal() const {
-    return cardinalAux(_raiz);
+    return _treeList.size();
 }
 
 template <class T>
@@ -87,51 +77,17 @@ void Conjunto<T>::mostrar(std::ostream&) const {
 /** *
  * AUXILIAR FUNCTIONS
  * **/
-
 template<class T>
-int Conjunto<T>::cardinalAux(Nodo* padre) const{
-    if(padre == nullptr){
-        return 0;
-    }else{
-        if(padre->izq == nullptr && padre->der == nullptr){
-            return 1;
-        }else{
-            return 1 + cardinalAux(padre->izq) + cardinalAux(padre->der);
-        }
-    }
-}
-
-template<class T>
-void Conjunto<T>::insertarAux(Nodo* subarbol, const T& value){
+void Conjunto<T>::insertarAux(Nodo*& subarbol, const T& value){
     if(subarbol == nullptr){
-        subarbol == new Nodo(value);
+        Nodo* node = new Nodo(value);
+        subarbol = node;
+        _treeList.push_back(node);
     }else{
         if(value > subarbol->valor){
-            if(subarbol->der == nullptr){
-                subarbol->der = new Nodo(value);
-            }else{
-                insertarAux(subarbol->der, value);
-            }
+            insertarAux(subarbol->der, value);
         }else if(value < subarbol->valor){
-            if(subarbol->izq == nullptr){
-                subarbol->izq = new Nodo(value);
-            }else{
-                insertarAux(subarbol->izq, value);
-            }
-        }
-    }
-
-}
-
-template<class T>
-bool Conjunto<T>::perteneceAux(Nodo* padre, const T& valor) const {
-    if(padre == nullptr){
-        return false;
-    }else{
-        if(padre->valor == valor){
-            return true;
-        }else{
-            return perteneceAux(padre->izq, valor) || perteneceAux(padre->der, valor);
+            insertarAux(subarbol->izq, value);
         }
     }
 }
@@ -208,20 +164,10 @@ const T& Conjunto<T>::sucesorInmediato(Nodo* padre) const {
 }
 
 template<class T>
-void Conjunto<T>::swap(T *xp, T *yp)
-{
-    T temp = *xp;
-    *xp = *yp;
-    *yp = temp;
-}
-
-template<class T>
-void Conjunto<T>::ordenarLista(){
-    T i, j;
-    for (i = 0; i < _listaEnOrden.size()-1; i++)
-
-        // Last i elements are already in place
-        for (j = 0; j < _listaEnOrden.size()-1; j++)
-            if (_listaEnOrden[j] > _listaEnOrden[j+1])
-                swap(&_listaEnOrden[j], &_listaEnOrden[j+1]);
+void Conjunto<T>::destruir(Nodo* n) {
+    if(n != nullptr){
+        destruir(n->izq);
+        destruir(n->der);
+        delete n;
+    }
 }

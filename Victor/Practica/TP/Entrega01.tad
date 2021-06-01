@@ -1,0 +1,56 @@
+PRE EN PACALGO2
+---
+	objetivo(in pa: PacAlgo2, out obj: tupla(jugador, nat))	-> res: bool
+	Pre ≡ {alguienJugando? (pa) ∧L def?(jugadorActual(pa), ranking(pa))} // Def? es una función del módulo de Trie.
+	Post ≡ {res = true <-> alguienJugando?(pa) ∧ def?(jugadorActual(pa), ranking(pa)) 
+													∧L obj =obs objetivo(pa)}
+	Complejidad: Θ(|J|) // Es la complejidad en el peor caso de encontrar al jugador oponente en el diccTrie.
+	Descripción: Si el jugador actual está jugando, devuelve el objetivo a vencer del mismo junto con su puntaje.
+	Aliasing: No presenta aspectos de aliasing.
+---
+oponente(in pa: PacAlgo2)	-> res: Jugador
+Pre ≡ {alguienJugando? (pa) ∧L def?(jugadorActual(pa), ranking(pa))}
+Post ≡ {res =obs oponente(pa)}
+Complejidad: Θ(1)
+Descripción: Devuelve uno de los elementos del conjunto lineal de oponentes al azar. Es el oponente del jugador actual.
+Aliasing: No presenta aspectos de aliasing.
+---
+oponentes(in pa: PacAlgo2)	-> res: conjLineal(Jugador)
+Pre ≡ {alguienJugando? (pa) ∧L def?(jugadorActual(pa), ranking(pa))}
+Post ≡ {res =obs oponentes()}
+Complejidad: Θ(|J| + ( ( (cr * |J|) * |J|) * |J|) ) =  Θ(|J| +  (cr * 3|J|) ) = O (cr * |J|)
+// ... donde cr es la cantidad de jugadores en el ranking. 
+// Obtener al jugador actual cuesta O(|J|) porque puede ser el que tenga mayor longitud; 
+// obtener las claves (los jugadores) de un diccTrie cuesta O(cr * |J|) *(1);
+// Realizar los mejoresQue (del jugador) cuesta cj(o sea, cr * |J|) * |J|.
+// Realizar peores jugadores de lo anterior repite el mismo procedimiento.
+Descripción: Devuelve un conjunto lineal con todos los jugadores que están una posicion por encima (no hay jugadores con puntajes intermedios entre jugadorActual y los que componen este conjunto) que e.jugadorActual.
+Aliasing: No presenta aspectos de aliasing.
+---
+mejoresQue(in r: diccTrie(Jugador, Puntaje), in cj: conjLineal(Jugador), in punt: Puntaje)	-> res: conjLineal(Jugador)
+Pre ≡ {cj ⊆ claves(r)}
+Post ≡ {res =obs mejoresQue(r, cj, punt)}
+Complejidad: Θ(cj * |J|)
+Descripción: Dado un conjunto de jugadores, devuelve otro que contenga los que tienen puntajes superiores a punt. Para eso, recorre el diccTrie, en el peor caso, #cj veces multiplicado por el nombre de mayor longitud.
+Aliasing: No presenta aspectos de aliasing.
+---
+peoresJugadores(in r: diccTrie(Jugador, Puntaje), in cj: conjLineal(Jugador))	-> res: conjLineal(Jugador)
+Pre ≡ {cj ⊆ claves(r) ∧ ¬vacía?(cj)}
+Post ≡ {res =obs peoresJugadores(r, cj)}
+Complejidad: Θ(cj * |J|) // donde cj es la cantidad de jugadores en cj. Esto pues debe recorrer el diccTrie cj veces y, en el peor caso, todos los jugadores tienen nombre con longitud igual a la mayor.
+Descripción: Dado un conjunto de jugadores devuelve el conjunto de los peores, es decir, todos los que tienen el peor puntaje.
+Aliasing: No presenta aspectos de aliasing.
+---
+jugadoresConPuntaje(in r: diccTrie(Jugador, Puntaje), in cj: conjLineal(Jugador), in punt: Puntaje)	-> res: conjLineal(Jugador)
+Pre ≡ {cj ⊆ claves(r) ∧ ¬vacía?(cj)}
+Post ≡ {res =obs jugadoresConPuntaje(r, cj, punt)}
+Complejidad: Θ(cj * |J|) // donde cj es la cantidad de jugadores en cj. Esto pues debe recorrer el diccTrie cj veces y, en el peor caso, todos los jugadores tienen nombre con longitud igual a la mayor.
+Descripción: Devuelve el conjunto de jugadores del diccTrie que tienen el puntaje punt.
+Aliasing: No presenta aspectos de aliasing.
+---
+peorPuntaje(in r: diccTrie(Jugador, Puntaje), in cj: conjLineal(Jugador))	-> res: nat
+Pre ≡ {cj ⊆ claves(r) ∧ ¬vacía?(cj)}
+Post ≡ {res =obs peorPuntaje(r, cj)}
+Complejidad: Θ(cj * |J|) // donde cj es la cantidad de jugadores en cj.
+Descripción: Dado un conjunto de jugadores, devuelve el peor puntaje de los mismos.
+Aliasing: No presenta aspectos de aliasing.
