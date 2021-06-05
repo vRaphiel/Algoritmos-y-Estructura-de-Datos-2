@@ -243,3 +243,139 @@ DarDeBajaPaquete(in/out dv: directvision, in c: cliente, in p: paquete)
 	
 Complejidad: O(log n + 2log c) = O(log n + log c)
 	
+// Parcial del 12 de junio del 2017
+Exploracion de marte utlizando Mars Rover
+Es importante el recorrido para el itinerario
+utilizamos tuplasa de movimientos en x e y
+
+Rover es nat
+Direccion es {n,s,e,o}
+celda es tupla<nat, nat>
+r -> cantidad de rovers en el sistema
+
+Exploracion se explica con estr
+donde estr es tupla
+⟨
+	itinerarioPorRover: diccAVL(rover, infoRover)),
+	cantidadPorItinerario: diccTrie(secu(direccion), nat),
+	roverActivo: conjAVL(rover),
+	roverInactivo: conjLineal(rover)
+⟩
+donde infoRover es ⟨it: itDiccTrie, c: celda⟩
+
+Los diccionarios y conjuntos AVL estan implementados sobre un AVL con funciones definidas en los modulos basicos de dicc y conj
+Por ser un AVL, en estos las operaciones como borrado, definicion y busqueda son en O(log r) como se pide
+El conj lineal puede estar definido con una lista no enlazada o alguna otra estructura que nos permita realizar una inserccion en O(1)
+
+Partes de la estructura:
+	itinerarioPorRover: este diccAVL mantiene en sus claves el rover, con esto nos permite saber que, por cada rover, en su significado guardo
+											un iterador al diccTrie, de forma que pueda obtener en todo momento y de manera sencilla, la secuencia de direcciones que se movio el rover
+											Tambien, tengo en la tupla, la celda en donde se encuentra el rover
+											
+	cantidadPorItinerario: guardo en este diccTrie, como claves la secuencia de direcciones que debe seguir el rover en su itinerario y, como significado, la cantidad de rovers
+													que deberan seguir ese mismo itinerario, incluyendo los inactivos
+													Debido a esta decision, no es necesario actualizar el itinerario cuando se desactriva un rover, pero si cuando se mueve o se despliega
+													Como buscar y definir en un trie es O(|T|), entonces, para itinerarios vacios o despliegues de rovers tengo costo O(1)
+													
+	activos: guarda todos los rovers activos, en el momento. A la hora de mostrar los rovers activos, simplemente devuelvo por referencia no modificable esta lista
+					 la devolucion entera de la lista es O(1)
+					 Los rovers activos, deben ser los mismos que itinerarioPorRover
+					 El mantener actualizado esta estructura no es muy compljicado, debido a que se trata de un AVL sus operaciones se realizan en O(log)
+					 
+	inactivos:  guarda todos los rovers inactivos. Al momento de devolver esta estructura lo hago por referencia no modificable
+					 		como no me interesa modificar nada de esta secuencia mas que, añadir nuevos elementos. la complejidad de añadir el elemento es O(1)
+					 		No obstante, la complejidad al borrar un rover es de O(log r) pues debo borrar al rover de itinerarioPorRover y activos
+					 		Esto es entonces borrado: O(log r) + O(log r) + O(1) = O(2log r) + O(1) = 2 O(log r) + O(1) = O(log r)
+					 
+	moverRover(in/out e:exploracion, in r: rover, in d: direccion)
+	
+		infoRover iRover <- significado(e.itinerarioPorRover, r) 		// O(log R)
+		siguiente(iRover.it) <- siguiente(info.it) - 1  //	O(1)
+		incrementarSegunDireccion(iRover.it, d)					// O(1)
+		secu(direccion) recorrido <- claves(iRover.it)					// O(1)
+		agregarAtras(recorrido, d)											// (1)
+		posicion <- actualizarPorDireccion( iRover.c , d)	// O(log R)
+		
+		Todo este algoritmo tiene como complejidad O(log R)
+		
+		En incrementarSegunDireccion, lo que hago es pasar por referencia el iterador al arbol cantidadPorItinerario, de forma que pueda modificar el arbol sin tener que hacer una copia
+		En este caso, al hacer incrementarSegunDireccion, el iterador lo paso por referencia generando aliasing asi cada cambio que se haga sobre el iterador afecta al arbol y no hago
+		mas operaciones lo cual me aumenten la complejidad final
+		
+		siguiente: itDiccTrie(k, nat) -> nat
+		Esta funcion genera aliasing, obtiene el significado asociado a la posicion del iterador para poder modificarlo y cambiar la informacion tanto en el iterador, como en la
+		estructura. En este caso se usa para decrementar 1 a la cantidad de rovers que estan en el itinerario previo (o sea, antes de que el rover actual se mueva)
+		
+		incrementarSegunDireccion: itDiccTrie(secu(direccion), nat) x direccion -> diccTrie(secu(direccion), nat)
+		Esta funcion genera aliasing. Dado un iterador y una direccion, incrementa en 1 el significado que se encuentra en la posicion a la que llega andando desde la posicion del it
+		en el nodo d. En este caso se utiliza para incrementar en 1 la cantida de rovers cuyo recorrido es el nuevo itinerario del rover que se movio (el actual)
+		
+		actualizarPorDireccion: celda x direccion -> celda
+		Actualiza la celda actual en relacion a la direccion nueva donde se esta moviendo (aumenta o decrece, dependiendo de para donde se mueva y sea su objetivo)
+		
+	desplegar(in/out e: exploracion, in r: rover)
+		itCPorIt <- obtener(e.cantidadPorItinerario, <(0, 0)>)
+		itR <- definir(e.itinerarioPorRover, r)
+		infoRover iRover <- (itCPorIt, (0, 0))
+		significado(e.itinerarioPorRover, r) <- iRover
+		agregarAtras(e.roverActivo, r)
+		
+		-> Defino r en itinerario por rover, con el itinerario vacio y posicion (0,0) // O(log R)
+		-> Agrego r a actuvis // O(log R)
+		-> Aumento en 1 la cantidad de rovers del itinerario vacio en cantidadPorItinerario
+		
+	desactivar(in/out e: exploracion, in r: rover)
+		-> borro r de itinerarioPorRover
+		-> borro r  de activos
+		-> agrego r a inactivos
+		
+// Parcial del  2014 
+ReSocial se explica con estr donde estr es tupla
+⟨
+	resocial: diccAVL(persona, likes),
+	echados: conjLineal(persona)
+⟩
+	
+generos servidor 
+Donde resocial, es la resocial
+infoPersona es tupla<persona, likes>
+
+La resocial esta construida sobre un diccAVL, que esta construido sobre un AVL. Al hacer esto, como las claves son los nodos y son naturales, las operaciones basicas
+como la busqueda, inserccion y borrado se realizan en O(log m) siendo m la cantidad de usuarios o miembros en el servidor
+En los significados de este diccAVL tengo los megusta de cada usuario
+
+Echados se construye sobre cualquier estructura lineal, por ejemplo una lista enlazada, esto es irrelevante pues lo unico que me importa es poder agregar miembros
+en O(1). Esto se hace agregando al final a una estructura lineal
+
+Algoritmos:
+recibirMeGusta(in/out s:servidor, in p: persona)
+	significado(s.resocial, p) <- significado(s.resocial, p) + 1
+		
+menosPopular(in/out s: servidor) -> res : persona (p)
+	itRS <- crearIterador(s.resocial)
+	infoPersona menosQuerido <- (clave(actual(itRS)), significado(clave(actual(itRS))))
+	
+		// Me fijo, mientras haya un siguiente, si el siguiente es menor en likes
+		// Si es menor en likes, entonces reviso sus claves
+		//
+	
+	while haySiguiente(itRS) then
+		if siguienteSignificado(itRS) < menosQuerido.significado
+			menosQuerido <- (siguienteClave(itRS), siguienteSignificado(itRS))
+		else
+			if siguienteSignificado(itRS) = menosQuerido.significado
+				if siguienteClave(itRS) < menosQuerido.clave
+					siguienteSignificado <- (siguienteClave(itRS), siguienteSignificado(itRS))
+				endif
+			endif
+		enfid
+		avanzar(itRS)
+	endwhile
+	
+	p <- menosQuerido.clave	
+
+echarElMenosPopular(in/out s: servidor)
+	eliminar(menosPopular(s))
+	
+echados(in s: servidor) -> res: conjLineal(persona)
+	res <- s.echados	

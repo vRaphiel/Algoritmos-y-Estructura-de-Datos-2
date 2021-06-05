@@ -111,5 +111,30 @@ Claves devuelve una referencia no modificable a las claves del diccionario
 3) Si, suponiendo que los DNIs estan acotados en su longitud (en este caso, en 8 caracteres)
 Para esto, podemos usar un diccionario digital (basado en Tries) donde 
 
+// Ejercicios
+Padron electoral
+1 mesa puede registrar varias veces los datos del CPD para corregirr errores u omisiones
+Si se registra los datos, la informacion que se envio anteriormente se descarga y se sobreescribe
 
-// EJERCICIO DE LAVAR PLATOS
+Ok. yo se que tengo agrupaciones que se numeran desde 1 hasta G. Siendo G un tope, igualmente, esto no me dice que este acotado por un numero especifico. Asumo que no hay una cota
+Tambien se que cada agrupacion tiene candidados en una lista
+Los votantes se registran en las mesas por su DNI. Las mesas se identifican con un nombre (M)
+
+Tengo que saber un par de cosas
+M es al longitud de los nombres de las mesas
+G es el numero de agrupaciones
+K es la cantidad de cantidatos
+V es la cantidad total de votantes del sistema
+Va es la cantidad de votantes afectados
+
+CPD se representa con estr donde estr es ⟨
+	mesas: diccTrie(mesa, conjLog(<dni, agrupacion, itAgrupaciones>)),
+	agrupaciones: diccLog(agrupacion, ⟨votos: nat, candidatos: secu(candidato)⟩)	
+⟩	
+
+Mesas es un diccTrie, porque se que una mesa es un string. Luego como M es la longitud del nombre, la busqueda en un diccTrie se basa en la longitud de las claves
+Luego, la busqueda en un diccTrie es O(M). Inserccion y borrado lo mismo
+
+Por otro lado, G es el numero de agrupaciones, entonces, yo tengo un diccLog para poder almacenar esto. En el peor de los casos, la busqueda es O()
+
+Registrar( inout c: cpd, in m: mesa, in ds: conj(dni), in as: multiconj(agrupacion))

@@ -1,15 +1,114 @@
-Repaso de estructuras:
-	TADs vs Modulos
-	TAD ≡ Que es: ¿Es valido? ¿Tiene sentido? ¿Es relevante?
-	Modulo ≡ Como lo hago: Computo, algoritmos, estado
-	El modulo vive en algun ambiente.
-	Existe una variable temporal (Complejidad)
-	Pre/Post condiciones. 
-	
-	Representacion interna:
- 		Armo un modulo en base a otro mas general
-		Armo una cadena de modulos representados en base a otros y asi hasta llegar al modulo mas primitivo
-		Modulo -> Modulo + 1 -> ... -> tipo de dato primitivo
-		
+Ejercicio de parcial
+Vajilla se representa con nat
+Persona se representa con String
+PersonasConPila -> Lleva todas las personas que tienen al menos un plato asignado para lavar
+Si yo quiero saber solo las personas, puedo tener unna estructura de datos, lineal, no me importa, donde solo tenga las personas que tienen platos para lavar
+Simplemente me interesa que el agregado de personas sea en O(1), el borrado vere luego
 
-Repaso de iteradores:
+Por otro lado necesito tener en algun sitio guardada una referencia a la posicion de personas en esta lista, o en tal caso, necesito un sitio donde estaran
+las personas y pueda buscar que persona es cual pues, otras funcioens tales porLavar me pide una persona y me devuelve los platos de esa persona
+Entonces, puedo optar por hacer un diccionario donde las claves sean los nombres de las personas y, en significados, ya vere, pero por ahora, este diccionario, como me piden,
+que la complejidad de devolver las personas sea en O(log #P) siendo #P la cantidad de personas que tienen  fque lavar platos en este sistema, y una persona se representa con string
+Se me hace complicada la cosa, puedo hacer dos cosas:
+ -> Un trie donde tenga los nombres de las personas, y, como los nombres estan acotados, la busqueda de los mismos son en O(1)
+ -> Un AVL donde cada nodo sea un numero de persona, pero sabiendo que persona se representa con string, no me sirve
+Sabiendo que es O(log #P), debe ser una busqueda en un conjunto de personas, de tal forma que el conjunto este implementado sobre un trie o un avl para que la busqueda en peor caso sea
+O(log #P), luego, la estructura a utilizar debe ser un conjAVL
+
+pileta se representa con estr donde estr es
+⟨
+	personasEnEspera: conjLineal(personas),
+	vajillasPorPersona: 								diccLog(persona, infoP),
+	
+	// No hace falta estas dos
+	masLavo: 									itDiccLog(persona, infoP),
+	masLargaV: 								itDiccLog(persona, infoP),
+	
+	quienesMasLavaron: 				maxHeap(tupla⟨cantPlatosLavados, persona⟩),
+	quienesMasTieneXLavar: 		maxHeap(tupla⟨cantPlatosPorLavar, persona⟩)
+⟩
+
+donde infoP es tupla ⟨ itEspera: itConjLineal, vaj: lista(vajilla), platosLavados: nat⟩
+Esto me importa pues si el #vaj = 0, la persona no esta en personasEnEspera
+
+
+personasConPila(in p: pileta, out ps: conj(persona))
+	ps <- p.personasEnEspera
+	
+porLavar(in p: pileta, in per: persona, out vs: secu(vajilla))
+	vs <- significados(p.personas, persona).vaj
+
+dejarPlatos(in/out p: pileta, in per:persona, in s: secu(vajilla))
+	infoP info <- significados(p.personasEnEspera, per)
+	itS <- crearIt(s)
+	while haySiguiente(itS)
+		agregar(infoP.vaj, siguiente(itS))
+		avanzar(itS)
+	endwhile
+	
+lavar(in/out p: pileta)
+	infoP info <- significados(p.personas, p.masLargaV)
+	desencolar(info.vaj)
+	
+lavar(in/out p: pileta)
+	-> Buscar a la persona que mas tiene por lavar (el siguiente del heap quienesMasTieneXLavar) O(1)
+	-> Buscar a la persona en vajillasPorPersona	O(log #P)
+	-> Eliminar el primer elemento de la pila O(1)
+	-> 
+	
+elQueaMasLavo(in p: pileta, out per: persona)
+	per <- p.masValo
+	
+elQueMasTieneParaLavar(in p: pileta, out per: persona)
+	per <- p.masLargaV
+	
+Parcial ejemplo
+negocio se explica con nat
+
+
+// Ejercicio 13	
+Modelo Torneo se explica con TAD torneo
+genero: torneo
+Representacion:
+	torneo se representa con estr donde estr es:
+	tupla	⟨
+				diccLog(equipos, puntos),
+				listaEnlazada(pos)
+				⟩
+				
+	Algoritmos:
+		puntos(in t: estr, in e: equipo) -> res:nat 			O(log n)
+		regPartido(inout t: estr, in e: equipo) 					O(log n)
+		pos(in t: estr, in e: equipos) -> res: nat				O(log n)
+		
+Idea: Pensar en algo que tenga -> ⟨ pos, ptos, equipos ⟩ => info
+Entonces, puedo tener un iterador a esta estructura (a info)
+						1
+					/
+			 (3,3)
+		/					\
+(1,5) 			 (4,2)
+{e1,e2,e3}
+
+Ahora, deberia pasar que debe haber un nuevo puesto
+										1
+									/
+							(3,3) {e4}
+						/				\
+				(2,5)				(4,2) {e5}
+				/		{e2, e3}
+			(1,6)
+			{e1}
+
+Como sumo un punto, e2 se va
+Sacar un punto con el iterador es O(1)
+Teniendo un iterador a esa info
+
+La estructura tiene un lugar aparte con los iteradores de cada equipo
+Estructura: diccLog(equipo, iterador)
+Tenemos iteradores
+Sumo un punto al equipo (e1). Ese se va del grupo y ahora pasa a ser otro grupo
+Ocurren dos cosas: Que el puntaje coincida con el proximo o que haya un equipo con puntaje 7, entonces se arma una nueva categoria
+o se actualiza la categoria
+Ahora, queda uno en segundo o tercero, correspodientemente
+Entonces quedan 2 casos a la hora de aumentar de puntos

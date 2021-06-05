@@ -1,0 +1,218 @@
+Ejercicio 9
+Un conjunto de naturales que satisfaga:
+Ag -> O(1) si el elemento a agregar es menor que el minimo o mayor que el maximo
+			O(n) si el elemento es intermedio
+
+∪ y ∩ son O(1) si cada elemento de uno de los conjuntos es mayor que todos los del otro
+O(n+m) en otro caso
+
+conjunto_raphiel es estr
+donde estr es tupla
+⟨ c: lista(nat)⟩
+Siendo c una lista doblemente enlazada la cual los elementos se aplican en orden
+El agregar un elemento es O(1). Al estar ordenada si el elemento a ingresar es menor que el minimo o mayor que el maximo
+En caso intermedio, es O(n) para buscar intermediariamente y, la inserccion se realiza en O(1) puesto que es doblemente enlazada solo tengo que hacer que los
+punteros de los nodos se actualicen
+Union:
+Como es una lista doblemente enlazada, entonces ingresa dos conjuntos, a y b
+a es el conjunto inicial
+Si el ultimo elemento de a es menor al primer elemento de b. la union es directa, se concatena las dos secuencias, el final de a apunta al inicio de b
+y el inicio de b apunta al final de a
+Si no, tomo complejidad O(n + m) para buscar los elementos que esten inserrcionados, esto se hara en orden de forma que
+yo recorro a y b al mismo tiempo pero, me fijo por el menor elemento, si los elementos coinciden entonces solo agrego uno, si no, voy organizando por el menor
+y el mayor, colocandolos dentro de una lista, haciendo una inserccion en O(1) siempre al final para mantener el orden
+
+Equivalentemente es la ∩ pues si el ultimo elemento de a es menor al primero de b, entonces tranquilamente se que no hay interseccion, si no recorro ambas secuencias
+
+Otra idea para esta estructura, es un AVL, donde tengo todos los elementos ordenados y la complejidad va en O(log n)
+Pero para esto, es complicado mantener el primer y el ultimo elemento, dependiendo del orden de ingreso de los mismos se puede hacer complejidad como mucho O(n) si es 
+un arbol desbalanceado desde el principio. Siendo un AVL no habria problema igualmente
+Este diseño puede usarse para otros conjuntos no naturales teniendo en cuenta las operaciones como menor, mayor e igual. Que tipen
+
+Ejercicio 12
+estructurade un texto
+las palabras estan acotadas por una palabra muy larga
+
+Para armar esta estructura tengo la siguiente idea:
+Primero, me enfoco en las ocurrencias de una palabra en el texto, como necesito que la complejidad sea O(k) siendo k la cantidad de veces que se repite la palabra, entonces,
+puedo pensar en un trie, donde las claves sean la cantidad de la palabra y en el significado tenga una tupla que sea, palabra y conjunto de iteradores, donde cada iterador sea una palabra y
+un iterador mas que este apuntara a su posicion en una secuencia donde esten las palabras mas repetidas
+esta secuencia de palabras mas repetiras no me interesa mucho pues solo debo devolverla y con un iterador puedo acceder a si mismo, entonces, es sencillo ver que las operaciones seran
+basadas en O(1) pues solo borrare de aca con su iterador, despues la inserccion sera O(1) tambien al agregar al final, cosa igualmente irrelevante
+Ahora, el orden de las palabras no me interesa mucho, con el diccTrie me las arreglo pero sucede que puede haber una palabra que este la misma cantidad de veces, por ende, modifico el diccTrie
+para saber que, en sus significados mejor habra un diccTrie de la palabra, y dentro de este habra las demas cosas, la tupla estara aca internamente
+Y esta con sus operaciones sera en O(1) pues las palabras estan acotadas
+Igualmente, yo necesito saber si la palabra esta en el texto, por ende, armo un diccTrie de la palabra, este mismo me dira si la palabra esta ubicada o no, y sus operaciones son en O(1)
+por ser palabras acotadas. En significados tendra una tupla donde me dira la cantidad de veces que aparece esta palabra en el texto, de tal manera que pueda saber en donde buscar
+De todas maneras, yo necesito tener una estructura mas donde guardar todas las palabras y en que orden estan asi pueda devolverlo
+Necesitare un conjLineal que este ordenado pues me interesa el orden
+Esto implica que en la palabra este, no solo la cantidad de las mismas que aparece si no un conjunto donde me diga todas las posiciones de la palabra, en que posicion aparece la misma
+de tal forma que pueda yo saber donde buscar
+Esto tambien me permitira traer un subtexto, seria armar un conjunto vacio con cada palabra que me sirva hasta las posiciones pedidas desde, hasta
+texto se representa con estr donde estr es
+⟨ 
+	texto: conjLineal(palabra)
+	palabras: diccTrie(palabra, ⟨cantidad, posiciones: conj(posicion)),
+	cantidad: diccTrie(apariciones, diccTrie(palabra, itRepeticiones⟩))
+	palabrasRepetidas: conjLineal(palabra)
+⟩
+Ahora
+Texto es un conjLineal. Las operaciones para este conj son busqueda, borrado, modificacion y agregado
+Para agregar una palabra tengo complejidad O(1). Para borrar una palabra tengo O(n) operaciones, sin embargo no me importa ahora que sea un borrado
+Para modificar tambien cuesta O(n) en base de esta misma estructura, pero esto en realidad sera O(k) pues estoy usando otra estructura donde me dice 
+la posicion de la palabra a cambiar, por lo tanto, no tengo que preocuparme de este caso. Entonces, no me importa el modificar, ni el borrar pues
+lo hara mi estructura diccTrie
+
+Algoritmos:
+	subtexto(in inicio: nat, in fin: nat, in t:txt) -> txt
+		cola subtxt <- vacia()
+		pos <- fin - inicio
+		while pos >= 0 then
+			encolar(cola, t.texto[inicio + pos])
+			pos <- pos - 1
+		endwhile
+		txt <- subtext
+
+	cambiarPalabra(in anterior: palabra, in nueva:palabra, inout t:text)
+		tInfo <- significado(t.palabras, anterior)
+		
+		// La palabra previa deja de existir en repetidas porque se reemplazaran todas
+		tInfoApariciones <- significados(significados(t.cantidad, tInfo.cantidad), anterior)
+		borrarSiguiente(t.palabrasRepetidas, tInfoApariciones.itRepeticiones)
+				
+		if definido?(t.palabras, nueva)	then
+			tInfoNueva <- significado(t.palabras, nueva)
+					
+			// Borro la palabra de la cantidad previa
+			borrar(significados(t.cantidad, nueva.cantidad), anterior)
+			// Actualizo la cantidad de palabras que existen
+			tInfoNueva.cantidad = tInfoNueva.cantidad + tInfo.cantidad 
+			// Voy a cantidades y defino la palabra en el diccionario con esa nueva cantidad de apariciones
+			definir(significados(t.cantidad, tInfoNueva.cantidad), nueva)
+			significados(significados(t.cantidad, tInfoNueva.cantidad), nueva) <- tInfoApariciones.itRepeticiones
+				
+			itApTexto <- tInfo.posiciones
+			while haySiguiente(itApTexto)
+				t.texto[itApTexto.valor] <- nueva
+				avanzar(itApTexto)
+			endwhile
+			
+		else
+		
+			itMultipleAp <- agregar(t.palabrasRepetidas, nueva)
+						
+			borrar(significados(t.cantidad, tInfo.cantidad), anterior)
+			definir(significados(t.cantidad, tInfo.cantidad), nueva)
+			significados(significados(t.cantidad, tInfoNueva.cantidad), nueva) <- itMultipleAp
+			
+			itApTexto <- tInfo.posiciones
+			while haySiguiente(itApTexto)
+				t.texto[itApTexto.valor] <- nueva
+				avanzar(itApTexto)
+			endwhile
+			
+		endif
+				
+		borrar(significado(t.cantidad, tInfo.cantidad), anterior)		// O(k)
+		borrar(t.palabras, anterior	)
+		
+	palabrasMasRepetidas(in t: txt) -> res: conj(palabras)
+		res <- t.palabrasRepetidas
+
+Ejercicio 13
+Sistema de ranking
+Conjunto fijo de equipos
+n -> cantidad de equipos registrados
+
+torneo se representa con estr donde estr es
+⟨
+	equipos: diccAVL(equipo, itLista)
+	posiciones: lista(tupla⟨posicion: nat, puntaje: nat, cantEquipos: nat⟩)
+⟩
+
+donde equipos es un diccionarioAVL que en claves estan mis equipos y en su significado un iterador a la lista
+Este iterador me permite acceder a la posicion que quiera de las posiciones asi pueda acceder a sus operaciones en O(1)
+Mientras tanto, el diccionarioAVL me permite realizar operacioens basicas tales como busqueda, inserccion y eliminacion en O(log n)
+
+iPuntos(in t: torneo, in e: equipo) -> res: nat
+	itLista <- obtener(t.equipos, e)
+	res <- siguiente(itLista).puntaje
+	
+iPos(in t: torneo, in e: equipo) -> res: nat
+	itLista <- obtener(t.equipos, e)
+	res <- siguiente(itLista).posicion
+
+iRegPartido(in t: torneo, in g: equipo, in p: equipo) -> res: nat
+	itPosiciones <- significado(t.equipos, p)
+	nodoActual <- siguiente(itPosiciones)
+	//Actualizamos el nodo viejo
+	if nodoActual.cantEquipos == 1 then
+		EliminarSiguiente(itPosiciones)
+	else
+		nodoActual.posicion ++
+		nodoActual.cantEquipos --
+	end if
+	
+	if hayAnterior(itPosiciones) ∧L anterior(itPosiciones).puntaje == nodoActual.puntaje + 1 then
+		nodoAnterior.cantEquipos++
+		definir(equipo, Retroceder(itAntterior), t.equipos)
+	else
+		nuevoNodo <- <nodoActual, nodoActual.puntaje +1, 1>
+		AgregarComoAnterior(itPosiciones, nuevoNodo)
+	endif
+	
+Ejercicio 14
+boleto se explica con nat
+costo se explica con nat
+sueco se representa con estr donde estr es
+⟨
+	
+⟩
+
+Se que n son la cantidad de boletos agregados hasta ese momento. Ea decir, desde que se inicio el dia
+Por ende, desde que se inicio el dia hasta el momento, tengo una cota
+Luego, yo cada vez que hago las estadisticas, tengo desde hasta como hora, por ende, asumo 0 el inicio, 24 como el final
+Luego, con esto, yo necestio saber la cantidad de boletos en un intervalo de fechas
+Por otro lado, necesito agregar un boleto en O(n)
+Siendo n la cantidad de boletos ingresados hasta el momento, se me ocurre utilizar varios medios
+En este caso, puedo utilizar un arbol binario basandome en la cantidad de elementos para agregar
+Luego, este arbol binario tiene a lo sumo n nodos
+Por otro lado, yo puedo agregar un elemento en O(n) siendo n la cantidad de nodos
+Esto es a lo sumo O(n) si el arbol no es balanceado
+Luego, utilizo un AVL para tener como claves los boletos y, su costo
+
+Ahora, para el intervalo, es  mas complicado, necesito obtener esto en O(log n)
+Por ende, para estos medios, necesito una estructura que sea un arbol binario
+Este puede ser un AVL, un Trie, un BI. Pero debe ser esto para poder traer la informacion
+Por otro lado, tambien puedo tener un AVL, donde tenga una referencia iterador a la posicion en el arbol balanceado donde guardo mis boletos
+
+Entonces, ahora, con esto deberia cambiar mi estructura de boletos, de un arbol a una secuencia, asi puedo mantener las cosas en orden
+Asi puedo buscar el intervalo en el AVL y con el iterador, obtener las cosas en O(1)
+Luego, la estructura es la siguiente
+
+Ahora necesito el coste hasta el momento, o en el intervalo
+
+sueco se representa con estr donde estr es
+⟨
+	estadisticas: listaEnlazada(momento, boleto, costeHastaElMomento⟩),
+	fechas: diccAVL(momento, itEstadisticas)
+⟩
+
+Ahora, toda esta descripcion ya la hice
+Pero estadisticas es una lista enlazada, donde necesito ubicar las cosas en orden
+Entonces esto es O(n) pueso, las cosas se insertan asincronicamente entonces debo recorrer la lista y agregar el boleto recorriendo la lista
+y, esto es, a lo sumo O(n) pues debo recorrer toda la secuencia
+
+Por otro lado, las fechas, las ordeno en un diccAVL, por lo menos los momentos, de tal forma que obtengo el momento desde, hasta en O(log n)
+Esto es n pues solo tengo los momentos donde se insertan los boletos, es lo equivalente a la cantidad de boletos ingresados pues los momentos pueden medirse en milisegundos tambien,
+con lo cual, no habrian 2 boletos iguales en el mismo horario
+Luego, yo al llegar a obtener el momento, me acerco al iterador de donde puedo obtener la posicion del boleto en la lista
+Esto se hace en O(1), y obtener el intervalo tambien, es dos accesos y una resta que se puede hacer en velocidad constante, eso es O(1)
+Luego la complejidad final de este metodo es O(log n)
+
+Ahora, necesito proveer la operacion plataIntervalo, esto usando la estructura de fechas del diccAVL, tengo la obtencion de los elementos hasta el momento
+Esto se hace asi pues con el iterador obtengo la posicion en la listaEnlazada
+Como esta listaEnlazada, al insertar un elemento se hace en O(n), al insertar, yo debo actualizar el elemento al coste del momento, esto lo hago en cada tupla, teniendo el dinero recaudado
+HASTA EL MOMENTO DE LA INSERCCION, entonces, si un elemento se hace ordenado, yo entonces tomo los elementos despues de esos y les agrego el precio del boleto, actualizando todos
+los boletos al precio del momento final, de esta forma, simplemente accedo al momento en el AVL y obtengo de la fecha desde y hasta su precio, eso es una operacion en constante, y una
+resta tambien. Por lo tanto, la complejidad final es O(log n)
