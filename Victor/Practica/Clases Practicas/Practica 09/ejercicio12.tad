@@ -1,0 +1,39 @@
+pre: Sea n = length(A) => tam(menoresA20(A)) + tam(mayoresA40(A)) < sqrt(n)
+
+Que tiene que ver sqrt(n) con el orden de complejidad O(n)?
+Si uso un algoritmo de complejidad O(n^2) -> la raiz es N por ende es O(n)
+
+Quiero separar los que estan entre 0 y 20, entre 20 y 40, y luego mayores a 40
+ordenarDatos(inout A: arreglo(nat))																	O(4*n + sqrt(n)) = O(n)
+	lista(nat) menoresA20 <- vacia()																	O(1)
+	lista(nat) mayoresA40 <- vacia()																	O(1)
+	lista(nat) entre20y40 <- vacia()																	O(1)
+	// Disfribuyo los datos de entrada
+	for i <- 0 to tam(A) do																						O(n)
+		if A[i] < 20 then AgregarAtras(menoresA20, A[i]) else						O(1)
+			if A[i] > 40 then AgregarAtras(mayoresA40, A[i]) else					O(1)
+				AgregarAtras(entre20y40, A[i])															O(1)
+			endif
+		endif
+	end for
+	
+	// Mis algoritmos de counting los trabajo sobre arreglos, tonces trabajo con estos
+	arreglo(nat) aMenoresA20 <- deListaAArreglo(menoresA20)		O(|aMenoresA20|)
+	arreglo(nat) aMayoresA40 <- deListaAArreglo(mayoresA20)		O(|aMayoresA40|) = O(sqrt(n)) entre las dos
+	arreglo(nat) aEntre20y40 <- deListaAArreglo(entre20y40)		O(|aEntre20y40|) = O(n)
+	// O(20 x n) = O(n)
+	CountingSort(aEntre20y40)																	O(|aEntre20y40|) = O(n)
+	// Idea: Se que si sumo la lista de mayoresA40 y menoresA20 eso es aprox la raiz de n
+	// Junto esas dos listas y tienen cantElem < sqrt(n) => O(n)
+	// Ahora tengo en un arreglo los menores a 20 y mayores a 40 en un array y deberia mergear
+	// la complejidad del merge esta incluida en O(n) pero es poco eficiente, entonces...
+	// [|Concatenar menores a 20| - |en rango| - |mayores a 40|]
+	SelectionSort(aMenoresA20)																O(|aMenoresA20|^2) = O(sqrt(n)^2) = O(n)
+	SelectionSort(aMayoresA40)																O(|aMayoresA40|^2) = O(sqrt(n)^2) = O(n)
+	concatenar(A, aMenoresA20, aEntre20y40, aMayoresA40)			O(n)
+	
+	|aMenoresA20| + |aMayoresA40| < sqrt(n) => (|aMenoresA20| + |aMayoresA40|)^2 < n
+	|aMenoresA20|^2 + |aMayoresA40|^2 <= |aMenoresA20|^2 + |aMayoresA40|^2 + 2*|aMenoresA20|*|aMayoresA40|
+	
+	La funcion deListaAArreglo es una funcion auxiliar. En este ejercicio no está contemplado el desarrollo
+	pero hay que hacerlo, si no el ej. no es valido

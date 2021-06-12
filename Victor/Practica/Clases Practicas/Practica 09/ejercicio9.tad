@@ -1,0 +1,51 @@
+Doble ordenamiento
+Ordenar primero por sexo, luego por nota
+Idea: Radix Sort. Primero por nota y luego por sexo, con algoritmos estables
+Podemos pensarlo tambien en un bucket sort pues tenemos 2 categorias. M y F
+Queremos 1 bucket para F, otro por M, ordeno luego internamente por nota y puedo usar
+un algoritmo lineal como un bucket o un counting sort
+
+ordenaPlanilla(inout A: arreglo(alumno))
+	arreglo(lista(alumno)) Mujeres <- crearArreglo(10)									O(10) = O(1)
+	arreglo(lista(alumno)) Varones <- crearArreglo(10)									O(10) = O(1)
+	for i <- 0 to 9 do																									O(10) = O(1)
+		Mujeres[i] <- vacia()																							O(1)
+		Varones[i] <- vacia																								O(1)
+	end for
+	// Recorrer los alumnos y meterlos en las categorias correspondientes y luego en la lista correspondiente
+	for j <- 0 to tam(A) do																							O(n)
+		if A[j].sexo == "F" then AgregarAtras(Mujeres[A[j].nota - 1], A[j]) else		O(1)
+			AgregarAtras(Varones[A[j].nota - 1], A[j])																O(1)
+		end if
+	end for
+
+	// Concatenio todas las listas, concateno las cosas dentro de un arreglo
+	lista(alumno) listaDeMujeres <- arregloALista(Mujeres)
+	lista(alumno) listaDeVarones <- arregloALista(Varones)							O(n) entre las dos
+	A <- concatenameListasYPasaAArray(listaDeVarones, listaDeMujeres)		O(n)
+
+
+arregloAListA(inout A: arreglo(lista(alumno)), out B: lista(alumno)) 
+	lista(alumno) B <- vacia()																					O(1)
+	for i <- 0 to 9 do																									O(10)
+		concatenar(B, A[i])																								O(n)
+	end for
+	
+concatenar(inout A: lista(alumno), in B: lista(alumno))
+		for i <- 0 to Longitud(B) do																			O(|Longitud(B)|)
+			AgregarAtras(A, B[i])																						O(1)
+		endfor
+
+concatenameListasYPasaAArray(inout A: lista(alumno), inout B: lista(alumno), out C: arreglo(alumno))
+		arreglo(alumno) C <- crearArreglo(Longitud(A) + Longitud(B))			O(n)
+		integer tamA <- Longitud(A)																				O(1)
+		for i <- 0 to Longitud(A) do																			O(n)
+			C[i] = A[0]																											O(1)
+			Fin(A)																													O(1)
+		end for
+		for j <- 0 to Longitud(B)																					O(n)
+			C[tamA + j] = B[0]																							O(1)
+			Fin(B)																													O(1)
+		end for
+		
+b) Caso: dos personas mismo sexo, misma nota, distinto nombre
