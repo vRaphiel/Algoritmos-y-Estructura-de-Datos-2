@@ -44,8 +44,6 @@ public:
     // Muestra el conjunto.
     void mostrar(std::ostream&) const;
 
-    const T& getRaiz() const;
-
 private:
 
     /**
@@ -55,28 +53,32 @@ private:
     struct Nodo
     {
         // El constructor, toma el elemento al que representa el nodo.
-        Nodo(const T& v) : valor(v), izq(nullptr), der(nullptr), cantidad(1) {}
+        Nodo(const T& v) : valor(v), izq(nullptr), der(nullptr){}
         // El elemento al que representa el nodo.
         T valor;
         // Puntero a la raíz del subárbol izquierdo.
         Nodo* izq;
         // Puntero a la raíz del subárbol derecho.
         Nodo* der;
-        // Cantidad de nodos del mismo valor
-        int cantidad;
     };
 
     // Puntero a la raíz de nuestro árbol.
     Nodo* _raiz;
+
+    vector<Nodo*> _treeList;
+
     int _quantity = 0;
-    void insertarAux(Nodo*&, const T&);
-    bool perteneceAux(Nodo*, const T&) const;
-    void removerAux(Nodo*&, const T&);
 
     int cardinalAux(Nodo*) const;
+    void insertarAux(Nodo*&, const T&);
+    bool perteneceAux(Nodo*, const T&) const;
+    void borradoAux(Nodo* padre, Nodo* hijo, const T&);
 
-    const T& encontrarSucc(const T&) const;
-    void destruir(Nodo*& n);
+    const T& precedesorInmediato(Nodo*) const;
+    const T& sucesorInmediato(Nodo*) const;
+
+    //void ordenarLista();
+    //void swap(T*, T*);
 };
 
 template<class T>
