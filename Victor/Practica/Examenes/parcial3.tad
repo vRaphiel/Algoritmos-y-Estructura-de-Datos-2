@@ -1,0 +1,241 @@
+Parcial del 5 de junio del 2021	
+Asmad Murga Victor Manuel
+1)
+Yo tengo un sistema de fotos, donde recupero fotos
+Basandome los algoritmos que me dan en el enunciado y los tamaños:
+n es la cantidad de fotos actuales
+t es la cantidad de tags de una foto que se agrega
+ts es la cantidad de tags distintos actuales del sistema
+
+Como las complejidades son en O(log n), esto me dice, que deberia utilizar una estructura que haga operaciones en tiempo logaritmico
+En especial. ¿FotoRegistrada? me dice que debo decir si una foto esta o no almacenada en tiempo O(log n)
+Por lo tanto, debo tener una estructura diccLog donde deba guardar estas fotos
+El porque un diccLog lo detallare mas adelante con sus complejidades 
+Para borrar tambien esta contemplado este diccLog
+
+Por ahora tengo:
+fotonica se representa con estr donde estr es tupla
+⟨
+	fotosDelSistema: conjLog(fotos),
+	fotosDicc: diccLog(fotos, infoFoto),
+	tagsXFoto: diccTrie(tag, fotosPorTag: lista(fotos))
+	fotosPorDiaMes: diccAVL(mes, diccAVL(dia, fPDM: conjLog(fotos)))
+⟩
+
+donde infoFoto es tupla ⟨tpf: lista(tag), tpfI: lista(infoTagIt), fecha: fechaI, ub: ubicacion⟩
+donde fechaI es tupla ⟨dia: nat, mes: nat, anio: nat⟩
+donde infoTagIt es tupla ⟨tag, itLista(fotos)⟩
+
+Renombres:
+tpf = tagsPorFoto
+tpfI = tagsPorFotoIterador
+
+fotosDelSistema es un conjunto implementado sobre una estrutura logaritmica, esta puede ser un AVL de forma que pueda permitirme realizar operaciones basicas como definir, insertar o borrar en O(log n)
+Esta estructura guardara todas las fotos del sistema para posteriores usos
+
+fotosDicc es un diccionario implementado sobre una estructura de un arbol logaritmico de forma que las operaciones basicas como busqueda, inserccion
+y borrado tengan complejidad a lo sumo O(log n) siendo n la cantidad de nodos en el sistema
+
+Por otro lado, este diccionario tiene como claves una foto y, como significados, guardo una tupla donde tengo:
+	1 -> tupla fecha. Donde fecha es el dia, mes y anio
+	2 -> ubicacion
+	3 -> tpf (tagsPorFoto) donde guardo un conjunto de todos los tags a los que pertenece esta foto
+	4 -> tpfI (tagsPorFotoIterador) donde guardo una tupla que sea el tag y un iterador a tagsXFoto del conjLog de fotos, de manera que pueda borrar en O(1) con el iterador
+Ahora, las operaciones de agregado, borrado e inserccion son las siguientes. Primero vamos de adentro a afuera
+El crear la tuplafecha es O(1) pues es el armado de una variable constante
+Ubicacion es O(1)
+tpf es un conjunto, como me van a pasar la estructura de los tags, la copia es t, pues t es la cantidad de tags que me pasan por parametro
+tpfI se mide equivalentemente, pues es un conjLineal. Igualmente, para crear el iterador, yo debo recorrer el tag al que pertenece el elemento. Esto es O(1) por ser acotado
+los tags. Entonces, agrego al significado el elemento. agregarAtras por copia, esto es O(1) y guardo un iterador al mismo O(1)
+Finalmente, inserto el elemento a la lista y esto es O(1)
+Al final, toda la complejidad es O(1) y esta estructura simplemente inserta, busca y elimina en O(log n) lo cual, me sirve para este desarrollo
+
+tagsPorSistema, es un diccionario implementado sobre un trie, esta estructura se construye sobre los caracteres del tag y, la complejidad de inserccion, busqueda o borrado del mismo
+va a O(|tag|) siendo |tag| la cantidad de caracteres del tag. Pero, en el enunciado me dice que los tag estan acotados por un limite maximo de carateres, por lo tanto, 
+la complejidad de las operaciones se ve acotada por un limite, por ende, la complejidad se reduce a constante y eso es O(1)
+tagsPorSistema tiene como claves el tag y, como significado, fotosPorTag que es un conjunto logaritmico de fotos donde yo guardo las fotos que le pertenecen al sistema
+De forma que, a la hora de borrar la foto, simplemente accedo al tag en O(1)
+
+Tambien tengo una estructura que es fotosPorDiaMes, tengo un diccionario implementado sobre un avl y, en sus claves tengo el mes. Luego, en significados tengo
+otro diccionario implementado sobre un AVL donde sus claves son el dia, y su significado, es un conjunto implementado sobre un arbol, de fotos, esto lo hago para que el borrado,
+inserccion y busqueda sea O(log n) como mucho, suponiendo que todas las fotos del sistema se hayan tomado en un mismo mes y dia
+La complejidad de busqueda sobre tagsPorDIa es O(log m) siendo m el mes, y luego O(log d) siendo d el dia, entonces tengo O(log m*log d), pero los meses y los dias estan acotados
+(El enunciado para esta estrutura me dice buscar por mes y dia, no por año). Los meses van del 1 al 12 y los dias de 1 al 31 como mucho. Por ende, al estar acotado, la complejidad
+se resume en O(1) para la busqueda, borrado e inserccion en este AVL
+
+En referecia al tad SECUENCIA que dice el enunciado, lo implemento en los algoritmos como una lista ya que, lista, se explica como secuencia
+Al iniciar el sistema y no haber ninguna foto, fotosPorDiaMes, fotosDicc y tagsXFoto son diccionarios vacios y fotosDelSistema es un conjunto vacio
+
+Invariante de representacion (coloquial):
+-> Todas las fotos de fotosDicc tienen que estar contenidas en fotosDelSistema y viceversa
+-> La union disjunta de todos los significados de tagsXFoto deben estar contenidas en fotosDelSistema y en fotosDicc
+-> La union disjunta de todos los significados de los significados de fotosPorDiaMes deben estar contenidas en fotosDelSistema y en fotosDicc
+-> Los significados de fotosDicc no pueden estar vacios y, dentro de los significados, tpf y tpfI pueden estar vacios
+-> de los significados de fotosDicc, fechaI -> dia, mes y año estan en rango
+-> Si recorremos fotosPorDiaMes, teniendo las claves por un lado como meses, y las claves del significado(fotosPorDiaMes, mes) como dia. Por cada significado de 
+		significados(significados(fotosPorDiaMes, dia), mes), esta foto tienen que coincidir con fechaI.dia y fechaI.mes de los significados de significados(fotosDicc, foto)
+		Es decir, las fotos almacenadas correspondientemente en fotosPorDiaMes tienen que estar en el lugar indicado de la fecha donde se tomo, y esta fecha, coincide con la fecha
+		que tiene la foto almacenada en fotosDicc. Y, viceversa, la fecha de la foto en fotoDicc coincide con las fechas en fotosPorDiaMes
+-> Por foto de fotosDicc, los tags en tpf y tpfI estan contenidos en tagsXFoto
+-> los iteradores en infoTagIt de la lista de infoTagIt en los significados de las fotos, no pueden estar vacios. Siempre van a apuntar a un elemento, a si mismo en la estructura de
+		tagsXFoto
+
+2)
+AgregarFoto(inout sistema: fot ́onica, in id: foto, in tags: secuencia(tag), in d ́ıa: nat, in mes: nat, in a ̃no:
+nat, in lugar: ubicaci ́on)
+{Pre: La foto ‘id’ no esta registrada. La fecha indicada en mes, dıa y año es valida.}
+Se agrega una foto al sistema con sus tags, asi como el dıa, mes y ano de la foto.
+Complejidad: O(log(n) + t)
+
+Para este algoritmo, me dicen que la foto no esta registrada, entonces no debo preocuparme por si esta o no la foto ya contenida antes de insertar
+Para la resolucion, yo primero creo dos variables. una fechaI y infoFoto donde, en fechaI cargo los valores dia, mes y anio con los que me pasan. Esto lo hago por copia y es O(1)
+Luego, en infoFoto yo cargo fecha con fechaI que lo tenia ya armado, esto es O(1) por copia
+Y, finalmente, a infoFoto.tpf le cargo los tags que me pasan como parametro. Para esto, creo un iterador O(1) e itero sobre tags y, por cada uno de los tags internos, lo voy agregando a
+infoFoto.tpf
+Agregar a infoFoto.tpf es O(1) pues agrego al final
+Equivalentemente, creo una variable infoTagIt y, por tag, itero sobre tagsXFoto para buscar el significado y agregar a este mismo la foto. Esto se hace en O(1) pues, buscar en tagsXFoto es 
+O(1) por estar los tags acotados y, agregar a la lista es O(1). Equivalentemente, al agregar me quedo con el iterador y lo agrego a mi tupla tpfI junto con el tag y lo agrego a infoFoto.tpfI
+Esto es O(1) por agregar al final
+
+Equivalentemente, hago lo mismo con fotosPorDiaMes sin embargo, aca busco por el dia y mes que me pasan como parametro, esto me permite hacer la busqueda en O(1) en caso de existir esas claves
+en el diccionario, si no, las defino
+En ambos casos, al final tengo que ver lo que pasa con fPDM que es un conjLog, pero agregar aca es O(log n) como mucho y definir en este dicc es O(1) pues, si las claves dia y mes no existen, creo
+un conjunto con un solo elemento, y esto siempre es constante porque, solo ingreso una foto en este momento
+En caso contrario, agregar una foto a este conjunto es O(log n) como mucho si todas las fotos se ingresaron el mismo dia del mismo mes
+En todo caso, agregar a fotosPorDiaMes es O(log n)
+
+Por ultimo, agregar a fotosDelSistema es O(log n) pues agrego al elemento
+Al iniciar el algoritmo y no haber fotos, fotosDelSistema empieza como un conjunto vacio entonces agrego tranquilamente
+
+Finalmente, defino la foto en fotosDicc como ultimo paso ya habiendo agregado con los datos correspondientes, esto se hace en tiempo O(log n)
+
+Luego, la complejidad final es
+O(1) + O(t) + O(log n) = O(t) + O(log n) ∈ O(t + log n) = O(log n + t)
+Cumple lo pedido
+En todo este proceso he generado aliasing, teniendo las listas por referencia tanto en tags como en fotosPorDiaMes, asi puedo agregar a la lista el elemento sin tener que hacer una copia y, 
+en todo caso, pueda permitirme hacer todas estas operaciones en O(1)
+No obstante, como no sale ninguna informacion, no hay preocupacion de que se vea afectada la integridad de los datos por parte del usuario
+
+BorrarFoto(inout sistema: fotonica, in id: foto)
+{Pre: La foto ‘id’ ya esta registrada}
+Elimina el registro de una foto en el sistema.
+Complejidad: O(log(n) + ts)
+
+Sabiendo que la foto esta registrada, puedo continuar
+Debo borrar una foto del sistema, esta complejidad es O(log n + ts). Como lo logro?
+Primero, yo debo buscar la foto en fotosDicc, pues ahi tengo la mayor informacion posible y lo hare en orden para no generar incongruencias
+La busqueda en fotosDicc tiene complejidad O(log n) pues debo recorrer el arbol
+Entonces, tomo el significado del elemento en fotosDicc, esto es O(log n) ya mencionado antes. Teniendo esto, lo guardo en una variable por copia O(1)
+Llamemos a esa variable, infoFotoAux
+Ahora, yo tengo varias estructuras donde esta la foto. Lo hare por orden
+Primero, tomo de infoFotoAux la fecha, y por fecha busco en fotosPorDiaMes y borro el elemento, esto es a lo sumo O(log n) pues, la busqueda en esta estructura ya dijimos era
+O(1) por ser mes y dia acotados, luego la complejidad se basa en las fotos que hayan en ese dia y mes, que pueden ser todas las fotos si al coordinacion es que se tome todas del sistema
+en el mismo mes y dia
+Borrado de fotosPorDiaMes ∈ O(log n)
+Ahora, debo borrar de tagsXFoto, para esto, accedo por infoFotoAux, luego recorro las secuencias, especialmente tpfI. Cada elemento lo llamo infoItAux
+Por infoItAux tomo el tag y lo busco en tagsXFoto, encontrando el tag, tomo infoItAux.itFotosPorTag y borro el elemento de la lista en O(1) pues eso me permite el iterador
+Ahora, borro el elemento de fotosDelSistema y el borrado es en O(log n) pues es un conjLog
+Finalmente, borro el elemento de fotosDicc, esto se hace en O(log n) por definicion de un diccionario logaritmico
+
+En este algoritmo se genera aliasing haciendo referencia a los elementos en las estructuras, esto es para poder realizar operaciones tales como "copia" o en todo caso, referencia, a listas
+y posteriormente hacer su borrado en O(1), si no, hacer una copia implicaria complejidad a lo sumo O(n) y esto me hace que todo el algoritmo pierda sentido, por ende, genero aliasing
+No obstante, como no sale ninguna informacion, no hay preocupacion de que se vea afectada la integridad de los datos por parte del usuario
+
+¿FotoRegistrada?(in sistema: fotonica, in id: foto, out res: bool)
+Indica si la foto indicada est ́a o no registrada en el sistema.
+Complejidad: O(log(n))
+Simplemente, utilizo la operacion definido? en fotosDicc de la foto que me pasan
+No se genera aliasing y la busqueda en un diccLog es O(log n) como se buscaba
+
+TagsPorFoto(in sistema: fot ́onica, in id: foto, out res: secuencia(tag))
+{Pre: La foto ‘id’ ya esta registrada}
+Obtiene los tags que tiene una foto determinada.
+Complejidad: O(log(n))
+
+FotosPorTag(in sistema: fot ́onica, in tag: tag, out res: secuencia(foto))
+Obtiene las fotos que tienen un tag determinado.
+Complejidad: O(1)
+
+Busco en tagsXFoto la lista de tags. Esta busqueda se hace en O(1) por estar acotados los tags (me lo dice el enunciado)
+Luego, devuelvo el significado de este tag en el diccionario por una referencia no modificable para que el usuario
+no pueda alterar la integridad de los datos
+Finalmente, la complejidad es O(1) por estar acotada la longitud del tag y por la referencia no modificable
+
+FotosDelDıa(in sistema: fot ́onica, in dia: nat, in mes: nat, out res: secuencia(foto))
+Dado un d ́ıa y mes, obtiene todas las fotos de esa fecha, sin importar el a ̃no.
+Complejidad: O(1)
+Para esta estructura es facil, tomo el dia y el mes y los busco en fotosPorDiaMes
+Busco el significado de fotosPorDiaMes, buscando por el mes
+A este significado le busco el significado por dia
+Luego, devuelvo por referencia no modificable el conjunto de fotos, de tal manera que no genero aliasing y mantengo la integridad de los datos
+Finalmente, la complejidad es O(1)	
+
+3)
+{Pre: La foto ‘id’ no esta registrada. La fecha indicada en mes, dıa y año es valida.}
+AgregarFoto(inout sistema: fotónica, in id: foto, in tags: secuencia(tag), in dıa: nat, in mes: nat, in año:nat, in lugar: ubicacion)
+fechaI fecha <- ⟨dia, mes, año⟩																																// O(1)
+		
+	lista<tag> myTags <- vacia()																																// O(1)
+	lista<infoTagIt> myTagsITIT <- vacia()																											// O(1)
+	
+	tagsIt <- crearIt(tags)																																			// O(1)
+	while(haySiguiente(tagsIt))
+	
+		if definido?(sistema.tagsXFoto, siguiente(tagsIt)) then
+			lista<fotos> lFotosTag <- significado(sistema.tagsXFoto, siguiente(tagsIt))							// O(1) pues es por referencia la lista
+			
+			itLista <- agregarAtras(lFotosTag, foto)																								// O(1), pues estoy copiando un elemento en operacion constante. Es un nat
+				
+			infoTagIt itit <- ⟨siguiente(tagsIt), itLista⟩																					// O(1), pues estoy creando una variable en O(1) siendo que siguiente(tagsIt) es un elemento y itLista tambien
+			agregarAtras(myTags, siguiente(tagsIt))																									// O(1), pues estoy copiando un elemento en operacion constante
+			agregarAtras(myTagsITIT, itit)																													// O(1), pues estoy copiando un elemento en operacion constante		
+			
+		else
+		
+			definir(sistema.tagsXFoto, siguiente(tagsIt), vacio())																	// O(1), pues defino un tag, y como los tags estan acotados, es operacion constante
+			lista<fotos> lFotosTag <- significado(sistema.tagsXFoto, siguiente(tagsIt))							// O(1) pues es por referencia la lista
+			
+			itLista <- agregarAtras(lFotosTag, foto)																								// O(1), pues estoy copiando un elemento en operacion constante. Es un nat
+				
+			infoTagIt itit <- ⟨siguiente(tagsIt), itLista⟩																					// O(1), pues estoy creando una variable en O(1) siendo que siguiente(tagsIt) es un elemento y itLista tambien
+			agregarAtras(myTags, siguiente(tagsIt))																									// O(1), pues estoy copiando un elemento en operacion constante
+			agregarAtras(myTagsITIT, itit)	
+			
+		endif
+		avanzar(tagsIt)																																						
+	endwhile																																										// Finalmente, el recorrer toda la secuencia es O(t)
+		
+	infoFoto info <- ⟨ myTags , myTagsITIT , fecha, lugar⟩																			// O(1) por crear una nueva variable
+	definir(sistema.fotosDicc, foto, infoFoto)																									// O(log n) por ser un diccionario logaritmico
+	agregar(sistema.fotosDelSistema, foto)																											// O(Log n) pues es insertar elemento en un conjunto logaritmico
+	
+	if definido?(sistema.fotosPorDiaMes, mes) then																							// O(1)
+	
+		if definido?(significado(sistema.fotosPorDiaMes), dia) then																// O(1)
+		
+			conjLog(fotos) fdiaMes <- significado(significado(d.fotosPorDiaMes, dia), mes) 					// Creo aliasing, esto es O(1) pues lo hago por referencia
+			agregar(fdiaMes, foto)																																	// O(Log n) pues es el coste por insertar a un conjLog
+																																
+		else
+		
+			conjLog(fotos) fDiaMes <- vacio()																												// O(1) por generar un conjunto vacios									
+			agregar(fDiaMes, foto)																																	// O(log n) por agregar a un conjLog
+			definir(significado(sistema.fotosPorDiaMes, mes), dia, fDiaMes)													// O(1 + 1 + copy(fDiasMes)) = O(copy(fDiasMes)) = O(log n) pues hay un solo elemento
+			
+		endif
+		
+	else
+
+		conjLog(fotos) fDiaMes <- vacio()																													// O(1) por generar un conjunto vacio
+		agregar(fDiaMes, foto)																																		// O(log n) por agregar un nuevo elemento
+		definir(sistema.fotosPorDiaMes, mes, (definir(significado(sistema.fotosPorDiaMes, mes), dia, fDiaMes)).actual())		// O(1) pues estan acotados por el dia
+		// Uso actual, porque el modulo definir me devuelve un iterador, pidiendo el actual, tengo el elemento de ese iterador, que es mi AVL que busco pues
+		// mi AVL fotosPorDiaMes tiene como significados un AVL, no un iterador
+	
+	endif																																												// O(log n) en peor caso, por definicion del IF
+	
+	
+Se agrega una foto al sistema con sus tags, asi como el dıa, mes y año de la foto.
+Complejidad: O(log(n) + t)
+
+La complejidad de este algoritmo es, finalmente, O(log(n) + t)
