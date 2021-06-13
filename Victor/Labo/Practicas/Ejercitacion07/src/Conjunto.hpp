@@ -9,7 +9,6 @@ Conjunto<T>::Conjunto() {
 template <class T>
 Conjunto<T>::~Conjunto() {
     destruir(_raiz);
-    _quantity = 0;
 }
 
 template <class T>
@@ -71,7 +70,6 @@ template<class T>
 void Conjunto<T>::insertarAux(Nodo* &root, const T& clave) {
     if(root == nullptr){
         root = new Nodo(clave);
-        _quantity++;
     } else {
         if(clave == root->valor){
 

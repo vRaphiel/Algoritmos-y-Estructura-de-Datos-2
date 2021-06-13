@@ -68,7 +68,6 @@ private:
 
     // Puntero a la raíz de nuestro árbol.
     Nodo* _raiz;
-    int _quantity = 0;
     void insertarAux(Nodo*&, const T&);
     bool perteneceAux(Nodo*, const T&) const;
     void removerAux(Nodo*&, const T&);
