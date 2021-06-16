@@ -1,0 +1,15 @@
+Secuencia s = Concatenar(s', s'')
+s' es una secuencia ordenada de naturales
+s'' es una secuencia de naturales elegidos al azar
+Metodo para ordenar? Quiero ordenar desde menor a mayor. Como corresponde
+
+Yo se que tengo 2 secuencias, s' y s''. 
+Se que s' esta ordenada de la manera que yo deseo, luego s'' no esta ordenada.
+
+Uso bucket sort. Meto en un bucket los elemetnos de s que sepa que esten ordenados (s')
+Luego en otro bucket los elementos no ordenados (s'')
+
+Entonces. Para todo esto los elementos en bucket de s'' 
+Los ordeno con un quick sort
+
+Despues concateno todos los elementos

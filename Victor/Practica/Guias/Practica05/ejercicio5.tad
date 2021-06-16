@@ -1,0 +1,13 @@
+Se tiene un arreglo de n numeros naturales que se quiere ordenar por frecuencia, y en caso de igual frecuencia por su valor
+[1,2,1,7,2,7,1,3] => [1,1,1,7,7,7,3,3,2]
+Describir un algoritmo que realizae el ordenamiento descrito
+
+Primero nos importa ordenar la frecuencia del elemento
+Quiero saber cuales elementos estan repetidos en cantidades iguales
+Para eso, puedo hacer un bucket sort donde entran todos los elementos que se repitan equivalentemente
+En el bucket sort recordamos que se insertan por bucket los elementos que se caracterizen por un mismo tipo de informacion
+en este caso aquellos que se repiten la misma cantidad de apariciones
+Luego, por cada bucket ordeno con algun algoritmo
+Esta complejidad es O(n + M) + O(ordenar los buckets)
+Uso algun metodo como merge sort
+Entonces tengo O(n + M) + O(n log n)

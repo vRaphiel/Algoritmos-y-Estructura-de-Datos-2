@@ -1,0 +1,8 @@
+Se tiene un conjunto de n secuencias. {s1, s2, ... , sn}
+si (1 <= i <= n) es una secuencia ordenada de naturales
+
+Me conviene para esto utilizar bucket sort
+Luego teniendo en cada bucket una secuencia, me fijo los ultimos y primeros elementos y ordeno estos conjuntos en referencia al
+mayor elemento de cada secuencia. 
+Luego concateno y listo
+Esto me hace las cosas en O(n) siendo n la cantidad de secuencias ordenadas

@@ -1,0 +1,17 @@
+Necesito encontrar los k elementos mas chicos de un arreglo de dimension n
+Se que k <= n
+Se que el tamaño del arreglo esta acotado
+Necesito los k elementos mas chicos
+Si k = n. entonces son todos pues necesito a lo sumo n elementos del arreglo mas chicos. Por ende no hay un elemento maximo
+Si k < n entonces asumo que existe un maximo tal que para ese maximo, existen k elementos menores a el
+El objetivo ideal seria ordenar el arreglo y luego poder, desde el elemento k para abajo, tomar todos
+
+La complejidad temporal si no hago el ordenamiento es encontrar el minimo. Eso lo hago k veces
+Encontrar el minimo es O(n)
+Repetirlo varias veces me genera O(n*k)
+Luego por cada vez que cambia el minimo lo agrego a un elemento
+Luego esto se hace en O(n*k) siendo k < n
+
+Esto es valido y buen metodo mientras k < log n. Puesto que caso contrario, yo debo que ordenar el elemento
+Esto ocurre mientras k < n y k > log n
+Si k = n entonces la devolucion es O(1) pues devuelvo todos los elementos

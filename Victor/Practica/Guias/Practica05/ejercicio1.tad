@@ -1,0 +1,30 @@
+Algoritmos vistos:
+- Selection Sort
+- Insertion Sort
+- Heap Sort
+- Merge Sort
+- Quick Sort
+- Bucket Sort
+- Radix Sort
+
+En el caso de que este ordenado a la inversa:
+-> Selection Sort: O(n/2) pues desde 0 hasta i son los mas pequeños del arreglo, entonces debo ir hasta el final para poder obtener el minimo y colocarlo al final -> O(n)
+-> Insertion Sort: O(n) no cambia, pues debo recorrer al final todos los elementos y reordenar
+-> Heap Sort: O(log n). Pues la complejidad de un heap sort para uun arreglo cualquiera es O(n log n). El n se debe a que debo usar el Array2Heap para convertir
+	 el arreglo a un heap. Luego ordenarlo es O(log n). Pero como se quue el arreglo esta ordenado de mayor a menor, como lo quiero (un max heap) entonces el Array2Heap no tiene
+	 sentido. Luego la complejidad de ordenar inversa es O(log n)
+-> Merge Sort:
+		Merge sort se supone dividir un problema en similares y mas chicos:
+			-> Si n < 2 el arreglo esta acotado
+			-> Si no, divido el arreglo en 2 partes iguales y ordenar recursivamente
+		En cualquier caso, debo dividir constantemente en 2 array menores recursivamente, luego esta complejidaed es O(n log n)
+-> Quick Sort:
+		Supongamos conocemos el elemetno mediano del arreglo
+		Separamos en dos mitares. Menores al mediano, mayores al mediano
+		Ordenamos ambas mitades
+		Se que el algoritmo esta orrdenado de mayor a menor
+		Luego el elemento mediano es el elemento del medio. La complejidad es O(n log n)
+-> Bucket Sort:
+		Divido en su propia categoria. Se que son de mayor a menor, entonces esto es un Counting Sort
+-> Radix Sort:
+		Equivalentemente

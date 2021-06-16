@@ -1,0 +1,41 @@
+Tengo un casiSort. Sea un arreglo A de n elementos
+Esto ordena n/2 elementos arbitrarios colocandolos en la mitad izquierda del arreglo
+A[1....n/2]
+A[n/2 + 1....n]
+1) Describir un algoritmo de ordenamiento para arreglos de n elementos utilizando el algoritmo casiSort
+	-> Idea: Sabiendo que n es potencia de 2, yo se entonces n = 2^k. Por ende:
+		Si k = 0 entonces n = 1 y por lo tanto el arreglo esta ordenado
+		Si k > 0 entonces n es potencia de 2. por lo tanto, la cantidad de elementos es par
+			En este caso, tomo el elemento n/2 pues este será un entero sabiendo que n = 2^k
+			Luego, ordeno con casiSort
+			Una vez ordenado, tomo los elementos de 1 hasta n/2 y los separo en un arreglo, luego con lo que queda
+			lo separo en otro arreglo y lo ordeno usando algun algoritmo tal como QuickSort, porque se que estos no estan ordenados
+			Una vez ordenados, tengo dos arreglos. Entonces utilizo algun algoritmo que tomando 2 arreglos me los una. Puedo hacer un merge de los
+			dos arreglos ya que estan ordenados como pide su precondicion
+			Luego, tengo el arreglo ordenado
+			
+		Entonces
+		
+		ordenarArreglo(inout A: arreglo(nat), out B: arreglo(nat))
+			arreglo(nat) casi <- vacio()
+			arreglo(nat) nocasi <- vacio()
+			
+			casiSort(A)
+			itA <- crearIterador(A)
+			i <- 0
+			while(haySiguiente(itA) ∧ i < tam(A)/2)
+				agregarAtras(casi, A[i])
+				i <- i+1
+				avanzar(itA)
+			endwhile
+			
+			while(haySiguiente(itA) ∧ i < tam(A))
+				agregarAtras(nocasi, A[i])
+				i <- i+1
+				avanzar(itA)
+			endwhile
+			QuickSort(nocasi)
+			B <- concatenar(casi, nocasi)
+			
+2) O(n) + O(nlog n)
+			

@@ -1,0 +1,44 @@
+Sea A[1, ..., n] un arreglo con n numeros naturales
+En un rango de posiciones [i,...,j] con 1 <= i <= j <= n, hay una escalera en A si vale:
+1 -> (∀k : nat) i <= k < j => A[k+1] = A[k] + 1
+	-> Los elemetos no solo estan en forma ordenada, si no que a demas, el siguiente, vale exactamente uno mas que el anterior
+2 -> Si 1 < i entonces A[i] != A[i-1] y si j<n entonces A[j+1] != A[j] + 1
+	-> La propiedad es maximal. El rango no puede extenderse sin que deje de ser una escalera segun el punto anterior
+
+Cualquier arreglo puede ser descompuesto de manera unica como una secuencia de escaleras
+Algoritmo para reposicionar las escaleras del arreglo original, de modo que las mismas se representen en orden decreciente de la longitud y,
+para las de la misma longitud, se presenten en forma creciente por el primer valor de la escalera
+
+Primero, lo quue debo hacer es definir un i, j que seran punteros a los valores que voy a denominar una escalera
+Para estos voy a recorrer el array, Recorrere con j
+i empezará en 0, por ser el primer elemento del array, entonces muevo la posicion j. Cuando encuentro un A[j+1] < A[j] entonces
+yo se que ahi termina una escalera y empieza otra
+Para este caso, tomo todos los elementos de i y j y los separo
+Asigno i como j, y continuo moviendome como j de forma que i apunte al primer elemento de la nueva escalera
+
+Para guardar estas escaleras ya encontradas yo puedo asumir un bucket, donde coloco cada subarray que sea escalera
+En estos bucket la asignacion será por cantidad de elementos. Despues veo como ordenarlo pero por ahora hago esta estrategia
+
+Luego, continuo moviendo mi i j hasta el final del arreglo
+Obtenidas todas las escaleras en los buckets. Por bucket ordeno siguiendo la cantidad de elementos
+Quiero que empiecen en mi arreglo final todos aquellos con mayores cantidades de elementos
+Entonces, me voy al primer balde y ordeno
+Ahora, el criterio de ordenamiento será el primer elemento de cada escaleras
+Siendo en la primera escalera de ese bucket cual cuyo primer elemento sea el menor entre todos los demas
+Y usando ese criterio ordeno los demas buckets
+Finalmente, concateno todo y tengo un arreglo con escaleras que esté ordenado
+
+ordenarEscaleras(in A: arreglo(nat), out B: arreglo(nat))
+arreglo(arreglo(nat)) bucket <- vacio() 			// Este será usado para mi bucket sort
+nat i <- 0
+nat j <- 0
+while j < tam(A)
+	while A[j] > A[j+1] && A[j] +1 = A[j+1]
+		j++
+	endwhile
+	arreglo(nat) escaleraAux <- subArreglo(A, i, j)
+	añadirAtras(bucket, escaleraAux)
+endwhile
+
+BucketSort(bucket)
+B <- bucket

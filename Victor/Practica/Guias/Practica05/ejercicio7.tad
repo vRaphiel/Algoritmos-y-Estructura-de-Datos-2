@@ -1,0 +1,19 @@
+Ordenar arreglos de naturales
+Se que hay un AVL. Alguna forma de aprovecharla?
+AVL sort
+Considero un heapsort. El heapsort es una estructura donde el nodo raiz es el mas grande o el mas chico siendo max/min heap
+Considero un maxheap, entonces quiero ordenarlo y voy "desencolando" los elementos, sacando el maximo y enviandolo al final
+
+Usando esta estructura, se que d = n pues en un avl tienen que haber elementos distintos ya que necesita estar balanceado
+Por ende, la complejidad a buscar es O(n log n)
+La busqueda del maximo elemento es O(n) pues debo recorrer a lo sumo n elementos que son todos los del arbol
+La busqueda del minimo es O(1) pues es siempre a izquierda
+No obstante, yo no conozco que elemento es el central de la raiz
+Mover o borrar un elemento en un AVL es O(log n)
+
+Entonces puedo tomar el elemento minimo de este AVL e introducirlo a una lista. Luego borro el minimo del AVL
+Esto se hace en O(log n) pues n = d, luego el minimo de un AVL se trae en O(1), debo recorrer siempre a izquierda
+Tambien el borrado de este minimo es O(log n) pues no solo borro si no que balanceo el arbol, esto es O(log n)
+Luego, esta operacion la debo recorrer n veces
+Por ende tengo
+O(n * log n) = O(n * log n) = O(n * log d) ya que d son la cantidad de nodos puesto que en un AVL no hay elementos repetidos

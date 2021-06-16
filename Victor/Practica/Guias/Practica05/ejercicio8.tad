@@ -1,0 +1,27 @@
+Se tienen 2 arreglos de naturales. A[1..n], B[1..m]
+No se sabe nada de B. Pero A tiene n' secuencias de numeros repetidos continuos
+Se que n' < n
+Necesito un arreglo C de tamaño n + m que contenga los elementos de A y B ordenados
+
+Asumo que en C estan todos los elementos de A y de B, incluidos los repetidos continuos de A
+Pero, no se cual es el maximo de A y de B. Entonces, counting sort no puedo usar pues no conozco el maximo
+
+1 -> Complejidad: O(n + (n' + m)log(n' + m)) en el peor caso
+Entonces tengo O(n) + O((n'+m)*log(n' + m))
+Sea t = n' + m => O(n) + O(t*log t)
+
+Entonces, por un lado tengo la complejidad de recorrer A
+Por otro la complejidad de recorrer los n' secuencias repetidas de A y B
+
+Puedo hacer lo siguiente:
+Debo recorrer A eso seguro para saber cuantos elementos repetidos tiene
+Por eso, puedo yo armarme tuplas, estas tuplas tendran el numero y la cantidad de veces que se repite
+Estas tuplas las puedo guardar en un arreglo, entonces yo puedo, de esta manera, saber la cantidad de elementos
+Esto me genera un arreglo de n' elementos
+
+Ahora viene el problema, enlazarlo con B
+Debo usar un metodo que me recorra n' y B a la vez, pues yo puedo tener elementos repetidos en n' ya que, al armar ese arreglo, no lo
+estoy recorriendo para saber si el numero existe
+
+Ahora, uso una modificacion de heapsort para ordenar este arreglo nuevo, pero por cada item, tomo uno de B y lo busco en n', busqueda doble. De esta forma por cada elemento que encuentre,
+lo ordeno correctamente
