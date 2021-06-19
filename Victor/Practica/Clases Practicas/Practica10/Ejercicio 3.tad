@@ -1,0 +1,16 @@
+n x n numeros naturales
+Acceso a una posicione s O(1)
+Todos los elementos de la matriz son distintos
+Las filas y columnas estan ordenadas de forma creciente
+
+En fuerza bruta no sitve -> O(n^2)
+
+Aprovechando la estructura de esta matriz y ordenados crecientemente puedo dividir la matriz en 2 partes iguales
+Busqueda binaria doble. En (x,y)
+
+Casos posibles: (M = matriz, e = elemento a buscar)
+	-> e ∉ M
+	-> e ∈ M
+
+El tamaño de entrada es O(n^2)
+Divido mi matriz en varias partes

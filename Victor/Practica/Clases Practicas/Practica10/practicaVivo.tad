@@ -1,0 +1,194 @@
+Divide y Conquer
+
+algoritmoD&C()
+
+Dividir el problema mas chicos resolverlos
+Luego, unir las soluciones para encontrar la solucion final
+-> Normalmente no ocurre que se divida el problema en partes iguales
+
+Las partes deben ser independientes entre si
+
+Enunciado:
+Dado un arreglo de numeros naturales de tamaño n, decimos que esta cuasi ordenado si en la primera mitad se encuentran
+los n/2 elementos mas chicos (no necesariamente ordenados), y en la segunda mitad se encuentran ordenados los n/2 elemetnos mas grandes
+De la primera mitad se sabe que ademas que la distancia entre el valor maximo y el valor minimo esta acotado por una constante κ
+Por otro lado, un arreglo A[1...n] de nuymeros naturales (cuyo tamaño es potencia de dos) decimos que es amigable si la primera mitad esta cuasi
+ordenada y la segunda mitad es (recursivamente) amigable)
+
+Cuasi ordenado[10, 40, 20, 30 | 45, 45, 50, 60, 15, 10 | 20, 35, 32 | 40, 60, 5]
+
+precondicion: A es amigable
+ordenarD&C(A)
+si |A| = 1
+	devolver A						O(1)
+	
+	// Lo paso por copia por eso O(n)
+	// Hayejercicios donde no puedo usar pasaje por copia y debo ahi usar referencia o indices
+	// Los indices me indican desde que parte a quue parte recorrer
+	B:= ordenarD&C(A[n/2...n])						T(n/2) + O(n)
+	C:= countingSort(A[1....n/4])					O(n)
+			
+	devolver merge(C+A[n/4+1...n/2], B) 	O(n)
+	
+T(n) = O(1) cuando n = 1
+
+T(n) = T(n/2) + O(n) cuando n>1
+
+a=1 		// Es uno porque solo uso una mitad para hacer recursion
+c=2 		// Pues estoy dividiendo en dos
+
+Aca uso recursivamente a una mitad, a la otra no
+En algunos casos a puede ser mayor que c. Entonces, divido a la mitad y tomo la mitad de la primera mitad y luego la otra mitad
+Entonces tengo 3 subproblemas no disjuntos y por lo tanto a = 3 y c = 2
+Estos son casos raros. Igualmente hay que ver que los problemas sean independientes
+
+Ahora, tengo n elementos, entonces voy dividiendo de a dos
+n => n/2 => n/4 => .... => 1
+Me define una sumatoria
+sum_{i = 0}_{log_{2} n} f(n/2^i)
+f(n) = O(n)
+
+Hay que ver siempre el caso del log, cuanto es el valor
+log_2 1 = 0
+Entonces tengo (e como epsilon)
+1) n^-e
+2) 1
+3) n^e
+
+donde f(n) = Theta(n)
+
+Ahora
+Dado el epsilon que queramos elegir nos queda una complejidad que nunca va a ser mayor que O(n)
+Epsilon lo escogemos nosotros. Vamos probando
+
+Idea (Concentrandomos en como aplicar)
+
+Calculamos log_c a
+Buscamos con que complejidad matchea f(n)
+En el caso 2 no matchea
+Queda caso 1 y 3. Si encontramos en ambos casos un epsilon que haga verdadero ese caso entonces listo
+Por el caso X logramos que sea verdadero. Por el caso X del teorema maestro desarrollamos
+No importa que epsilon usemos, ∀e>0 => f(n) = O(1/n^e) y como f(n) es lineal entonces nunca sucederá que
+f(n) ∈ O(1/n)
+(Esto pasa con cualquier epsilon que uno elija)
+Entonces el primer caso nos queda asi, no nos sirve
+
+Nos queda el caso 3
+Sabemos que f(n) = Ω(n^e)
+Pruebo. e=1
+f(n) = Ω(n) Y esto cumple
+
+
+Tenemos que ver que el caso 3 es verdadero. Lo hacemos eligiendo epsilon al azar
+Si encontramos uno tal que se haga verdadera la condicion listo
+Tomo e = 1
+Agria f(n) = Θ(n)
+Entonces f(n) ∈ O(n) y f(n) = Ω(n)
+
+Ahora nos falta que el caso 3 nos pide otro caso af(n/c) < kf(n) para k < 1 y n suficientemente grande
+En este caso:
+Como f(n) = Θ(n) entonces puedo representar a f(n) como una lineal => f(n) = x*n + y
+Luego:
+a*(x*n/c) < k*(x*n)
+a/c < k
+1/2 < k = 2/3 < 1
+Listo, cumple con la hipotesis
+
+Como encontramos un epsilon tal que vale lo primero y demostramos que lo segundo vale, decimos que vale el caso 3
+Listo. Concluimos que nuestro algoritmo es Θ(n)
+
+Luego, por el caso maestro, T(n) = Θ(f(n)) = Θ(n)
+Luego T(n) = Θ(n)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Arbol bicolor
+Un arbol binario bicolor es rojinegro valido si y solo si satisface las siguientes 3 propiedades:
+	Todas las hojas son negras
+	Los hijos de un nodo rojo, de haberlos, siempre son negros
+	Todos los caminos (desde la raiz hasta una hoja) contienen la misma cantidad de nodos negros
+
+Escirbir un algoritmo EsRojinegroValido?, basado en la tecnica de dividir y conquistar, que dado un arbol binario bicolor determine si es rojinegro valido
+No visite el mismo nodo multiples veces. Marque claramente en su algoritmo las distintas etapas de la tecnica
+
+Caso base
+si es negro es rojinegro. Si es rojo no lo es
+Esto se debe a que las hojas son negras
+
+Ahora, caso recursivo
+
+Los hijos de un nodo rojo deben ser negros
+
+
+---------------------------------------CODIGO---------------------------------------
+esRojiNegroAux?(raiz puntero<nodo>){
+	
+	if(raiz.hijoIzq == null && raizDer == null){
+		return (raiz.color == "negro" , \Beta(raiz.color == "negro"))
+	}
+	
+	tupla<> recIzq;
+	tupla<> recDer;
+	
+	if(raiz.hijoIzq == null){
+		recIzq = (true, -1)
+	} else{
+			tupla<> recIzq = esRojiNegro(raiz.hijoIzq)
+	}
+	
+	if(raiz.hijoDer == null){
+		recDer = (true, -1)
+	} else {
+		tupla<> redDer = esRojiNegro(raiz.hijoDer)
+	}
+		
+	if(!recIzq_0 || !recDer_0){
+		return (false, 0)
+	}
+	
+	if(llamadaRec1_1 != llamadaRec2_1){
+		return (false, 0)
+	}
+	
+	// Los subarboles son rojinegros. Si la raiz es roja, seguro los dos hijos son nodos negros
+	if(raiz.color == "rojo" && (raiz.hijoIzq.color != "negro" || raiz.hijoDer.color != "negro")){
+		return (false, 0)
+	}
+		
+	int nuevaAltura = \Beta(raiz.color == "negro") + recIzq_1
+	return (true, nuevaAltura)
+	
+}
+
+esRojiNegro?(raiz puntero<nodo>){
+	esRojiNegroAux(raiz)_0
+}
+
+---------------------------------------COMPLEJIDAD---------------------------------------
+La justificacion va por distintos lados. Pero hay que justificarlo
+La idea es justificar por el teorema maestro. Se puede por induccion
+
+T(n) = O(1) si n = 1
+T(n) = aT(n/c) + f(n) si n > 1
+
+el f(n) va a ser O(1) en este caso. Porque:
+	combino tuplas:
+		-> que tupla.1 sea true
+		-> miro tupla.2 y sumo alturas
+		-> no mucho mas
+		Luego f(n) ∈ O(1)
+		
+Definido el c, el a y el f(n) salen los ejercicios de manera directa con el teorema maestro
+Si se que es O(n), aplicando el teorema maestro sale
+
+
+Si te piden una complejidad especificamente:
+	Pensarlo con D&Q
+	Despues ver si encaja con la complejidad
+	Si encaja, bien
+	Si no encaja, acomodo el algoritmo D&Q para encontrar la complejidad pedida
+	
+-> En cuantas partes dividis el problema
+-> Como haces la recursion
+-> Operaciones que haces en cada llamada recursiva
+
+En general como dividis o sabes donde entrar es dificil de que sea distinto. Generalmente siempre es lo mismo

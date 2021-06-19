@@ -4,51 +4,118 @@
 template <typename T>
 string_map<T>::string_map(){
     _raiz = nullptr;
-    _size = 0;
+    _claves = 0;
 }
 
 template <typename T>
-string_map<T>::string_map(const string_map<T>& aCopiar) : string_map() { *this = aCopiar; } // Provisto por la catedra: utiliza el operador asignacion para realizar la copia.
+string_map<T>::string_map(const string_map<T>& aCopiar) : string_map() {
+    *this = aCopiar;
+} // Provisto por la catedra: utiliza el operador asignacion para realizar la copia.
 
 template <typename T>
 string_map<T>& string_map<T>::operator=(const string_map<T>& d) {
-    assert(false);
+    destruirNodos(this->_raiz);
+    if(d._raiz != nullptr){
+        agregarSubNodos(this->_raiz, d._raiz);
+    }
+    this->_claves = d._claves;
+    return *this;
+}
+// Asignar a raiz un nodo si d._raiz no es null
+// Cuando haces el operador =. La post condicion es que el dicc quede igual al recibido por parametro
+// Previo: Destruir todos los nodos de mi dicc actual
+template<typename T>
+void string_map<T>::agregarSubNodos(Nodo*& actual, const Nodo* copia) {
+
+    if(copia != nullptr){
+        if(actual == nullptr){
+            Nodo* nodo = new Nodo();
+            actual = nodo;
+        }
+        if(copia->definicion != nullptr){
+            T* t = new T(*copia->definicion);
+            actual->definicion = t;
+        }
+        int indice = 0;
+        while(indice < copia->siguientes.size()){
+            if(copia->siguientes[indice] != nullptr){
+                agregarSubNodos(actual->siguientes[indice], copia->siguientes[indice]);
+            }
+            indice++;
+        }
+    }
 }
 
 template <typename T>
 string_map<T>::~string_map(){
-    // COMPLETAR
+    if(_raiz != nullptr) {
+        int indice = 0;
+        while(indice < _raiz->siguientes.size()){
+            if(_raiz->siguientes[indice] != nullptr){
+                destruirNodos(_raiz->siguientes[indice]);
+            }
+            indice++;
+        }
+        if(_raiz->definicion != nullptr ){
+            delete _raiz->definicion;
+        }
+        _raiz->siguientes.clear();
+        delete _raiz;
+        _claves = 0;
+    }else{
+        delete _raiz;
+        _claves = 0;
+    }
 }
 
 template<typename T>
-void string_map<T>::insert(const pair<string, T> & value) {
+void string_map<T>::destruirNodos(Nodo*& nodo){
+    int indice = 0;
+    if(nodo != nullptr){
+        while(indice < nodo->siguientes.size()){
+            if(nodo->siguientes[indice] != nullptr){
+                destruirNodos(nodo->siguientes[indice]);
+            }
+            indice++;
+        }
+        if(nodo->definicion!= nullptr){
+            delete nodo->definicion;
+            this->_claves--;
+        }
+        delete nodo;
+    }
+}
+
+template<typename T>
+void string_map<T>::insert(const pair<string, T>& value) {
     insertAux(_raiz, value, 0);
 }
 
 template <typename T>
-T& string_map<T>::operator[](const string& clave){
+T& string_map<T>::operator[](const string& clave) {
     assert(false);
 }
 
-
 template <typename T>
 int string_map<T>::count(const string& clave) const{
-    if(clave.size() > 0){
-        Nodo* actual = _raiz;
-        int indice = 0;
-        char leter = clave[indice];
+    if(_raiz != nullptr) {
+        if (clave.size() > 0) {
+            Nodo *actual = _raiz;
+            int indice = 0;
+            int ASCIIcode = clave[indice] - 97;
 
-        while(actual != nullptr){
-            if(actual->siguientes[(int) leter] != nullptr){
-                actual = actual->siguientes[(int) leter];
-                indice++;
-                leter = clave[indice];
-            }else{
-                return false;
-            };
-        }
-        if(indice == clave.size() - 1 && actual->definicion){
-            return 1;
+            while (actual != nullptr && indice < clave.size()) {
+                if (actual->siguientes[ASCIIcode] != nullptr) {
+                    actual = actual->siguientes[ASCIIcode];
+                    indice++;
+                    ASCIIcode = clave[indice] - 97;
+                } else {
+                    return 0;
+                };
+            }
+            if (indice == clave.size() && actual->definicion != nullptr) {
+                return 1;
+            }
         }
     }
     return 0;
@@ -56,22 +123,51 @@ int string_map<T>::count(const string& clave) const{
 
 template <typename T>
 const T& string_map<T>::at(const string& clave) const {
-    assert(false);
+    if(clave.size() > 0){
+        Nodo* actual = _raiz;
+        int indice = 0;
+        int ASCIIcode = clave[indice] - 97;
+
+        while(actual != nullptr || indice < clave.size()){
+            if(actual->siguientes[ASCIIcode] != nullptr){
+                actual = actual->siguientes[ASCIIcode];
+                indice++;
+                ASCIIcode = clave[indice] - 97;
+            }else{
+                return nullptr;
+            };
+        }
+        if(indice == clave.size() && actual->definicion){
+            return 1;
+        }
+    }
+    return nullptr;
 }
 
 template <typename T>
 T& string_map<T>::at(const string& clave) {
-    assert(false);
+    Nodo* actual = _raiz;
+    int indice = 0;
+    int ASCIIcode = clave[indice] - 97;
+
+    while(indice < clave.size()){
+        if(actual->siguientes[ASCIIcode] != nullptr){
+            actual = actual->siguientes[ASCIIcode];
+            indice++;
+            ASCIIcode = clave[indice] - 97;
+        }
+    }
+    return *actual->definicion;
 }
 
 template <typename T>
 void string_map<T>::erase(const string& clave) {
-    assert(false);
+    eraseAux(this->_raiz, this->_raiz, clave, 0, (int) clave[0]);
 }
 
 template <typename T>
 int string_map<T>::size() const{
-    assert(false);
+    return _claves;
 }
 
 template <typename T>
@@ -84,24 +180,58 @@ bool string_map<T>::empty() const{
 
 template<typename T>
 void string_map<T>::insertAux(Nodo*& root, const pair<string, T>& definition, int index) {
-    if(index == definition.first.size() - 1) {
+    if(index == definition.first.size()) {
         // Nodos nulos
         if(root == nullptr){
             Nodo* nodo = new Nodo();
             root = nodo;
-            T data = definition.second;
-            root->definicion = definition.second;
+            root->definicion = new T(definition.second);
+            _claves++;
         } else {
         // Nodos no nulos
-            root->definicion = definition.second;
+            root->definicion = new T(definition.second);
         }
     }else{
-        int ASCIIcode = definition.first[index];
+        int ASCIIcode = definition.first[index] - 97;
         // Si el nodo es nulo, creo uno nuevo
         if(root == nullptr){
             Nodo* nodo = new Nodo();
             root = nodo;
         }
         insertAux(root->siguientes[ASCIIcode], definition, index+1);
+    }
+}
+
+template<typename T>
+void string_map<T>::eraseAux(Nodo*& root, Nodo*& buscado, const string& clave, int index, int deleteASCII){
+    if(buscado != nullptr){
+
+    }
+    bool hayUno = false;
+    int ASCIIcode = clave[index] - 97;
+    if(index == clave.size()){
+
+        if(root){
+            cout << "Odio los tries" << endl;
+        }
+
+
+
+    }else{
+        if(buscado->definicion != nullptr){
+            hayUno = true;
+        }
+        int i = 0;
+        while(i < buscado->siguientes.size() && !hayUno){
+            if(buscado->siguientes[i] != nullptr && i != ASCIIcode){
+                hayUno = true;
+            }
+            i++;
+        }
+        if(hayUno){
+            eraseAux(buscado, buscado->siguientes[ASCIIcode], clave, index + 1, ASCIIcode);
+        }else{
+            eraseAux(root, buscado->siguientes[ASCIIcode], clave, index + 1, deleteASCII);
+        }
     }
 }

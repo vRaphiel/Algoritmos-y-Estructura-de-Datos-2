@@ -1,0 +1,27 @@
+Dado un arreglo montaña de longitud n, queremos encontrar al máximo
+
+Pensamos que caracteristicas tiene el problema:
+	Como tenemos el maximo en el medio. Podemos usar D&Q
+	-> Pensamos dividir a la mitad
+		-> Una mitad hasta 30, la otra mitad a partir de la mitad
+	Dividimos el arreglo en 2 partes. Por ende, tengo C = 2
+	Me fijo si proceso las 2 partes o una sola
+	|a| = 10
+	La mitad es m = 10/2 = 5
+	Me fijo bien que quiero cortar
+	Supongo que me quedo con los elementos del 0 al 5 exclusive (id = 0 .... 5)
+	
+	Ahora me fijo que informacion saco. Tomo el 5 como referencia
+	1) m - 1 mayor
+	2) m - 1 menor
+
+	Si estoy en el caso m-1 mayor, estoy en la parte decreciente entonces hago recursion en r(p₁)
+	Si estoy en el caso m-1 menor
+		Si es menor, entonces tiene sentido que vaya a buscar en la derecha
+		Si voy a la derecha, puedo encontrar el maximo. Por ende, buscar a izq es absurdo
+		
+	Si tengo el caso:
+	A = [10, 11, 12, -2, -100]
+	m = 5 / 2 = 2 porque tomamos la parte entera
+	1) m - 1 > m => 
+	2) m - 1 < m

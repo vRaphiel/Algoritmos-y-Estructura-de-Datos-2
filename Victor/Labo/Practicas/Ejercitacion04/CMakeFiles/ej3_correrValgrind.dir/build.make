@@ -62,10 +62,10 @@ RM = /cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bi
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04
+CMAKE_SOURCE_DIR = /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04
+CMAKE_BINARY_DIR = /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04
 
 # Utility rule file for ej3_correrValgrind.
 
@@ -90,6 +90,6 @@ CMakeFiles/ej3_correrValgrind.dir/clean:
 .PHONY : CMakeFiles/ej3_correrValgrind.dir/clean
 
 CMakeFiles/ej3_correrValgrind.dir/depend:
-	cd /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej3_correrValgrind.dir/DependInfo.cmake --color=$(COLOR)
+	cd /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej3_correrValgrind.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ej3_correrValgrind.dir/depend
 

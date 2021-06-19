@@ -3,7 +3,6 @@
 
 TEST(string_map_test, vacio) {
     string_map<int> vacio;
-
     EXPECT_TRUE(vacio.empty());
     EXPECT_EQ(vacio.count("hola"), 0);
 }
@@ -12,7 +11,7 @@ TEST(string_map_test, asignar) {
     string_map<int> singleton;
     singleton.insert(make_pair("hola", 1));
     EXPECT_EQ(singleton.at("hola"), 1);
-   // EXPECT_EQ(singleton.size(), 1);
+    EXPECT_EQ(singleton.size(), 1);
 }
 
 TEST(string_map_test, obtener) {
@@ -165,17 +164,13 @@ TEST(string_map_test, TrieDeTries) {
 	EXPECT_EQ(dicc_dicc.at("con_prefijos").at("c"), 1);
 	EXPECT_EQ(dicc_dicc.at("con_prefijos").at("casa"), 2);
 	EXPECT_EQ(dicc_dicc.at("con_prefijos").at("casona"), 3);
-
 }
 
 TEST(string_map_test, eraseUnicaClave) {
     string_map<int> singleton;
     singleton.insert(make_pair("hola", 1));
-
     EXPECT_TRUE(singleton.count("hola") == 1);
-
     singleton.erase("hola");
-
     EXPECT_FALSE(singleton.count("hola") == 1);
 }
 

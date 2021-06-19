@@ -11,129 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1e78df9-8aba-4970-b1fb-9788238e2dce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Practicas/Ejercitacion08/src/string_map.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Practicas/Ejercitacion08/src/string_map.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Practicas/Ejercitacion08/src/string_map.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Practicas/Ejercitacion08/src/string_map.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Practicas/Ejercitacion08/tests/string_map_tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Practicas/Ejercitacion08/tests/string_map_tests.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.16.3/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.16.3/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.16.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.16.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.16.3/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.16.3/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.16.3/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.16.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.16.3/CompilerIdCXX/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeRuleHashes.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/cmake.check_cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej1.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej1.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej1.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej1.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej1.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej1.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej1.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej1.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej1.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej1.dir/src/ConexionJugador.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej1.dir/src/Internet.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej1.dir/src/SistemaDeMensajes.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej1.dir/tests/sdm_tests.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej2_correrValgrind.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej2_correrValgrind.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej2_correrValgrind.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej2_correrValgrind.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej2_correrValgrind.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej2_correrValgrind.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej3.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej3.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej3.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej3.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej3.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej3.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej3.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej3_correrValgrind.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej3_correrValgrind.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej3_correrValgrind.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej3_correrValgrind.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej4.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej4.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej4.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej4.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej4.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej4.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej4.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej5_correrValgrind.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej5_correrValgrind.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej5_correrValgrind.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej5_correrValgrind.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej6.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej6.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej6.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej6.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej6.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej6.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej6.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej7.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej7.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej7.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej7.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej7.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej7.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/ej7.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest.dir/cmake_clean_target.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest.dir/tests/gtest-1.8.1/gtest-all.cc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest_main.dir/CXX.includecache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest_main.dir/DependInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest_main.dir/build.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest_main.dir/cmake_clean.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest_main.dir/cmake_clean_target.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest_main.dir/depend.internal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest_main.dir/depend.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest_main.dir/flags.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest_main.dir/link.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest_main.dir/progress.make" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/gtest_main.dir/tests/gtest-1.8.1/gtest_main.cc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/cmake_install.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ej1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libgtest.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libgtest_main.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConexionJugador.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConexionJugador.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Internet.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Internet.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Proxy.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Proxy.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Proxy2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Proxy2.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SistemaDeMensajes.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SistemaDeMensajes.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/gtest-1.8.1/gtest-all.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/gtest-1.8.1/gtest.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/gtest-1.8.1/gtest_main.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/sdm_tests.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/sdm_tests_bonus.cpp" beforeDir="false" />
-    </list>
+    <list default="true" id="d1e78df9-8aba-4970-b1fb-9788238e2dce" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -160,17 +38,13 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Practicas/Ejercitacion08" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Sandbox" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Sandbox" TARGET_NAME="Sandbox" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Sandbox" RUN_TARGET_NAME="Sandbox">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -191,6 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1623615684443</updated>
       <workItem from="1623615685978" duration="1994000" />
+      <workItem from="1623849510851" duration="20000" />
     </task>
     <servers />
   </component>

@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
 
-The C compiler identification is GNU, found in "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/3.19.2/CompilerIdC/a.exe"
+The C compiler identification is GNU, found in "/cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/3.19.2/CompilerIdC/a.exe"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++.exe 
@@ -23,33 +23,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
 
-The CXX compiler identification is GNU, found in "/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/3.19.2/CompilerIdCXX/a.exe"
+The CXX compiler identification is GNU, found in "/cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/3.19.2/CompilerIdCXX/a.exe"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp
+Change Dir: /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_ca28d/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_ca28d.dir/build.make CMakeFiles/cmTC_ca28d.dir/build
-gmake[1]: Entering directory 'C:/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ca28d.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_ca28d.dir/testCCompiler.c.o -c /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_ca28d.exe
-/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_ca28d.dir/link.txt --verbose=1
-/usr/bin/cc -Wl,--enable-auto-import  CMakeFiles/cmTC_ca28d.dir/testCCompiler.c.o -o cmTC_ca28d.exe -Wl,--out-implib,libcmTC_ca28d.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
-gmake[1]: Leaving directory 'C:/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
+Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_1e777/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_1e777.dir/build.make CMakeFiles/cmTC_1e777.dir/build
+gmake[1]: Entering directory 'C:/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1e777.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_1e777.dir/testCCompiler.c.o -c /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_1e777.exe
+/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_1e777.dir/link.txt --verbose=1
+/usr/bin/cc -Wl,--enable-auto-import  CMakeFiles/cmTC_1e777.dir/testCCompiler.c.o -o cmTC_1e777.exe -Wl,--out-implib,libcmTC_1e777.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+gmake[1]: Leaving directory 'C:/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
 
 
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp
+Change Dir: /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_745c6/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_745c6.dir/build.make CMakeFiles/cmTC_745c6.dir/build
-gmake[1]: Entering directory 'C:/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_745c6.dir/testCXXCompiler.cxx.o
-/usr/bin/c++.exe    -o CMakeFiles/cmTC_745c6.dir/testCXXCompiler.cxx.o -c /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_745c6.exe
-/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_745c6.dir/link.txt --verbose=1
-/usr/bin/c++.exe -Wl,--enable-auto-import  CMakeFiles/cmTC_745c6.dir/testCXXCompiler.cxx.o -o cmTC_745c6.exe -Wl,--out-implib,libcmTC_745c6.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
-gmake[1]: Leaving directory 'C:/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
+Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_554c4/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_554c4.dir/build.make CMakeFiles/cmTC_554c4.dir/build
+gmake[1]: Entering directory 'C:/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_554c4.dir/testCXXCompiler.cxx.o
+/usr/bin/c++.exe    -o CMakeFiles/cmTC_554c4.dir/testCXXCompiler.cxx.o -c /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_554c4.exe
+/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_554c4.dir/link.txt --verbose=1
+/usr/bin/c++.exe -Wl,--enable-auto-import  CMakeFiles/cmTC_554c4.dir/testCXXCompiler.cxx.o -o cmTC_554c4.exe -Wl,--out-implib,libcmTC_554c4.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+gmake[1]: Leaving directory 'C:/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
 
 
 

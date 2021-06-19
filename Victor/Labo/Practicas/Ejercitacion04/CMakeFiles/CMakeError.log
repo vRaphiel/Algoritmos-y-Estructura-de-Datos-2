@@ -1,23 +1,23 @@
 Detecting C compiler ABI info failed to compile with the following output:
-Change Dir: /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp
+Change Dir: /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_52f05/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_52f05.dir/build.make CMakeFiles/cmTC_52f05.dir/build
-gmake[1]: Entering directory 'C:/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
-gmake[1]: *** No rule to make target '/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/share/cmake-3.19.2/Modules/CMakeCCompilerABI.c', needed by 'CMakeFiles/cmTC_52f05.dir/CMakeCCompilerABI.c.o'.  Stop.
-gmake[1]: Leaving directory 'C:/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
-gmake: *** [Makefile:140: cmTC_52f05/fast] Error 2
+Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_f455d/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_f455d.dir/build.make CMakeFiles/cmTC_f455d.dir/build
+gmake[1]: Entering directory 'C:/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
+gmake[1]: *** No rule to make target '/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/share/cmake-3.19.2/Modules/CMakeCCompilerABI.c', needed by 'CMakeFiles/cmTC_f455d.dir/CMakeCCompilerABI.c.o'.  Stop.
+gmake[1]: Leaving directory 'C:/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_f455d/fast] Error 2
 
 
 
 
 Detecting CXX compiler ABI info failed to compile with the following output:
-Change Dir: /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp
+Change Dir: /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_e1971/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_e1971.dir/build.make CMakeFiles/cmTC_e1971.dir/build
-gmake[1]: Entering directory 'C:/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
-gmake[1]: *** No rule to make target '/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/share/cmake-3.19.2/Modules/CMakeCXXCompilerABI.cpp', needed by 'CMakeFiles/cmTC_e1971.dir/CMakeCXXCompilerABI.cpp.o'.  Stop.
-gmake[1]: Leaving directory 'C:/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
-gmake: *** [Makefile:140: cmTC_e1971/fast] Error 2
+Run Build Command(s):/cygdrive/c/Strawberry/c/bin/gmake.exe cmTC_d5a55/fast && C:/Strawberry/c/bin/gmake  -f CMakeFiles/cmTC_d5a55.dir/build.make CMakeFiles/cmTC_d5a55.dir/build
+gmake[1]: Entering directory 'C:/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
+gmake[1]: *** No rule to make target '/cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/share/cmake-3.19.2/Modules/CMakeCXXCompilerABI.cpp', needed by 'CMakeFiles/cmTC_d5a55.dir/CMakeCXXCompilerABI.cpp.o'.  Stop.
+gmake[1]: Leaving directory 'C:/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:140: cmTC_d5a55/fast] Error 2
 
 
 

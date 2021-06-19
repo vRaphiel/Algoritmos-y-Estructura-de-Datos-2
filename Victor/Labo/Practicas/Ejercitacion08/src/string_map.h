@@ -83,14 +83,17 @@ private:
     struct Nodo {
         vector<Nodo*> siguientes;
         T* definicion;
-        Nodo() : siguientes(256, nullptr), definicion(nullptr) {}
-        Nodo(T* def) : siguientes(256, nullptr), definicion(def) {}
+        Nodo() : siguientes(26, nullptr), definicion(nullptr) {}
+        Nodo(T* def) : siguientes(26, nullptr), definicion(def) {}
     };
 
     Nodo* _raiz;
-    int _size;
+    int _claves;
 
     void insertAux(Nodo*&, const pair<string, T>&, int index);
+    void agregarSubNodos(Nodo*&, const Nodo*);
+    void destruirNodos(Nodo*&);
+    void eraseAux(Nodo*&, Nodo*&, const string&, int, int);
 };
 
 #include "string_map.hpp"

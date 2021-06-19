@@ -62,10 +62,10 @@ RM = /cygdrive/c/Users/victo/AppData/Local/JetBrains/CLion2021.1/cygwin_cmake/bi
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04
+CMAKE_SOURCE_DIR = /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04
+CMAKE_BINARY_DIR = /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ej3.dir/depend.make
@@ -78,55 +78,55 @@ include CMakeFiles/ej3.dir/flags.make
 
 CMakeFiles/ej3.dir/tests/sdm_tests.cpp.o: CMakeFiles/ej3.dir/flags.make
 CMakeFiles/ej3.dir/tests/sdm_tests.cpp.o: tests/sdm_tests.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ej3.dir/tests/sdm_tests.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej3.dir/tests/sdm_tests.cpp.o -c /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/tests/sdm_tests.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ej3.dir/tests/sdm_tests.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej3.dir/tests/sdm_tests.cpp.o -c /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/tests/sdm_tests.cpp
 
 CMakeFiles/ej3.dir/tests/sdm_tests.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ej3.dir/tests/sdm_tests.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/tests/sdm_tests.cpp > CMakeFiles/ej3.dir/tests/sdm_tests.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/tests/sdm_tests.cpp > CMakeFiles/ej3.dir/tests/sdm_tests.cpp.i
 
 CMakeFiles/ej3.dir/tests/sdm_tests.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ej3.dir/tests/sdm_tests.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/tests/sdm_tests.cpp -o CMakeFiles/ej3.dir/tests/sdm_tests.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/tests/sdm_tests.cpp -o CMakeFiles/ej3.dir/tests/sdm_tests.cpp.s
 
 CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.o: CMakeFiles/ej3.dir/flags.make
 CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.o: src/SistemaDeMensajes.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.o -c /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/SistemaDeMensajes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.o -c /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/SistemaDeMensajes.cpp
 
 CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/SistemaDeMensajes.cpp > CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/SistemaDeMensajes.cpp > CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.i
 
 CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/SistemaDeMensajes.cpp -o CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/SistemaDeMensajes.cpp -o CMakeFiles/ej3.dir/src/SistemaDeMensajes.cpp.s
 
 CMakeFiles/ej3.dir/src/Internet.cpp.o: CMakeFiles/ej3.dir/flags.make
 CMakeFiles/ej3.dir/src/Internet.cpp.o: src/Internet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ej3.dir/src/Internet.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej3.dir/src/Internet.cpp.o -c /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/Internet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ej3.dir/src/Internet.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej3.dir/src/Internet.cpp.o -c /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/Internet.cpp
 
 CMakeFiles/ej3.dir/src/Internet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ej3.dir/src/Internet.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/Internet.cpp > CMakeFiles/ej3.dir/src/Internet.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/Internet.cpp > CMakeFiles/ej3.dir/src/Internet.cpp.i
 
 CMakeFiles/ej3.dir/src/Internet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ej3.dir/src/Internet.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/Internet.cpp -o CMakeFiles/ej3.dir/src/Internet.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/Internet.cpp -o CMakeFiles/ej3.dir/src/Internet.cpp.s
 
 CMakeFiles/ej3.dir/src/ConexionJugador.cpp.o: CMakeFiles/ej3.dir/flags.make
 CMakeFiles/ej3.dir/src/ConexionJugador.cpp.o: src/ConexionJugador.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ej3.dir/src/ConexionJugador.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej3.dir/src/ConexionJugador.cpp.o -c /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/ConexionJugador.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ej3.dir/src/ConexionJugador.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ej3.dir/src/ConexionJugador.cpp.o -c /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/ConexionJugador.cpp
 
 CMakeFiles/ej3.dir/src/ConexionJugador.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ej3.dir/src/ConexionJugador.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/ConexionJugador.cpp > CMakeFiles/ej3.dir/src/ConexionJugador.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/ConexionJugador.cpp > CMakeFiles/ej3.dir/src/ConexionJugador.cpp.i
 
 CMakeFiles/ej3.dir/src/ConexionJugador.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ej3.dir/src/ConexionJugador.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/src/ConexionJugador.cpp -o CMakeFiles/ej3.dir/src/ConexionJugador.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/src/ConexionJugador.cpp -o CMakeFiles/ej3.dir/src/ConexionJugador.cpp.s
 
 # Object files for target ej3
 ej3_OBJECTS = \
@@ -146,7 +146,7 @@ ej3.exe: CMakeFiles/ej3.dir/build.make
 ej3.exe: libgtest.a
 ej3.exe: libgtest_main.a
 ej3.exe: CMakeFiles/ej3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ej3.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ej3.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ej3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -159,6 +159,6 @@ CMakeFiles/ej3.dir/clean:
 .PHONY : CMakeFiles/ej3.dir/clean
 
 CMakeFiles/ej3.dir/depend:
-	cd /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/zPersonal/Facultad/AED2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej3.dir/DependInfo.cmake --color=$(COLOR)
+	cd /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04 /cygdrive/c/Users/victo/Documents/Proyects/Facultad/Algo2/Victor/Labo/Practicas/Ejercitacion04/CMakeFiles/ej3.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ej3.dir/depend
 

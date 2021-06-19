@@ -1,0 +1,36 @@
+Dada una secuencia de n enteros, se desea encontrar el maximo valor que se puede obtener sumando elementos contiguos
+
+Se debe conseguir en O(n log n) con D&Q
+Dado:
+	A = [3, -1, 4, 8, -2, 2, -7, 5]
+	m = 8/2 = 4
+	
+	Si dividimos en dos partes, estamos dejando de lado el caso de tomar un arreglo del medio
+	Esto es similar al problema de encontrar puntos en la teorica
+	
+	Dividimos el arreglo a la mitad hasta llegar a un arreglo de 1 elemento
+	Entonces tengo una secuencia de 1 elemento
+	Parto en 2 pedazos la instancia del problema. Dentro de cada parte divido devuelta hasta el caso base
+	Caso Base: Arreglo de un elemento. El elemento ahi dentro es el maximo
+	¿Con que nos quedamos? ¿Que haria el combinar?
+	
+	[3],[-1],[4],[8]
+	Haciendo la combinacion me quedo con los maximos entre varios
+	[3] [8] = [3 + 8]
+	
+	Repetimos lo mismo del otro lado del arreglo
+	Que pasa con el medio?
+	Abarcan las 2 mitrades
+	
+	No podemos decir que peude ser cualqueir subsecuencia. Necesita ser un rango de posiciones del medio
+	Es decir, debo pasar por el medio especificamente
+	
+	Si tengo el medio. Tomo el medio y me fijo el valor maximo al sumar todos
+	
+No puedo safar con O(n) por recorrer la secuencia
+SumaAlMedio(A) ->  int
+	Voy  un lado, al otro y me quedo con ambos
+	SumaHaciaDercha(A[n/2...n])
+	SumaHaciaDerecha(reverso(A[0...n/2]))
+	
+	
