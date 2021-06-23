@@ -1,0 +1,113 @@
+Ordenamiento:
+1 -> No puedo suar arreglos ni vectores
+2 -> Nombres acotados
+3 -> Ventas menores a 100000
+4 -> Complejidad O(n)
+
+Recorrer el arreglo de ventas es O(n)
+Armar un diccTrie es O(1)
+Puedo armar un diccionario de tries donde me diga la cantidad de ventas que hizo el vendedor
+Como los nombres son acotados la busqueda será acotada de a lo sumo |k| longitud, resumiendose a O(1) la busqueda
+
+Ahora, el problema está en que hago con los elementos de cada uno
+Puedo hacer que en el trie se coloque una tupla. En la misma tupla tenga, cantidad y un arreglo de ventas. Pero arreglos no puedo utilizar. Entonces puedo hacer una lista
+En esta se colocaran los elementos
+Crear una lista es O(1) y añadir atras es O(1). 0 problema
+Listo, tengo esta idea en mente
+Un diccTrie donde guardo por claves el nombre y por significado una tupla y los elementos
+Tambien necesito una referencia a quienes tienen mayores cantidades de ventas porque si no, la busqueda de estos en el trie sera en O(n) 
+Me sirve tambien, tengo que traer igualmente a todos. 
+Yo no se la cantidad de ventas que hacen los empleados. Porque puede hacer 1 o muchas ventas y estas pueden ser distintas. Definir un arreglo no se puede a demas el enunciado no me lo permite
+Bucket Sort
+
+ordenarVentas(in ventas: arreglo(venta)) -> res: arreglo(venta)
+	vendedores <- crearDiccTrie()									// O(1)
+	
+	for v in ventas do														// O(n)
+		definir(vendedores, π₁(v), <0, vacio())			// O(1)
+	end 
+	
+	for v in ventas do																					// O(n)
+		tupla<int, lista()> datos <- obtener(vendedores, π₁(v))		// O(1)
+		datos <- <π₁(datos) + 1, agregarAtras(π₂(datos), π₂(v))>	// O(1)
+		definir(vendedores, π₁(v), )datos)
+	end
+	
+	arreglo(lista()) buckets <- #claves(vendedores)							// O(n)
+	it <- crearItDiccTrie()																			// O(1)
+	while haySiguiente(it) do																		// O(m)
+		agregarAtras(buckets[π₁(significado(siguiente(it), d)) - 1], π₂(significado(siguiente(it), d)))	// O(1)
+		avanzar(it)																																											// O(1)
+	end
+	
+	for i <- 0 to n - 1 do																			// O(sum_{i=0}^{n-1} b_i) = O(n)
+		radixSort(buckets[i])																			// O(b)
+		i <- i + 1 																								// O(1)
+	end for
+	
+	concatenarArregloAlreves(buckets)														// O(n)
+	
+Puedo usar radixsort porque los numeros tienen a lo sumo 100000 como valor maximo. Entonces se que puedo ordenar correctamente
+sin que la complejidad se vaya a las nuubes
+
+Ejercicio D&C
+Arbol Binario de Booleanos
+#FalsosIzq <= #FalsosDer - 1
+Complejidad O(n)
+n es la cantidad de nodos del arbol sin importar si está o no balanceado
+Estar equilibrado ≠ Estar balanceado
+
+Tematica D&C
+Caso base: 
+	-> No tengo nodos
+	-> Hay nodo y hay al menos 1 hoja en izquierda que es falsa y en derecha puede ser nil
+
+Caso recursivo
+	-> Tomo un nodo y valido que la cantidad de hijos izquierdos difiera en a lo sumo 1 de hijos derechos
+		-> Por cada rama que haya debo contar los verdaderos y los falsos
+		-> Comparo, que la cantidad de izquierdos falsos sea verdaderos derechos. A lo sumo en 1
+
+esArbolBooleano(in arbol: ab(bool)) -> res: bool
+	res <- π₁(estaEquilibradoAux?(arbol))
+	
+
+estaEquilibradoAux?(in a: arbol(bool)) -> res: <bool, nat, nat>
+	if nil?(arbol) then
+		<true, 0, 0>
+	else
+		der <- estaEquilibradoAux?(der(arbol))
+		izq <- estaEquilibradoAux?(izq(arbol))
+		
+		if π₁(der) || π₁(izq) then
+			return <false, 0, 0>
+		else
+			if π₃(izq) + 1 = π₂(der) || π₃(izq) - 1 = π₂(der) || π₃(izq) = π₂(der)
+				if raiz(a) = true
+					return <true, 1 + π₂(izq) + π₂(der), π₃(izq) + π₃(der) >
+				else
+					return <true, π₂(izq) + π₂(der), π₃(izq) + π₃(der) >
+				end if
+			else
+				return <false, 0, 0>	
+		end if
+	end if
+	
+	Por el teorema maestro, yo se que voy a dividir el arbol en dos partes, es decir a=2, c=2 pues uso las dos
+	T(n) = 2 * T(n/2) + f(n)
+	La funcion recursiva la uso la misma cantidad de veces que la f(n) entonces caigo en el caso 2
+	Luego
+	T(n) = 2*T(n/2) + O(1) = T(n) ∈ O(n)
+	
+	Si el arbol no está balanceado
+	T(n) ∈ O(n) ⇐⇒ ∃ c, n₀ | n ≥ n₀ => T(n) ≤ cn
+	T(n) = T(izq) + T(der) + O(1)
+		≤ c1.n_izq + c2.n_der
+		≤ max(c1, c2) * n_izq + max(c1, c2) * n_der
+		= max(c1, c2)*(n_izq + n_der)
+		= max(c1, c2) * (n-1)
+		≤ max(c1, c2) * n
+		max(c1, c2) es cte
+		Luego T(n) ∈ O(n)
+		
+	
+	

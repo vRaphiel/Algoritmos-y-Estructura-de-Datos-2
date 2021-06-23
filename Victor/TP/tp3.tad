@@ -1,0 +1,475 @@
+MODULO MAPA
+1) Interfaz
+	Parámetros formales:
+		Géneros:	α
+	Se explica con:	Mapa
+	Géneros: mapa
+	
+Operaciones básicas:
+	nuevoMapa(in largo: nat, in alto: nat, in inicio:coordenada, in llegada:coordenada, in paredes: matriz(boolean), in fantasmas: matriz(boolean), in chocolates: array(Coordenada))	-> res: Mapa
+	Pre ≡ {inicio ≠ llegada ∧ todosEnRango(paredes ∪ fantasmas ∪ chocolates ∪ {inicio, llegada}, largo, alto)
+				∧ {inicio, llegada} ∩ (fantasmas ∪ paredes) = Ø ∧ disjuntosDeAPares(paredes, fantasmas, chocolates)}
+	Post ≡ {res =obs crearMapa(largo, alto, inicio, llegada, paredes, fantasmas, chocolates)}
+	Complejidad: Θ(1) 		//Es la sumatoria de la copia de todos los parámetros.
+	Descripción: Genera un nuevo mapa.
+	Aliasing: Devuelve una referencia del nuevo mapa.
+	---
+	distancia(in pos₁: coordenada, in pos₂: coordenada)	-> res: nat
+	Pre ≡ {true}
+	Post ≡ {res =obs distancia(pos₁, pos₂)}
+	Complejidad: Θ(1)
+	Descripción: Indica la distancia entre pos₁ a pos₂, es decir, los movimientos necesarios para llegar de pos₁ a pos₂.
+	Aliasing: No presenta aspectos de aliasing.
+	---
+	tieneFantasmaCercano(in fantasmas: matriz(boolean), in pos: coordenada)	-> res: boolean
+	Pre ≡ {true}
+	Post ≡ {res =obs distConFantasmaMasCercano(fantasmas, pos) <= 3}
+	Complejidad: Θ(1)
+	Descripción: Indica si la distancia entre la posición actual del jugador y el fantasma más cercano es menor o igual a 3.
+	Aliasing: No presenta aspectos de aliasing.
+	---
+
+--------------------------------------------------------------------------------	
+2) Implementación
+a) Representación:
+	Mapa se representa con estr_mapa, 
+		donde estr_mapa es tupla ⟨ tamaño:	tupla⟨largo: nat, alto: nat⟩,
+															inicioLlegada: tupla⟨inicio: coordenada, llegada: coordenada⟩,
+															paredes: matriz(boolean),  
+															fantasmas: matriz(boolean),   
+															chocolates: array(coordenada) ⟩ 
+																									
+	donde paredes, fantasmas y chocolates son diccionarios implementados sobre Tries, donde cada nivel es un eje de coordenada con la cardinalidad de dicho nivel igual a alto/ancho, y el significado de cada hoja es la coordenada formada por los nodos que llevan hasta esa hoja. 
+b) Invariante de representación:
+		-	Todas las columnas de paredes tienen un tamaño igual a tamaño.alto y todas las filas un tamaño igual a tamaño.largo
+		-	Todas las columnas de fantasmas tienen un tamaño igual a tamaño.alto y todas las filas un tamaño igual a tamaño.largo
+		-	El tamaño de chocolates no puede superar tamaño.alto*tamaño.largo
+		-	No puede haber coordenadas presentes en paredes que estén en fantasmas ni en chocolates.
+		-	No puede haber coordenadas presentes en fantasmas que estén en paredes ni en chocolates.
+		-	No puede haber coordenadas presentes en chocolates que estén en paredes ni en fantasmas.
+		-	Tanto el inicio como la llegada de inicioLlegada deben estar contenidas entre 0 y alto/ancho según corresponda
+
+c) Función de abstracción:
+	Abs:	estr	->	Mapa	{Rep(e)}
+	(∀e: estr) Abs(e) =obs m: Mapa | (1)∧(2)∧(3)∧(4)∧(5)∧(6)∧(7)
+		donde:
+		(1)	≡	largo(m) = π₁(e.tamaño)
+		(2)	≡	alto(m) = π₂(e.tamaño)
+		(3)	≡	inicio(m) = π₁(e.inicioLlegada)
+		(4)	≡	llegada(m) = π₂(e.inicioLlegada)
+		(5)	≡ (∀p: coordenada)( p ∈ paredes(m) ⇐⇒ e.paredes[p.x][p.y])
+		(6)	≡	(∀f: coordenada)( f ∈ fantasmas(m) ⇐⇒ e.fantasmas[f.x][f.y])
+		(7)	≡	(∀c: coordenada)( c ∈ chocolates(m) ⇐⇒ (∃ i : nat)(0 ≤ i ≤ e.chocolates.length ∧L e.chocolates[i] = c)
+		
+d) Algoritmos del módulo:
+
+		iNuevoMapa(in largo: nat, in alto: nat, in inicio:coordenada, in llegada:coordenada, in paredes: matriz(boolean), in fantasmas: matriz(boolean), in chocolates:array(coordenada)) -> res: estr_mapa{
+			res <- nuevoMapa(largo, alto, inicio, llegada, paredes, fantasmas, chocolates)
+			estr_mapa.tamaño.largo <- largo
+			estr_mapa.tamaño.alto <- alto
+			estr_mapa.inicioLlegada.inicio <- inicio									//por referencia no modificable -- O(1)
+			estr_mapa.inicioLlegada.llegada <- llegada								//por referencia no modificable -- O(1)
+			estr_mapa.paredes <- paredes															//por referencia no modificable -- O(1)
+			estr_mapa.fantasmas <- fantasmas													//por referencia no modificable -- O(1)
+			estr_mapa.chocolates <- chocolates												//por referencia no modificable -- O(1)
+			res <- estr_mapa
+		}
+			
+		iDistancia(in pos₁: coordenada, in pos₂: coordenada)	-> res: nat	{
+			res <- | π₁(pos₁) - π₁(pos₂) | + | π₂(pos₁) - π₂(pos₂) |		//O(1) al ser operaciones constantes
+		}	
+	
+		iTieneFantasmaCercano(in fantasmas: matriz(boolean), in pos: coordenada)	-> res: boolean {
+			iInicial <- pos.x - 3;
+			iFinal <- pos.x + 3
+			jInicial <- pos.y - 3; 
+			jFinal <- pos.y + 3
+			
+			res <- false;
+			
+			for(int i=iInicial; i ≤ iFinal; i++) {    // O(7) -> O(1)
+				for(int j=jInicial; i ≤ jFinal; j++) {   // O(7) -> O(1)
+					if (iDistancia(pos, <i, j>) ≤ 3) {
+						res <- res || fantasmas[i][j];
+					}
+ 				}
+			}   
+		}
+			
+			
+3) Servicios usados:
+Módulo Direccion, ENUM{ARRIBA, ABAJO, IZQUIERDA, DERECHA}
+Coordenada es tupla(nat, nat)
+Módulo diccTrie:
+	Es un diccionario que implementa Tries, las claves son del tipo pasadoen el primer parámetro (cada nivel representa una posición en esa clave) y el significado de cada hoja contiene el valor pasado en el segundo parámetro en su definición. 
+	Ejemplo: fantasmas: diccTrie(nat, coordenada) ---> diccTrie cuyas claves son naturales (cada nivel es una posición en las cifras y cada hoja contiene una coordenada donde hay un fantasma)
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+MODULO PARTIDA
+
+1) Interfaz
+Parámetros formales
+	Géneros:	α
+Se explica con:	Partida
+Géneros: mapa, partida
+
+Operaciones básicas:
+	nuevaPartida(in m: mapa)	-> res: partida
+	Pre ≡ {true}
+	Post ≡ {res =obs nuevaPartida(m)}
+	Complejidad: Θ(1)
+	Descripción: Genera una nueva partida.
+	Aliasing: No presenta aspectos de aliasing.
+	---		
+	mover(in/out p: partida, in d: direccion)	-> res: bool
+	Pre ≡ {p = p₀ ∧L ¬ ganó(p) ∧ ¬ perdió(p)}
+	Post ≡ {res = true <-> (posMovimiento(p, d) = siguienteMovimiento(p, d)) ∧L p =obs mover(p, d)}
+	Complejidad: Θ(1)
+	Descripción: Indica si el movimiento es válido y, si lo es, devuelve el mapa actualizado con el mismo.
+	Aliasing: Devuelve una referencia de la nueva partida con su respectivo nuevo mapa.
+	---		
+	ganó?(in p: partida)	-> res: bool
+	Pre ≡ {true}
+	Post ≡ {res = true <-> ganó(p)}
+	Complejidad: Θ(1)
+	Descripción: Indica si el jugador ganó la partida actual.
+	Aliasing: No presenta aspectos de aliasing.
+	---
+	perdió?(in p: partida)	-> res: bool
+	Pre ≡ {true}
+	Post ≡ {res = true <-> perdió(p)}
+	Complejidad: Θ(1)
+	Descripción: Indica si el jugador perdió la partida actual.
+	Aliasing: No presenta aspectos de aliasing.
+	---		
+	siguienteMovimiento(in p: partida, in d: direccion)	-> res: coordenada
+	Pre ≡ {true}
+	Post ≡ {res =obs siguienteMovimiento(p, d)}
+	Complejidad: Θ(1)
+	Descripción: Devuelve la posición que ocupará el jugador luego de moverse en la dirección d: se mantiene en la misma si la posición de movimiento es una pared o está fuera de rango y se moverá a la posición de movimiento en caso contrario.
+	Aliasing: No presenta aspectos de aliasing.
+	---
+	posMovimiento(in c: coordenada, in d: direccion)	-> res: coordenada
+	Pre ≡ {true}
+	Post ≡ {res =obs posMovimiento(c, d)}
+	Complejidad: Θ(1)
+	Descripción: Devuelve la siguiente coordenada a la que se moverá el jugador luego de moverse en la dirección indicada.
+	Aliasing: No presenta aspectos de aliasing.
+	---		
+	restringirMovimiento(in p: partida, in c: coordenada)	-> res: coordenada
+	Pre ≡ {true}
+	Post ≡ {res =obs restringirMovimiento(p, c)}
+	Complejidad: Θ(1) // Pues realiza una comparación lógica que no depende de ningún parámetro.
+	Descripción: Si la nueva coordenada se pasa del límite del mapa, devuelve la posición anterior del jugador. Si no, devuelve la nueva posición del mismo.
+	Aliasing: No presenta aspectos de aliasing.
+
+--------------------------------------------------------------------------------
+2) Implementación
+a) Representación:
+	Partida se representa con estr_partida donde
+		estr_partida es tupla ⟨	mapa:	mapa,
+														posJugador: coordenada,
+														posChocolates: matriz(boolean),
+														movimientos: nat,
+														movDeInmunidad: nat,
+														ganó: bool,
+														perdió: bool ⟩
+
+b) Invariante de Representación:
+	- e.posJugador debe ser una posición válida dentro del mapa, es decir, debe estar dentro de las coordenadas que delimita el mismo.
+	- Si e.posChocolates[e.posJugador.x][e.posJugador.y] entonces e.movDeInmunidad debe ser igual a 10.
+	- e.posJugador no puede coincidir con ninguna coordenada presente en mapa.paredes.
+	- e.posJugador no puede coincidir con ninguna coordenada presente en mapa.fantasmas.
+	- Si mapa.iTieneFantasmaCercano(mapa.fantasmas, e.posJugador), e.movDeInmunidad = 0 y e.posJugador ≠ mapa.llegada, entonces la posición de la tupla "perdió", la cual indica si el jugador perdió, debe ser true.
+	- Si e.posJugador = π₁(mapa.inicioLlegada) y e.posJugador = π₂(mapa.inicioLlegada) luego "ganó" debe ser true.
+
+c) Función de abstracción:
+	Abs:	estr	->	partida	{Rep(e)}
+	(∀e: estr) Abs(e) =obs p: partida | (1)∧(2)∧(3)∧(4)∧(5)
+		donde:
+		(1)	≡	mapa(p) = e.mapa
+		(2)	≡	jugador(p) = e.posJugador
+		(3)	≡	(∀c: coordenada)( c ∈ chocolates(p) ⇐⇒ e.posChocolates[c.x][c.y])
+		(4)	≡	cantMov(p) = e.movimientos
+		(5)	≡	inmunidad(p) = e.movDeInmunidad
+		(6)	≡	perdió?(p) = e.perdió
+		(7)	≡	ganó?(p) = e.ganó
+		
+d) Algoritmos del módulo:
+	Partida se representa con estr_partida donde
+							estr_partida es tupla ⟨	mapa:	mapa,
+																			posJugador: coordenada,
+																			posChocolates: matriz(boolean),
+																			movimientos: nat,
+																			movDeInmunidad: nat,
+																			ganó: bool,
+																			perdió: bool ⟩
+																			
+																			
+		iNuevaPartida(in m: mapa) -> res: partida
+			partida <- tupla⟨ mapa: m, posJugador: m.posicionInicio, posChocolates: matriz(vacía(vacía())), movimientos: 0, ganó: false, perdió: false, movDeInmunidad:0 ⟩ {
+			
+			for(int i=0; i ≤ mapa.tamaño.largo; i++) {    // O(|L|)
+				for(int j=0; i ≤ mapa.tamaño.alto; j++) {   // O(|A|)
+					partida.posChocolates[i][j] <- false;
+ 				}
+			}   // O(|L|) . O(|A|)
+			
+			for(int i=0; i ≤ mapa.chocolates.length; i++) {    // O(c)
+				chocolate <- mapa.chocolates[i];
+				partida.posChocolates[chocolate.x][chocolate.y] <- true;
+			}
+				
+			res <- partida
+		}
+	
+		iRestringirMovimiento(in partida: partida, in coor: coordenada) -> res: coordenada {
+				res <- tupla <>
+				if(coor.x < partida.mapa.largo && coor.x > 0){					
+					res.x <- coor.x
+				}else{
+					if(coor.x = 0){
+						res.x <- 0
+					}else{
+						res.x <- partida.mapa.largo
+					}
+				}
+					
+				if(coor.y < partida.mapa.alto && coor.y > 0){
+					res.y <- coor.y
+				}else{
+					if(coor.y = 0){
+						res.y <- 0
+					}else{
+						res.y <- partida.mapa.alto
+					}
+				}
+			}
+		}
+		
+		iPosMovimiento(in coor: coordenada, in dir: direccion) -> res: coordenada {
+				res <- <coor.x + iEsBetaAux(dir=Direccion[3]) - iEsBetaAux(dir=Direccion[2]), coor.y + iEsBetaAux(dir=Direccion[0]) - iEsBetaAux(dir=Direccion[1])>
+		}
+	
+		iSiguienteMovimiento(in p: partida, in dir: direccion) -> res: coordenada {
+			posicion <- iPosMovimiento(p.posJugador, dir)
+			
+			if (partida.mapa.paredes[posicion.x][posicion.y]){
+				res <- partida.posJugador
+			}else{
+				iRestringirMovimiento(p, iPosMovimiento(partida.posJugador, dir))
+			}
+		}
+		
+		iTransformarCoordAClaveAux(in coor: coordenada)-> res: nat {
+			res <- π₁(coor)*10 + π₂(coor)
+		}
+		
+		iEsBetaAux(in b: bool) -> res: nat
+			if b {
+				res <- 1
+			} else {
+				res <- 0
+			}
+	
+    iSonMismaCoordenada(in coor1: coordenada, in coor2: coordenada) -> res: bool {
+			res <- π₁(coor1) = π₁(coor2) ∧ π₂(coor1) = π₂(coor2)
+		}
+			
+		iMover(in/out p: partida, in direccion: dir) -> res: bool {
+				mov <- iSiguienteMovimiento(p, dir)
+				res <- false
+				if(¬iSonMismaCoordenada(p.posJugador, mov))){ //comparacion entre coordenadas, posiciones)
+					res <- true					
+					p.posJugador <- mov
+					p.movimientos += 1	
+						 																											// O(1)
+					if (p.inmunidad > 0) {
+						p.inmunidad -= 1																											// O(1)
+					}
+				
+					
+					if (partida.posChocolates[p.posJugador.x][p.posJugador.y]) {
+							partida.posChocolates[p.posJugador.x][p.posJugador.y] <- false;      // O(1)
+							p.inmunidad += 10																										// O(1)
+					}
+				}
+			}			// complejidad O(1)
+		
+		iGanó?(in p: partida) -> res: bool{
+			res <- false
+			if (iSonMismaCoordenada(posJugador(p), p.mapa.inicioLlegada.inicio))){
+				res <- true
+			}
+		}
+		
+		iPerdió?(in p: partida) -> res: bool{
+			res <- false
+			if( ¬ iGanó?(p) ∧ iTieneFantasmaCercano(p.mapa.fantasmas, posJugador(p)) ∧ movDeInmunidad = 0 ){
+				res <- true
+			}
+		}
+		
+3) Servicios usados:
+Módulo Direccion, ENUM{ARRIBA, ABAJO, IZQUIERDA, DERECHA}
+Matriz es Vector(vector(α))
+Módulo auxiliar de Mapa.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+MODULO PACALGO2
+
+1) Interfaz
+Parámetros formales:
+	Géneros:	α
+Se explica con:	TAD Fichin
+Géneros: PacAlgo2, Partida (módulo auxiliar), Mapa (módulo auxiliar)
+
+---
+Operaciones básicas:
+	nuevoFichín(in m: Mapa)	-> res: PacAlgo2
+	Pre ≡ {true}
+	Post ≡ {res =obs nuevoFichín(mapa)}
+	Complejidad: Θ(1)
+	Descripción: Genera un nuevo fichín, es decir, un nuevo juego. Establece un ranking vacío.
+	Aliasing: No presenta aspectos de aliasing.
+---
+	nuevaPartida(in/out pa: PacAlgo2, in j: Jugador) -> res: bool
+	Pre ≡ {p = p₀ ∧ ¬alguienJugando?(pa)}
+	Post ≡ {res = true <-> alguienJugando?(pa) ∧L p = nuevaPartida(p₀, j)}
+	Complejidad: Θ(c + |J|)		// ... donde c es la cantidad inicial de chocolates en el mapa y J el jugador del ranking con nombre más largo
+	Descripción: Genera una nueva partida con su respectivo mapa, jugador (en posición inicial), chocolates, paredes y fantasmas. Además, res = true si puede generarse la partida (se debe cumplir con la precondición).
+	Aliasing: No presenta aspectos de aliasing.
+---
+	mover(in/out pa: PacAlgo2, in d: direccion)	-> res: bool	
+	Pre ≡ {p = p₀ ∧ alguienJugando? (pa)}
+	Post ≡ {res = true <-> p = mover(p₀, d)}
+	Complejidad: Θ(1)
+	Descripción: Genera ...
+	Aliasing: No presenta aspectos de aliasing.
+---
+	objetivo(in pa: PacAlgo2, out obj: tupla(jugador, nat))	-> res: bool
+	Pre ≡ {alguienJugando? (pa) ∧L def?(jugadorActual(pa), ranking(pa))} // Def? es una función del módulo de Trie.
+	Post ≡ {res = true <-> alguienJugando?(pa) ∧ def?(jugadorActual(pa), ranking(pa)) 
+													∧L obj =obs objetivo(pa)}
+	Complejidad: Θ(1) // Devuelve un valor presente en la tupla de PacAlgo2, el cual ya fue pre-calculado para esa partida.
+	Descripción: Si el jugador actual está jugando, devuelve el objetivo a vencer del mismo junto con su puntaje.
+	Aliasing: No presenta aspectos de aliasing.
+---
+	
+--------------------------------------------------------------------------------	
+2) Implementación
+
+Jugador src String
+Puntaje src nat
+Partida src Partida (módulo auxiliar)
+Mapa src Mapa (módulo auxiliar)
+
+a) Representación:
+	PacAlgo2 se representa con estr_fichin donde
+		estr_fichin es tupla ⟨	mapa:	Mapa,
+										partida: Partida,
+										jugadorActual: Jugador,
+										alguienJugando?: bool,
+										ranking: diccTrie(jugador: Jugador, tupla⟨puntaje: Puntaje, posicionPrevia: itRankingNumeral),
+										rankingNumeral: diccTrie(Puntaje, conjLineal<Jugador>)
+										objetivoJug: Jugador ⟩
+											
+b) Invariante de Representación:
+	 -si alguienJugando? esta en verdadero debe haber partida y mapa
+	 -si hay mapa y partida entonces debe haber alguienJugando
+	 -todos los jugadores que sean clave de ranking deben estar una sola vez como significado de alguna clave en rankingNumeral
+	 -objetivoJug debe contener algun elemento que sea parte de las claves de ranking
+	 -no puede existir un elemento en ranking que tenga un puntaje menor al del iterador posicionPrevia
+	
+c) Función de abstracción:
+	Abs:	estr	->	PacAlgo2	{Rep(e)}
+	(∀e: estr) Abs(e) =obs pa: PacAlgo2 | (1)∧(2)∧(3)∧(4)∧(5)∧(6)
+		donde:
+		(1)	≡	mapa(pa) = e.mapa
+		(2)	≡	partida(pa) = e.partida
+		(3)	≡	jugadorActual(pa) = e.jugadorActual
+		(4)	≡	alguienJugando?(pa) = true <-> e.alguienJugando?
+		(5)	≡	(∀j: Jugador)( j ∈ ranking(pa) ⇐⇒ definido?(e.ranking, j) ∧ #ranking(pa) = #claves(e.ranking))
+		(6)	≡	(∀j: Jugador)( j ∈ ranking(pa) ⇐⇒ significados(e.rankingNumeral, j) ∧ #significados(e.rankingNumeral, j) == #ranking(pa)
+	
+d) Algoritmos del módulo:
+		iNuevoFichin(in m: mapa) -> res: estr_fichin {
+			nueva_partida <- iNuevaPartida(f.mapa)			// llama a iNuevaPartida de Partida, con O(c), se pasa por referencia
+			
+			res <- ⟨partida: nueva_partida, mapa: m, alguienJugando?: false, ranking: vacio(), jugadorActual: "Ninguno"⟩
+		}
+			
+		iNuevaPartida(inout f: estr_fichin, in j: jugador){    
+			f.partida.gano <- false;     // O(1), se pasa por copia
+			f.partida.perdio <- false;   // O(1), se pasa por copia
+			f.partida.posActual <- f.partida.mapa.inicioLlegada.inicio   // O(1), se pasa por copia
+			
+			for(int i=0; i ≤ f.partida.mapa.chocolates.length; i++) {    // O(c) , vuelve los chocolates a default
+				chocolate <- f.partida.mapa.chocolates[i];    // O(1), por copia
+				f.partida.posChocolates[chocolate.x][chocolate.y] <- true;
+			}
+			
+			f.jugadorActual <- j 												//	pasaje por referencia
+			f.alguienJugando <- true
+			
+			if (#claves(f.ranking) = 0 ){
+				f.objetivoJug <- j 												// O(1) Pasaje por referencia
+			} else {
+				if(definido?(f.ranking, j)){							// O(|J|) ya que es buscar en el DiccTrie
+					f.objetivoJug <- anteriorClave(π₂(significado(f.ranking, j))) 
+					// O(|J|) ya que es buscar el jugador en el ranking en el DiccTrie ranking cuyo peor caso depende de la longitud del nombre más largo entre los jugadores pertenecientes al ranking.
+					// significado(f.ranking, j) devuelve una tupla, y al acceder al 2do elemento de la tupla, se accede al iterador en rankingNumerico guardado durante la partida anterior.
+				} else {
+					f.objetivoJug <- j
+				}
+			}
+		}   
+			
+		iMover(in/out fichin: estr_fichin, in dir: direccion) -> res: bool {
+			res <- false;
+			if(fichin.alguienJugando){
+				fichin.partida.gano <- false;
+				fichin.partida.perdio <- false;
+				iMover(fichin.partida, dir)  	// llama a iMover del módulo Partida cuyo peor caso es O(1)
+				res <- true    								// O(1) 
+				if(iTieneFantasmaCercano(fichin.partida.mapa. fantasmas, fichin.partida.jugador) && fichin.partida.inmunidad > 0  ) ){
+					fichin.partida.perdio <- true;
+					fichin.alguienJugando <- false;
+					fichin.objetivoJug <- null;
+				}
+				
+				if(iSonMismaCoordenada(fichin.partida.jugador, fichin.mapa.llegada)){  //esto se evalúa si el jugador está en condiciones 
+																																							 //de ganar la partida en ese último movimiento
+					fichin.partida.gano <- true
+					fichin.alguienJugando? <- false
+					fichin.objetivoJug <- null;
+					
+					if(fichin.partida.movimientos < π₁(significado(fichin.ranking, fichin.jugadorActual))){ 
+						// O(|J|) porque es buscar en el ranking que es DiccTrie
+						it <- definir(f.rankingNumeral, fichin.partida.movimientos, agregar(significado(f.rankingNumeral, fichin.partida.movimientos),j))				
+						//O(1) ya que agregar un elemento a un conjunto es O(copia) que en este caso como es un O(Jugador) que es un string entonces pertenece a O(1)
+						//Se crea un iterador obtenido a través de la definición del jugador y su puntaje en el ranking numerico
+						definir(f.ranking, j, tupla⟨fichin.partida.movimientos, it⟩)   // O(|J|) al ser un DiccTrie cuyas claves son los nombres de los jugadores.
+					}
+				
+				}
+			}
+		} 
+		// iMover, en caso de terminar la partida por haber ganado, tiene un O(|J|)
+		// iMover, en caso de terminar la partida por haber perdido, es O(1) y O(1) ∈ O(|J|)
+		// iMover, en caso de comer chocolate, o moverse simplemente, es O(1)
+		
+		iObjetivo(inout fichin:fichin) -> res: tupla(Jugador,Puntaje)
+			res <- fichin.objetivoJug
+			
+		---
+
+3) Servicios usados
+
+Módulo DiccTrie explicado más arriba, cuyas variantes son:
+	Módulo Ranking: 
+		- Ranking es un diccionario que implementa Tries y las claves son de tipo JUGADOR y el significado una tupla con el puntaje y el iterador del jugador anterior. Se representa con un diccionario Trie 28-ario (27 letras del alfabeto + 1 vacia) donde cada subarbol representa un nombre de jugador (cada nodo es un caracter) y cada hoja contiene el puntaje correspondiente. Implementado con array dimensionables de |J|, de forma tal que el tamaño del array es variable según el jugador de nombre más largo. El peor caso de búsqueda del puntaje de un jugador en este ranking será |J| ya que la profundidad de este trie tendrá tantos niveles como letras tenga el nombre más largo.
+		
+	Módulo RankingNumeral:
+		- RankingNumeral es un diccionario que implementa Tries, las claves son de tipo PUNTAJE (cada nivel representa una cifra del puntaje) y el significado de cada hoja contiene un Jugador

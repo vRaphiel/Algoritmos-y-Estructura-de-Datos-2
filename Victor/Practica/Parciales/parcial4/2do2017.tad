@@ -1,0 +1,50 @@
+Ejercicio ordenamiento
+Intervalo de dias dentro de un año como par de enteros [a, b]
+a < b y enteros entre 1 y 365
+O sea, estan acotados
+
+Ideas: 
+intervalo se representa con tupla <ini: nat, fin: nat>
+
+Idea:
+-> Debo recorrer el arreglo de intervalos al menos una vez. Esto me toma n veces el recorrerlo
+-> Se que la interrupcion es hasta 2 veces. O 0, o 1, o 2 veces
+-> Sabiendo esto puedo armar un arreglo de intervalos de 2 posiciones. Este arreglo será acotado
+	 En cada posicion entonces guardo el intervalo, si irrumpe o no
+	 Esto lo hare por cada posicion por la que voy de forma que pueda guardar el orden y mi algoritmo sea estable
+
+
+ordenarIntervalos(in interLocutor: intervalo<nat, nat>, in intervalos: arreglo(intervalo)) -> res: arreglo(intervalo)
+	arreglo(arreglo(intervalo)) misElem <- arreglo(3)
+	
+	for inter in intervalos do
+		if π₁(interLocutor) < π₁(inter) < π₂(interLocutor) do
+			if π₁(interLocutor) < π₂(inter) < π₂(interLocutor) do
+				agregarAtras(misElem[2], inter)
+			else
+				agregarAtras(misElem[1], inter)
+			end if
+		else
+			agregarAtras(misElem[0], inter)
+		end if
+		
+	res <- arreglo(tam(intervalos))
+		
+	for arr in misElem do
+		for elem in arr do
+			res.agregarAtras(elem)
+		end for
+	end for
+	
+Ejercicio D&Q
+CO = Conctenacion de dos ordenados. Concatenar dos arreglos ordenados cada uno de ambos en forma creciente
+Usando D&Q
+Puedo dividir el arreglo en 2. Busco entonces en el lado izquierdo, en el lado derecho, y luego en el medio
+En el lado derecho y el izquierdo tengo recursividad
+En el lado del medio puedo estar en una secuuencia, entonces busco a izqueirda y derecha
+
+longSubContiguoCO(int mySecu: arreglo(nat)) -> res: nat
+	
+	
+
+Como decido si una secu es CO?

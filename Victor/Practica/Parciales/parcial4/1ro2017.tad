@@ -1,0 +1,57 @@
+Ejercicio D&Q
+Ganancias negativas si hubo perdida
+Recibo un arreglo de montos de n dias   
+El monto es por dia. Es decir, [9.5, 8.3, 1.3, -0.5]
+Dia 0 => Ganancia 9.5
+Dia 1 => Ganancia 8.3
+Dia 2 => Ganancia 1.3
+Dia 3 => Ganancia -0.5 (Perdida)
+Quiero saber cuando hubo mayor ganancia. Dias consecutivos. En este ejemplo
+[0, 2] la mayor ganancia con 9.5 + 8.3 + 1.3 = 19.1
+
+Si el intervalo debe devolver un dia k
+Entonces busco ese dia k en el arreglo, y me muevo a izquierda y derecha hasta obtener el maximo valor
+no negativo
+
+A ver, de todas formas, lo que puedo hacer es dividir el arreglo en 2 partes
+En cada mitad busco el maximo a izquierda y a derecha de la suma de los mismos
+
+Caso base: Arreglo de 1 solo valor, es ese el maximo
+
+Caso recursivo:
+	
+mayorSumaIntervalo(in ganancia: arreglo(int)) -> res: tupla	⟨inicio: int, final: int⟩
+	S1 <- mayorSumaIntervaloAux(ganancia[1....n/2])
+	S2 <- mayorSumaIntervaloAux(ganancia[n/2....n])
+	S3 <- mayorConK(ganancia[1...n/2], n/2 - 1)
+	S4 <- mayorConK(ganancia[n/2...n],  0)
+	
+	return maxAux(S1, S2, S3, S4)
+	
+mayorSumaIntervaloAux(in ganancia: arreglo(int)) -> res: tupla	⟨inicio: int, final: int⟩
+	// Aca busco la suma intervalo
+	
+mayorConK(in g: arreglo(int), in v: int) -> res: tupla	⟨inicio: int, final: int⟩
+	// Aca busco la suma con el valor incluido obligatoriamente -> Ya implementado
+	
+maxAux(in t1, in t2, in t3)
+	Devuelve la diferencia maxima entre las 3 tuplas
+
+mayorSumaIntervaloAux resuelve las cosas en T(n/2)
+mayorConK resuelve las cosas en O(n)
+maxAux resuelve las cosas en O(1)
+
+a = b = 2
+Pues voy a dividir las cosas en 2 partes y voy a usar ambas
+Ahora
+Por el teorema maestro
+T(n) = 2T(n/2) + f(n), f(n) ∈ O(n) n > 1
+			Θ(1) 												 n = 1
+			
+Luego, tengo log_2(2) = 1 y f(n) ∈ Θ(n) = Θ(n ^log_2(2))
+Hecho desde un extremo del arreglo, mayorConK es sencillo y consiste en mirar todos los elementos desde el extremo y 
+guardar el indice con el que se obtuuvo la maxima suma y comparar con la suma incluyendo a cada elemento hasta llegar al final
+
+Por el teorema mamestro, se aplica que esto se resuelve en 
+Θ(n)
+Nice

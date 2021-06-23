@@ -1,0 +1,52 @@
+ordenarIntervalos(in secuencias: arreglo(arreglo(nat))) -> res: arreglo(nat)
+
+	intervalos <- crearArreglo(tam(secuencias))																		// O(k)
+	// Lo que va guardando en el arrelo
+	posInter <- ₀																																	// O(1)
+	
+	()	
+	// Recorro la lista completa
+	for secu in secuencias do																											// O(k)
+		max <- secu[0]																															// O(1)
+		min <- secu[0]																															// O(1)
+		posSecu <- 1																																// O(1)
+		while posSecu < tam(secu) do																								// O(tam(secu))
+			if secu[posSecu] > max then																								// O(1)
+				max <- secu[posSecu]																										// O(1)
+			else																																	
+				if secu[posSecu] < min then																							// O(1)
+					min <- secu[posSecu]																									// O(1)
+				end if
+			end if
+			intervalos[posInter] <- <min, max>																				// O(1)
+			posInter <- posInter + 1 																									// O(1)
+		end
+		()
+		
+		// Analogo al caso de abajo
+		// O(n)
+		
+		// Ahora genero el arreglo de la tupla ordenada
+		intervalos <- mergeSort(intervalos)																					// O(k log k)
+		
+		// No se a priori que tamaño de arreglo puedo crear para la 
+		// Lista es una buena opcion cuando no se el tamaño del arreglo a crear
+		salida <- crearLista()																											// O(1)
+		
+		// Empiezo a rellenarlo
+		// Dada la lista L' llegar a la lista L
+		
+		for intervalo in intervalos do																							
+			maximo <- -₁																															// O(1)	
+			for i = π₁(intervalo) to π₂(intervalo) do																	// O(|intervalo|) 	Se hara tantas veces como el intervalo lo dia. π₂ - π₁
+					if val > maximo then																									// O(1) 
+						agregarAlFinal(salida, val)																					// O(1)
+						maximo <- val																												// O(1)
+					end
+			end
+		end
+		
+		// El for interno se hace n veces, el externo k veces. Luego k + n, y k <= n
+	
+		res <- convertirListaArreglo(salida)																				
+		

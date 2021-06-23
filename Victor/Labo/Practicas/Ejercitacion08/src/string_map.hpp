@@ -210,13 +210,9 @@ void string_map<T>::eraseAux(Nodo*& root, Nodo*& buscado, const string& clave, i
     bool hayUno = false;
     int ASCIIcode = clave[index] - 97;
     if(index == clave.size()){
-
         if(root){
             cout << "Odio los tries" << endl;
         }
-
-
-
     }else{
         if(buscado->definicion != nullptr){
             hayUno = true;

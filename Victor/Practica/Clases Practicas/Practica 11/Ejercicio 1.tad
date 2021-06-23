@@ -1,0 +1,39 @@
+Usaremos Tries para el ordenamiento
+
+ordenarRanking(in R: arreglo(string), in A: arreglo(string)) -> res: arreglo_dimensionable(string)
+	
+	contApariciones <- nuevoDiccTrie()																					// O(1)
+	
+	// Podemos armar un iterador y utilizarlo. Tiene la misma logica y costo
+	// Instanciar el diccionario que contara las apariciones de elementos
+	for r in R do																																// O(n)
+		definir(contApariciones, r, 0)																						// O(1)
+	end
+
+	// Contar las aparticiones de los elementos de R que aparecen en A
+	for a in A do																																// O(m)
+		cont <- obtener(contApariciones, a)																				// O(1) -> Solo porque trabajamos con tries y está acotada esta longituud y el alfabeto esta acotado
+		definir(contApariciones, a, cont + 1)																			// O(1)
+	end
+	
+	// Creo el arreglo de resultados
+	res <- arreglo(tam(A))																											// O(m)
+	pos <- 0 																																		// O(1)
+  	
+	()
+	// Esto es mas optimo porque recorro solo los paises que tengo
+	// claves() no necesariamente me devuelve las cosas en orden, no puedo asumir nada de esta funcion
+	// Agrego las cosas en el resultado
+	
+	for r in R do																																// O(n)
+		// n veces																																O(max(m, n))
+		for e = 0 to obtener(contApariciones, r) - 1 do														// O(#cantApariciones de r) cont <= m
+			res[pos] <- r																														// O(1)
+			pos <- pos + 1																													// O(1)
+		end
+	end
+	// El for e=0 to obtener(----) se va a ejecutar m veces. Estará acotado por m y no se puede ejecutar mas veces
+	
+
+	
+	

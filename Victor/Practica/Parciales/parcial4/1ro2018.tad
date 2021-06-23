@@ -1,0 +1,118 @@
+Ejercicio ordenamiento
+partido se representa como tupla⟨e₁: string, e₂: string, g₁: nat, g₂: nat⟩
+las e son los equipos enfrentados
+las g son los goles respectivos
+Un equipo recibe 3 puntos si gana, 1 si empata y 0 si pierde
+Se pide:
+	Tabla de campeonato:
+		-> equipo | puntaje
+	Orden decreciente por puntos obtenidos
+	En caso de empates de puntos, se desempata con la cantidad de goles a favor de cada equipo
+	Los partidos puueden repetirse con multiples resultados
+	
+	[p1, p2, ... pn] es un arreglo con n partidos
+	La cantidad de goles está acotada por una constante K
+	Se pide complejidad lineal O(n) en funcion del tamaño de la entrada
+	Es decir: O(s) siendo S la suma de todos l
+	
+Necesito un diccionario
+| equipo | puntaje |
+Pero este debe estar ordenado. lo que puedo hacer es armarme un heap, un max heap
+En el, será todo de orden decreciente ordenado y no habrá repetidos
+En cada elemento tengo una tupla ⟨equipo, puntaje⟩ y el criterio de ordenamiento
+debe ser el puntaje del equipo
+
+: Analizar complejidad del heap para agregar y ordenar
+
+Un heap me puede ser eficaz
+Un heap al encolar y desencolar, la complejidad de estos es O(log n) siendo n la altura del heap
+En nuestro caso supongamos m siendo m la cantidad de equipos
+Esto puedo usarlo porque tengo nombres acotados y una cantidad de acotados equipos
+
+El problema esta despues al momento de actualizar las cosas en el heap mismo
+Lo que puedo hacer es un diccTrie donde guardo todos los datos
+
+No puedo usar un trie porque no me dicen que el nombre de los equipos está acotado
+Igualmente, puedo asumirlo porque se que son nombres. Entonces puedo decir que existe un nombre que sea el mas largo
+
+El algoritmo es una paja
+
+puntaje se representa con tupla(puntaje: nat, diferencia: nat)
+ordenarPartidos(in partidos: arreglo(partido)) -> res: arreglo(puntaje)
+	equiposPuntaje <- crearDiccTrie()
+	for partido in partidos do
+		if π3(partido) > π4(partido)
+			if definido?(equiposPuntaje, π1(partido))
+				obj <- obtener(equiposPuntaje, π1(partido))
+				π1(obj) <- π1(obj) + 3
+				π2(obj) <- π2(obj) + (π3 - π4)
+				definir(equiposPuntaje, π1(partido), obj)
+				
+			else
+			
+			if definido?(equiposPuntaje, π2(partido))
+			
+			end if
+			// Gana equipo 1, gana partidos
+		else if π3(partido) < π4(partido)
+			// Gana equipo 2
+		else
+			// Empatan
+		end if
+		definir(equiposPuntaje, π1(partido), ⟨0, 0⟩)
+
+Una vez tengo los elementos en el diccTrie. Armo buckets, con un bucket sort ajusto los equipos que tengan el mismo puntaje
+Ordeno con radixSort cada uno de estos elementos la cantidad de goles diferenciados. Esto se puede hacer tranquilamente
+pues se que los puntajes están acotados por una constante k
+Hecho eso, concateno todos los elementos en el arreglo final que devuelve los equipos
+
+
+Ejercicio D&Q
+Copa de un arbol: 
+Recibo un arbol binario. Entonces yo puedo pensar lo siguiente
+Veo la raiz, me quedo con el valor de esta raiz
+Luego, caso base:
+	El nodo no es del mismo valor de la raiz -> 0 nivel
+	El nodo es del mismo valor de la raiz, entonces completo un nivel de mi copa
+	
+Caso recursivo:
+Por cada nodo me fijo la raiz, si es del mismo valor que la raiz inicial, entonces puedo tomar de ahi en adelante y fijarme cuantos nodos
+siguientes hay con el mismo valor para que sea la Copa
+Es decir, si el nodo es del mismo valor que la raiz del arbol, cuento el inicio de la copa
+Si no, entonces no cuento nada
+Si ya venia con un valor de la copa, entonces nada, cierra ahi mi copa
+
+maxCopa(in a: ab(nat)) -> nat
+	if nil?(a)
+		return 1
+	else
+		der <- maxCopa(der(A))
+		izq <- maxCopa(izq(A))
+		
+		if raiz(a) = raiz(der(a)) ∧ raiz(a) = raiz(izq(a)) then
+			if der != izq then
+				return max(der, izq)
+			else
+				return 1 + der
+			end if
+		else
+			return max(der, izq)
+		end if
+	end if
+	
+	Como es un arbol:
+		-> Si está balanceado:
+			max(copa(izq(A))) y max(copa(der(A))) cuestan lo mismo. T(n/2)y el resto cuesta Θ(1) pues no tengo ninguna funcion
+			que haga merge de estas partes, busco y me quedo con el valor
+			Luego T(n) = 2T(n/2) + Θ(1)
+			Por el teorema maestro
+				a = b = 2 y f(n) = Θ(1)
+				Caigo en el caso de O(n^log_2(2) - epsilon) = O(n^{1-epsilon})
+				para algun epsilon > 0 cte. Entonces
+				T(n) ⊆ Θ(n log2(2)) = Θ(n)
+				
+		-> Si no está balanceado
+			No puedo asegurar de que se divida en partes iguales pero, la suma de partes va a ser n y estoy recorriendo una
+			única vez cada nodo, por lo tanto, la complejidad no se verá afectada
+			
+			
