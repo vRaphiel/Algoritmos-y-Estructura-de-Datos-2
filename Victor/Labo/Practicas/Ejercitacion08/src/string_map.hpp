@@ -104,13 +104,13 @@ int string_map<T>::count(const string& clave) const{
         if (clave.size() > 0) {
             Nodo *actual = _raiz;
             int indice = 0;
-            int ASCIIcode = clave[indice] - 97;
+            int ASCIIcode = clave[indice];
 
             while (actual != nullptr && indice < clave.size()) {
                 if (actual->siguientes[ASCIIcode] != nullptr) {
                     actual = actual->siguientes[ASCIIcode];
                     indice++;
-                    ASCIIcode = clave[indice] - 97;
+                    ASCIIcode = clave[indice];
                 } else {
                     return 0;
                 };
@@ -128,13 +128,13 @@ const T& string_map<T>::at(const string& clave) const {
     if(clave.size() > 0){
         Nodo* actual = _raiz;
         int indice = 0;
-        int ASCIIcode = clave[indice] - 97;
+        int ASCIIcode = clave[indice];
 
         while(actual != nullptr || indice < clave.size()){
             if(actual->siguientes[ASCIIcode] != nullptr){
                 actual = actual->siguientes[ASCIIcode];
                 indice++;
-                ASCIIcode = clave[indice] - 97;
+                ASCIIcode = clave[indice];
             }else{
                 return nullptr;
             };
@@ -150,13 +150,13 @@ template <typename T>
 T& string_map<T>::at(const string& clave) {
     Nodo* actual = _raiz;
     int indice = 0;
-    int ASCIIcode = clave[indice] - 97;
+    int ASCIIcode = clave[indice];
 
     while(indice < clave.size()){
         if(actual->siguientes[ASCIIcode] != nullptr){
             actual = actual->siguientes[ASCIIcode];
             indice++;
-            ASCIIcode = clave[indice] - 97;
+            ASCIIcode = clave[indice];
         }
     }
     return *actual->definicion;
@@ -185,20 +185,23 @@ void string_map<T>::insertAux(Nodo*& root, const pair<string, T>& definition, in
     if(index == definition.first.size()) {
         // Nodos nulos
         if(root == nullptr){
-            Nodo* nodo = new Nodo();
-            root = nodo;
-            root->definicion = new T(definition.second);
+            root = new Nodo(new T(definition.second));
             _claves++;
         } else {
         // Nodos no nulos
-            root->definicion = new T(definition.second);
+            if(root->definicion != nullptr){
+                delete root->definicion;
+                root->definicion = new T(definition.second);
+            }else{
+                root->definicion = new T(definition.second);
+            }
+            _claves++;
         }
     }else{
-        int ASCIIcode = definition.first[index] - 97;
+        int ASCIIcode = definition.first[index];
         // Si el nodo es nulo, creo uno nuevo
         if(root == nullptr){
-            Nodo* nodo = new Nodo();
-            root = nodo;
+            root = new Nodo();
         }
         insertAux(root->siguientes[ASCIIcode], definition, index+1);
     }
@@ -209,7 +212,7 @@ void string_map<T>::eraseAux(Nodo*& root, Nodo*& buscado, const string& clave, i
     //destruirNodos(this->_raiz);
 
     bool hayUno = false;
-    int ASCIIcode = clave[index] - 97;
+    int ASCIIcode = clave[index];
     if(index == clave.size()){
         for(int i = 0; i < buscado->siguientes.size(); i++){
             if(buscado->siguientes[i] != nullptr){
