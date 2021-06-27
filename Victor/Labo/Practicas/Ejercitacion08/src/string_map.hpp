@@ -80,9 +80,11 @@ void string_map<T>::destruirNodos(Nodo*& nodo){
         }
         if(nodo->definicion!= nullptr){
             delete nodo->definicion;
+            nodo->definicion = nullptr;
             this->_claves--;
         }
         delete nodo;
+        nodo = nullptr;
     }
 }
 
@@ -204,14 +206,22 @@ void string_map<T>::insertAux(Nodo*& root, const pair<string, T>& definition, in
 
 template<typename T>
 void string_map<T>::eraseAux(Nodo*& root, Nodo*& buscado, const string& clave, int index, int deleteASCII){
-    if(buscado != nullptr){
+    //destruirNodos(this->_raiz);
 
-    }
     bool hayUno = false;
     int ASCIIcode = clave[index] - 97;
     if(index == clave.size()){
-        if(root){
-            cout << "Odio los tries" << endl;
+        for(int i = 0; i < buscado->siguientes.size(); i++){
+            if(buscado->siguientes[i] != nullptr){
+                hayUno = true;
+            }
+        }
+        if(hayUno){
+            delete buscado->definicion;
+            buscado->definicion = nullptr;
+            _claves--;
+        }else{
+            destruirNodos(root);
         }
     }else{
         if(buscado->definicion != nullptr){
@@ -225,9 +235,10 @@ void string_map<T>::eraseAux(Nodo*& root, Nodo*& buscado, const string& clave, i
             i++;
         }
         if(hayUno){
-            eraseAux(buscado, buscado->siguientes[ASCIIcode], clave, index + 1, ASCIIcode);
+            eraseAux(buscado->siguientes[ASCIIcode], buscado->siguientes[ASCIIcode], clave, index + 1, ASCIIcode);
         }else{
             eraseAux(root, buscado->siguientes[ASCIIcode], clave, index + 1, deleteASCII);
         }
     }
+
 }

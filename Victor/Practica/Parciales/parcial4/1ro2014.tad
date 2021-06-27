@@ -1,0 +1,28 @@
+Ejercicio de ordenamiento
+Ordenar por nombre de artista, desempatando por nombre del disco, finalmente por nombre de tema
+
+Los discos y temas tienen nombres acotados en cantidad de caracteres (tomo ascii 256)
+Nombres de artistas no estan acotados
+Los nombres de las bandas tienen a lo sumo 40 caracteres
+Los nombres de discos y temas tienen cualquier longitud
+
+Ordenar en O(n * log(b) * |d| * |t|)
+n := cantidad de mp3s
+b := cantidad de bandas
+|d| := maxima longitud de nombre de disco
+|t| := maxima longitud de nombre de tema
+
+Idea:
+	Se que debo recorrer al menos una vez todo el arreglo
+	Esto es O(n)
+	Suponiendo recibo tuplas ⟨banda, disco, tema⟩
+	
+	Los nombres de las bandas / artistas tienen a lo sumo 40 caracteres
+	Los nombres de los discos y temas tienen cualquier longitud
+	Los nombres de los discos y temas tienen cantidad de caracteres hasta 256 del tipo ascii
+	
+	Me armo un diccionario AVL donde coloco, como clave, las bandas
+	Tambien en significado tengo dicc(disco, dicc(tema, ⟨mp3, nat⟩))
+	
+	
+Ejercicio de Divide & Conquer -> Visto en clases 

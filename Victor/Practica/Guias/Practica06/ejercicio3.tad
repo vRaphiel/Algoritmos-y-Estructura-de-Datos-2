@@ -1,0 +1,14 @@
+calculoDePotencias(in a: nat, in b: nat) -> res: nat
+	if b == 1 then
+		return a
+	else
+		if b % 2 == 0
+			return calculoDePotencias(a, b/2)*calculoDePotencias(a, b/2)
+		else
+			return calculoDePotencias(a, b/2)*calculoDePotencias(a, b/2)*a
+		end if
+		
+f(n) ∈ O(1)
+Log_2(1) = 0
+n^0 = 1 => Θ(log n)
+Nice

@@ -174,7 +174,7 @@ TEST(string_map_test, eraseUnicaClave) {
     EXPECT_FALSE(singleton.count("hola") == 1);
 }
 
-
+// Queda terminar esta funcion
 TEST(string_map_test, erase) {
     string_map<int> sin_prefijos;
     string_map<int> con_prefijos;

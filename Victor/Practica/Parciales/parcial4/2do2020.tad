@@ -1,0 +1,72 @@
+Ejericico de Ordenamiento
+
+n puntos de coordenadas enteras
+P[i] = ⟨x, y⟩
+x : nat, y : nat
+En P hay a lo sumo n/log n puntos fuera del circulo de centro (0, 0) y radio n
+
+Puedo hacer lo siguiente:
+Se que tengo radio n =>
+x^2 = n^2 - y^2
+y^2 = n^2 - y^2
+Y n = sqrt(x^2 + y^2)
+Usando esto puedo calcular si el k, producto de x_i e y_i es menor a n, que es el radio
+Si es menor, cae dentro
+Si es mayor, cae fuera
+Puedo armar 2 buckets. Un bucket para los mayores, un bucket para los menores
+Luego, internamente en cada bucket, ordeno los valores y finalmente hago un merge
+
+Entonces, busco eso
+Ahora...que algoritmo uso para el ordenar
+
+pos se representa con tupla ⟨x: nat, y:nat⟩
+ordenarPuntos(in A: arreglo(⟨x: nat, y:nat⟩)) -> res: arreglo(⟨x: nat, y: nat⟩)
+
+	// Divido a mi arreglo en dos partes, a lo sumo
+	lista(pos) dentroC <- AVLvacio()
+	lista(pos) fueraC <- AVLvacio()
+	radio <- tam(A)
+	for pos in A do	
+		if sqrt(pos.x*pos.x + pos.y*pos.y) < n do
+			definir(dentroC, pos)
+		else
+			definir(fueraC, pos)
+		end if
+	end for
+	
+	// Ahora toca ordenarlo. Pero como es un AVL, está siempre balanceado
+	El valanceo en un AVL cuuesta a lo sumo O(n) para cmbiar todos los nodos. Definir es O(log n)
+	Entonces, puedo hacer es tomar el minimo siempre, balancear el arbol, y luego seguir haciendolo
+	Suponiendo el caso donde todos los elementos esten dentro del circulo, esto es en O(n)
+	
+	res <- vacio(tam(A))
+	
+	i <- 0
+	for i to tam(dentroC) do
+		vacio[i] = minimo(dentroC)
+		borrar(dentroC, minimo(dentroC))
+		i <- i + 1
+	end for
+	
+	j <- 0
+	for j to tam(fueraC) do
+		vacio[i] = minimo(fueraC)
+		borrar(fueraC, minimo(fueraC))
+		i <- i + 1
+	end for
+	
+Esto cumple con lo pedido pues divido al algoritmo en 2 partes, siendo n/2 a lo sumo la cantidad de nodos
+Luego, el AVL tendra k nodos siendo k < n
+Entonces, obtener el minimo será en O(1) siempre pues es un AVL
+Finalmente, balancear el arbol cuesta a lo sumo k, con k < n
+Finalmente, el merge de todos los nodos implica recorrer k veces el minimo
+Por otro lado, para los que estan afuera, llamemos h la cantidad de nodos
+k + h = n
+El merge es O(n)
+Cumple con lo pedido
+
+Ejercicio D&C
+Altura maxima de 30m
+Se busca la foto de mayor area
+Arreglo A de n pares (w, h) w = weight = ancho, h = height = alto
+h ≤ 30

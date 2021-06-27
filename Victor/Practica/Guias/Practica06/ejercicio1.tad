@@ -1,0 +1,53 @@
+A mi arreglo
+|A| = 2^k con k ≥ 0
+Más a la izquierda:	
+	-> La suma de los elementos de la mitad de la izquierda superan los de la mitad derecha
+	-> Cada una de las mitades es a su vez mas a la derecha
+	
+	Complejidad menor que O(n^2)
+	
+	Caso base:
+		El arreglo tiene 1 solo elemento, entonces ese es el maximo y la suma es ese mismo elemento
+		
+	Divido en dos partes, uso ambas partes
+	
+	esDeIzquierda?(in A: arreglo(nat), in desde: nat, in hasta: nat) -> res: bool
+		if desde == hasta
+			return true																																// O(1)
+		else
+			mitad <- (desde + hasta) / 2 																							// O(1)
+			izqEsIzquierdista <- esDeIzquierda?(A, desde, mitad)											// T(n/2)
+			derEsIzquierdista <- esDeIzquierda?(A, mitad, hasta)											// T(n/2)
+			izquierdaMasSuma <- (suma(A, desde, mitad) ≥ suma(A, mitad, hasta))				// O(n)
+			return izqEsIzquierdista ∧ derEsIzquierdista ∧ izquierdaMasSuma						// O(1)
+		end if
+		
+	suma(in A: arreglo(nat), in desde: nat, in hasta: nat) -> res: nat
+		sumaTotal <- 0
+		for desde to hasta do
+			sumaTotal <- sumaTotal + A[desde]
+		end for
+		return sumaTotal
+		
+		Por el teorema maestro, a = 2, c = 2
+		Luego tengo T(n) = 2*T(n/2) + f(n)  pues n > 1
+		Como a = c = 2 entonces log_2 (2) = 1
+		Luego tengo que f(n) ∈ Θ(n^1)
+		Entonces caigo en el segundo caso
+		Finalmente, T(n) = Θ(n log(n))
+		
+		esDeIzquierda?(in A: arreglo(nat), in desde: nat, in hasta: nat) -> res: ⟨bool, nat⟩
+			if desde == hasta	then
+				return ⟨true, A[desde]⟩																									 // O(1)
+			else
+				mitad <- (desde + hasta)/2 																							// O(1)	
+				⟨izqEsIzquierdista, sumaIzq⟩ <- esDeIzquierda?(A, desde, mitad)					 // T(n/2)
+				⟨derEsIzquierdista, sumaDer <- esDeIzquierda?(A, mitad, hasta)					// T(n/2)
+				izquierdaMasSuma <- (sumaIzq ≥ sumaDer)																	// O(1)
+				esDeIzquierda <- izqEsIzquierdista ∧ derEsIzquierdista ∧ izquierdaMasSuma		// O(1)
+				return ⟨esDeIzquierda, sumaIzq + sumaDer⟩																			// O(1)
+			end if
+			
+		Ahora, f(n) ∈ O(1)
+		Luego por el teorema maestro es Θ(n)
+		

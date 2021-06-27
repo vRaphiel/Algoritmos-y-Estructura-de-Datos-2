@@ -1,0 +1,29 @@
+Caso base, tengo un arreglo de un elemento
+Si ese elemento es el valor buscado, devuelvo true, si no, devuelvo falso
+
+elementoCoincide?(in A: arreglo(nat), in pos: nat)
+	if tam(A) = 1 then
+		if A[i] = pos + 1 then
+			return ⟨true, pos+1⟩
+		else
+			return ⟨false, pos+1⟩
+		end if
+	else
+		medio <- [tam(A) / 2] 	// Tomo parte entera
+		cIzq, posI <- elementoCoincide?(A[0...n/2], medio)					// T(n/2)
+		cDer, posD <- elementoCoincide?(A[n/2...n], medio + 1)			// T(n/2)
+		
+		if cIzq = true then
+			return ⟨true, posI⟩
+		else if cDer = true then
+			return ⟨true, posD⟩
+		else
+			return ⟨false, -1⟩
+		endif
+		
+	a = c = 2 pues divido en dos partes el arreglo y luego uso ambas mitades
+	Como f(n) es O(1) pues no tengo casos donde deba recorrer todo el arreglo mas que los T(n/2)
+	Tengo T(n) = 2T(n/2) + O(1) | Θ(1)
+	Entonces por el teorema maestro caigo en el caso 1
+	T(n) = Θ(n)
+	

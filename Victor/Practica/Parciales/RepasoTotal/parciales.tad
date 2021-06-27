@@ -1,0 +1,69 @@
+Ejercio ordenamiento
+Orden: Nombre artista, nombre del disco, nombre del tema
+Bandas = Artistas
+Maximo de 40 caracteres
+Nombres del disco y del tema, 256 ASCII
+
+n es la cantidad de mp3
+b es la cantidad de bandas distintas
+d es la longitud del nombre de disco mas largo
+t es la longitud del nombre de tema mas largo
+
+DiccTrie de artista => DiccTrie de discos => ConjTrie de tema
+
+Recorremos todas las canciones => O(n)
+Insertar los artistas en un diccTrie, luego en discos, luego en tema
+ 
+ConjTrie artista
+ConjTrie disco
+ConjTrie tema
+
+En un diccTrie. Estan las cosas ordenadas
+Entonces por cada diccTrie
+
+-----------------------------------------
+Mediciones de numeros naturales m_t siendo t el tiempo ocurrido
+Umbrales L y H
+L < H
+Todos los valores menores a L aparecen en orden decreciente y, todos los valroes mayores a H aarecen en orden creciente
+S = [3, 17, 2, 20, 1, 23, 5, 11, 9]
+L = 4 y H = 12
+log n ∈ [L, H]
+
+Crear 3 arreglos. Uno de menores a L, uno de mayores a H, uno del rango L H
+L esta al reves
+H esta en orden
+Counting Sort puede hacerse en Selection Sort
+
+ordenarMediciones(A: arreglo(nat), L: nat, H: nat)
+
+----------------------------------------
+Campeonato de fulbo
+3 putnos si gano, 1 si empato, 0 si perdio
+Tomar un arreglo de partidos y armar la tabla de posicioens
+Segun puntaje obtenido
+El desempate es goles a favor del equipo
+La cantidad de goles esta acotada por k
+Sumatoria del largo del nombre del equipo 1 mas el equipo 2
+DiccTrie(equipo, ⟨puntos, diferenciaGoles⟩)
+
+creo un bucket por diferencia de goles
+	creo un bucket por puntos
+		ordeno por puntos
+	ordeno por goles
+	
+Quedaria mejor la diferencia de puntos luego diferencia de goles
+
+-------------------------------------
+Recorremos todas las ventas
+Generamos un diccTrie con persona, lista(precios)
+Hacemos por bucket O(n)
+Hacemos radix O(n)
+
+------------------------------------------------------------------
+Hacemos 2 buckets
+Uno que tiene los elementos que estan dentro => A1
+Uno que tiene los elementos que estan fuera => A2
+
+Recorro los valores que eso lo hago en n - n/log n
+Los agrego en un maxHeap

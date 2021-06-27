@@ -1,0 +1,18 @@
+Calculo de complejidad de un algoritmo de T(n) pasos para una entrada de tamaño n
+
+T(n) = T(n-2) + 5 ∈ O(log n) pues a = c = 1
+f(n) = 5 ∈ O(1) => O(log n) por teorema maestro
+
+T(n) = T(n-1) + n
+a = c = 1 => Caso 1 o 3 del teorema maestro
+T(n) = T(n) + n
+Si voy por caso 1
+f(n) ∈ O(n^-e) = O(1/n) abs!
+f(n) ∈ Ω(n^e)
+Luego
+f(n) ≤ &f(n)
+f(n) > 0
+1 ≤ &
+Tomo & = 1
+1 = 1
+Complejidad por teorema maestro de Θ(n)
