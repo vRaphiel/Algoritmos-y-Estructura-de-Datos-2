@@ -125,25 +125,18 @@ int string_map<T>::count(const string& clave) const{
 
 template <typename T>
 const T& string_map<T>::at(const string& clave) const {
-    if(clave.size() > 0){
-        Nodo* actual = _raiz;
-        int indice = 0;
-        int ASCIIcode = clave[indice];
+    Nodo* actual = _raiz;
+    int indice = 0;
+    int ASCIIcode = clave[indice];
 
-        while(actual != nullptr || indice < clave.size()){
-            if(actual->siguientes[ASCIIcode] != nullptr){
-                actual = actual->siguientes[ASCIIcode];
-                indice++;
-                ASCIIcode = clave[indice];
-            }else{
-                return nullptr;
-            };
-        }
-        if(indice == clave.size() && actual->definicion){
-            return 1;
+    while(indice < clave.size()){
+        if(actual->siguientes[ASCIIcode] != nullptr){
+            actual = actual->siguientes[ASCIIcode];
+            indice++;
+            ASCIIcode = clave[indice];
         }
     }
-    return nullptr;
+    return *actual->definicion;
 }
 
 template <typename T>
