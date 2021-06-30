@@ -1,0 +1,228 @@
+Ejercicio 1
+
+TAD NombreTad
+	Igualdad Observacional:();
+	Géneros: Fila
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	Observadores Básicos:
+		Esperando : persona x fila -> bool
+		Posicion: persona p x fila f -> nat								{Esperando(p, f)}
+	Generadores:
+		AbrirVentanilla: -> fila
+		Llegar : persona p x fila f -> fila								{¬Esperando(p, f)}
+		Atender : fila f -> fila													{¬Vacia?(f)}
+	Otras Operaciones:
+		Longitud: fila -> nat
+		Vacia: fila -> bool
+		
+	Axiomas:
+		Esperando(p, AbrirVentanilla) ≡ false
+		Esperando(p, Llegar(p', f)) ≡ if p = p' then true else false
+		Esperando(p, Atender(f)) ≡ Esperando(p, f) ∧L Posicion(p, f) ≠ 1
+	
+		// La posicion de la persona p, junto a la fila donde acaba de llegar p' es
+			// -> Si p = p', es decir, acaba de llegar, es la ultima posicion
+			// -> Si p != p' entonces tengo la Posicion de p en f
+		Posicion(p, Llegar(p' f)) ≡ if p = p' then Longitud(f) + 1 else Posicion(p, f)
+		Posicion(p, Atender(f)) ≡ Posicion(p, f) - 1
+		
+		Longitud(AbrirVentanilla) ≡ 0
+		Longitud(Llegar(p, f)) ≡ Longitud(f) + 1
+		Longitud(Atender(f)) ≡ Longitud(f) - 1
+		
+		Vacia(f) ≡ Longitud(f) = 0
+Fin TAD
+
+TAD FilaDinamica
+	Igualdad Observacional:();
+	Géneros: Fila
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	Observadores Básicos:
+		Esperando : persona x fila -> bool
+		Posicion: persona p x fila f -> nat								{Esperando(p, f)}
+		SeColo? : persona p x fila f -> book							{Esperando(p, f)}
+
+	Generadores:
+		AbrirVentanilla: -> fila
+		Llegar : persona p x fila f -> fila								{¬Esperando(p, f)}
+		Atender : fila f -> fila													{¬Vacia?(f)}
+		Retirarse : persona p x fila f -> fila						{Esperando(p, f)}
+		ColarseAdelanteDe : persona p x persona q x fila f -> fila		{¬Esperando(p, f) ∧ Esperando(q, f)}
+
+	Otras Operaciones:
+		Longitud: fila -> nat
+		Vacia: fila -> bool
+		
+	Axiomas:
+		Esperando(p, AbrirVentanilla) ≡ false
+		Esperando(p, Llegar(p', f)) ≡ if p = p' then true else false
+		Esperando(p, Atender(f)) ≡ Esperando(p, f) ∧L Posicion(p, f) ≠ 1
+		Esperando(p, Retirarse(p', fila)) ≡ if p = p' then false else Esperando(p, f)
+		Esperando(p, ColarseAdelanteDe(p', q, f)) ≡ if p = p' then true else Esperando(p, f)
+	
+		// La posicion de la persona p, junto a la fila donde acaba de llegar p' es
+			// -> Si p = p', es decir, acaba de llegar, es la ultima posicion
+			// -> Si p != p' entonces tengo la Posicion de p en f
+		Posicion(p, Llegar(p' f)) ≡ if p = p' then Longitud(f) + 1 else Posicion(p, f)
+		Posicion(p, Atender(f)) ≡ Posicion(p, f) - 1
+		Posicion(p, Retirarse(p', f)) ≡ if p = p' then 0 else Posicion(p, f)
+		Posicion(p, ColarseAdelanteDe(p', q, f)) ≡ if p = p' then Posicion(q, f) else 
+																									if Posicion(p, f) < Posicion(q, f) then
+																										posicion(p, f)
+																									else
+																										posicion(p, f) + 1
+																										
+		SeColo?(p, Llegar(p', f)) ≡ p = p' ∨ SeColo?(p, f)
+		SeColo?(p, Atender(f)) ≡ SeColo?(p, f)
+		SeColo?(p, Retirarse(p', f)) ≡ SeColo?(p, f)
+		SeColo?(p, ColarseAdelanteDe(p', q, f)) ≡ p = p' ∨ SeColo?(p, f)
+		
+		Longitud(AbrirVentanilla) ≡ 0
+		Longitud(Llegar(p, f)) ≡ Longitud(f) + 1
+		Longitud(Atender(f)) ≡ Longitud(f) - 1
+		Longitud(Retirarse(p, f)) ≡ Longitud(f) - 1
+		Longitud(ColarseAdelanteDe(p, q, f)) ≡ Longitud(f) + 1
+		
+		Vacia(f) ≡ Longitud(f) = 0
+Fin TAD
+
+
+TAD NuevaFila
+	Igualdad Observacional:();
+	Géneros: Fila
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	Observadores Básicos:
+		Esperando : persona x fila -> bool
+		Posicion: persona p x fila f -> nat								{Esperando(p, f)}
+		SeColo? : persona p x fila f -> book							{Esperando(p, f)}
+		Entro?: persona x fila -> bool
+		FueAtendido?: persona x fila -> bool
+	Generadores:
+		AbrirVentanilla: -> fila
+		Llegar : persona p x fila f -> fila								{¬Esperando(p, f)}
+		Atender : fila f -> fila													{¬Vacia?(f)}
+		Retirarse : persona p x fila f -> fila						{Esperando(p, f)}
+		ColarseAdelanteDe : persona p x persona q x fila f -> fila		{¬Esperando(p, f) ∧ Esperando(q, f)}
+
+	Otras Operaciones:
+		Longitud: fila -> nat
+		Vacia: fila -> bool
+		
+		
+	Axiomas:
+		Esperando(p, AbrirVentanilla) ≡ false
+		Esperando(p, Llegar(p', f)) ≡ if p = p' then true else false
+		Esperando(p, Atender(f)) ≡ Esperando(p, f) ∧L Posicion(p, f) ≠ 1
+		Esperando(p, Retirarse(p', f)) ≡ if p = p' then false else Esperando(p, f)
+		Esperando(p, ColarseAdelanteDe(p', q, f)) ≡ if p = p' then true else Esperando(p, f)	
+		// La posicion de la persona p, junto a la fila donde acaba de llegar p' es
+			// -> Si p = p', es decir, acaba de llegar, es la ultima posicion
+			// -> Si p != p' entonces tengo la Posicion de p en f
+		Posicion(p, Llegar(p' f)) ≡ if p = p' then Longitud(f) + 1 else Posicion(p, f)
+		Posicion(p, Atender(f)) ≡ Posicion(p, f) - 1
+		Posicion(p, Retirarse(p', f)) ≡ if p = p' then 0 else Posicion(p, f)
+		Posicion(p, ColarseAdelanteDe(p', q, f)) ≡ if p = p' then Posicion(q, f) else 
+																									if Posicion(p, f) < Posicion(q, f) then
+																										posicion(p, f)
+																									else
+																										posicion(p, f) + 1
+																										
+		SeColo?(p, Llegar(p', f)) ≡ p = p' ∨ SeColo?(p, f)
+		SeColo?(p, Atender(f)) ≡ SeColo?(p, f)
+		SeColo?(p, Retirarse(p', f)) ≡ SeColo?(p, f)
+		SeColo?(p, ColarseAdelanteDe(p', q, f)) ≡ p = p' ∨ SeColo?(p, f)
+		
+		Entro?(p, AbrirVentanilla) ≡ false
+		Entro?(p, Llegar(p', f)) ≡ if p = p' then true else Entro?(p, f)
+		Entro?(p, Atender(f)) ≡ Entro?(p, f)
+		Entro?(p, Retirarse(p', f)) ≡ Entro?(p, f)
+		Entro?(p, ColarseAdelanteDe(p', q, f)) ≡ if p = p' then true else Entro?(p, f)	
+		
+		FueAtendido?(p, AbrirVentanilla) ≡ false
+		FueAtendido?(p, Llegar(p', f)) ≡ FueAtendido?(p, f)
+		FueAtendido?(p, Atender(f)) ≡ if Esperando(p, f) ∧L Posicion(p, f) = 1 then true else FueAtendido?(p, f)
+		FueAtendido?(p, Retirarse(p', fila)) ≡ FueAtendido?(p, f)
+		FueAtendido?(p, ColarseAdelanteDe(p', q, f)) ≡ FueAtendido?(p, f)	
+		
+		Longitud(AbrirVentanilla) ≡ 0
+		Longitud(Llegar(p, f)) ≡ Longitud(f) + 1
+		Longitud(Atender(f)) ≡ Longitud(f) - 1
+		Longitud(Retirarse(p, f)) ≡ Longitud(f) - 1
+		Longitud(ColarseAdelanteDe(p, q, f)) ≡ Longitud(f) + 1
+		
+		Vacia(f) ≡ Longitud(f) = 0
+Fin TAD
+
+
+--- EJERCICIO DE TECNICOS A DOMICILIO ---
+Tecnicos a Domicilio
+
+Tengo un conjunto de tecnicos disponibles
+Tengo un conjunto de domicilios o direcciones
+Tengo una secuencia de lista de espera. Esto porque necesito saber quienes necesitan un tecnico
+A demas me importa el orden, quiero saber que el primero en llamar sea el primero en ser atendidos
+Tambien necesito un historial, entonces puedo tener un diccionario que sea Dicc(domicilio, conj(tecnico))
+
+Por otro lado, necesito iniciar un sistema de tecnicos a domicilio
+Para esto recibo un conjunto de tecnicos y un conjunto de domicilios
+
+Necesito solicitar un tecnico => tecnico x domicilio -> tad
+Terminar un trabajo, si un tecnico termina vuelve a central, si no, se reasigna
+
+Comportamiento automatico => Si el tecnico termina de trabajar, entonces se fija si hay
+alguna ubicacion en la casa. Luego calcula la distancia desde la casa donde está hasta la nueva
+casa, busca el minimo, y se asigna
+Si no, vuelve a la central
+
+Tecnico se representa con Nat
+Domicilio se representa con Nat
+
+TAD TaD
+	Igualdad Observacional:();
+	Géneros: TaD
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		tecnicosDisponibles : TaD -> conj(tecnico)
+		tecnicosOcupados: TaD -> conj(tecnico)
+		listaDeEspera : TaD -> secu(direccion)
+		ubicacion: TaD t x tecnico tec -> direccion
+				
+	Generadores:
+		abrirTaD : conj(tecnico) -> TaD
+		solicitarTecnico: TaD t x direccion d -> TaD
+		terminarTrabajo: TaD t x tecnico tec -> TaD
+	Otras Operaciones:
+		historial: direccion d -> Dicc(direccion, conj(tecnico))
+	Axiomas:
+		tecnicosDisponibles(abrirTaD(c)) ≡ c
+		tecnicosDisponibles(solicitarTecnico(t, d)) ≡ if Ø?(tecnicosDisponibles(t)) then Ø else sinUno(tecnicosDisponibles(t))
+		tecnicosDisponibles(terminarTrabajo(t, q)) ≡ tecnicosDisponibles(t) ∪ if vacia?(listaDeEspera(t)) then q else Ø fi
+		
+		tecnicosOcupados(abrirTaD(d)) ≡ Ø
+		tecnicosOcupados(solicitarTecnico(d, q)) ≡ tecnicosOcupados(d) ∪ if Ø?(tecnicosDisponibles(d)) then dameUno(tecnicosDisponibles(t)) else Ø fi
+		tecnicosOcupados(terminarTrabajo(d, q)) ≡ tecnicosOcupados(d) - if vacia?(listaDeEspera(d)) then {q} else Ø
+		
+		listaDeEspera(abrirTaD) ≡ <>
+		listaDeEspera(solicitarTecnico(t, d)) ≡ if ¬está?(d, listaDeEspera(d)) then	listaDeEspera(t) • d else listaDeEspera(t)
+		listaDeEspera(terminarTrabajo(t, d)) ≡ if vacia?(listaDeEspera(d)) then <> else sacar(masCercano(listaDeEspera(t), ubicacion(t, d)), listaDeEspera(t))
+		
+		ubicacion(solicitarTecnico(t, d), p) ≡ if p ∈ tecnicosOcupados(d) then ubicacion(t, p) else d fi
+		ubicacion(terminarTrabajo(t, p), q) ≡ if p = q then masCercano(listaDeEspera(t), ubicacion(t, p)) else ubicacion(t, p) 
+		 
+		masCercano(s, d) ≡ if long(s) = 1 then prim(s)
+												else
+													if dist(prim(s), d) ≤ dist(d, masCercano(fin(s), d)) then
+														prim(s)
+													else
+														masCercano(fin(s), d)
+													fi
+												fi
+												
+		sacar(d, s) ≡ if vacía?(s) then <> else if(prim(s) = d) then fin(s) else prim(s) • sacar(d, fin(s)) fi
+		
+Fin TAD

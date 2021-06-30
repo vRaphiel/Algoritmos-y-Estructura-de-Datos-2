@@ -1,0 +1,65 @@
+Centro de Gestión de Tramites (CGT)
+=> Red de ventanillas
+=> Las personas saben a que ventanilla ir (parametro) y se sabe en que orden (secuencia)
+=> No se visita mas de una vez a la misma ventanilla
+=> Cola de espera
+
+Comportamiento Automatico => Si un tipo termina, avanza a la siguiente fila
+Si se van de la fila, el tipo de la ventanilla va por la siguiente persona, si no espera a que
+entre alguien a su fila
+
+TAD NombreTad
+	Igualdad Observacional:();
+	Géneros: nombreTad
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		#ventanillas: CTG -> nat
+		fila: CGT c x nat ventanilla -> cola(persona)
+		#atendidos: CGT x nat ventanilla -> nat
+		ocupada?: CGT x nat -> Bool
+		cliente: CGT x nat -> persona
+		ventanillasPendientes: CGT x persona -> secu(nat)
+	Generadores:
+		NuevoCGT: nat cantVentanilla -> CGP
+		Encolar: CTG c x persona p x secu(ventanilla) s -> CGP
+		Atender: CTG c x nat ventanilla -> ventanilla
+	Otras Operaciones:
+		masAtendio: ctg -> nat
+		masAtendioAux: 
+	Axiomas:
+		#ventanillas(NuevoCGT(n)) ≡ n
+		#ventanillas(Encolar(c, p, s)) ≡ #ventanillas(c)
+		#ventanillas(Atender(c, p, v)) ≡ #ventanillas(c)
+		
+		fila(NuevoCGT(n)) ≡ vacio
+		fila(Encolar(c, p, s), v) ≡ if prim(s) = v then 
+		 															if  ¬ocupada?(c, v) then
+		 																vacia
+		 															else
+		 																encolar(p, fila(c, v))
+		 															fi
+																else
+																	fila(c, v)
+																fi
+																
+		fila(Atender(c, n), v) ≡ 
+			if v = n then
+				// Si la fila de esa ventanilla no está vacia. ENtonces desencolo
+				if ¬vacia?(fila(c, v)) then
+					desencolar(fila(c, v))
+				else
+					vacia
+				fi
+			else
+				if ¬vacia?(ventanillasPendientes(c, cliente(c, n))) ∧L prim(ventanillasPendientes(c, cliente(c, n))) = v ∧L ocupada?(c, v) then
+					encolar(cliente(c, n), fila(c, n))
+				else
+					fila(c, v)
+				fi
+			fi
+			
+			
+				
+Fin TAD

@@ -1,0 +1,65 @@
+// ---- PSEUDOCODIGO
+ordenarArreglo(in A: arreglo( ⟨ gravedad: ℝ, apellido: string⟩) ) -> res: arreglo( ⟨ gravedad: ℝ, apellido: string⟩)
+	res <- vacio(tam(A))
+	lista <- vacio()
+	i <- 0
+	for persona in A do
+		agregarAtras(⟨persona, i⟩)
+		i <- i + 1
+	end for
+
+	personas2Decimales <- vacio()
+	personasMas2Decimales <- vacio()
+
+	for persona in lista do
+		if TieneDosDecimales(π₁(π₁(persona))) then
+			agregarAtras(personas2Decimales, persona)
+		else
+			agregarAtras(personasMas2Decimales, persona)
+		endif
+	end for
+
+	// Se pasa por referencia modificable para que no tenga que copiar
+	RadixSort(personas2Decimales)
+	MergeSort(personasMas2Decimales)
+
+	// Con el criterio del menor indice va primero
+	concat(personas2Decimales, personasMas2Decimales)
+	i <- 0
+	for p in lista do
+		res[i] = π₁(p)
+		i <- i + 1
+	end for
+	return res
+end function
+
+El algoritmo tendria una pinta asi. Complejidad dada mas arriba
+
+b) Si tenemos en cuenta la tupla que cree inicialmente, con ⟨ datoPersona, indice ⟩
+		Entonces solo hay que ver el indice. Si el indice es menor, es porque va segundo, ya que en el
+		arreglo original vienen los apellidos de menor a mayor. Entonces si quiero de mayor a menor, solo veo
+		el valor del indice e ira primero el que sea mayor numero
+		La complejidad no cambia pues ya está incluida en este caso. Ver y comparar ese indice es O(1)
+		Esta idea se aplica en la funcion concat
+
+c) Una vez ordenado, yo no se el orden anterior, pero se los apellidos. Puedo aplicar la idea del punto a
+	 Armo un arreglo con indices como tercer item de cada tupla, entonces, ahora armo un bucket
+	 Bucket => O(n)
+	 Estos son varios buckets donde yo voy a meter a todas las personas, especialmente aquellas que tengan
+	 la misma gravedad
+	 Pero ahora el criterio de ordenamiento se hace sobre los que tengan la misma gravedad, sobre el apellido
+	 Como tengo un indice, lo unico que hago es invertir este indice, esto lo puedo hacer en O(n) con algun algoritmo conocido
+	 (Ingresa Cocktail Sort (recuerdos de Algo 1)) Toma el primer elemento lo manda al final, el del final lo trae al primer
+	 elemento el que le sigue lo manda al ante ultimo y así. Es como un insertion sort solo que yo ya se donde tienen que ir los nuevos elementos)
+
+	 Ahora se que esta ordenado de menor a mayor, todo gracias al indice, y me ahorra tener que comparar los apellidos (aunque me dijeran que es O(1))
+	 Esto tambien lo asumo porque inicialmente la lista, en el item a entraba con apellidos de menor a mayor, al devolverla
+	 estaran de mayor a menor por item b del ejercicio, luego quiero de menor a mayor otra vez, el orden solo se invierte
+	 Se mantiene estable el algoritmo
+	 Finalmente, cuando tengo ordenado, hago un concat y esto será en O(n)
+	 Este concat toma como criterio unir todos los buckets y el orden será por la gravedad y ,cuando llegue a un bucket ordenado por apellido, simplemente voy
+	 insertando los valores en el orden nuevo.
+	 Tambien, para evitar que las cosas se desordenen, busco este indice, por cada bucket me fijo si el ultimo elemento de ese bucket coincide con el primero
+	 del siguiente bucket. Si es asi sigo concatenand, si no es asi busco el ultimo elemento, como coinciden, entonces concateno de inicio a final
+
+	 La complejidad final es O(n)
