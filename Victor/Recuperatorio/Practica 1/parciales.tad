@@ -1,65 +1,58 @@
-Centro de Gestión de Tramites (CGT)
-=> Red de ventanillas
-=> Las personas saben a que ventanilla ir (parametro) y se sabe en que orden (secuencia)
-=> No se visita mas de una vez a la misma ventanilla
-=> Cola de espera
+======== PARCIAL DEL 5 DE MAYO DE 2018 ========
+Centro Comunitario de Carpinteros
+Tiene 10 niveles
 
-Comportamiento Automatico => Si un tipo termina, avanza a la siguiente fila
-Si se van de la fila, el tipo de la ventanilla va por la siguiente persona, si no espera a que
-entre alguien a su fila
+Persona se representa con Nat
 
-TAD NombreTad
+Alumnos => Conj(persona)
+Maestros => Conj(persona)
+
+
+Metodos:
+
+TAD CCC
 	Igualdad Observacional:();
-	Géneros: nombreTad
+	Géneros: ccc
 	Exporta: nombreTad, observadores, generadores, 
 	Usa: Bool, Nat
 	
 	Observadores Básicos:
-		#ventanillas: CTG -> nat
-		fila: CGT c x nat ventanilla -> cola(persona)
-		#atendidos: CGT x nat ventanilla -> nat
-		ocupada?: CGT x nat -> Bool
-		cliente: CGT x nat -> persona
-		ventanillasPendientes: CGT x persona -> secu(nat)
-	Generadores:
-		NuevoCGT: nat cantVentanilla -> CGP
-		Encolar: CTG c x persona p x secu(ventanilla) s -> CGP
-		Atender: CTG c x nat ventanilla -> ventanilla
-	Otras Operaciones:
-		masAtendio: ctg -> nat
-		masAtendioAux: 
-	Axiomas:
-		#ventanillas(NuevoCGT(n)) ≡ n
-		#ventanillas(Encolar(c, p, s)) ≡ #ventanillas(c)
-		#ventanillas(Atender(c, p, v)) ≡ #ventanillas(c)
+		alumnos: ccc -> conj(persona)
+		maestros: ccc -> conj(persona)
+		desertores: ccc -> conj(persona)
+		nivelDe: ccc c x persona p -> nat
+		aprendicesDe: ccc c x persona p -> conj(persona)
 		
-		fila(NuevoCGT(n)) ≡ vacio
-		fila(Encolar(c, p, s), v) ≡ if prim(s) = v then 
-		 															if  ¬ocupada?(c, v) then
-		 																vacia
-		 															else
-		 																encolar(p, fila(c, v))
-		 															fi
-																else
-																	fila(c, v)
-																fi
-																
-		fila(Atender(c, n), v) ≡ 
-			if v = n then
-				// Si la fila de esa ventanilla no está vacia. ENtonces desencolo
-				if ¬vacia?(fila(c, v)) then
-					desencolar(fila(c, v))
-				else
-					vacia
-				fi
-			else
-				if ¬vacia?(ventanillasPendientes(c, cliente(c, n))) ∧L prim(ventanillasPendientes(c, cliente(c, n))) = v ∧L ocupada?(c, v) then
-					encolar(cliente(c, n), fila(c, n))
-				else
-					fila(c, v)
-				fi
-			fi
-			
-			
-				
+	Generadores:
+		AbrirCCC: conj(persona) m -> ccc					{¬vacía?(m)}
+		IngresarAlumno: ccc c x persona p -> ccc	{p ∉ alumnos(c) ∧ p ∉ maestros(c)}						
+		Desertar: ccc c x persona p -> ccc				{p ∈ alumnos(c) ∨ p ∈ maestros(c)}
+		SubirCategoria: ccc c x persona p -> ccc 	{p ∈ alumnos(c) ∧ p ∉ maestros(c)}
+
+	Otras Operaciones:
+		
+	Axiomas:
+		alumnos(AbrirCCC(c)) ≡ Ø
+		alumnos(IngresarAlumno(c, p)) ≡ Ag(alumnos(c), p)
+		alumnos(Desertar(c, p)) ≡ alumnos(c) - Ag(p, Ø)
+		alumnos(SubirCategoria(c, p)) ≡ if nivelDe(p) = 10 then alumnos(c) - Ag(p, Ø) else alumnos(c)
+		
+		maestros(AbrirCCC(c)) ≡ c
+		maestros(IngresarAlumno(c, p)) ≡ maestros(c)
+		maestros(Desertar(c, p)) ≡ if nivelDe(p) = 0 then maestros(c) - Ag(p, Ø) else maestros(c)
+		maestros(SubirCategoria(c, p)) ≡ if nivelDe(p) = 10 then Ag(p, maestros(c)) else maestros(c)
+		
+		desertores(AbrirCCC(c)) ≡ Ø
+		desertores(IngresarAlumno(c, p)) ≡ desertores(c)
+		desertores(Desertar(c, p)) ≡ Ag(p, desertores(c))
+		desertores(SubirCategoria(c, p)) ≡ desertores(c)
+		
+		nivelDe(IngresarAlumno(c, p)) ≡ 1
+		nivelDe(Desertar(c, p)) ≡ nivelDe(p)
+		nivelDe(SubirCategoria(c, p)) ≡ if nivelDe(p) == 10 then 0 else nivelDe(p) + 1
+		
+		aprendicesDe(IngresarAlumno(c, p'), p) ≡ 
+			Escojo 
+		aprendicesDe(Desertar(c, p'), p) ≡
+		aprendicesDe(SubirCategoria(c, p'), p) ≡
 Fin TAD
