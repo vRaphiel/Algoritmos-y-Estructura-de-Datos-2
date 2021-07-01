@@ -374,10 +374,19 @@ TAD TaxiInterplanetario
 		maniobrasProhibidas(Multar(ti, t, p, i)) ≡ maniobrasProhibidas(ti)
 		maniobrasProhibidas(FinJornada(ti, t, p, h)) ≡ maniobrasProhibidas(ti)
 		
-		licencias(GenerarSistema(c)) ≡ 
-		licencias(IngresarVehiculo(ti, v)) ≡ 
-		licencias(AgregarLicencia(ti, p, t)) ≡ 
-		licencias(Multar(ti, t, p, i)) ≡ 
-		licencias(FinJornada(ti, t, p, h)) ≡ 
+		licencias(GenerarSistema(c)) ≡ Ø
+		licencias(IngresarVehiculo(ti, v)) ≡ licencias(ti, v)
+		licencias(AgregarLicencia(ti, p, t)) ≡ Ag(v, licencias(ti, v))
+		licencias(Multar(ti, t, p, i)) ≡ if #infracciones(ti, t, i, p) = 2 then licencias(ti, t) - Ag(p, Ø) else licencias(ti, t)
+		licencias(FinJornada(ti, t, p, h)) ≡ licencias(ti, v)
+		
+		#horas(GenerarSistema(c)) ≡ Ø
+		#horas(IngresarVehiculo(ti, v)) ≡ maniobrasProhibidas(ti)
+		#horas(AgregarLicencia(ti, p, t)) ≡ maniobrasProhibidas(ti)
+		#horas(Multar(ti, t, p, i)) ≡ maniobrasProhibidas(ti)
+		#horas(FinJornada(ti, t, p, h)) ≡ maniobrasProhibidas(ti)
+		
+		
+		
 		
 Fin TAD
