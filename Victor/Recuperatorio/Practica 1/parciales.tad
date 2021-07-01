@@ -30,6 +30,9 @@ TAD CCC
 		SubirCategoria: ccc c x persona p -> ccc 	{p ∈ alumnos(c) ∧ p ∉ maestros(c)}
 
 	Otras Operaciones:
+		tutorDe: ccc c x persona p -> persona
+		esTutorDe: ccc c x persona p x persona q -> bool
+		descendientesDe: ccc c x persona p -> conj(persona)
 		
 	Axiomas:
 		alumnos(AbrirCCC(c)) ≡ Ø
@@ -52,7 +55,329 @@ TAD CCC
 		nivelDe(SubirCategoria(c, p)) ≡ if nivelDe(p) == 10 then 0 else nivelDe(p) + 1
 		
 		aprendicesDe(IngresarAlumno(c, p'), p) ≡ 
-			Escojo 
+			if p = p' then
+				Ø
+			else
+				if dameUno(alumnos(c) ∪ maestros(c)) = p then
+					Ag(aprendicesDe(c, p), p')
+				else
+					aprendicesDe(c, p)
+				fi
+			fi
+					
 		aprendicesDe(Desertar(c, p'), p) ≡
+			if p = p' then
+				Ø
+			else
+				if nivelDe(c, p') = 0 then
+					if nivelDe(c, p) = 0 then
+						if dameUno(maestros(c)) = p then
+							aprendicesDe(c, p) ∪ aprendicesDe(c, p')
+						else
+							aprendicesDe(c, p)
+						fi
+					else
+						aprendicesDe(c, p)
+				else
+					if esTutorDe(c, p, p') then
+						aprendicesDe(c, p) ∪ aprendicesDe(c, p') - Ag(p', Ø)
+					else
+						aprendicesDe(c, p)
+					fi
+				fi
+			
+			fi
+		
 		aprendicesDe(SubirCategoria(c, p'), p) ≡
+			if p = p' then
+				aprendicesDe(c, p)
+			else
+				if esTutorDe(c, p, p') then
+					if nivelDe(c, p) > nivelDe(c, p')  then
+						aprendicesDe(c, p)
+					else
+						aprendicesDe(c, p) - Ag(p', Ø)
+					fi
+				fi
+			fi
+			
+			tutorDe(c, p) ≡ tutorDeAux(c, p, estudiantes(c) ∪ maestros(c))
+			
+			tutorDeAux(c, p, s) ≡ if #s = 1
+															dameUno(s)
+														else
+															if dameUno(s) = p then
+																if p ∈ aprendicesDe(c, p) then
+																	dameUno(s)
+																else 
+																	tutorDeAux(c, p, sinUno(s))
+																fi
+															else
+																tutorDe(c, p, sinUno(s))
+															fi
+														fi
+														
+		esTutorDe(c, p, q) ≡ p ∈ (c, p, estudiantes(c) ∪ maestros(c))
+		
+		descendientesDe(c, p) ≡ descendientesDeAux(c, Ag(p, Ø))
+		
+		descendientesDeAux(c, cp) ≡ if aprDeapr(c, cp) c cp then
+																	cp
+																else
+																	descendientesDe(c, aprDeapr(c, cp))
+																fi
+																
+		aprDeapr(c, cp) ≡ if Ø?(cp) then
+												Ø
+											else
+												aprendicesDe(c, dameUno(cp)) ∪ aprDeapr(c, sinUno(cp))
+											fi			
+		
+Fin TAD
+
+===== PARCIAL DEL 23 DE ABRIL DEL 2016 =====
+
+tablero
+Celdas se representa con ENUM{minadas, pistas, libres}
+
+Posicion se representa con tupla⟨x, y⟩
+Usare tupla.x y tupla.y para hacer mas facil esta cosa
+TAD Buscaminas
+	Igualdad Observacional:();
+	Géneros: buscaminas
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		alto: buscaminas -> nat
+		ancho: buscaminas -> nat
+		minas: buscaminas -> conj(posicion)
+		reveladas: buscaminas -> conj(posicion)
+		
+	Generadores:
+		generarTablero: nat x x nat y x conj(posiciones) -> buscaminas		{todas las pocisiones en rango}
+		revelar: buscaminas b x posicion p -> buscaminas									{posEnRango}
+		
+	Otras Operaciones:
+		gano?: buscaminas b -> bool
+		termino?: buscaminas b -> bool
+		seguroLindaAMinas: buscaminas b x celda c -> nat {c ∈ pistas(b)}
+		pistaN: buscaminas b x celda c -> nat
+		
+	Axiomas:
+		alto(generarTablero(x, y, s)) ≡ y
+		alto(revelar(b, p)) ≡ alto(b)
+		
+		ancho(generarTablero(x, y, s)) ≡ x
+		ancho(revelar(b, p)) ≡ ancho(b)
+		
+		minas(generarTablero(x, y, s)) ≡ s
+		minas(revelar(b, p)) ≡ minas(b)
+		
+		reveladas(generarTablero(x, y, s)) ≡ Ø
+		reveladas(revelar(b, p)) ≡ if p ∉ reveladas(b) then Ag(p, reveladas(b)) else reveladas(b) fi
+		
+Fin TAD
+
+====== Parcial del 3 de mayo del 2017 ======
+El Centro de Gestión de Trámites (CGT)
+
+Tenemos ventanillas, varias, todas enumeradas
+
+Las personas saben que ventanillas visitar y en que orden deben hacerlo => secuencia
+Una persona no visita mas de una vez una misma ventanilla (validar que en la secuencia no haya repetidos)
+Tenemos una cola de espera => tipo Cola
+Si la persona es atendida avanza en la siguiente a su itinerario
+Quiero saber tambien quienes se encuentran esperando y en que orden
+Quiero saber que ventanilla atendio a mas personas
+
+Tipos de datos
+Las personas tienen que ventanillas usar => secu(ventanilla)
+
+Persona se representa con Nat
+Ventanilla se representa con Nat
+
+Metodos:
+	Generadores:
+	AbrirCGT : recibe un nat y devuelve un CGT
+	Encolar : recibe un CGT una persona y una ventanilla y me da un CGT
+	Atender:. recibe un CGT y me da una ventanilla (Esto iria? Debe ser automatico?)
+	
+	
+	
+
+TAD NombreTad
+	Igualdad Observacional:();
+	Géneros: nombreTad
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		#ventanillas : cgt -> nat
+		#atendidos : cgt x ventanilla -> nat
+		esperaL: cgt x ventanilla -> cola(persona)
+		ocupada?: cgt x ventanilla -> bool
+		
+		ventanillasPendientes: cgt x persona -> secu(nat)
+		cliente: cgt x ventanilla -> persona
+
+	Generadores:
+		AbrirCGT: nat -> CGT 
+		LlegarPersona: cgt x persona x secu(ventanilla) -> CGT		// Esto porque las personas pueden caer con mas de una ventanilla
+		Atender: cgt x ventanilla -> CGT
+	Otras Operaciones:
+		atendioAMas: cgt -> ventanilla
+		atendioAMasAux: cgt x nat -> ventanilla
+		
+		todasLasPersonas: cgt -> conj(persona)
+		todasLasPersonasAux: cgt x nat -> conj(persona)
+	Axiomas:
+	
+		#ventanillas(AbrirCGT(n)) ≡ n
+		#ventanillas(LlegarPersona(c, p, s)) ≡ #ventanillas(c)
+		#ventanillas(Atender(c, v)) ≡ #ventanillas(c)
+		
+		#atendidos(AbrirCGT(n), v) ≡ 0
+		#atendidos(LlegarPersona(n, p, s), v) ≡ #atendidos(v)
+		#atendidos(Atender(c, v'), v) ≡ if v = v' then 1 else 0 + #atendidos(c, v)
+		
+		esperaL(AbrirCGT(n), v) ≡ vacia
+		esperaL(LlegarPersona(c, p, s), v) ≡ if prim(s) = v then if ¬ocupada(c, v) then vacia else encolar(p, esperaL(c, v)) else esperaL(c, v) fi
+		esperaL(Atender(c, v'), v) ≡ 
+			if v = v' then
+					if vacia?(esperaL(c, v)) then
+						vacia
+					else
+						desencolar(esperaL(c, v))
+					fi
+			else
+				if ¬vacia?(ventanillasPendientes(cliente(c, v'))) ∧L v = prim(ventanillasPendientes(c, v')) then
+					encolar(esperaL(c, v), cliente(c, v'))
+				else
+					esperaL(c, v)
+				fi
+			fi
+																			
+		ocupada?(AbrirCGT(n), v) ≡ false
+		ocuada?(LlegarPersona(c, p, s), v) ≡ if prim(s) = v then 
+																						true
+																					else	
+																						ocupada?(c, v)
+																					fi
+																					
+		ocupada?(Atender(c, v'), v) ≡ if v = v' then	
+																		if vacia?(esperaL(c, v)) then
+																			false
+																		else
+																			true
+																		fi
+																	else
+																		if ¬vacia?(ventanillasPendientes(cliente(c, v'))) ∧L v = prim(ventanillasPendientes(c, v')) then
+																			true
+																		else
+																			ocupada?(c, v)
+																	fi
+																					
+		ventanillasPendientes(AbrirCGT(n), v) ≡ 0
+		ventanillasPendientes(LlegarPersona(c, p, s), p) ≡ s
+		ventanillasPendientes(Atender(c, v), p) ≡ if prim(s) = v then fin(s) else ventanillasPendientes(s) fi
+		
+		cliente(LlegarPersona(c, p, s), v) ≡ if prim(s) = v then p else cliente(c, v)
+		cliente(Atender(c, v'), v) ≡ if v = v' then proximo(esperaL(c, v)) else cliente(c, v) fi
+		
+		atendioAMas(c) ≡ atendioAMasAux(c, #ventanillas)
+		
+		atendioAMasAux(c, n) ≡ if n = 1 then
+															n
+														else
+															if atendioAMasAux(c, n) ≥ atendioAMasAux(c, n - 1) then
+																n
+															else	
+																atendioAMasAux(c, n-1)
+															fi
+														fi
+														
+		todasLasPersonas(c) ≡ todasLasPersonasAux(c, #ventanillas(c))
+		
+		todasLasPersonasAux(c, nat) ≡ 
+			(if ocupada?(c, nat) then cliente (c, nat) else Ø) ∪ colaAConj(c, esperaL(c, nat)) ∪ if nat = 1 then Ø else todasLasPersonasAux(c, nat - 1) fi
+			
+Fin TAD
+
+====== PARCIAL DEL 25 DE ABRIL DE 2015 ======
+
+Sistema control de naves-taxi
+Las licencias se pueden tramintar dando un examen que varia segun el planeta
+Cada nave puede andar dentro del planeta donde dio el examen
+
+Terminada la jornada se tramita la cantidad de hojas y el planeta trabajado
+Una nave puede trabajar en cualquier planeta que tenga licencia
+No se pueden hacer viajes interplanetarios
+
+Hay maniobras prohibidas. En rojo, girar en U, romper la barrera del sonido frente a escuela, etc
+
+Si se comete ingraccion => se transmite la infraccion cometida y el lugar del hecho
+Si hay 3 infracciones iguales por persona, pierde su licencia irreversiblemente
+
+Se interesa saber que, dado un planeta, quienes llevan mayor cantidad de horas trabajadas en el
+
+un taxi se representa con  ⟨horasTrabajadas, conj(planeta), dicc(infraccion, cantidad)⟩
+Puedo tener un diccionario de planeta vehiculos
+Donde cada vehiculo es ⟨numero, diccionario(infraccion, cantidad)⟩
+
+Necesito varias cosas
+Cada taxi tiene una lista de planetas donde puede estar
+a su vez, cada taxi tiene horas trabajadas en un planeta
+a su vez los taxis tienen una lista de sus infracciones
+
+Entonces puedo representar un taxi como un numero que a su vez tiene una tupla de datos
+Para esto me puedo armar un diccionario
+
+TAD TaxiInterplanetario
+	Igualdad Observacional:();
+	Géneros: ti
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		planetas: ti -> conj(planetas)
+		vehiculos: ti -> conj(vehiculos)
+		maniobrasProhibidas: ti x planeta -> conj(infraccion)
+		licencias: ti x vehiculo -> conj(planetas)
+		#horas: ti x vehiculo -> nat
+		#infracciones: ti x vehiculo x infraccion x planeta -> nat
+		
+	Generadores:
+		GenerarSistema: conj(planetas) -> ti
+		IngresarVehiculo: ti x planeta -> ti
+		AgregarLicencia: ti x planeta x taxi -> ti
+		Multar: ti x taxi x planeta x infraccion -> ti
+		FinJornada: ti x taxi x planeta x horas
+	Otras Operaciones:
+		
+	Axiomas:
+		planetas(GenerarSistema(c)) ≡ c
+		planetas(IngresarVehiculo(ti, v)) ≡ planetas(ti)
+		planetas(AgregarLicencia(ti, p, t)) ≡ planetas(ti)
+		planetas(Multar(ti, t, p, i)) ≡ planetas(ti)
+		planetas(FinJornada(ti, t, p, h)) ≡ planetas(ti)
+	
+		vehiculos(GenerarSistema(c)) ≡ Ø
+		vehiculos(IngresarVehiculo(ti, v)) ≡ Ag(v, vehiculos(ti))
+		vehiculos(AgregarLicencia(ti, p, t)) ≡ vehiculos(ti)
+		vehiculos(Multar(ti, t, p, i)) ≡ vehiculos(ti)
+		vehiculos(FinJornada(ti, t, p, h)) ≡ vehiculos(ti)
+		
+		maniobrasProhibidas(GenerarSistema(c)) ≡ Ø
+		maniobrasProhibidas(IngresarVehiculo(ti, v)) ≡ maniobrasProhibidas(ti)
+		maniobrasProhibidas(AgregarLicencia(ti, p, t)) ≡ maniobrasProhibidas(ti)
+		maniobrasProhibidas(Multar(ti, t, p, i)) ≡ maniobrasProhibidas(ti)
+		maniobrasProhibidas(FinJornada(ti, t, p, h)) ≡ maniobrasProhibidas(ti)
+		
+		licencias(GenerarSistema(c)) ≡ 
+		licencias(IngresarVehiculo(ti, v)) ≡ 
+		licencias(AgregarLicencia(ti, p, t)) ≡ 
+		licencias(Multar(ti, t, p, i)) ≡ 
+		licencias(FinJornada(ti, t, p, h)) ≡ 
+		
 Fin TAD
