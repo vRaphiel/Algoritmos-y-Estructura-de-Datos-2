@@ -1,0 +1,84 @@
+TAD EMP
+	Igualdad Observacional:();
+	Géneros: emp
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		vendedores: emp -> conj(vendedor)
+		#empanadasXVendedor: emp x vendedor -> nat
+		descansando: emp -> conj(vendedor)
+
+		cansado?: emp x vendedor -> nat
+		
+	Generadores:
+		abrirEMP: conj(vendedor) -> emp
+		salir: emp x nat empanadas x vendedor -> emp
+		vender: emp x nat empanadas x vendedor -> emp							{#empanadasXVendedor(emp, v) ≥ empanadas}
+		
+	Otras Operaciones:
+		
+	Axiomas:
+		vendedores(abrirEMP(c)) ≡ c
+		vendedores(salir(emp, e, v)) ≡ vendedores(emp)
+		vendedores(vender(emp, v, e)) ≡ vendedores(emp)
+		
+		#empanadasXVendedor(abrirEMP(c), v) ≡ 0
+		#empanadasXVendedor(salir(emp, e, v'), v) ≡ if v = v' then e else 
+																									if v ∈ descansando(emp) then
+																										0
+																									else																							
+																										#empanadasXVendedor(emp, v)
+																									fi
+																									
+		#empanadasXVendedor(vender(emp, e, v'), v) ≡ if v = v' then	
+																										#empanadasXVendedor(emp, v) - e
+																								 else
+																								 		if v ∈ descansando(emp) then
+																											0
+																										else
+																											#empanadasXVendedor(emp, v)
+																										fi
+																								 fi
+	
+Fin TAD
+
+TAD SCV
+	Igualdad Observacional:();
+	Géneros: scv
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		salas: emp -> conj(sala)
+		salasOcupadas: emp -> conj(sala)
+		alumnos:
+		docentes: emp -> conj(docentes)
+		personasXSalaTot:
+		esAdmin?: emp x persona x sala -> bool
+		clasesAsistidas: 
+		
+	Generadores:
+	
+		IniciarSCV: conj(sala) x conj(docente) -> scv
+		AbrirSala: scv x persona x sala -> scv								{s ∉ salasOcupadas(scv)}
+		Entrar: scv x persona x sala -> scv
+		Salir: scv x persona x sala -> scv
+		
+	Otras Operaciones:
+		masAsistio:
+	Axiomas:
+	
+		salas(IniciarSCV(c, d)) ≡ c
+		salas(AbrirSala(scv, p, s)) ≡ salas(scv)
+		salas(Entrar(scv, p, s)) ≡ salas(scv)
+		salas(Salir(scv, p, s)) ≡ salas(scv)
+		
+		salasOcupadas(IniciarSCV(c, d)) ≡ Ø
+		salasOcupadas(AbrirSala(scv, p, s)) ≡ salasOcupadas(scv) ∪ if s ∈ salasOcupadas(scv) then Ø else Ag(s, Ø) fi
+		salasOcupadas(Entrar(scv, p, s)) ≡ salasOcupadas(scv)
+		salasOcupadas(Salir(scv, p, s)) ≡ if esAdmin?(scv, p, s) then salasOcupadas(scv) - Ag(s, Ø) else salasOcupadas(scv) fi
+		
+		
+		
+Fin TAD

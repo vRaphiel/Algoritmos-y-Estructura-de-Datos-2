@@ -374,7 +374,6 @@ TAD TaxiInterplanetario
 		maniobrasProhibidas(Multar(ti, t, p, i)) ≡ maniobrasProhibidas(ti)
 		maniobrasProhibidas(FinJornada(ti, t, p, h)) ≡ maniobrasProhibidas(ti)
 		
-<<<<<<< HEAD
 		licencias(GenerarSistema(c), v) ≡ Ø
 		licencias(IngresarVehiculo(ti, v), v) ≡ Ø
 		licencias(AgregarLicencia(ti, p, t), v) ≡ Ag(p, licencias(ti, v))
@@ -406,36 +405,163 @@ Vacunacion es voluntaria
 Las personas se pueden inscribir para recibir la vacuna
 Solo se pueden vacunar en la ciudad que reciden
 
+Ciudad se representa con Nat
+Persona se representa con Nat
+Vacuna se representa con Nat
 
-
-TAD TaD
+TAD Sistema de Vacunacion
 	Igualdad Observacional:();
-	Géneros: nombreTad
+	Géneros: tad
 	Exporta: nombreTad, observadores, generadores, 
 	Usa: Bool, Nat
 	
 	Observadores Básicos:
+		ciudades: tad -> conj(ciudad)
+		personasXCiudad: tad x ciudad -> conj(persona)
 		
+		esperandoXCiudad: tad x ciudad -> conj(persona)
+		vacunadosXCiudad: tad x ciudad -> conj(persona)
+		#frascosXCiudad: tad x ciudad -> nat
+				
 	Generadores:
-		
+		AbrirTaD: conj(ciudad) -> tad
+		IngresarPersona: tad x ciudad x persona -> tad
+		IngresarVacuna: tad x ciudad x cVacunas -> tad
+	
 	Otras Operaciones:
-		
+		#vacunadosPorCiudad: tad x ciudad -> nat
+		conMasVacunas: tad -> ciudad
+		masVacunados: tad -> ciudad
 	Axiomas:
-=======
-		licencias(GenerarSistema(c)) ≡ Ø
-		licencias(IngresarVehiculo(ti, v)) ≡ licencias(ti, v)
-		licencias(AgregarLicencia(ti, p, t)) ≡ Ag(v, licencias(ti, v))
-		licencias(Multar(ti, t, p, i)) ≡ if #infracciones(ti, t, i, p) = 2 then licencias(ti, t) - Ag(p, Ø) else licencias(ti, t)
-		licencias(FinJornada(ti, t, p, h)) ≡ licencias(ti, v)
+		ciudades(AbrirTaD(c)) ≡ c
+		ciudades(IngresarPersona(t, c, p)) ≡ ciudades(t)
+		ciudades(IngresarVacuna(t, c, n)) ≡ ciudades(t)
 		
-		#horas(GenerarSistema(c)) ≡ Ø
-		#horas(IngresarVehiculo(ti, v)) ≡ maniobrasProhibidas(ti)
-		#horas(AgregarLicencia(ti, p, t)) ≡ maniobrasProhibidas(ti)
-		#horas(Multar(ti, t, p, i)) ≡ maniobrasProhibidas(ti)
-		#horas(FinJornada(ti, t, p, h)) ≡ maniobrasProhibidas(ti)
+		personasXCiudad(AbrirTaD(cs), c) ≡ Ø
+		personasXCiudad(IngresarPersona(t, c', p), c) ≡ personasXCiudad(t, c)
+		personasXCiudad(IngresarVacuna(t, c, n), c) ≡ personasXCiudad(t, c)
 		
+		esperandoXCiudad(AbrirTaD(cs), c) ≡ Ø
+		esperandoXCiudad(IngresarPersona(t, c', p), c) ≡  if c = c' then 
+																												if #(esperandoXCiudad(t, c) ∪ Ag(p, Ø)) ≥ 5 then
+																													if #frascosXCiudad(t, c) ≥ 1 then
+																														esperandoXCiudad(t, c) ∪ Ag(p, Ø) - dameCinco(t, esperandoXCiudad(t, c) ∪ Ag(p, Ø))
+																													else
+																														esperandoXCiudad(t, c) ∪ Ag(p, Ø)
+																													fi
+																												else
+																													esperandoXCiudad(t, c) ∪ Ag(p, Ø)
+																												fi
+																											else
+																												if #esperandoXCiudad(t, c) ≥ 5 then
+																													if #frascosXCiudad(t, c) ≥ 1 then
+																														esperandoXCiudad(t, c) - dameCinco(t, esperandoXCiudad(t, c))
+																													else
+																														esperandoXCiudad(t, c)
+																													fi
+																												else
+																													esperandoXCiudad(t, c)
+																												fi
+																											fi
+																											
+		esperandoXCiudad(IngresarVacuna(t, c', cv), c) ≡ if c = c' then
+																											if #frascosXCiudad(t, c) + cv ≥ 1 then
+																											 if #esperandoXCiudad(t, c) ≥ 5 then
+																											 	esperandoXCiudad(t, c) - dameCinco(t, esperandoXCiudad(t, c))
+																											 else
+																											 	esperandoXCiudad(t, c)
+																											 fi
+																										 	else
+																											 	esperandoXCiudad(t, c)
+																											fi
+																										 else
+																											 if #esperandoXCiudad(t, c) ≥ 5 then
+																												 if #frascosXCiudad(t, c) ≥ 1 then
+																													 esperandoXCiudad(t, c) ∪ dameCinco(t, esperandoXCiudad(t, c))
+																												 else
+																													 esperandoXCiudad(t, c)
+																												 fi
+																											 else
+																												 esperandoXCiudad(t, c)
+																											 fi
+																										 fi
+																										 
+																										 IDEM CON VACUNADOS
+		#frascosXCiudad(AbrirTaD(cs), c) ≡ 0
+		#frascosXCiudad(IngresarPersona(t, c', p), c) ≡ if c = c' then 
+																											// Si hablamos de la misma ciudad
+																											if #frascosXCiudad(t, c) ≥ 1 then
+																												if #(esperandoXCiudad(t, c) ∪ Ag(p, Ø)) ≥ 5 then
+																													#frascosXCiudad(t, c) - 1
+																												else
+																													#frascosXCiudad(t, c)
+																												fi
+																											else
+																												0
+																											fi
+																										else
+																											if #frascosXCiudad(t, c) ≥ 1 then
+																												if #esperandoXCiudad(t, c) ≥ 5 then
+																													#frascosXCiudad(t, c) - 1
+																												else
+																													#frascosXCiudad(t, c)
+																												fi
+																											else
+																												0
+																											fi
+																										fi
+	
+	#frascosXCiudad(IngresarVacuna(t, c', cv), c) ≡ if c = c' then 
+																										// Si hablamos de la misma ciudad
+																										if #frascosXCiudad(t, c) ≥ 1 then
+																											if #(esperandoXCiudad(t, c) ∪ Ag(p, Ø)) ≥ 5 then
+																												#frascosXCiudad(t, c) - 1
+																											else
+																												#frascosXCiudad(t, c)
+																											fi
+																										else
+																											0
+																										fi
+																									else
+																										if #frascosXCiudad(t, c) ≥ 1 then
+																											if #esperandoXCiudad(t, c) ≥ 5 then
+																												#frascosXCiudad(t, c) - 1
+																											else
+																												#frascosXCiudad(t, c)
+																											fi
+																										else
+																											0
+																										fi
+																									fi
 		
+		conMasVacunas(t) ≡ conMasVacunasAux(t, sinUno(ciudades(t)), dameUno(ciudades(t)))
 		
->>>>>>> 4ef2debc2e21b05155fd514a7adc4b56903d1d11
-		
+		conMasVacunasAux(t, cs, c) ≡ if Ø?(cs) then
+																	c
+															   else
+																 	if #frascosXCiudad(t, c) > #frascosXCiudad(dameUno(cs)) then
+																		conMasVacunasAux(t, sinUno(cs), c)
+																	else	
+																		conMasVacunasAux(t, sinUno(cs), dameUno(c))
+																	fi
+																fi
+																
+	 masVacunados(t) ≡ masVacunadosAux(t, sinUno(cuidades(t)), dameUno(cuidades(t)))
+	 
+	 masVacunadosAux(t, cs, c) ≡ if Ø?(cs) then
+	 															c
+															 else
+															 	if #vacunados(t, c) > #vacunados(t, dameUno(cs)) then
+																	masVacunadosAux(t, sinUno(cs), c)
+																else
+																	masVacunadosAux(t, sinUno(cs), dameUno(c))
+																fi
+															fi
+															
+	dameCinco(c, n, res) ≡ if n < 5 then
+													dameCinco(sinUno(c), n + 1, Ag(res, dameUno(c)))
+												 else
+												 	res
+												 fi
+	
 Fin TAD
