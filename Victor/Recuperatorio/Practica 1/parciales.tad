@@ -588,20 +588,33 @@ No obstante puede perder
 Interesa saber los perdedores
 Cuantas bajas hubo
 
-TAD NombreTad
+pelea es tupla ⟨ganador: reino, perdedor: reino⟩
+
+TAD Guesteros
 	Igualdad Observacional:();
-	Géneros: nombreTad
+	Géneros: gst
 	Exporta: nombreTad, observadores, generadores, 
 	Usa: Bool, Nat
 	
 	Observadores Básicos:
-		obs?:	nombreTad t × nat n	-> bool 	{ n ≥ 1 }
+	 	Reinos: gst -> conj(reino)
+		Poderio: gst x reino -> conj(reino)
+		Aliados: gst x reino -> conj(reino)
+		espiaA: gst x reino -> conj(reino)
+						
 	Generadores:
-		nil:			-> nombreTad
+		AbrirContinente: conj(reino) -> gst
+		AtacarReino: gst x reino1 x reino2 -> gst
+		HacerAlianza: gst x reino1 x reino2 -> gst
+		EspiarReino: gst x reino1 x reino2 -> gst
+			
 	Otras Operaciones:
-		otra:	nombreTad t × nat n	-> bool 	{ n ≥ 1 }
+		
 	Axiomas:
-		obs?(nil)	= 	true
-		otra(t, n)	= 	n
-		...
+		Reinos(AbrirContinente(c)) ≡ c
+		Reinos(AtacarReino(gst, r1, r2)) ≡ Reinos(gst)
+		Reinos(HacerAlianza(gst, r1, r2)) ≡ Reinos(gst)
+		Reinos(EspiarReino(gst, r1, r2)) ≡ Reinos(gst)
+		
+		Poderio(AtacarReino(gst, r1', r2), r1) = 
 Fin TAD
