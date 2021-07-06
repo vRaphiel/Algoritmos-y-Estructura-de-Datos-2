@@ -565,3 +565,43 @@ TAD Sistema de Vacunacion
 												 fi
 	
 Fin TAD
+
+====== SABADO 6 DE JULIO DEL 2019 =====
+Multiples reinos => conj(reino)
+Soldados x Reino
+
+Gana el de mayor cantidad de soldados. Si es empate gana el invadido
+
+El perdedor pierde 30% de su ejercito
+Si el perdedor queda con menos de 10% de soldados que el ganador. Es ocupado por el vencedor
+
+Dos reinos pueden aliarse entre si => Comparten opderio
+Entre aliados no se atacan
+
+Puede atacar aliado de aliado => Los aliados en comun no participan
+Si el reino es ocupado, disuelve alianzas y ahora es aliado del ocupante
+
+Pueden haber espias => Sabe sobre el espiado o los aliados
+Si un reino espia se entera que lo van a atacar => Su ejercito se vuelve el doble de poderoso => Soldados x 2
+No obstante puede perder
+
+Interesa saber los perdedores
+Cuantas bajas hubo
+
+TAD NombreTad
+	Igualdad Observacional:();
+	Géneros: nombreTad
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		obs?:	nombreTad t × nat n	-> bool 	{ n ≥ 1 }
+	Generadores:
+		nil:			-> nombreTad
+	Otras Operaciones:
+		otra:	nombreTad t × nat n	-> bool 	{ n ≥ 1 }
+	Axiomas:
+		obs?(nil)	= 	true
+		otra(t, n)	= 	n
+		...
+Fin TAD

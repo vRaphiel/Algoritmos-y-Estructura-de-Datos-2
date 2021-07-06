@@ -8,20 +8,23 @@ TAD EMP
 		vendedores: emp -> conj(vendedor)
 		#empanadasXVendedor: emp x vendedor -> nat
 		descansando: emp -> conj(vendedor)
-
-		cansado?: emp x vendedor -> nat
+		
+		mayorVendidas: emp x vendedor -> nat
+		#fueraStock: emp x vendedor -> nat
 		
 	Generadores:
 		abrirEMP: conj(vendedor) -> emp
 		salir: emp x nat empanadas x vendedor -> emp
-		vender: emp x nat empanadas x vendedor -> emp							{#empanadasXVendedor(emp, v) ≥ empanadas}
-		
+		vender: emp x nat empanadas x vendedor -> emp							{vendedor ∉ descansando(emp) ∧L #empanadasXVendedor(emp, v) ≥ empanadas}
+		cansado: emp x vendedor -> emp
+		// Si el usuario está cansado, entonces vuelve
 	Otras Operaciones:
 		
 	Axiomas:
 		vendedores(abrirEMP(c)) ≡ c
 		vendedores(salir(emp, e, v)) ≡ vendedores(emp)
 		vendedores(vender(emp, v, e)) ≡ vendedores(emp)
+		vendedores(cansado(emp, v)) ≡ vendedores(emp)
 		
 		#empanadasXVendedor(abrirEMP(c), v) ≡ 0
 		#empanadasXVendedor(salir(emp, e, v'), v) ≡ if v = v' then e else 
@@ -40,6 +43,61 @@ TAD EMP
 																											#empanadasXVendedor(emp, v)
 																										fi
 																								 fi
+																								
+		#empanadasXVendedor(cansado(emp, v'), v) ≡ if v = v' then
+																								#empanadasXVendedor(emp, v)
+																							 else
+																							 	if v ∈ descansando(emp) then 0 else #empanadasXVendedor(emp, v) fi
+	
+		descansando(abrirEMP(c)) ≡ Ø
+		descansando(Salir(emp, e, v)) ≡ descansando(emp) - Ag(v, Ø)
+		descansando(vender(emp, v, e)) ≡ descansando(emp)
+		descansando(cansado(emp, v)) ≡ descansando(emp) ∪ Ag(v, Ø)
+		
+		mayorVendidas(Salir(emp, e, v), v') ≡ mayorVendidas(emp, v)
+		mayorVendidas(Vender(emp, e, v'), v) ≡ 
+			if v = v' then
+				if e ≥ mayorVendidas(emp, v) then
+					e
+				else
+					mayorVendidas(emp, v)
+				fi
+			else
+				mayorVendidas(emp, v)
+			fi
+		
+		mayorVendidas(cansado(emp, v'), v) ≡ mayorVendidas(emp, v)
+		
+		#fueraStock(Salir(emp, e, v), v') ≡ #fueraStock(emp, v)
+		#fueraStock(Vender(emp, e, v'), v) ≡ 
+			#fueraStock(emp, v) + if v = v' then 
+															β(#empanadasXVendedor(emp, v) = e) ? 1 : 0
+														else
+															0
+														fi
+		#fueraStock(cansado(emp, e, v'), v) ≡ #fueraStock(emp, v)
+		
+		compraMasNumerosa(emp) ≡ compraMasNumerosaAux(emp, sinUno(vendedores(emp)), dameUno(vendedores(emp)))
+		
+		compraMasNumerosaAux(emp, cv, v) ≡ if Ø?(cv) then 	
+																				v
+																			 else
+																			 	if mayorVendidas(dameUno(cv)) ≥ mayorVendidas(v) then
+																					compraMasNumerosaAux(emp, sinUno(cv), dameUno(cv))
+																				else
+																					compraMasNumerosaAux(emp, sinUno(cv), v)
+																				fi
+																			fi
+
+		gastaronStock(emp) ≡ gastaronStockAux(emp, vendedores(emp))
+		
+		gastaronStockAux(emp, v) ≡ 
+			if Ø?(v) then
+				<>
+			else
+				Ag( ⟨v, dameUno(#fueraStock(emp, v))⟩ , gastaronStockAux(emp, sinUno(v)))
+			fi
+							
 	
 Fin TAD
 
@@ -50,14 +108,12 @@ TAD SCV
 	Usa: Bool, Nat
 	
 	Observadores Básicos:
-		salas: emp -> conj(sala)
-		salasOcupadas: emp -> conj(sala)
-		alumnos:
-		docentes: emp -> conj(docentes)
-		personasXSalaTot:
-		esAdmin?: emp x persona x sala -> bool
-		clasesAsistidas: 
+		salas: scv -> Dicc(sala, <>)
+		alumnos: scv -> conj(persona)
+		docentes: scv -> conj(persona)
 		
+		personasSala: scv x sala -> conj(persona)						{s ∈ salasOcupadas(scv)}
+		clasesAsistidas: scv x persona -> nat
 	Generadores:
 	
 		IniciarSCV: conj(sala) x conj(docente) -> scv
@@ -79,6 +135,27 @@ TAD SCV
 		salasOcupadas(Entrar(scv, p, s)) ≡ salasOcupadas(scv)
 		salasOcupadas(Salir(scv, p, s)) ≡ if esAdmin?(scv, p, s) then salasOcupadas(scv) - Ag(s, Ø) else salasOcupadas(scv) fi
 		
+		alumnos(IniciarSCV(c, d)) ≡ Ø
+		alumnos(AbrirSala(scv, p, s)) ≡ alumnos(scv)
+		alumnos(Entrar(scv, p, s)) ≡ if p ∉ alumnos(scv) then alumnos(scv) ∪ Ag(p, Ø) else alumnos(scv) fi
+		alumnos(Salir(scv, p, s)) ≡ alumnos(scv)
 		
+		docentes(IniciarSCV(c, d)) ≡ c
+		docentes(AbrirSala(scv, p, s)) ≡ docentes(scv)
+		docentes(Entrar(scv, p, s)) ≡ docentes(scv)
+		docentes(Salir(scv, p, s)) ≡ docentes(scv)
 		
+		personasSala(IniciarSCV(c, d), ) ≡
+		DEVUELVO LAS PERSONAS EN UNA SALA
+		
+		masAsistio(scv) ≡ masAsistioAux(scv, sinUno(alumnos(scv) ∪ docentes(scv)), dameUno(alumnos(scv) ∪ docentes(scv)))
+		
+		masAsistioAux(scv, ls, s) ≡ if Ø?(ls) then s else
+																	if clasesAsistidas(dameUno(ls)) ≥ clasesAsistidas(s) then
+																		masAsistioAux(scv, sinUno(ls), dameUno(ls))
+																	else
+																		masAsistioAux(scv, sinUno(ls), dameUno(ls))
+																	fi
+																fi
+																
 Fin TAD
