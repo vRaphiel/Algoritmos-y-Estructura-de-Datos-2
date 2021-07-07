@@ -598,9 +598,9 @@ TAD Guesteros
 	
 	Observadores Básicos:
 	 	Reinos: gst -> conj(reino)
-		Poderio: gst x reino -> conj(reino)
 		Aliados: gst x reino -> conj(reino)
-		espiaA: gst x reino -> conj(reino)
+		Espias: gst x reino -> conj(reino)
+		Batallas: gst -> conj(batalla)
 						
 	Generadores:
 		AbrirContinente: conj(reino) -> gst
@@ -609,12 +609,166 @@ TAD Guesteros
 		EspiarReino: gst x reino1 x reino2 -> gst
 			
 	Otras Operaciones:
-		
+		soldados: reino -> nat
+
 	Axiomas:
 		Reinos(AbrirContinente(c)) ≡ c
-		Reinos(AtacarReino(gst, r1, r2)) ≡ Reinos(gst)
+		Reinos(AtacarReino(gst, atk, def)) ≡ if soldadosAtacante(gst, atk) > soldadosDefensor(gst, atk, def) then
+																						if soldados(def) < porc(soldados(def), 10) then
+																							Ag(⟨ π₁(atk), π₂(atk) + soldados(def)⟩, Reinos(gst) - Ag(def, Ø))
+																						else
+																							Ag(⟨ π₁(def), π₂(def) - porc(soldados(def), 30)⟩, Reinos(gst))
+																						fi
+																				 else
+																				 		Ag(⟨ π₁(atk), π₂(atk) - porc(soldados(def), 30)⟩, Reinos(gst))
+																				 fi
 		Reinos(HacerAlianza(gst, r1, r2)) ≡ Reinos(gst)
 		Reinos(EspiarReino(gst, r1, r2)) ≡ Reinos(gst)
+			
+		Aliados(AbrirContinente(c), r) ≡ Ø
+		Aliados(AtacarReino(gst, atk, def), r) ≡ 
+			if r = def then
+				if π₁(ejercerGuerra(gst, atk, def)) then
+					// Gana el atacante
+					if π₃(ejercerGuerra(gst, atk, def)) then
+						// Es invadido
+						Ø
+					else
+						Aliados(gst, def)
+					fi
+				else
+					Aliados(gst, def)
+				fi
+			else
+				if def ∈ Aliados(gst, r) then
+					if π₁(ejercerGuerra(gst, atk, def)) then
+						if π₃(ejercerGuerra(gst, atk, def)) then
+							Aliados(gst, def) - Ag(def, Ø)
+						else
+							Aliados(gst, def)
+						fi
+					else
+						Aliados(gst, def)
+					fi
+				else
+					Aliados(gst, def)
+				fi
+			fi
+						
+		Aliados(HacerAlianza(gst, r1, r2), r) ≡ if r1 = r then Aliados(r) ∪ Ag(r1, Ø) else Aliados(r) fi
+		Aliados(EspiarReino(gst, r1, r2), r) ≡ Aliados(r)
+		Aliados(Batallas(gst), r) ≡ Aliados(r)
+		soldadosAtacante(gst, atk) ≡ soldadosAlianza(gst, aliados(gst, atk))
 		
-		Poderio(AtacarReino(gst, r1', r2), r1) = 
+		soldadosDefensor(gst, atk, def) ≡	if atk ∈ Espias(gst, def) then
+																			 2*soldadosAlianza(gst, aliados(gst, def))
+																			else
+																				soldadosAlianza(gst, aliados(gst, def))
+																			fi
+		
+		soldadosAlianza(gst, r) ≡ if Ø?(r) then 0 else soldados(dameUno(r)) + soldadosAlianza(sinUno(r)) else
+	
+		// Devuelve tupla ⟨ atacante, defensor, invasion ⟩ Donde son bool
+		ejercerGuerra(gst, atk, def) ≡ 	
+			if soldadosAtacante(gst, atk) > soldadosDefensor(gst, atk, def) then
+				if soldados(def) < porc(soldados(def), 10) then
+					⟨ true, false, true ⟩
+				else
+					⟨ true, false, false ⟩
+				fi
+		 else
+				⟨ false, true, false ⟩
+		 fi
+Fin TAD
+
+====== Parcial del 16 de Septiembre de 2016 ======
+Paintball
+Informacion sobre equipos no eliminados
+Entran grupos de un mismo equipo. Algunos jugadores del equipo pueden ya estar adentro
+Cada jugador tiene nivel de habilidad. 0 es el inicial
+La habilidad total es la suma de las habilidades de cada jugador
+
+cantJugadores(equipo) < cantJugadores(rival)
+donde
+habilidad(equipo) < habilidad(rival)
+
+Los jugadores se van si el equipo es eliminado
+
+jugador es tupla ⟨nombre:string, nivel: nat⟩
+
+TAD Paintball
+	Igualdad Observacional:();
+	Géneros: ptb
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		infoEquipos: ptb -> dicc(equipo, conj(jugador))
+		jugando: ptb -> conj(⟨⟨equipo, conj(jugador)⟩,⟨equipo, conj(jugador)⟩⟩)
+		jugadoresEnPrecio: ptb x equipo -> conj(jugador)
+		nivelDe: ptb x equipo x jugador -> nat
+	Generadores:
+		AbrirPaintball: dicc(equipo, conj(jugador)) -> ptb
+		IngresaAlPredio: ptb x equipo x conj(jugador) -> ptb
+		// Inicia el combate y da un resultado
+		IniciaCombate: ptb x ⟨equipo, conj(jugador)⟩ x ⟨equipo, conj(jugador)⟩ -> ptb	{Para cada jugador de ambas tuplas, los jugadores no deben estar en jugando. Equipos definidos}
+		
+	Otras Operaciones:
+		equipos: dicc(equipo, conj(jugador)) -> conj(equipo)
+		jugadoresxEquipo: dicc(equipo, conj(jugador)) x equipo -> conj(jugador)
+		sumaDeNivel: ptb x equipo -> nat
+		
+	Axiomas:
+		infoEquipos(AbrirPaintball(d)) ≡ d
+		infoEquipos(IngresarGrupo(ptb, t1, t2)) ≡ infoEquipo(ptb)
+		infoEquipo(EliminaEquipo(ptb, e1, e2)) ≡ infoEquipo(ptb)
+		
+		
+		
+		equipos(d) ≡ claves(d)
+		jugadoresxEquipo(d, e) ≡ obtener(d, e)
+		sumaDeNivel(ptb, e) ≡ sumaDeNivelAux(ptb, obtener(infoEquipos(ptb), e))
+		sumaDeNivelAux(ptb, js) ≡ if Ø?(js) then 0 else π₂(dameUno(js)) + sumaDeNivelAux(ptb, sinUno(js)) fi
+		
+Fin TAD
+
+
+Recibo puntos de venta
+Cualquier persona puede comprar un ticket en algun punto de venta. Ese ticket puede apostar por una combinacion => Recibo un precio tambien
+Llegado el horario se realiza el sorteo => Determina ganadora una combinacion unica
+Premio solo dependiendo del precio y de a cuerdo una tabla
+Apostadores compulsivos => Cuenta de quienes y cuanto compran => Metrica: mas de 50 tickets en 100 dias => No pueden comprar nuevos tickets
+Ludopatas -> conj
+
+TAD OJALA
+	Igualdad Observacional:();
+	Géneros: loteria
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		tabla: loteria -> dicc(precio, premio)
+		#ticketsXDia: loteria x dia x persona -> nat
+		ticketsXPersona: loteria x persona -> multiconj(ticket)
+		compraron: loteria -> conj(persona)
+		diaActual: loteria -> nat			
+		balance: loteria -> ent
+	Generadores:
+		IniciarSistema: dicc(precio, premio) -> loteria
+		ComprarTicket: loteria x persona x precio x ticket -> loteria 				{La persona no es impulsiva y el ticket está en rango}
+		RealizarSorteo: loteria x ticket -> loteria
+		
+	Otras Operaciones:
+		ganadores: ticket x multiconj(ticket) -> conj(⟨persona, precio⟩)
+		
+	Axiomas:
+		tabla(IniciarSistema(d)) ≡ d
+		tabla(ComprarTicket(l, p, pr, t)) ≡ tabla(l)
+		tabla(RealizarSorteo(l, t)) ≡ tabla(l)
+		
+		#ticketsComprados(IniciarSistema(d), p) ≡ 0
+		#ticketsComprados(ComprarTicket(l, p', pr, t), p) ≡ if p = p' then #ticketsComprados(l, p) + 1 else #ticketsComprados(l, p) fi
+		#ticketsComprados(RealizarSorteo(l, t), p) ≡ if d = diaActual
+		
+		
 Fin TAD
