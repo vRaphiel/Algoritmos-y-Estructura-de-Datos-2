@@ -1,0 +1,87 @@
+mayorCeldaDeBolitas(tablero) ≡ 
+if Ø?(celdasConBolitas(t)) then 
+	celda.vacia(⟨0, 0⟩)
+else
+	if #celdasConBolitas(t) = 1 then
+		dameUno(celdasConBolitas(t))
+	else
+		mayorCeldaDeBolitasAux(tablero, sinUno(celdasConBolitas(tablero)), dameUno(celdas))
+
+mayorCeldaDeBolitasAux(tablero, cc, c) ≡ 
+	if Ø?(cc) then 
+		c
+	else   
+		if #bolitasEnCelda(tablero, {Azul, Rojo, Verde, Negro} , c) < #bolitasEnCelda(tablero, {Azul, Rojo, Verde, Negro} , dameUno(cc))) then
+			mayorCeldaDeBolitasAux(tablero, sinUno(cc), dameUno(cc)))
+		else
+			mayorCeldaDeBolitasAux(tablero, sinUno(cc), c))
+	fi
+
+#bolitasEnCelda(tablero, colores, celda) ≡
+	if Ø?(colores) then
+		0
+	else
+		nroBolitas(celda, dameUno(colores)) + #bolitasEnCelda(tablero, sinUno(colores), celda))
+	fi
+
+crearYAgregar(tablero, direccion) ≡ 
+	if direccion = Norte then 
+		crearYAgregarAux(tablero, ⟨π₁(dimension(t)), 0⟩, d) 
+	else 
+		crearYAgregarAux(tablero, ⟨0, π₂(dimension(t))⟩)
+	fi
+
+//Si la direccion es norte, entonces la posicion tiene que ser el ⟨ π₁(dimension(t)), 0⟩
+crearYAgregarAux(tablero, posicion, direccion) ≡
+	if direccion = Norte then
+		if π₂(posicion) < π₂(dimension(t)) then
+			Ag(celda.vacia(⟨ π₁(posicion), π₂(posicion) + 1 ⟩), crearYAgregarAux(tablero, ⟨ π₁(posicion), π₂(posicion) + 1 ⟩, direccion ))
+		else
+			Ø
+		fi
+	else
+		if π₁(posicion) < π₁(dimension(t)) then
+			Ag(celda.vacia(⟨ π₁(posicion) + 1, π₂(posicion)⟩), crearYAgregarAux(tablero, ⟨ π₁(posicion) + 1, π₂(posicion)⟩, direccion ))
+		else
+			Ø
+		fi
+	fi
+
+agregarAOeste(tablero) ≡ crearNuevaEnOeste(t, ⟨0, 0⟩) ∪ moverPosiciones(t, posiciones(t))
+moverPosicionesOeste: tablero, conj(Posicion) -> conj(Posicion)
+
+// Asumo que mover una posicion, la mueve junto con sus bolitas internas
+moverPosicionesOeste(t, c) ≡
+	if Ø?(c) then
+		Ø
+	else
+		Ag( ⟨ π₁(dameUno(c)) + 1 , π₂(dameUno(c))⟩, moverPosiciones(t, sinUno(c)) )
+	fi
+
+//recibe el tablero y la posicion <0, 0>, y aumenta el π₂ conforme sea menor al tamaño (π₂ es el X, es decir, el vertical)
+crearNuevaEnOeste(tablero, pos) ≡
+	if π₂(pos) < π₂(dimension(t)) then
+		Ag(celda.vacia(⟨0, π₂(pos)⟩), crearNuevaEnOeste(t, ⟨0, π₂(pos) + 1⟩))
+	else
+		Ø
+	fi
+				
+// Asumo que mover una posicion, la mueve junto con sus bolitas internas
+agregarASur(tablero) ≡ crearNuevaEnSur(t, ⟨0, 0⟩) ∪ moverPosiciones
+moverPosicionesSur: tablero, conj(Posicion) -> conj(Posicion)
+moverPosicionesSur(t, c) ≡
+	if Ø?(c) then
+		Ø
+	else
+		Ag(⟨ π₁(dameUno(c)) , π₂(dameUno(c)) + 1⟩, moverPosiciones(t, sinUno(c)) )
+	fi
+	
+//recibe el tablero y la posicion <0, 0>, y aumenta el π₁ conforme sea menor al tamaño(Pi 1 es el Y, es decir, horizontal)
+crearNuevaEnOeste(tablero, pos) ≡
+	if π₁(pos) < π₁(dimension(t)) then
+		Ag(celda.vacia(⟨π₁(pos), 0⟩), crearNuevaEnOeste(t, ⟨ π₁(pos) + 1, 0))
+	else
+		Ø
+	fi
+		
+Fin TAD

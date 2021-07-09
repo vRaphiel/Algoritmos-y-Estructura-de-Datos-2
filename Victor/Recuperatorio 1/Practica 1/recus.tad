@@ -159,3 +159,39 @@ TAD SCV
 																fi
 																
 Fin TAD
+
+====== 3 DE JULIO DEL 2015 =====
+TAD Picada
+	Igualdad Observacional:();
+	Géneros: pc
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat
+	
+	Observadores Básicos:
+		piezaNoComprada: pc -> dicc(ingrediente, ⟨votos, precio, recaudado⟩)
+		piezaComprada: pc -> dicc(ingrediente, ⟨cantidad, gastado⟩)
+		colaboradores: pc -> conj(persona)
+		recaudado: pc -> nat
+	Generadores:
+		abrirPicada: -> pc
+		proponerIngrediente: pc x ingrediente x dinero precio -> pc
+		colaborar: pc x persona x ingrediente x dinero -> pc
+		
+	Otras Operaciones:
+		votosTotales: dicc(ingrediente, ⟨votos, dinero⟩) -> nat
+		votosxIngrediente: dicc(ingrediente, ⟨votos, dinero⟩) x ingrediente -> nat
+		precioxIngrediente: dicc(ingrediente, ⟨votos, dinero⟩) x ingrediente -> nat
+		dineroGastado: dicc(ingrediente, ⟨cantidad, gastado⟩) -> nat
+
+	Axiomas:
+		piezaNoComprada(abrirPicada) ≡ vacio
+		piezaNoComprada(proponerIngrediente(pc, i, p)) ≡ 
+			if ¬def?(piezaNoComprada(pc), i) then
+				definir(pc, i, ⟨0, p, 0⟩)
+			else
+				piezaNoComprada(pc)
+			fi
+		piezaNoComprada(colaborar(pc, p, i, d)) ≡ 
+			
+		
+Fin TAD

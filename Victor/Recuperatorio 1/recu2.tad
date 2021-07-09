@@ -1,0 +1,91 @@
+Axiomas:
+
+	dimension(IniciarTablero()) ≡ ⟨1, 1⟩
+	// Me fijo las celdas. Si al mover la posicion entonces es 1 o 0, aumento en uno la dimension 
+	// Esto se hace, si la posicion es igual al ancho o algo, o es igual a -1, aumento el tamaño respectivamente
+	dimension(Mover(t, d)) ≡ 
+		if π₂(celda.posicion(celda.mover(cabezal(t), d))) = π₂(dimension(t)) ∨
+			 π₂(celda.posicion(celda.mover(cabezal(t), d))) = -1 then
+				⟨π₁(dimension(t)), π₂(dimension(t) + 1)
+		else 
+			if π₁(celeda.posicion(celda.mover(cabezal(t), d))) = π₁(dimension(t)) ∨ 
+				 π₁(celeda.posicion(celda.mover(cabezal(t), d))) = -1 then
+				⟨π₁(dimension(t)) + 1, π₂(dimension(t))
+			else
+				dimension(t)
+			fi
+		fi
+	dimension(AgregarBolitas(t, c, cant, p)) ≡ dimension(t)
+	
+	celdas(IniciarTablero()) ≡ Ag(celda.vacia(⟨0, 0⟩)) Ø)
+	celdas(Mover(t, d)) ≡ 
+			if π₁(celda.posicion(celda.mover(cabezal(t), d))) = -1 then
+				agregarAOeste(t)
+			else		
+				if π₂(celda.posicion(celda.mover(cabezal(t), d))) = -1 then
+					agregarASur(t)
+				else
+					if π₁(celda.posicion(celda.mover(cabezal(t), d))) = π1(dimension(t)) then
+						crearYAgregar(t, d)
+					else
+						if π₂(celda.posicion(celda.mover(cabezal(t), d))) = π₂(dimension(t)) then
+							crearYAgregar(t, d)
+						else
+							posiciones(t)
+						fi
+					fi
+				fi
+			fi
+			
+		celdas(AgregarBolitas(t, c, cant, p)) ≡ posiciones(t)	
+		
+		// Si me voy de rango, a -1 lo pongo en 0 porque estoy corriendo todo el tablero en 1 posicion
+		cabezal(IniciarTablero()) ≡ celda.vacia(⟨0, 0⟩)
+		cabezal(Mover(t, d)) ≡ 
+			// Si la posicion actual al mover es -1 en Y, entonces muevo hacia izquierda manteniendo el X pero dejando iniciando Y en 0
+			// pues creo una nueva columna a izquierda
+			if π₁(celda.posicion(celda.mover(cabezal(t), d))) = -1 then
+				celda.vacia(⟨π₁(celda.posicion(0, π₂(celda.posicion(cabezal(t)))⟩)
+			else
+			// Si la posicion actual al mover es -1 en X, entonces muevo hacia abajo manteniendo el Y pero dejando iniciado X en 0
+			// pues creo una nueva fila abajo
+				if π₂(celda.posicion(celda.mover(cabezal(t), d)) = -1 then
+					celda.vacia(⟨π₁(celda.posicion(π₁(celda.posicion(cabezal(t))), 0⟩)
+				else
+				// Si no, dejo aumentada la posicion en 1, pues esto es automatico y en otra funcion se crea la fila
+					celda.mover(cabezal, d)
+				fi
+			fi
+		
+		cabezal(AgregarBolitas(t, c, cant, p)) ≡ cabezal(t)
+		
+		celdasConBolitas(IniciarTablero()) ≡ Ø
+		// Esto devuelve las celdas porque la operacion solo permite mover, no agregar nuevas bolitas
+		celdasConBolitas(Mover(t, d)) ≡ celdasConBolitas(t, d)
+		celdasConBolitas(AgregarBolitas(tablero, color, cantidad, celda)) ≡
+				if cantidad = 0 then 
+					celdasConBolitas(t)
+				else
+					Ag(celdasConBolitas(t), celda)
+				fi
+					
+		bolitasXCelda(Mover(t, d), celda) ≡ celdasConBolitas(t, celda)
+		bolitasXCelda(AgregarBolitas(t, col, cant, celda'), celda) ≡
+			if celda' = celda then
+				resultadoNuevaCelda(t, col, cant, agregarNBolitas(celda))
+			else
+				bolitasXCelda(t, celda)
+			fi
+			
+		resultadoNuevaCelda(t, col, cant, celda) ≡ 
+			⟨celda.nroBolitas(celda, Azul),
+			celda.nroBolitas(celda, Rojo),
+			celda.nroBolitas(celda, Verde),
+			celda.nroBolitas(celda, Negro)⟩
+							
+		agregarNBolitas(tablero, celda, cant, color) ≡
+			if cant = 0 then 
+				celda
+			else
+				agregarNBolitas(tablero, celda.poner(celda, color)), cant-1, color)
+			fi				

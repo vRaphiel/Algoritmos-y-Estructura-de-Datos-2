@@ -1,0 +1,84 @@
+Asmad Murga Victor Manuel - LU: 760/19
+
+Tablero. Notas:
+Tengo un tablero de NxM dimensiones, a priori, este tablero inicia en 1x1. Entonces,
+ese NxM serán parte de los resultados. No es ingreso del usuario
+
+
+Metodos:
+	-> CrearTablero: -> tablero
+		No recibo nada, solo genero el tablero con una celda vacia y el puntero sobre ella
+		
+	-> Puntero: tablero -> posicion
+		Me devuelve la posicion del puntero en el tablero. Al iniciar el tablero, esta es ⟨0, 0⟩
+		Si me muevo a una posicion inexistente, es decir, a ⟨1, 0⟩ debo, crear una nueva celda y actualizar todas
+		las demas posiciones
+		
+	-> ActualizarPosiciones:
+		Para toda posicion, si me muevo a derecha o arriba, sumo 1 a cada posicion. Caso contrario,
+		A derecha tomo la primera generada y la coloco en 0,0, abajo lo mismo, la primera a derecha abajo
+		y actualizo asi todas. Sumando 1 a cada posicion y a la nueva fila y nueva columna la seteo como 0 en fila
+		y 0 en columna
+		Esto es porque todas las posiciones son no negativas
+	
+	IgObservacional Coloquial
+		Dame dos tableros. Estos tienen que tener las mismas dimensiones NxM
+		Por cada posicion, la cantidad de bolitas deben coincidir (sin importar color) y,
+		si la cantidad de bolitas que hay en esa posicion, coincide, entonces deben haber la misma
+		cantidad de bolitas por color en ambos tableros
+		Por otro lado, el puntero, tiene que estar apuntando a la misma posicion
+			
+	Lamento bastante si hay cosas que no se entienden y la excesiva cantidad de funciones auxiliares
+	Hubieron algunas cosas que pueden no ser entendibles pues al final del recuperatorio me di cuenta de algunos
+	Errores que tenia entonces tuve que cambiar ciertas cosas, y casi que se hay cosas que pueden no entenderse
+	POr otro lado, el tema de las tuplas de posiciones, consideré en posicion del GObstones o tablero, el primer nat
+	como Y y el segundo como X mientras que en el TAD de celda, fue al reves, esto se debe a que habia algo inconcluso
+	pues el tablero tomaba filas como X y columnas como Y. Y eso me generaba confusion. Puede no entenderse cuando tomo
+	alguna que otra conclusion. Desde ya, muchas gracias
+		
+TAD Color es {Azul, Rojo, Verde, Negro}
+TAD Direccion es {Este, Oeste, Sur, Norte}
+TAD Posicion es Tupla(Nat, Nat)
+
+TAD Gobstones
+	Igualdad Observacional:(
+		(∀t1, t2: tablero)(s1 =obs s2 ⇐⇒
+				dimension(s1) = dimension(s2) ∧L
+				celdas(s1) = celdas(s2) ∧L
+				cabezal(s1) = cabezal(s2) ∧L
+				celdasConBolitas(s1) = celdasConBolitas(s2) ∧L
+				(∀ c: celda)(c ∈ celdasConBolitas(s1) =>L 
+					bolitas(t1, c) = bolitas(t2, c))));
+	Géneros: tablero
+	Exporta: nombreTad, observadores, generadores, 
+	Usa: Bool, Nat, Celda
+	
+	Observadores Básicos:
+		dimension: tablero -> ⟨nat, nat⟩
+		celdas: tablero -> conj(Celda)
+		cabezal: tablero -> Celda
+		celdasConBolitas: tablero t -> conj(Celda)													{(∀p in celdasConBolitas(t))(t in posiciones(t))}
+		bolitasXCelda: tablero t x celda -> tupla(nat, nat, nat, nat)					{celda ∈ celdas(tablero)}
+	Generadores:
+		IniciarTablero: -> tablero
+		Mover: tablero x direccion -> tablero																{direccion ∈ {Este, Oeste, Sur, Norte}}
+		AgregarBolitas: tablero t x color c x nat cantidad x celda s -> tablero		{c ∈ celdas(t) ∧L 
+																																							c ∈ {Azul, Rojo, Verde, Negro} ∧L
+																																							cantidad ≥ 0
+																																						}
+	Otras Operaciones:
+		moverPosicion: tablero x Posicion -> Posicion
+		celdaXPosicion: tablero x Posicion -> celda
+		resultadoNuevaCelda: tablero x color x nat cantidad x celda x -> nat
+		agregarNBolitas: tablero x celda x nat cantidad x color -> celda
+		mayorCeldaDeBolitas: tablero -> celda
+		mayorCeldaDeBolitasAux: tablero x conj(celda) x celda -> celda
+		#bolitasEnCelda: tablero x conj(colores) x celda -> nat
+		crearYAgregar: tablero x direccion -> conj(celda)
+		crearYAgregarAux: tablero x posicion x direccion -> conj(celda)
+		agregarAOeste: tablero -> tablero
+		moverPosicionesOeste: tablero x conj(celda) -> tablero
+		crearNuevaEnOeste: tablero x posicion -> conj(celda)
+		agregarASur: tablero -> tablero
+		moverPosicionesSur: tablero x conj(celda) -> tablero
+		crearNuevaEnSur: tablero x celda -> tablero

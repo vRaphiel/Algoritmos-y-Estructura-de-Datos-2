@@ -1,0 +1,78 @@
+Axiomatización
+
+Item 1
+
+eliminarTodos: multiconj(α) x α -> multiconj(α)
+eliminarTodos(mult, elem) ≡ eliminarTodosAux(mult, elem)
+
+// Busco que las apariciones sean 0 porque si no, entraria en un ciclo donde no sabria cuando el multiconj esta vacio pues
+// si llego al caso en que elimine todos los elementos, caigo siempre en el else del if, y  nunca termina el procedimiento
+eliminarTodosAux: multiconj(α) x α -> multiconj(α)
+eliminarTodosAux(mult, elem) ≡
+	if cantApariciones(mult, elem) = 0 then
+		mult
+	else
+		if dameUno(mult) = elem then
+			eliminarTodosAux(sinUno(mult), elem)
+		else
+			Ag(dameUno(mult), eliminarTodosAux(sinUno(mult), elem))
+		fi
+	fi
+Item 2
+	
+Nrepetidos: multiconj(α) x nat -> conj(α)
+Nrepetidos(mult, n) ≡ NrepetidosAux(mult, n)
+
+NrepetidosAux: multiconj(α) x nat -> conj(α)
+NrepetidosAux(mult, n) ≡
+	if Ø?(mult) then 
+		Ø
+	else
+		if cantApariciones(mult, dameUno(mult)) ≤ cantApariciones(mult, n) then
+			Ag(dameUno(mult), NrepetidosAux(sinUno(mult, n)))
+		else
+			NrepetidosAux(sinUno(mult, n))
+		fi
+	fi
+	
+cantApariciones: multiconj(α) x α -> nat
+cantApariciones(mult, elem) ≡
+	if Ø?(multi) then
+	 0
+	else
+		if dameUno(mult) = elem then
+			1 + cantApariciones(sinUno(multi), elem)
+		else
+			cantApariciones(sinUno(multi), elem)
+		fi
+	fi
+
+Item 3
+	
+maxRepetidos: multiconj(α) m -> conj(α)
+maxRepetidos(mult) ≡ masAparecen(mult, cantMaximaAparicion(mult, 0))
+
+// Necesito saber cuantas veces aparece un elemento, y de estas, el maximo
+cantMaximaAparicion: multiconj(α) x nat -> nat
+cantMaximaAparicion(mult, cant) ≡
+	if Ø?(mult) then
+		cant
+	else
+		if cant ≥ cantApariciones(mult, dameUno(m)) then
+			cantMaximaAparicion(sinUno(mult), cant)
+		else
+			cantMaximaAparicion(sinUno(mult), cantApariciones(mult, dameUno(m)))
+		fi
+	fi
+	
+masAparecen: multiconj(α) x nat -> conj(α)
+masAparecen(mult, cant) ≡ 
+	if Ø?(mult) then
+		Ø
+	else
+		if cantApariciones(m, dameUno(m)) = cant then
+			Ag(dameUno(m), masAparecen(sinUno(mult), cant))
+		else
+			masAparecen(sinUno(mult), cant)
+		fi
+	fi
