@@ -1,0 +1,129 @@
+Primer Problema - Balanza Ineficiente
+
+Primer Problema
+	-> Pesar siempre o_1
+		-> Med3(o1, A, B) = o1	Abs! pues o1 es el mas liviano de todos
+		-> Med3(o1, A, B) = A 	{Es mas liviano que B} { A < B }
+		-> Med3(o1, A, B) = B 	{Es mas liviano que A} { B < A }
+		
+function comp(A, B) -> A < B
+Algoritmo merge sort -> O(n*log(n))
+
+Segundo Problema	
+	-> Peso con o_2 y voy acotando el peso de o_1 para los demas valores
+	Mido o_1 o_2 y o_3
+		-> Med3(o_1, o_2, A) = o_2 {o_1 < o_2 < A}
+		-> Med3(o_1, o_2, A) = A 	 Comparo ahora o_2 con A		si o_2 < A => o_1 < o_2 < A. Si o_2 > A => comparo o_1
+		-> Med3(o_1, o_2, A) = o_1 ¿o_2 < A? Si es asi
+		
+	Puedo pensar
+		... o1 ... o2 ...
+		-> Pesar siempre o_1 y o_2
+			-> Med3(o1, o2, X) = o1 -> X < o1
+			-> Med3(o1, o2, X) = o2 -> X > o2
+			-> Med3(o1, o2, X) = X 	-> o1 < X < o2
+		
+		Algoritmo:
+			Hacemos una pasada por todos los elementos separandolos en 3 categorias		// O(n)
+			Me armo 3 buckets de listas. Donde voy agregando a cada lista al final el elemento
+				-> Menores a o1	
+					- Usamos lo mismo que en el 1.1 pero al reves		// O(n_1*log(n_1))
+				-> Mayores a o2
+					- Usamos lo mismo que en el 1.1 pero con o2			// O(n_2*log(n_2))
+				-> acotados por o1 y por o2
+					- Usamos lo mismo que en el 1.1 pero con o1			// O(n_3*log(n_3))
+					
+			Concatenar: Listas enlazadas O(1)
+			Concatenar: Arrego O(n)
+			
+			Usamos merge sort -> O(n*log(n)) (Lo mismo que en el 1.1)
+			Complejidad: Merge de los 3: O(n_1*log(n_1)) + O(n_2*log(n_2)) + O(n_3*log(n_3))
+				
+Tercer Problema
+	Buscamos:
+		A = o_1
+		B =	o_2
+	Caso 1: A < B
+	Caso 2: A > B	
+	Los comparo y hacemos lo mismo que en 1.2 
+
+Segundo Problema:
+	Ideas:
+		- Buscar anagramas y ordenar: O(n^2*L)
+		- Ordenar cada una de las palabras sabiendo que, al ordenarlas, nos van a quedar iguales los anagramas
+		- Mergesort modificado O(n^2*log(n)*L^2)
+		
+		T <- diccTrie(string, lista(n))
+		for i = 1 hasta n hacer																												// O(n*...) = O(n*L)
+			p <- ordenar palabras de A[i] segun sus letras															// O(L) con Counting Sort pues el alfabeto es acotado
+			insertar en T con clave i, donde guardamos i en una lista enlazada					// O(L)
+		Recorramos T, copiando A[i] para cada i de la lista enlazada correspondiente	// O(n*L)
+		
+		Complejidad Total: de O(n*L)
+		Tambien podria caer un Radix Sort pero ordenando por digitos
+		
+Cuarto Problema
+	Afuera del anillo de radio n
+	
+	Como mucho hay k = n/log(n) puntos
+	Proponiendo un mergesort, porque parece dar bien y ademas es estable
+	Buscamos que k*log(k) = O(n)
+	k*log(k) = n/log(n)*log(n/log(n)) = n/log(n) * (log(n) - log(log(n))) = n - x = O(n)
+	con x = n/log(n) * log(log(n))
+	x > 0
+	
+	Otra forma:
+	k*log(k) = n/log(n) * log(n/log(n))
+	Queremos probar que log(n/log(n)) = O(log(n))
+		( Se puede hacer con la propiedad del limite )
+	El resultado final es O(n)
+	Podemos ordenar en O(n) + O(n)
+	
+	dist(A, B) = sqrt(A^2 + B^2)
+	distAlCuad(A, B) = A^2 + B^2
+	Distacnai al cuadrado? Es Discreta? Si. tiene una relacion directa con la nocion de distnaica? Si
+	Radix Sort: O(n) -> Si va
+	
+	Para escribir cualquier numero necesitas una cantidad acotada de digitos => por log
+	Un numero n, su representacion decimal es log_10(n) de digitos
+	n*log_10(n^2) = 2*n*log_10(n) =	 
+	Eso sirve si puedo log_n(n) = 1
+
+============= TEMA DE LOS TAMAÑOS ==============
+Los valores que están fuera del radio, son de radio > n
+Entonces, esos serán los ultimos
+La idea:
+	-> Divido los puntos en: Estan dentro o fuera del radio
+	-> Ordeno y luego Merge
+	
+	(x^2 + y^2) = n <==> x^2 + y^2 = n^2
+	Como ordeno? Con Radix Sort
+	Complejidad de Radix Sort: O(l*(n+k))
+	l es la cantidad de digitos en cada item. n es la cantidad de items a ordenar. K es el numero de valores de cada digito puede tener
+	Propuesta de Radix Sort 1:
+		- 10 buckets = k
+		- n los ordeno en los buckets = n
+			-> Puedo tener n^2 numeros? No. n^2 es el maximo que puedo tener en la distancia
+		- Ordeno una vez por cada digito de n^2 en base 10. Log_10(n^2 + 1) = Log_10(n^2) + Log_10(1) = Log_10(n^2) = 2*Log_10(n) = l
+		Supongo l = n
+		Entonces, la complejidad es O(l*(n + k)) = O(n * (n + 10)) = O(n^2)
+		
+	Si uno asume que los valores que tenemos, tienen un maximo, se pueden hacer cosas en una complejidad mejor. Ej:
+		-> Un Counting Sort
+		
+	Entonces para este radix, puedo asumir un log en base n
+	La idea es tomar congruente en modulo n. o en otras palabras, representar el numero en base n
+	Ej:
+		1357 = 7*10^0 + 5*10^1 + 3*10^2 + 1*10^3
+		Ahora, si tengo log_n(n^2) = 2, entonces mi numero tiene 2 digitos
+		
+		Entonces tengo O(l * (n+k)) = O(2*(n+n)) = O(4n) = O(n)
+		
+		Luego el algoritmo para calcular este log en base es buscando el modulo
+		pasarABaseN(number) {
+			return number % n
+		}
+		Y ahora lo ordeno en funcion de ese numero
+		
+		Como Radix Sort usa metodos estables de ordenamiento para ordenar del digito menos significativo
+		al mas significativo, el algoritmo es estable
