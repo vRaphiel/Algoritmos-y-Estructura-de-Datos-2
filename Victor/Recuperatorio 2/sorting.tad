@@ -1,0 +1,124 @@
+================================================================================================================================
+Ejercicio X7 - 1er cuatri de 2020
+Color es un codigo hexadecimal de u digitos
+Diametro es un natural positivo
+Hay a lo sumo k posibles tamaños de sombrillas
+
+Color decreciente. Si hay empate, tamaño decreciente
+SombrillasSort(in A: arreglo(Sombrilla), in B: arreglo(Diametro)) -> C: arreglo(Sombrilla)
+Sombrilla se representa con tupla⟨Color: Diametro⟩
+complejidad O(n*u + (k+n)*log(k)) en peor caso
+
+Se que los colores estan acotados por una constante u
+Esa constante u indica la cantidad de digitos que va a tener el valor
+Lo que puedo usar es una modificacion de Radix Sort para valores hexadecimales
+Con esto yo puedo hacer un ordenamiento en O(n*u)
+Tambien puedo usar radix sort porque es un algoritmo estable, es decir, una vez ordenados,
+los tamaños de las sombrillas van mantenerse en el orden
+
+Despues, tengo ahora un arreglo con todos los colores hexadecimales ordenados. Me falta los diametros
+
+La complejidad tiene que ser (k+n)*log(k) en lo que se resume k*log(k) + n*log(k)
+Como lo consigo?
+Analicemos. k es el tamaño de la sombrilla, en lo que se resume que mi arreglo puede venir desordenado en tamaños
+Luego, lo ordeno, eso es k*log(k) con un algoritmo estable que sea mergesort, el minimo
+Luego para n*log(k) tengo que hacer la siguiente cosa
+Por cada elemento de mi coso de sombrillas, hago una busqueda lineal
+
+SombrillasSort(in A: arreglo(Sombrilla), in B: arreglo(Diametro)) -> C: arreglo(Sombrilla)
+	radixSort(A)					// Radix Sort en base a los HEX -> Complejidad O(n*u)
+	mergesort(B)					// Merge Sort de B -> O(k*log(k))
+	
+	myBuckets <- buckets(A)							// Armo a lo sumo N buckets de arreglos para todos los elementos en base a la
+												// comparacion del hex
+
+	for i to tam(myBuckets) do
+		mergeSort(myBuckets[i], B)				// Hago un mergeSort del bucket en esa posicion y del arreglo de diametros
+																			// la longitud es de a lo sumo n valores, luego el criterio de orden va por el diametro
+	end for
+	
+Finalmente la complejidad es O(n*u + (n+k)*log(k))
+El merge se hace por comparacion en k
+
+================================================================================================================================
+Ejercicio X7 - 1er cuatrimestre de 2020
+Arreglo de A[1..n]
+A[i] se representa con tupla⟨c1: palabra[k], c2: nat⟩
+k está fijo
+Complejidad O(n*(k + log(n))) = O(n*log(n) + k*log(n))
+Palabras de menor a mayor lexicograficamente
+
+A priori no tengo una cota para los numeros, es decir, no se cuantos libros tengo
+Puedo idearme un diccionario de tries, donde tenga, como clave, las palabras y como significados, un arreglo con tuplas donde la tupla sea
+<libro, cantidad> entonces yo se las apariciones de ese elemtno en tal libro en tal cantidad
+
+De forma que, al traer todo, me quede solamente con el libro en mayor cantidad pero con la palabra ordenada alfabeticamente
+El diccTrie me trae las cosas ordenadas lexicograficamente
+
+Por otro lado, los significados del trie, pueden ser un maxheap donde tenga el numero este del libro y como significado la cantidad de veces que aparece, de forma que la inserccion
+sea O(n*log n)
+Luego el maximo valor me quedo siempre al buscarlo es O(log(n)) pues siendo un avl esta balanceado y se que estará o en raiz o en lado derecho
+
+Al traer el elemento es O(n*k). Luego por cada elemento encontrado, tomo el max, y finalmente inserto la cantidad de maxima de 
+Ese max lo tomo en O(log n). Finalmente inserto la cantidad de veces encontrado a otro arreglo, y obtengo el resultado final
+
+================================================================================================================================
+Ejercicio 2 - 2do cuatrimestre de 2017
+Intervalo de dias en un par de enteros [a, b] donde a < b
+Nivel de conflicto = cantidad de veces que es interrumpido por otros intervalos del arreglo
+Algoritmo que ordene los intervalos de un arreglo crecientemente segun el nivel de conflicto
+Complejidad O(n)
+intervalo se representa con tupla ⟨ini: nat, fin: nat⟩
+
+Me dan un arreglo de intervalos. Tengo que ver la cantidad de veces que un intervalo irrumpe a otro
+Entonces, puedo pensar lo siguiente
+Yo se que los numeros dentro están acotados
+Es decir, el valor es como maximo 365 y como minimo 1
+
+El problema está aca que debo validar la cantidad de interrupciones de cada intervalo
+Esto me dice una cosa
+Si el arreglo tiene un solo elemento, su interrupcion es 0
+Si tiene mas de un elemento. Tomo uno, y valido, la cantidad de interrupciones que tiene por otro elemento
+Equitativamente, al tomar ese otro elemento, tomo la cantidad de interrupciones del elemento previo que le da. De forma tal que,
+en una sola pasada, tenga la cantidad de interrupcioens
+
+================================================================================================================================
+Ejercicio 2 - 1er cuatrimestre de 2017
+Arreglo B con n strings sin repeticiones que define un ranking
+Arreglo A con m strings tal quue todos eestos aparecen en B
+Se quiere ordenar por el orden de B
+
+Se necesita ordenbar en O(n + m)
+
+Para manejar string basicamente que la idea viene por DiccTrie, pues es lo mejor que puedo hacer
+Entonces, puedo armarme un DiccTrie donde tenga por clave el nombre y por significado la cantidad de veces que aparece
+Esta idea del DiccTrie viene dada en complejidad por O(n*k) siendo k el largo de la palabra mas extensa pero, al tratarse de paises, esta
+distancia siempre estará acotada. Hay paises acotados por lo tanto hay nombres acotados
+Finalmente, la complejidad de buscar es O(n) pues el largo de la palabra es una constante
+
+Finalmente, armado mi diccTrie, recorro B, esto es O(m) y, por cada elemento, busco el pais, su cantidad, y lo ingreso en un arreglo a devolver
+
+ordenarPaises(in A: arreglo(string), in R: arreglo(string)) -> res: arreglo(string)
+	diccTrie paises <- vacio()							// O(1)
+	for p in A then													// O(n)
+		if definido?(paises, p) then					// O(1)
+			definir(obtener(paises, p) + 1)			// O(1)
+		else
+			definir(paises, p, 1)								// O(1)
+		fi
+	end for
+	
+	res <- arreglo(tam(A))									// O(m)
+	i <- 0																	// O(1)
+	for p in R then													// O (n)
+		for j in obtener(paises, p) then			// O(obtener(paises, p))
+			res[i] <- p													// O(1)
+			i <- i + 1													// O(1)
+		end for
+	end for																	// O(m)
+				// Es O(m) el tamaño de R es fijo, entonces por cada elemento voy a tener un pais. Como peor caso, puedo tener 
+	
+	return res
+Finalmente la complejidad es O(n + m)
+
+================================================================================================================================

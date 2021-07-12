@@ -1,0 +1,103 @@
+Guia 2.2 Ordenamiento
+
+Ejercicio 1:
+
+Se tiene un arreglo de n numeros naturales que se quiere ordenar por frecuencia
+Y, en caso de igual frecuencia, por valor
+[1,3,1,7,2,7,1,7,3] => [1,1,1,7,7,7,3,3,2]
+Un algoritmo para ordenar esto
+Puedo pensar en un counting sort. Esto me va colocando los elementos en un arreglo final que luego,
+usando otro algoritmo, puedo ordenar
+
+Igualmente, yo no se el maximo asi que counting sort puede no ser el mejor. Lo que se es que debo ordenar primero,
+de menor a mayor, segundo, una vez ordenado, quiero ordenar por frecuencia
+
+Puedo hacer por numero, una tupla. Donde el primer componente sea un numero y el segundo la cantidad
+Entonces en peor caso, yo puedo tener un arreglo de n valores distintos
+Y en mejor casi un arreglo de 1 solo valor repetido multiples veces
+
+Entonces, yo puedo agarrar y buscar el maximo de este valor, para ese maximo, me armo un arreglo de [max] valor
+Una vez tengo ese maximo, entonces en la posicion en vez de guardar como en counting sort la cantidad, guardo una tupla
+donde en esa tupla esté la posicion y a su vez sume 1 cada vez que se encuentra un solo valor en el item dado
+De tal forma tendria, para el caso ejemplo
+[<0, 0>, <1, 3>, <2, 1>, <3, 2>, <4, 0>, <5, 0>, <6, 0>, <7, 3>]
+
+Ahora, yo necesito un arreglo estable que me permita ordenar por la cantidad segunda de valores, pero me mantenga la primera
+Puedo usar un mergesort para esto. De forma que me mantenga la estabilidad de la primera componente
+Asi puedo tener un resultado del tipo
+[<1, 3>, <7, 3>, <3, 2>, <2, 1>]
+Finalmente, esto me funciona para esto. Luego, la complejidad final para ordenar el arreglo es de O(n*log n)
+Como peor caso si tengo n valores distintos
+
+Ejercicio 2:
+Sensor industrial, monitorea la prescencia de una sustancia en un proceso quimico. Cada una de esas mediciones es un entero positivo
+[sqrt(n)] fuera del rango [20,40]
+
+Para este algoritmo claro está, puedo usar bucket sort
+Para este armo 3 buckets, 3 listas en realidad a priori porque yo no se si tengo exactamente sqrt(n) numeros fuera de ese rango, puedo tener 0, entonces
+no me sirve gastar memoria al pedo
+Armo 3 listas, una para los valores debajo del 20, una para los valores arriba del 40 y una para los valores entre 20 y 40
+
+Una vez cargue las listas, entre 20 y 40 uso counting sort pues se que son naturales positivos y hay una cota corrida que es el 40
+Para los otros, la tengo complicada. Para menos de 20 puedo usar counting sort pues mi cota es 20, y listo
+Para los mayores a 40 la cosa se complcia un poco
+
+Resumen:
+Tengo un arreglo de n valores, sqrt(n) estan fuera de [20, 40] y sqrt(n) dentro
+Hago bucketsort, armo 3 buckets para valores entre 20 y 40. Antes de 20 y despues de 40
+Entonces para valores entre 20 y 40 uso counting sort
+Para valores de antes de 20 y despues de 40 uso bucket sort
+Puedo usar tanto para los que estan debajo de 20 como arriba de 40 un mergesort, pues la complejidad
+es de O(n) por ser O(sqrt(n)*log(sqrt(n))) = O(n) por demostrcion del limite
+Finalmente:
+La complejidad de ordenar debajo de 20 es O(n)
+La complejidad de ordenar arrba de 40 es O(n)
+La complejidad de ordenar entre 20 y 40 es O(n)
+La complejidad final es O(n)
+
+Ejercicio 3:
+Se tiene un arreglo A[1...n] de T
+T es tupla ⟨c1:nat, c2:string[l]⟩
+
+Como trabajo con strings, primero quiero ordenar en base a la primera componente
+Convierto en arreglo en un diccTrie(c2, c1) donde las claves son la palabra y el significado
+es el natural
+El diccTrie va a estar ordenado, entonces, crear y recorrer el diccTrie lo puedo hacer en n*l
+Siendo n la longitud del arreglo y l la palabra mas grande
+Entonces de esta forma, cada vez que tomo un valor lo hago en suficiente tiempo
+Una vez se ordena por trie, ordeno ahora con un algoritmo como mergesort pues la complejidad es n*log(n)
+Finalmente es una complejidad de O(nl * nlog(n))
+
+Si los naturales estan acotados entonces tengo una cota y puedo hacer esto con radixsort que me permite que el orden sea O(n*log(max(A)) y esto es O(n)
+Luego la complejidad es O(n*l) por los string
+
+Ejericio 4:
+Se que en un arreglo de enteros no repetidos hay a A[1..n]
+Entonces yo se que al ordenar el arreglo, cuando me pare en la posicion A[i] hay a lo sumo i elementos mas chicos debajo de el, por ejemplo
+[1,2,3,4,5,6,7,8] i = 5 entonces en A[5] = 6 hay 5 elementos mas chicos, entonces esto es 1,2,3,4,5
+Entonces, tengo esta forma de hacer las cosas
+Puedo hacer un algoritmo que ordene elementos desde A[0] hasta A[i] pero, pasa una cosa que
+Pero, puedo hacer una especie de insertion sort hasta A[i] y yo se luego que hasta A[i] deberia haber elementos menenores
+Pero cuando llegue a A[i] estos elementos estarán ordenados, pues hasta A[i] - 1 ya ordene todo, entonces solo tengo que continuar en A[i] y ver si 
+ese valor es menor o no
+Finalmente, todos esos valores estaran ordenados
+Seria una modificacion de InsertionSort
+
+Ejercicio 5
+a) Ordenar un rreglo de n enteros positivos menores que n en tiempo O(n) => Bucket Sort
+b) Puedo dividir en dos partes
+	-> Los menores a n. Para eso llamo al item a)
+	-> Los mayores a n. Para esto hago n mod n y lugo se quue los valores quedaran entre 0 y n no inclusive
+		 Luego llamo a a) y ordeno
+	Finalmente concateno
+	
+	Tambien puedo representar el algoritmo con cambio de base (Preguntar cuanto cuesta el cambio de base)
+c) La misma idea con el cambio de base. Se que un numero va a estar acotado por n^k. Luego con el cambio de base tengo
+	log_n(n^k) = k*log_n(n) ≤ O(k) en complejidad. Se que para cada numero voy a tener k de longituud. Luego un ordenamiento dependerá
+	de O(k) con Radix Sort o K buckets siendo esto O(k*n)
+
+ d) No hay relacion entre los numeros y la cantidad de digitos que tienen. Finalmente se debe usar algun algoritmo
+ 		generico para ordenar pues no puedo acotar los numeros
+		
+
+	
