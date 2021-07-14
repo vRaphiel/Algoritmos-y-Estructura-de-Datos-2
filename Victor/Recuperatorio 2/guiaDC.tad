@@ -1,0 +1,208 @@
+Ejercicio 1
+
+Mas a la izquierda: La suma de los elementos a izquierda supera a los de la derecha
+Cada mtiad es a su vez "mas a la izqueirda"
+
+masALaIzqueirdaAux(in a: arreglo(nat)) -> res: tupla⟨bool, nat⟩
+	if tam(a) = 2 then
+		if a[0] > a[1] then
+			return <true, a[0] + a[1]>
+		else
+			return <false, a[0] + a[1]>
+		fi
+	else
+		aIzquierda <- masALaIzqueirdaAux(a[0...n/2])				// T(n/2)
+		aDerecha <- masALaIzqueirdaAux(a[n/2...n-1])				// T(n/2)
+		
+		if π₁(aIzquierda) ∧ π₁(aDerecha) then
+			if π₂(aIzquierda) > π₂(aDerecha) then
+				return <true, aIzquierda + aDerecha>
+			else
+				return <false, 0>
+			fi
+		else
+			return <false, 0>
+		fi
+
+masALaIzquierda(in a: arreglo(nat)) -> res: bool
+	return π₁(masALaIzqueirdaAux(a))
+	
+	a = c = 2 pues divido en dos partes iguales y uso ambas. Son iguales porque el tamaño es potencia
+	de 2, entonces no difiere
+	Luego, f(n) ∈ Θ(n^log_2(2)) = Θ(n) y f(n) es O(1) pues no tengo casos donde tenga muchos usos de funciones recursivas
+	Finalmente la complejidad por el teorema maestro es
+	Θ(n)
+	Pensarlo como la guia porque que pasa si el arreglo tiene un solo valor
+			
+Ejercicio 2
+Metodo potencia: dada una matriz cuadrada de 4x4 y un n se computa la matriz A^n
+Dada una matriz A de orden 4x4 y un n potencia de 2 / n = 2^k ∀ k ≥ 1
+Metodo potencia que permite calcular A^1 + A^2 + ... + A^n
+
+Calcular el numero de veces que el algoritmo propuesto aplica potencia
+
+O sea, yo tengo un metodo llamado potencia
+Entonces. Yo se que la suma de potencias A^1 + A^2 + .... + A^n se puede representar como una sumatoria
+
+Ahora, el caso base es cuando n = 1. Entonces tengo A^1 que es A
+El caso recursivo se basa en sumar A^k + A^(n/2)*A^k. O Equivalentemente
+A^k(1 + A^n/2)
+
+sumaDePotencias(in M: matriz(nat)) -> res: matriz(nat)
+	return sumaDePotenciasAux(M, n)
+
+sumaDePotenciasAux(in M: matriz(nat), in n:nat) -> res: M: matriz(nat)
+	if n == 1 then
+		return M
+	else
+		return sumaDePotencias(M, n/2) + potencia(n)*sumaDePotenciasAux(M, n/2)
+	fi
+
+Divido el problema en dos partes pero siempre uso una, que es n/2. De n/2 + 1 hasta n no utilizo nada
+Finalmente, a = 1, c = 2
+Entonces tengo log_2(1) = 0
+
+Como f(n) es una funcion que no utiliza muchos pasos recursivos es aproximadamente constante
+Finalmente, mi complejidad tiene la forma
+	T(n) = {	O(1) 				n=1
+				 { T(n/2) + O(1) n > 1
+					 
+Por el segundo item del teorema maestro, mi complejidad es Θ(log n)
+
+Ejercicio 3
+El problema de este ejercicio esta en que, es un arbol binario cualquiera. Entonces no se a priori si va a estar o no balanceado
+Voy a tomar una idea basica
+Entonces la idea es
+Si el arbol es nil, la distancia entre nodos es 0
+Si el arbol no es nil, me fijo, si el valor esta a izquierda o a derecha. Para esto se que un arbol me dice, si el valor es menor 
+a la raiz, entonces voy a izquierda, si no, a derecha. Entonces tengo mis cosas
+En estos casos, voy sumando mis niveles por raiz
+
+distanciaNodosAux(nodo) -> res: ⟨nat, nat⟩
+	if nodo == nil then
+		return ⟨0, 0⟩																																							// O(1)
+	else
+		maxIzq, alturaIzq <- distanciaNodosAux(nodo.izq)																				// O(T(I))
+		maxDer, alturaDer <- distanciaNodosAux(nodo.der)																				// O(T(D))
+		return ⟨ max(maxIzq, maxDer, alturaIzq + 1 + alturaDer), max(alturaIzq, alturaDer) + 1 ⟩	// O(1)
+	fi
+			
+	Como tengo T(n) = T(I) + T(D) + O(1) entonces yo no puedo hacer uso del Teorema maestro porquue no tengo
+	una formula de la forma T(n) = a*T(n/c) + f(n)
+	Entonces, para calcular la complejdiad de este algoritmo puedo usar induccion, o arbol de decisiones
+	Me es mas facil utilizar induccion
+	Ahora entonces, asumo que este algoritmo funciona en O(n) pues como peor caso tengo que recorrer todos los nodos ya que, puuedo tener mis 
+	nodos en el minimo y el maximo nodo a izquierda y derecha, entonces debo recurrer todo a priori
+	
+	Quiero ver que T(n) ∈ O(n) ∀ n ∈ ℕ
+	Caso base n = 1 => T(n) ∈ O(1)
+	Si pues T(1) = T(I) + T(D) + O(1). Como tengo un solo nodo, T(I) = T(D) = 0 => T(1) = O(1) ∈ O(1)
+	Paso inductivo: Asumo que vale para todo n₀ < n que T(n₀) ∈ O(n₀) veamos que T(n) ∈ O(n)
+	
+	Como T(n) = T(I) + T(D) + O(1)
+	Como I, D < n entonces para cada una de las hipotesis tengo
+	T(I) = aiI + bi
+	T(D) = adI + bd
+	Asumo que ai ≥ ad
+	Entonces T(n) = (aiI + bi) + (adD + bd) + k = aiI + bi + adD + bd + k ≤
+									aiI + bi + aiD + bd + k = ai(I + D) + (bi + bd + k) = ain + (bi + bd + k) ∈ O(n)
+									La complejidad temporal final es T(n) ∈ O(n)
+
+	Ejercicio 4
+	Idea:
+		Puedo dividir en dos partes el algoritmo, las parejas en desorden que se arman de izquierda, las que se arman de derecha, y luego las que se arman con todo 
+		o lo mismo las que estan con el centro incluido, de forma que pueda tener todas las parejas en desorden que existan
+		Caso base: El arreglo tiene un solo elemento, entonces es una pareja en desorden
+		Caso recursivo: Divido el arreglo y reviso cuanto tengo tanto a izquierda como a derecha
+		Para que me serviria una 
+		Necesito mis dos indices como dije, un desde y un hasta, que miden desde donde hasta donde tengo que comparar las mitades
+		
+		parejasDesordenadas(in v: arreglo(nat), in desde: nat, in hasta: nat) -> res:nat
+			parejasEnDesortenAux(v, 0, tam(v))
+	
+		parejasEnDesortenAux(in a: arreglo(nat), in desde: nat, in hasta: nat) -> res 
+			if hasta - desde ≤ 1 then
+				return 0
+			else
+				// Divide
+				medio <- tam(a) / 2
+				
+				// Conquer
+				pIzquierda <- parejasEnDesortenAux(a, desde, medio)
+				pDerecha <- parejasEnDesortenAux(a, medio, hasta)
+				
+				// Combine
+				resMed <- 0
+				i <- desde	// Indice pIzquierda
+				j <- medio	// Indice Derecha
+				
+				while i < medio do											// O(n)
+					while j < hasta ∧ a[i] > a[j] do
+						j++
+					end while
+					resMed <- resMed + (j - medio)				// 
+					i++
+				end while
+				Merge(a)																// O(n)
+				res <- pIzquierda + pDerecha + resMed
+				
+				
+Ejercicio 3.1 Ordenamiento
+Se tiene un arreglo A de N conjuntos A[1]...A[N]. El cardinal de cada conjunto es a lo sumo K. O sea
+#(A[i]) ≤ K ∀ 1 ≤ i ≤ N
+
+Necesito "ordenar" este arrelo en una condicion. Se que tengo N conjuntos. Luego por cada indice tengo K valores
+Tengo una funcion ConjuntoDeNaturales que me devuelve el conjunto A[i] de manera ordenada
+Ponele, puedo hacer una funcion que tome los valores o el conjunto devuelto y me muestre otro conjunto
+
+Pero tambien sucede que yo debo agarrar un conjunto de todos estos, posteriormente, debo de ver en que otros conjuntos está
+contenido
+Puedo armar n buckets donde tenga en cada bucket los conjuntos de igual cardinal
+Es decir, en un bucket, los conjuntos de cardinal 1,en otro los conjuntos de cardinal 2, y asi constantemente
+Luego puedo ordenar de menor a mayor y posteriormente mergear
+Pero esto me llevará mucha complejidad
+
+BucketSort me toma O(n) entonces hasta aca tengo una
+Me sirve ConjuntoDeNaturales? 
+Recorro entonces mis conjuntos y meto en cada bucket los conjuntos que correspondan
+Para armar los buckets busco el arreglo de mas cardinal
+Lo que ahora puedo hacer, es ordenar los buckets, o no? Hago un merge de cada bucket y listo
+Entonces con esto yo se que los de cardinal 1 estaran siempre primero, los de cardinal 2 segundos, y asi constantemente
+Y se que de alguna forma u otra, finalmente, unos estarán contenidos en otros y como estan en cantidad menor, entonces listo, me encargo
+Pues no hay manera que {1,3,2} ⊆ {1,2} pues me falta el 3, pero {1,2} ⊆ {1,2,3}
+
+Luego la complejidad de esto es O(NK). N por ir moviendo y cargando los buckets y k por encontrar el de maximo cardinal
+
+Ejercicio 3.2 D&Q
+Arreglo C de N conjuntos C[1]....C[N]. Todos tienen el mismo cardinal y este es M
+
+Determinar si los conjuntos C[1]...C[N] son disjuntos dos a dos
+Para todo i ≠ j C[i] ∩ C[j] = Ø
+La complejidad de peor caso tiene que ser O(MNLogN)
+Ok. Esta complejidad de base, no puedo conseguirla con el teorema maestro eso fijo. Tengo que usar otro metodo
+
+Como averiguo si tengo un conjunto dos a dos?
+Debo ver la interseccion de los conjuntos
+La nota esta buena pero solo me devuelve el conjunto en orden. Entonces no me sirve de mucho
+
+Puedo tomar dos conjuntos. Y uso el metodo conjunto de naturales y voy haciendo el continue de cada valor, si me encuentro con uno u otro que sean iguales
+
+esDisjunto(in a: conj(nat), in b: conj(b)) -> res: true
+	itA := CrearIt(a)
+	itB := CrearIt(b)
+	esDisjunto := false
+	while HaySiguiente?(itA) ∧ HaySiguiente(itB) ∧ ¬esDisjunto
+		if Siguiente(itA) < Siguiente(itB) then
+			Siguiente(itA)
+		else
+			if Siguiente(itB) < Siguiente(itA) then
+				Siguiente(itB)
+			else
+				esDisjunto := true
+			fi
+		fi
+		
+		O(2*M) = O(M)
+
+sonDisjuntosAux(in a: arreglo(conj(nat))) -> res : bool
+	if tam(a) = 0
